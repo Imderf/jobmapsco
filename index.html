@@ -82,8 +82,8 @@ h2.titulo em{font-style:normal;color:var(--blue)}
 ol{list-style:none}
 #ranking{flex:1 1 auto;min-height:60px;overflow-y:auto;margin-right:-6px;padding-right:6px;scrollbar-width:thin;scrollbar-color:rgba(110,140,255,.35) transparent}   /* lista completa con scroll interno */
 #ranking.entra li,.ficha ol li{animation:sube .5s both}
-ol button{display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:baseline;width:100%;background:none;border:0;border-radius:5px;padding:5px 6px;text-align:left;cursor:pointer;transition:background .2s}
-ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:none}
+ol:not(.ofertas) button{display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:baseline;width:100%;background:none;border:0;border-radius:5px;padding:5px 6px;text-align:left;cursor:pointer;transition:background .2s}
+ol:not(.ofertas) button:hover,ol:not(.ofertas) button:focus-visible{background:rgba(47,107,255,.1);outline:none}
 .pos{font:11px var(--mono);color:var(--muted)}
 .sub{color:var(--muted);font-size:11px}
 .num{font:500 13px var(--mono);transition:color .4s}
@@ -293,6 +293,7 @@ let filtroInd = null, filtroTxt = '', palabras = [], filtroDepto = null, kv = 1,
 // filtro de ofertas: sector y/o palabras clave (todas deben aparecer en el cargo o la empresa). conteo: ofertas que coinciden por ciudad
 const filtrando = () => !!(filtroInd || filtroTxt);
 const nCiudades = n => `${n} ${n === 1 ? 'ciudad' : 'ciudades'}`;
+const ofertasDe = n => n === 1 ? 'oferta' : 'ofertas';
 const nombreFiltro = () => [filtroInd, filtroTxt && `“${filtroTxt}”`].filter(Boolean).join(' · ');
 const coincide = o => (!filtroInd || o.i === filtroInd) && palabras.every(p => o.b.includes(p));
 function fijarTexto(t) { filtroTxt = t; palabras = sinTilde(t).split(/\s+/).filter(Boolean); }
@@ -643,7 +644,7 @@ function seleccionar(m, volar = true) {
     const n = conteo[m.c] || 0, puesto = deFiltro.findIndex(([c]) => c === m.c) + 1;
     f.append(
       el('div', { className: 'big', textContent: fmt.format(n) }),
-      el('div', { textContent: n ? `ofertas de ${nombreFiltro()} · puesto ${puesto} de ${nCiudades(deFiltro.length)}` : `Sin ofertas de ${nombreFiltro()}` }),
+      el('div', { textContent: n ? `${ofertasDe(n)} de ${nombreFiltro()} · puesto ${puesto} de ${nCiudades(deFiltro.length)}` : `Sin ofertas de ${nombreFiltro()}` }),
       el('div', { className: 'nota', textContent: m.obj ? `${fmt.format(m.obj)} ofertas en total en la ciudad` : '' }),
     );
   } else f.append(
@@ -699,7 +700,7 @@ function pintarLista(caja, lista, m, pagina = 0) {
     el('button', { textContent: '‹ Anterior', disabled: pagina === 0, onclick: ir(pagina - 1) }),
     el('span', { className: 'mono', textContent: `${pagina + 1} / ${total}` }),
     el('button', { textContent: 'Siguiente ›', disabled: pagina === total - 1, onclick: ir(pagina + 1) }));
-  const resumen = el('div', { className: 'nota', textContent: `Mostrando ${fmt.format(lista.length)} ofertas recientes${filtrando() ? ` de ${nombreFiltro()}` : m?.obj ? ` de ${fmt.format(m.obj)} publicadas` : ''}` });
+  const resumen = el('div', { className: 'nota', textContent: `Mostrando ${fmt.format(lista.length)} ${ofertasDe(lista.length)} ${lista.length === 1 ? 'reciente' : 'recientes'}${filtrando() ? ` de ${nombreFiltro()}` : m?.obj ? ` de ${fmt.format(m.obj)} publicadas` : ''}` });
   const enlace = m && !filtrando() && datos.enlaces?.[m.c] && el('a', { className: 'ver-todas', href: datos.enlaces[m.c], target: '_blank', rel: 'noopener noreferrer', textContent: `Ver las ${fmt.format(m.obj)} en Computrabajo ↗` });
   const horas = Math.round((Date.now() - Date.parse(todasD?.actualizado)) / 36e5);
   const cuando = isNaN(horas) ? '' : ` · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}`;
@@ -718,7 +719,7 @@ function resultados() {
     el('h2', { textContent: filtroInd || `“${filtroTxt}”` }),
     el('div', { className: 'sub', textContent: filtroInd && filtroTxt ? `Con “${filtroTxt}”` : 'En toda Colombia' }),
     el('div', { className: 'big', textContent: fmt.format(lista.length) }),
-    el('div', { textContent: `ofertas en ${nCiudades(Object.keys(conteo).length)} · toca una ciudad para ver solo las suyas` }),
+    el('div', { textContent: `${ofertasDe(lista.length)} en ${nCiudades(Object.keys(conteo).length)} · toca una ciudad para ver solo las suyas` }),
     el('h3', { textContent: 'Ofertas' }),
     caja,
   );
