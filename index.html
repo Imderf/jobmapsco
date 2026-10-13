@@ -110,6 +110,12 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
 .postular{margin-left:auto;font:500 12px Inter,sans-serif;color:#fff;background:var(--blue);border-radius:5px;padding:5px 9px;text-decoration:none;white-space:nowrap}
 .postular:hover,.postular:focus-visible{background:#4f86ff;outline:none}
 .nota{font-size:11px;color:var(--muted);margin-top:8px}
+.paginador{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:10px}
+.paginador button{background:rgba(47,107,255,.12);border:1px solid rgba(47,107,255,.45);border-radius:5px;padding:5px 9px;cursor:pointer;font-size:12px}
+.paginador button:disabled{opacity:.35;cursor:default}
+.paginador button:not(:disabled):hover{border-color:#fff}
+.ver-todas{display:block;margin-top:10px;color:var(--blue2);font-size:12px;text-decoration:none}
+.ver-todas:hover{color:#fff}
 .filtro{display:block;width:100%;text-align:left;margin:2px 0 8px;background:rgba(47,107,255,.16);border:1px solid rgba(47,107,255,.5);border-radius:6px;padding:6px 9px;cursor:pointer;font:500 12px Inter,sans-serif;white-space:pre}
 .filtro:hover{border-color:#fff}
 .cerrar{float:right;background:none;border:0;color:var(--muted);cursor:pointer;font-size:18px;line-height:1}
@@ -641,7 +647,8 @@ function seleccionar(m, volar = true) {
 }
 // ofertas de una ciudad (las trae el recolector por turnos); el texto es externo: solo textContent y enlaces http(s)
 const cacheOfertas = new Map();
-async function pintarOfertas(m, caja) {
+const POR_PAGINA = 10;
+async function pintarOfertas(m, caja, pagina = 0) {
   const el = (tag, props) => Object.assign(document.createElement(tag), props);
   if (!cacheOfertas.has(m.c)) cacheOfertas.set(m.c, fetch(`data/ofertas/${m.c}.json`, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null));
   const d = await cacheOfertas.get(m.c);
@@ -649,12 +656,15 @@ async function pintarOfertas(m, caja) {
   const lista = (d?.ofertas || []).filter(o => !filtroInd || o.i === filtroInd);
   if (!lista.length) {
     caja.replaceChildren(el('div', { className: 'vacio', textContent: m.obj
-      ? (d?.ofertas?.length ? `No hay ofertas de ${filtroInd} en ${m.n} en la muestra.` : `Las ofertas de ${m.n} llegan en su turno: cada día se actualizan 6 ciudades.`)
+      ? (d?.ofertas?.length ? `No hay ofertas de ${filtroInd} en ${m.n} en la muestra.` : `Las ofertas de ${m.n} llegan en la próxima actualización (6 a. m., 12 m. y 6 p. m.).`)
       : `No hay ofertas de ${m.n} en este corte.` }));
     return;
   }
+  // paginador: 10 por página sobre las ofertas guardadas (hasta 200 por ciudad); el total publicado se ve en la fuente
+  const total = Math.ceil(lista.length / POR_PAGINA);
+  pagina = Math.max(0, Math.min(pagina, total - 1));
   const ol = el('ol', { className: 'ofertas' });
-  lista.forEach((o, k) => {
+  lista.slice(pagina * POR_PAGINA, (pagina + 1) * POR_PAGINA).forEach((o, k) => {
     const li = el('li', { className: 'oferta' });
     li.style.animationDelay = k * 40 + 'ms';
     const pie = el('div', { className: 'pie' });
@@ -664,8 +674,16 @@ async function pintarOfertas(m, caja) {
     li.append(el('div', { className: 'cargo', textContent: o.t }), el('div', { className: 'sub', textContent: [o.e, o.h, o.s].filter(Boolean).join(' · ') }), pie);
     ol.append(li);
   });
+  const ir = n => () => { pintarOfertas(m, caja, n); $('#der').scrollTop = caja.offsetTop - 60; };
+  const paginador = total > 1 && el('div', { className: 'paginador' });
+  if (paginador) paginador.append(
+    el('button', { textContent: '‹ Anterior', disabled: pagina === 0, onclick: ir(pagina - 1) }),
+    el('span', { className: 'mono', textContent: `${pagina + 1} / ${total}` }),
+    el('button', { textContent: 'Siguiente ›', disabled: pagina === total - 1, onclick: ir(pagina + 1) }));
+  const resumen = el('div', { className: 'nota', textContent: `Mostrando ${fmt.format(lista.length)} ofertas recientes${filtroInd ? ` de ${filtroInd}` : m.obj ? ` de ${fmt.format(m.obj)} publicadas` : ''}` });
+  const enlace = !filtroInd && datos.enlaces?.[m.c] && el('a', { className: 'ver-todas', href: datos.enlaces[m.c], target: '_blank', rel: 'noopener noreferrer', textContent: `Ver las ${fmt.format(m.obj)} en Computrabajo ↗` });
   const horas = Math.round((Date.now() - Date.parse(d.actualizado)) / 36e5);
-  caja.replaceChildren(ol, el('div', { className: 'nota', textContent: `${filtroInd ? `Filtro: ${filtroInd} · ` : ''}Fuente: ${d.fuente} · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}` }));
+  caja.replaceChildren(...[resumen, ol, paginador, enlace].filter(Boolean), el('div', { className: 'nota', textContent: `${filtroInd ? `Filtro: ${filtroInd} · ` : ''}Fuente: ${d.fuente} · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}` }));
 }
 
 function seleccionarDepto(cod) {

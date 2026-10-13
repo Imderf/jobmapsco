@@ -44,6 +44,21 @@ LINEA_BASE = [
     ("Ciénaga", "47", 25), ("Fonseca", "44", 20), ("Ocaña", "54", 20),
     ("Calarcá", "63", 15), ("Villanueva", "85", 12), ("Corozal", "70", 7),
 ]
+# Página de cada ciudad en Computrabajo (fuente de la cifra): "Ver todas" en la ficha. Slugs tomados de su sitio.
+COMPUTRABAJO = "https://co.computrabajo.com/empleos-en-"
+SLUGS = {
+    "Bogotá": "bogota-dc", "Medellín": "medellin", "Cali": "cali", "Barranquilla": "barranquilla", "Bucaramanga": "bucaramanga",
+    "Pereira": "pereira", "Cartagena": "cartagena-de-indias", "Funza": "funza", "Rionegro": "antioquia-en-rionegro",
+    "Mosquera": "cundinamarca-en-mosquera", "Manizales": "manizales", "Yumbo": "yumbo", "Villavicencio": "villavicencio",
+    "Ibagué": "ibague", "Cúcuta": "cucuta", "Neiva": "neiva", "Santa Marta": "santa-marta", "Armenia": "quindio-en-armenia",
+    "Pasto": "pasto", "Montería": "monteria", "Tunja": "tunja", "Popayán": "popayan", "Girón": "giron", "Valledupar": "valledupar",
+    "Dosquebradas": "dosquebradas", "Yopal": "yopal", "Sincelejo": "sincelejo", "Pitalito": "pitalito", "Riohacha": "riohacha",
+    "Duitama": "duitama", "Malambo": "malambo", "Ipiales": "ipiales", "La Dorada": "la-dorada", "Aguachica": "aguachica",
+    "Acacías": "acacias", "Melgar": "melgar", "Santander de Quilichao": "santander-de-quilichao", "Turbaco": "turbaco",
+    "Cereté": "cerete", "Ciénaga": "cienaga", "Fonseca": "fonseca", "Ocaña": "ocana", "Calarcá": "calarca",
+    "Villanueva": "casanare-en-villanueva", "Corozal": "corozal",
+}
+
 # Totales por departamento del mismo corte (incluyen municipios que no están en LINEA_BASE).
 LINEA_BASE_DEPTOS = {
     "11": 29531, "05": 15720, "76": 7791, "25": 6022, "68": 2808, "08": 2690, "66": 1654,
@@ -174,6 +189,7 @@ def main():
         "fuente": "Computrabajo (línea base manual)",
         "ciudades": ofertas,
         "deptos": LINEA_BASE_DEPTOS,
+        "enlaces": {buscar(municipios, n, d): COMPUTRABAJO + SLUGS[n] for n, d, _ in LINEA_BASE},
     }, open(DATA / "ofertas.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{len(municipios)} municipios, {len(geo['features'])} departamentos, {len(ofertas)} ciudades con ofertas")
     for n, d, _ in LINEA_BASE:

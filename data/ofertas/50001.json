@@ -1,18 +1,7 @@
 {
- "actualizado": "2026-10-13T21:01:53+00:00",
+ "actualizado": "2026-10-13T21:13:05+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
-  {
-   "t": "Asesor comercial para almacen de calzado",
-   "e": "Adecco Colombia S.A.",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-comercial-para-almacen-de-calzado-en-villavicencio-5D3DB4B18F45B2BB61373E686DCF3405",
-   "f": null,
-   "h": "hace 21 horas",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
   {
    "t": "Conductor Limpieza Urbana",
    "e": "ACCIONES EMPRESARIALES S.A.S.",
@@ -22,7 +11,7 @@
    "h": "hace 21 horas",
    "s": "",
    "i": "Logística y transporte",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Asesores Comerciales Punto de Venta Villavicencio Fines de semana - Experiencia en Ropa, Calzado, Textil o Retail",
@@ -33,7 +22,18 @@
    "h": "hace 2 días",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Preventista o Vendedor TAT – Villavicencio y alrededores - Con Moto",
+   "e": "QUALA S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-preventista-o-vendedor-tat-villavicencio-y-alrededores-con-moto-en-villavicencio-AB4E76DA0961307761373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Jefe De Tienda Ara - Villavicencio, Meta",
@@ -44,7 +44,73 @@
    "h": "hace 6 días",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Cajera",
+   "e": "Anyeluz",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/-5678022484717601557",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asesor comercial para almacen de calzado",
+   "e": "Adecco Colombia S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-comercial-para-almacen-de-calzado-en-villavicencio-5D3DB4B18F45B2BB61373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Ingeniero Residente Forestal / Villavicencio",
+   "e": "Manpower Group Colombia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ingeniero-residente-forestal-villavicencio-en-villavicencio-527C5195AE10D91161373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Construcción y mantenimiento",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "MERCA ASESORA SUPERMERCADOS VILLAVICENCIO",
+   "e": "CONFIDENTIAL",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/merca-asesora-supermercados-villavicencio-1886778076",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Vacantes Inclusivas Personas Con Discapacidad Tiendas Ara - Villavicencio, Meta",
+   "e": "Magneto",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/vacantes-inclusivas-personas-con-discapacidad-tiendas-ara-villavicencio-meta-1094788",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asistente  de ventas Villavicencio",
+   "e": "D1 S.A.S",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/asistente-de-ventas-villavicencio-at-d1-s-a-s-4473029831",
+   "f": null,
+   "h": "hace 15 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Operario/a de Almacenamiento Villavicencio RTA inmediata",
@@ -66,50 +132,6 @@
    "h": "hace 2 días",
    "s": "",
    "i": "Administración y finanzas",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Ingeniero Residente Forestal / Villavicencio",
-   "e": "Manpower Group Colombia",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ingeniero-residente-forestal-villavicencio-en-villavicencio-527C5195AE10D91161373E686DCF3405",
-   "f": null,
-   "h": "hace 21 horas",
-   "s": "",
-   "i": "Construcción y mantenimiento",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "MERCA ASESORA SUPERMERCADOS VILLAVICENCIO",
-   "e": "CONFIDENTIAL",
-   "p": "El Empleo",
-   "u": "https://www.elempleo.com/co/ofertas-trabajo/merca-asesora-supermercados-villavicencio-1886778076",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Vacantes Inclusivas Personas Con Discapacidad Tiendas Ara - Villavicencio, Meta",
-   "e": "Magneto",
-   "p": "Magneto",
-   "u": "https://www.magneto365.com/co/empleos/vacantes-inclusivas-personas-con-discapacidad-tiendas-ara-villavicencio-meta-1094788",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Asistente  de ventas Villavicencio",
-   "e": "D1 S.A.S",
-   "p": "LinkedIn",
-   "u": "https://co.linkedin.com/jobs/view/asistente-de-ventas-villavicencio-at-d1-s-a-s-4473029831",
-   "f": null,
-   "h": "hace 15 días",
-   "s": "",
-   "i": "Ventas y comercial",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {

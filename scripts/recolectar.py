@@ -3,8 +3,9 @@
 Plan Pro de JSearch (10.000 consultas al mes; cada consulta extra se cobra): 3 corridas al día, y en cada una
 - 1 búsqueda por cada industria en todo el país (15); cada oferta se asigna a su ciudad por el lugar que trae
   ("Bogotá • a través de Computrabajo").
-- 1 búsqueda general por cada ciudad de la línea base (45).
-60 consultas por corrida ≈ 5.600 al mes. Si en el mes quedan menos de RESERVA consultas, se detiene (sin cobros extra).
+- 1 búsqueda general por cada ciudad de la línea base (45); las grandes piden más páginas (cada página = 1 consulta,
+  10 ofertas): Bogotá 5, Medellín y Cali 3, Barranquilla y Bucaramanga 2.
+70 consultas por corrida ≈ 6.500 al mes. Cada ciudad guarda hasta 200 ofertas de los últimos 30 días. Si en el mes quedan menos de RESERVA consultas, se detiene (sin cobros extra).
 Cada consulta trae hasta 10 ofertas con enlace directo al portal. Cada ciudad guarda sus 30 más recientes (máx. 30 días).
 
 Escribe:
@@ -30,11 +31,12 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 DATA = RAIZ / "data"
 CIUDADES_POR_CORRIDA = 45     # todas (con el plan gratis eran 1 o 2 por turnos)
+PAGINAS = ((20000, 5), (5000, 3), (1500, 2))   # (ofertas en la línea base desde, páginas): más ofertas para las ciudades grandes
 INDUSTRIAS_POR_CORRIDA = 15   # todas (las de BUSQUEDAS)
 RESERVA = 300                 # consultas del mes que nunca se gastan: protege de cobros por exceso
 PAUSA = 0.3                   # segundos entre consultas (límite del plan: 5 por segundo)
 AVISOS = (2000, 1000, 500, RESERVA)   # consultas restantes del mes que disparan un correo (una vez cada una por mes)
-MAX_POR_CIUDAD = 30
+MAX_POR_CIUDAD = 200
 VIGENCIA_DIAS = 30
 API = "https://jsearch.p.rapidapi.com/search-v2"
 
@@ -181,11 +183,20 @@ def avisos_pendientes(restantes, previo):
     return nuevos, {"restantes": restantes, "enviados": enviados + nuevos}
 
 
-def consultar(clave, texto):
-    q = urllib.parse.urlencode({"query": texto, "country": "co", "num_pages": 1, "date_posted": "month"})
+def paginas(n):
+    return next((p for desde, p in PAGINAS if n >= desde), 1)
+
+
+def consultar(clave, texto, num_paginas=1):
+    q = urllib.parse.urlencode({"query": texto, "country": "co", "num_pages": num_paginas, "date_posted": "month"})
     req = urllib.request.Request(f"{API}?{q}", headers={"x-rapidapi-key": clave, "x-rapidapi-host": "jsearch.p.rapidapi.com"})
-    with urllib.request.urlopen(req, timeout=40) as r:
-        return json.load(r), r.headers.get("x-ratelimit-requests-remaining"), r.headers.get("x-ratelimit-requests-reset")
+    for intento in (1, 2):   # JSearch a veces tarda: un reintento si se vence el tiempo
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r), r.headers.get("x-ratelimit-requests-remaining"), r.headers.get("x-ratelimit-requests-reset")
+        except TimeoutError:
+            if intento == 2:
+                raise
 
 
 def resumir_industrias():
@@ -233,7 +244,7 @@ def main():
             break
         time.sleep(PAUSA)
         try:
-            cuerpo, restantes, renueva = consultar(clave, texto)
+            cuerpo, restantes, renueva = consultar(clave, texto, 1 if tipo == "industria" else paginas(base["ciudades"][x]))
         except urllib.error.HTTPError as e:
             errores.append(f"{nombre}: HTTP {e.code}")
             if e.code in (401, 403, 429):   # llave inválida o cupo agotado: no seguir gastando
@@ -262,7 +273,7 @@ def main():
     n = int(restantes) if restantes is not None else None
     nuevos, estado["avisos"] = avisos_pendientes(n, estado.get("avisos", {}))
     if nuevos:
-        dias = n // (CIUDADES_POR_CORRIDA + INDUSTRIAS_POR_CORRIDA) // 3
+        dias = n // (sum(paginas(v) for v in base["ciudades"].values()) + INDUSTRIAS_POR_CORRIDA) // 3
         cuando = datetime.fromtimestamp(datetime.now(timezone.utc).timestamp() + int(renueva or 0), timezone.utc).strftime("%Y-%m-%d") if renueva else "sin dato"
         avisar(f"Mapa del Empleo: quedan {n} consultas de JSearch este mes",
                f"Al ritmo actual (3 corridas al día) alcanzan para unos {dias} días. El cupo se renueva el {cuando}.\n"
@@ -301,6 +312,7 @@ def prueba():
     assert industria("Gestor de proyectos de TI") == "Tecnología"
     assert industria("Encargado de tienda") == "Ventas y comercial"
     assert turno(list("abcdefgh"), 5, 6) == (list("fghabc"), 3)
+    assert [paginas(n) for n in (29530, 10643, 2390, 1049)] == [5, 3, 2, 1]
     assert turno(list("ab"), 1, 6) == (["b", "a"], 1)
     assert oferta({"job_title": "X", "job_apply_link": "javascript:alert(1)"}) is None
     idx = indice_ciudades([{"c": "41206", "n": "Colombia"}, {"c": "11001", "n": "Bogotá D.C."}, {"c": "13001", "n": "Cartagena"}, {"c": "05615", "n": "Rionegro"}, {"c": "68615", "n": "Rionegro"}], {"05615": 1049})

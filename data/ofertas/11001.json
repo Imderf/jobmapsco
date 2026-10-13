@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:01:53+00:00",
+ "actualizado": "2026-10-13T21:13:05+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -11,7 +11,7 @@
    "h": "hace 21 horas",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Profesional junior en SST - Bogotá",
@@ -22,7 +22,7 @@
    "h": "hace 21 horas",
    "s": "",
    "i": "Calidad, SST y ambiente",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "OPERARIO BASICO BOGOTÁ 636179",
@@ -33,7 +33,7 @@
    "h": "hace 5 días",
    "s": "",
    "i": "Producción y operarios",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Asesor de ventas Bogotá 6 horas - Estudiante diurno Asesor ropa Calzado",
@@ -44,7 +44,7 @@
    "h": "hace 2 días",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Operarios(as) de Producción",
@@ -55,7 +55,7 @@
    "h": "hace 5 días",
    "s": "",
    "i": "Producción y operarios",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Call center - Atención al cliente - Bogotá",
@@ -66,7 +66,7 @@
    "h": "hace 6 días",
    "s": "",
    "i": "Servicio al cliente",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Bogotá campaña bilingüe Inglés B2/42hrs/2'450.000/2diasOFF/bonosupto1'200.000/Sede Virrey",
@@ -77,7 +77,7 @@
    "h": "hace 6 días",
    "s": "",
    "i": "Servicio al cliente",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Operarios de Producción Contratación Inmediata - área sellado, rotulado y empaque Bogota",
@@ -88,7 +88,7 @@
    "h": "hace 5 días",
    "s": "",
    "i": "Producción y operarios",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Ejecutivo Comercial de Consumo Bogotá - (Altas Comisiones y Crecimiento Profesional)",
@@ -99,7 +99,62 @@
    "h": "hace 5 días",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "auxiliar de aseo - Tiempo completo con traslado entre clientes",
+   "e": "Aseo Mas",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-aseo-tiempo-completo-con-traslado-entre-clientes-en-bogota-dc-6F5AF3BD473255A561373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Seguridad y aseo",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Operador parqueadero,cajero,servicio al cliente, Licencia B1 zona norte Bogotá - contratación inmediata",
+   "e": "ACTIVOS S A S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operador-parqueaderocajeroservicio-al-cliente-licencia-b1-zona-norte-bogota-contratacion-inmediata-en-bogota-dc-CAD42940E7E803DB61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Auxiliar de Servicio al cliente - Call Center",
+   "e": "ATENTO S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-servicio-al-cliente-call-center-en-bogota-dc-73B8BA214645E69061373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Contratación Inmediato Operario de Producción, Empaque y Sellado - Bogota, Soacha",
+   "e": "Productividad Empresarial SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-contratacion-inmediato-operario-de-produccion-empaque-y-sellado-bogota-soacha-en-bogota-dc-B8E5A06CE89FE7C761373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Visitador domiciliario Pereira",
+   "e": "Redes Humanas",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-visitador-domiciliario-pereira-en-bogota-dc-EB5D696A290E8D0861373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Cajero/a Bogotá",
@@ -110,19 +165,360 @@
    "h": "hace 7 días",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
-   "t": "auxiliares de enfermería",
-   "e": "STAFFING DE COLOMBIA",
-   "p": "Magneto",
-   "u": "https://www.magneto365.com/co/empleos/auxiliares-de-enfermeria-1092272",
+   "t": "supervisor/ líder motorizado",
+   "e": "Overall Colombia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-supervisor-lider-motorizado-en-bogota-dc-CF4B62182026766461373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Auxiliar de operaciones de terceros del area Logistica sector transporte en Bogota",
+   "e": "Eficacia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-operaciones-de-terceros-del-area-logistica-sector-transporte-en-bogota-en-bogota-dc-A9BFD7711456A00B61373E686DCF3405",
    "f": null,
    "h": "hace 7 días",
    "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asesor Comercial / Cajero / Bodeguero Retail / Bogotá Norte - Temporada",
+   "e": "Jiro S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-comercial-cajero-bodeguero-retail-bogota-norte-temporada-en-bogota-dc-1E3537A584E5451861373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "238534 Agente  de servicio  call center - requiere experiencia minima de 6 meses en call center soporte tecnico y electronico",
+   "e": "KONECTA",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-238534-agente-de-servicio-call-center-requiere-experiencia-minima-de-6-meses-en-call-center-soporte-tecnico-y-electronico-en-bogota-dc-A0F913D2D9A0F1E461373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Supervisor de Operaciones - Prestación de servicios",
+   "e": "ZEIN NATURALS S.A.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-supervisor-de-operaciones-prestacion-de-servicios-en-bogota-dc-AE0572F2D69AD41F61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asesora/Impulsadora sector belleza",
+   "e": "SERVIMOS S.A.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesoraimpulsadora-sector-belleza-en-bogota-dc-55AB96EEFA021CE661373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Aux contable Bogotá - Bogota",
+   "e": "Adecco Colombia S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aux-contable-bogota-bogota-en-bogota-dc-180F98491DD36BB561373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asesores de cobranzas - Agentes de cobranzas",
+   "e": "CONSULTORIA & TALENTOS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesores-de-cobranzas-agentes-de-cobranzas-en-bogota-dc-3B97629EDA1733DA61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Tecnico de Mantenimiento IT - Proyecto por 3 meses",
+   "e": "TOTALTEAM EST SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-tecnico-de-mantenimiento-it-proyecto-por-3-meses-en-bogota-dc-8F6B5D729F6F498961373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Movilizador Valet Parking",
+   "e": "DIAGNOSTIYA S.A.S.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-movlizador-valet-parking-en-bogota-dc-CB0373C4F7EC444861373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Community Manager",
+   "e": "Publicis Groupe",
+   "p": "Publicis Groupe Holdings B.V Careers",
+   "u": "https://careers.publicisgroupe.com/jobs/174424?lang=es-mx",
+   "f": null,
+   "h": "hace 28 días",
+   "s": "",
+   "i": "Marketing y comunicación",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Gestor(a) de Cobranza",
+   "e": "Gi Group SpA",
+   "p": "Gi Group",
+   "u": "https://co.gigroup.com/ofertas-de-trabajo-detalle/bogota-d-c-gestora-de-cobranza/9415/",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "administración recursos humanos",
+   "e": "Excellentiam Soluciones Empresariales",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-administracion-recursos-humanos-en-bogota-dc-A50BBF1D0790113561373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Operador de Bodega (FONTIBÓN; Carrera 127 #15b-60, Bogotá D.C)",
+   "e": "Mudango.com",
+   "p": "Indeed",
+   "u": "https://co.indeed.com/viewjob?jk=76a28ed56b52d802",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Líder Técnico de Software - Bogotá D.C.",
+   "e": "MICHAEL PAGE INTERNATIONAL",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/lider-tecnico-de-software-bogota-dc-1886766176",
+   "f": null,
+   "h": "hace 30 días",
+   "s": "",
+   "i": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Consultor de Calidad",
+   "e": "Gallagher",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/consultor-de-calidad-at-gallagher-4456769489",
+   "f": null,
+   "h": "hace 11 días",
+   "s": "",
+   "i": "Calidad, SST y ambiente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "BackOffice - Exp campaña comercial claro",
+   "e": "ARCOS SOLUCIONES TECNOLOGICAS SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-backoffice-exp-campana-comercial-claro-en-bogota-dc-EDBD46155841E71861373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Analista Información Gestión Documental",
+   "e": "Gi Group SpA",
+   "p": "Gi Group",
+   "u": "https://co.gigroup.com/ofertas-de-trabajo-detalle/bogota-d-c-analista-informacion-gestion-documental/9295/",
+   "f": null,
+   "h": "hace 16 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Website Specialist",
+   "e": "Worldpanel",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/website-specialist-at-worldpanel-4472586486",
+   "f": null,
+   "h": "hace 12 días",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Cajero/a - Para laborar por eventos",
+   "e": "BE TO BEE SERVICES",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-cajeroa-para-laborar-por-eventos-en-bogota-dc-ACC7098FCE98555A61373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Líder Técnico de Software- Bogotá D.C.",
+   "e": "MICHAEL PAGE INTERNATIONAL",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/lider-tecnico-de-software-bogota-dc-1886766186",
+   "f": null,
+   "h": "hace 30 días",
+   "s": "",
+   "i": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Oficial de obra - Redes Humedas",
+   "e": "Conconcreto S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-oficial-de-obra-redes-humedas-en-bogota-dc-FF0D69081C9052CF61373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Construcción y mantenimiento",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "auxiliar motorizado en Bogotá",
+   "e": "SATLOCK SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-motorizado-en-bogota-en-bogota-dc-B6AC98CCFF3A62A561373E686DCF3405",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Profesional SST / HSE Junior /Bogotá",
+   "e": "SODEXO S.A.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-profesional-sst-hse-junior-bogota-en-bogota-dc-C009A8B4B071ECB561373E686DCF3405",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Calidad, SST y ambiente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Tapicero/a",
+   "e": "ARISTAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-tapiceroa-en-bogota-dc-41D135D8C06386A561373E686DCF3405",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Promotores Comerciales Bogota - Éxito",
+   "e": "tennis SA",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-promotores-comerciales-bogota-exito-en-bogota-dc-1B3A487017FBEECC61373E686DCF3405",
+   "f": null,
+   "h": "hace 8 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Mercaderista / Mercaimpulsador (a) /  TAT  con moto Bogotá - Urgente",
+   "e": "Eficacia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-mercaderista-mercaimpulsador-a--tat-con-moto-bogota-urgente-en-bogota-dc-FBB4E59F7BBA5C5961373E686DCF3405",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Bodeguero - con experiencia",
+   "e": "JOMA TECHNOLOGY",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-bodeguero-con-experiencia-en-bogota-dc-8B1E4E5C91C5362461373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Coordinador Nómina Ecuador y Chile",
+   "e": "SGF Global",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-coordinador-nomina-ecuador-y-chile-en-bogota-dc-9FDEB4AC14EEBC0B61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "hostess - restaurante alta demanda",
+   "e": "Takami S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-hostess-restaurante-alta-demanda-en-bogota-dc-1565F380E3C4131061373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Hotelería y alimentos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Supervisor Sector Aeroportuario Bogotá",
+   "e": "Securitas Colombia S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-supervisor-sector-aeroportuario-bogota-en-bogota-dc-6C05ED46F5B3D62261373E686DCF3405",
+   "f": null,
+   "h": "hace 8 días",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Enfermera Profesional (Cuidado adulto) - Prestación servicios",
+   "e": "ADECCO SERVICIOS COLOMBIA S.A",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/enfermera-profesional-cuidado-adulto-prestacion-servicios-1090268",
+   "f": null,
+   "h": "hace 9 días",
+   "s": "",
    "i": "Salud",
    "q": "Salud",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "ENFERMERO(A) DE CALIDAD - 114229",
@@ -134,7 +530,19 @@
    "s": "",
    "i": "Salud",
    "q": "Salud",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "auxiliares de enfermería",
+   "e": "STAFFING DE COLOMBIA",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/auxiliares-de-enfermeria-1092272",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Salud",
+   "q": "Salud",
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Tecnologo Marketing y Contenido Digital",
@@ -146,7 +554,19 @@
    "s": "",
    "i": "Marketing y comunicación",
    "q": "Marketing y comunicación",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Ejecutiva de Cuenta - Experiencia en Agencias de Publicidad NO VENTAS",
+   "e": "EML Agencia de Comunicaciones Healthcare",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/ejecutiva-de-cuenta-experiencia-en-agencias-de-publicidad-no-ventas-at-eml-agencia-de-comunicaciones-healthcare-4479055344",
+   "f": null,
+   "h": "hace 5 horas",
+   "s": "",
+   "i": "Marketing y comunicación",
+   "q": "Marketing y comunicación",
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "JEFE/A COMERCIAL Y DE MARKETING | ENTRETENIMIENTO, EVENTOS Y OPERACIÓN | BOGOTÁ",
@@ -158,7 +578,19 @@
    "s": "",
    "i": "Marketing y comunicación",
    "q": "Marketing y comunicación",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Prácticas Universitarias en Marketing y Comunicación Interna - Bogotá",
+   "e": "Makro Supermayorista S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-practicas-universitarias-en-marketing-y-comunicacion-interna-bogota-en-bogota-dc-1880A3CC1A9110E061373E686DCF3405",
+   "f": null,
+   "h": "hace 3 días",
+   "s": "",
+   "i": "Marketing y comunicación",
+   "q": "Marketing y comunicación",
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Marketing  con orientación  ventas - Marketing  ventas",
@@ -170,19 +602,19 @@
    "s": "",
    "i": "Marketing y comunicación",
    "q": "Marketing y comunicación",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
-   "t": "Líder de Marketing Digital y Comunicaciones - Sector Educativo",
-   "e": "CONFIDENTIAL",
-   "p": "El Empleo",
-   "u": "https://www.elempleo.com/co/ofertas-trabajo/lider-de-marketing-digital-y-comunicaciones-sector-educativo-1886776839",
+   "t": "Group Digital & Content Marketing Analyst",
+   "e": "Michael Page Colombia",
+   "p": "Michael Page",
+   "u": "https://www.michaelpage.com.co/job-detail/group-digital-content-marketing-analyst/ref/jn-092026-7095832",
    "f": null,
-   "h": "hace 8 días",
+   "h": "hace 9 días",
    "s": "",
    "i": "Marketing y comunicación",
    "q": "Marketing y comunicación",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Desarrollador/a Full Stack Angular + .NET | Azure Service Bus",
@@ -194,7 +626,7 @@
    "s": "",
    "i": "Tecnología",
    "q": "Tecnología",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Desarrollador TI - Seguros Bolivar - 9834",
@@ -206,31 +638,7 @@
    "s": "",
    "i": "Tecnología",
    "q": "Tecnología",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "DESARROLLADOR BACKEND SENIOR Desarrollo de Software · Oficina principal (Bogotá) · Híbrido",
-   "e": "Periferia IT Group",
-   "p": "Talent.com",
-   "u": "https://co.talent.com/view?id=641147314844271124",
-   "f": null,
-   "h": "hace 2 días",
-   "s": "",
-   "i": "Tecnología",
-   "q": "Tecnología",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Desarrollador de Software IT – Híbrido, Contrato Indefinido",
-   "e": "Agencia De Aduanas Siaco S.A.S (Repremundo)",
-   "p": "JobLeads",
-   "u": "https://www.jobleads.com/co/job/desarrollador-de-software-it-hibrido-contrato-indefinido--bogota-ciudad--ef09dabac208759277bf5f6c53f4439ee",
-   "f": null,
-   "h": "hace 7 días",
-   "s": "",
-   "i": "Tecnología",
-   "q": "Tecnología",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Desarrollador full stack Java- Angular.",
@@ -242,19 +650,7 @@
    "s": "",
    "i": "Tecnología",
    "q": "Tecnología",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Desarrollador de software",
-   "e": "Confidencial",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/-5082702303372954984",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Tecnología",
-   "q": "Tecnología",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Desarrollador AI en Bogotá",
@@ -266,6 +662,462 @@
    "s": "",
    "i": "Tecnología",
    "q": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "DESARROLLADOR BACKEND SENIOR Desarrollo de Software · Oficina principal (Bogotá) · Híbrido",
+   "e": "Periferia IT Group",
+   "p": "Talent.com",
+   "u": "https://co.talent.com/view?id=641147314844271124",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Tecnología",
+   "q": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Desarrollador de software",
+   "e": "Confidencial",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/-5082702303372954984",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Tecnología",
+   "q": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Desarrollador de Software IT – Híbrido, Contrato Indefinido",
+   "e": "Agencia De Aduanas Siaco S.A.S (Repremundo)",
+   "p": "JobLeads",
+   "u": "https://www.jobleads.com/co/job/desarrollador-de-software-it-hibrido-contrato-indefinido--bogota-ciudad--ef09dabac208759277bf5f6c53f4439ee",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Tecnología",
+   "q": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Aprendices y Practicantes",
+   "e": "Synergie TH",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendices-y-practicantes-en-bogota-dc-342DD8AB4F1CA75461373E686DCF3405",
+   "f": null,
+   "h": "hace 23 días",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "q": "Prácticas y aprendices",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Practicante de Gestión Humana (Etapa Productiva) - Bogotá",
+   "e": "ADECCO COLOMBIA S A",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/practicante-de-gestion-humana-etapa-productiva-bogota-1886778115",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "q": "Prácticas y aprendices",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Aprendiz SENA – Gestión Documental",
+   "e": "INMOV SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendiz-sena-gestion-documental-en-bogota-dc-BD2BA03087B4CCCD61373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "q": "Prácticas y aprendices",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Practicante en Administración de empresas o Negocios internacionales - Etapa Productiva",
+   "e": "XCB Colombia Limited",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-practicante-en-administracion-de-empresas-o-negocios-internacionales-etapa-productiva-en-bogota-dc-DE6AC1ED83E5F38F61373E686DCF3405",
+   "f": null,
+   "h": "hace 3 días",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "q": "Prácticas y aprendices",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Aprendiz Técnico Recursos Humanos",
+   "e": "S.C. ANESTESIOLOGIA",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/aprendiz-tecnico-recursos-humanos-1886778279",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "q": "Prácticas y aprendices",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Aprendiz SENA – Diseño Gráfico y Creatividad",
+   "e": "Inmov Global Network",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/aprendiz-sena-%E2%80%93-dise%C3%B1o-gr%C3%A1fico-y-creatividad-at-inmov-4477676302",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "q": "Prácticas y aprendices",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Conserje/ Aseo Bogota - Conjunto Residencial",
+   "e": "Grupo Tprotec SAS y Toronto",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-conserje-aseo-bogota-conjunto-residencial-en-bogota-dc-D535CC96F41BCA3D61373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Seguridad y aseo",
+   "q": "Seguridad y aseo",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asistente operaciones empresa de vigilancia y seguridad privada - Bogota",
+   "e": "Grupo Tprotec SAS y Toronto",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asistente-operaciones-empresa-de-vigilancia-y-seguridad-privada-bogota-en-bogota-dc-70BAD376539A801B61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Seguridad y aseo",
+   "q": "Seguridad y aseo",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Operario de linea de produccion",
+   "e": "Gi Group Colombia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operario-de-linea-de-produccion-en-bogota-dc-2A182E292662AB9461373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Producción y operarios",
+   "q": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Operario de Producción plan Cárnica Fileteador de Pollo, Sierra de corte de carne",
+   "e": "INVERSIONES LA CARNE SAS \"EN REORGANIZACION\"",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operario-de-produccion-plan-carnica-fileteador-de-pollo-sierra-de-corte-de-carne-en-bogota-dc-85E986D1B47ADF6361373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Producción y operarios",
+   "q": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "operario/a de producción - Cerrador de colchones y acolchadora mono aguja",
+   "e": "colchones confort center",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operarioa-de-produccion-cerrador-de-colchones-y-acolchadora-mono-aguja-en-bogota-dc-AE371177434D38FC61373E686DCF3405",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "q": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Operario/as de producción industrial/ extrusion/ empaque/ sellado/ inyeccion/soplado - Fontibon Funza o Madrid Mosquera cundinamarca",
+   "e": "Redes Humanas",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operarioas-de-produccion-industrial-extrusion-empaque-sellado-inyeccionsoplado-fontibon-funza-o-madrid-mosquera-cundinamarca-en-bogota-dc-19056B9ADEC9A90861373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "q": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Operario de Planta - Montevideo",
+   "e": "STAFFING DE COLOMBIA",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/operario-de-planta-montevideo-1093663",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "q": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asesor comercial/ Descansa Domingos / Bonificación + Comisión/ Ventas",
+   "e": "Concentrix",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-comercial-descansa-domingos-bonificacion-comision-ventas-en-bogota-dc-25CEC54FCC5D985A61373E686DCF3405",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "q": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asesor Comercial/ Ventas - Medio Tiempo",
+   "e": "Adecco Colombia",
+   "p": "BeBee",
+   "u": "https://bebee.com/co/jobs/asesor-comercial-ventas-medio-tiempo-adecco-colombia-bogota--ss-co-101dtx7",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "q": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Buscamos agentes Call Center para servicio al cliente / No ventas / Grandes beneficios, bono mensual - Proceso de selección completamente virtual",
+   "e": "Concentrix",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-buscamos-agentes-call-center-para-servicio-al-cliente-no-ventas-grandes-beneficios-bono-mensual-proceso-de-seleccion-completamente-virtual-en-bogota-dc-E15B791E46955EB661373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Servicio al cliente",
+   "q": "Servicio al cliente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Agente de ventas Call Center/ Trabaja solo 36 horas/ Comisiones sin techo!",
+   "e": "Heatron",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/agente-de-ventas-call-center-trabaja-solo-36-horas-comisiones-sin-techo%21-at-heatron-4478788821",
+   "f": null,
+   "h": "hace 9 horas",
+   "s": "",
+   "i": "Servicio al cliente",
+   "q": "Servicio al cliente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "¡Firma tu contrato al tercer día! Call Center SAC + Bonificaciones + Contrato Indefinido - ¡Tenemos una oportunidad para ti!",
+   "e": "Concentrix",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-firma-tu-contrato-al-tercer-dia-call-center-sac-bonificaciones-contrato-indefinido-tenemos-una-oportunidad-para-ti-en-bogota-dc-953381EC76CA9D2D61373E686DCF3405",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "q": "Servicio al cliente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asesor Comercial Call Center/ Trabaja solo 36 horas",
+   "e": "Heatron",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-4112-86f0eadc0b7dfe2b6f78aab518ea8e19",
+   "f": null,
+   "h": "hace 11 horas",
+   "s": "",
+   "i": "Servicio al cliente",
+   "q": "Servicio al cliente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Mesero Temporal - Martes, Miercoles y Jueves",
+   "e": "Lino Brewing Company",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-mesero-temporal-martes-miercoles-y-jueves-en-bogota-dc-E1AAA7A863429FFB61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Hotelería y alimentos",
+   "q": "Hotelería y alimentos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "vendedor mesero - turno partido",
+   "e": "YONATAN ANTONIO CASTRO MARTIN",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-vendedor-mesero-turno-partido-en-bogota-dc-364165CFAD4C69B061373E686DCF3405",
+   "f": null,
+   "h": "hace 27 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "q": "Hotelería y alimentos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Docente de educación física y deportes",
+   "e": "Comunidad de Hermanos Maristas de la enseñanza",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-docente-de-educacion-fisica-y-deportes-en-bogota-dc-5761FE81ECB45C3661373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Educación",
+   "q": "Educación",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "DOCENTES PREGRADO CONTADURIA",
+   "e": "Universitaria Agustiniana",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/docentes-pregrado-contaduria-1886779375",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Educación",
+   "q": "Educación",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Docente de Sociales con Experiencia en Educación para Adultos - Bogotá",
+   "e": "CENTRO DE EMPLEO Y TALENTO COLSUBSIDIO",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-docente-de-sociales-con-experiencia-en-educacion-para-adultos-bogota-en-bogota-dc-3543626C2576A27461373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Educación",
+   "q": "Educación",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "ASISTENTE DE RECLUTAMIENTO Y SELECCIÓN",
+   "e": "Performia Colombia SAS",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/asistente-de-reclutamiento-y-seleccion-1886778800",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "q": "Recursos humanos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Urgente Director Talento humano Licencia de SST - Director Talento humano Licencia de SST Bogota",
+   "e": "Adecco Colombia",
+   "p": "BeBee",
+   "u": "https://bebee.com/co/jobs/urgente-director-talento-humano-licencia-de-sst-director-talento-humano-licencia-de-sst-bogota-adecc--ss-co-440v22",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "q": "Recursos humanos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Profesional Senior de Nómina y Recursos Humanos - Profesional Sr de Nómina y RH (Excel Avanzado)",
+   "e": "T I R ASESORES SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-profesional-senior-de-nomina-y-recursos-humanos-profesional-sr-de-nomina-y-rh-excel-avanzado-en-bogota-dc-9F636AB217CD23E461373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "q": "Recursos humanos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Jefe de Recursos Humanos",
+   "e": "Michael Page Colombia",
+   "p": "Michael Page",
+   "u": "https://www.michaelpage.com.co/job-detail/jefe-de-recursos-humanos/ref/jn-092026-7114930",
+   "f": null,
+   "h": "hace 14 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "q": "Recursos humanos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Director/a de recursos humanos",
+   "e": "Good Talent SAS",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/director-a-de-recursos-humanos-1886778889",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "q": "Recursos humanos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Líder de RRHH",
+   "e": "ENLACE EMPRESARIAL DE SERVICIOS S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-lider-de-rrhh-en-bogota-dc-B303249DC17FD76561373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "q": "Recursos humanos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Contador Público: Gestión Contable Y Conciliaciones",
+   "e": "Health & Life Ips",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-2255-2a67e5313b88a5342ec5cadeb8e6d604",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "q": "Administración y finanzas",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asistente Contable y Administrativo - Manejo de Siigo",
+   "e": "GRUPO ALIANZA",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asistente-contable-y-administrativo-manejo-de-siigo-en-bogota-dc-C74AC4D08DD9030E61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "q": "Administración y finanzas",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Contador Administrativo (Finanzas)",
+   "e": "Yudy Arango",
+   "p": "BeBee",
+   "u": "https://bebee.com/co/jobs/contador-administrativo-finanzas-yudy-arango-bogota--ss-co-1em0su2",
+   "f": null,
+   "h": "hace 26 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "q": "Administración y finanzas",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "COORDINADOR ADMINISTRATIVO Y FINANCIERO CONTABLE",
+   "e": "CONFIDENTIAL",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/coordinador-administrativo-y-financiero-contable-1886777174",
+   "f": null,
+   "h": "hace 8 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "q": "Administración y finanzas",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Líder de Marketing Digital y Comunicaciones - Sector Educativo",
+   "e": "CONFIDENTIAL",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/lider-de-marketing-digital-y-comunicaciones-sector-educativo-1886776839",
+   "f": null,
+   "h": "hace 8 días",
+   "s": "",
+   "i": "Marketing y comunicación",
+   "q": "Marketing y comunicación",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -281,72 +1133,12 @@
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
-   "t": "Aprendices y Practicantes",
-   "e": "Synergie TH",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendices-y-practicantes-en-bogota-dc-342DD8AB4F1CA75461373E686DCF3405",
-   "f": null,
-   "h": "hace 23 días",
-   "s": "",
-   "i": "Prácticas y aprendices",
-   "q": "Prácticas y aprendices",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Practicante de Gestión Humana (Etapa Productiva) - Bogotá",
-   "e": "ADECCO COLOMBIA S A",
-   "p": "El Empleo",
-   "u": "https://www.elempleo.com/co/ofertas-trabajo/practicante-de-gestion-humana-etapa-productiva-bogota-1886778115",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Prácticas y aprendices",
-   "q": "Prácticas y aprendices",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Aprendiz SENA – Gestión Documental",
-   "e": "INMOV SAS",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendiz-sena-gestion-documental-en-bogota-dc-BD2BA03087B4CCCD61373E686DCF3405",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Prácticas y aprendices",
-   "q": "Prácticas y aprendices",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Aprendiz Técnico Recursos Humanos",
-   "e": "S.C. ANESTESIOLOGIA",
-   "p": "El Empleo",
-   "u": "https://www.elempleo.com/co/ofertas-trabajo/aprendiz-tecnico-recursos-humanos-1886778279",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Prácticas y aprendices",
-   "q": "Prácticas y aprendices",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
    "t": "Practicante Universitario  Seguridad de la Información - contrato de aprendizaje / no egresados",
    "e": "OUTSOURCING SERVICIOS INFORMATICOS S A OUTSOURCING S A",
    "p": "Computrabajo",
    "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-practicante-universitario-seguridad-de-la-informacion-contrato-de-aprendizaje-no-egresados-en-bogota-dc-2213F5AF996B7CF061373E686DCF3405",
    "f": null,
    "h": "hace 8 días",
-   "s": "",
-   "i": "Prácticas y aprendices",
-   "q": "Prácticas y aprendices",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Aprendiz SENA – Diseño Gráfico y Creatividad",
-   "e": "Inmov Global Network",
-   "p": "LinkedIn",
-   "u": "https://co.linkedin.com/jobs/view/aprendiz-sena-%E2%80%93-dise%C3%B1o-gr%C3%A1fico-y-creatividad-at-inmov-4477676302",
-   "f": null,
-   "h": "hace 4 días",
    "s": "",
    "i": "Prácticas y aprendices",
    "q": "Prácticas y aprendices",

@@ -2,6 +2,75 @@
  "siguiente": 9,
  "registro": [
   {
+   "fecha": "2026-10-13T21:13:05+00:00",
+   "busquedas": [
+    "Administración y finanzas",
+    "Recursos humanos",
+    "Construcción y mantenimiento",
+    "Educación",
+    "Hotelería y alimentos",
+    "Logística y transporte",
+    "Servicio al cliente",
+    "Ventas y comercial",
+    "Producción y operarios",
+    "Seguridad y aseo",
+    "Prácticas y aprendices",
+    "Calidad, SST y ambiente",
+    "Tecnología",
+    "Marketing y comunicación",
+    "Salud",
+    "Mosquera",
+    "Manizales",
+    "Yumbo",
+    "Villavicencio",
+    "Cúcuta",
+    "Neiva",
+    "Santa Marta",
+    "Armenia",
+    "Pasto",
+    "Montería",
+    "Tunja",
+    "Popayán",
+    "Girón",
+    "Valledupar",
+    "Dosquebradas",
+    "Yopal",
+    "Sincelejo",
+    "Pitalito",
+    "Riohacha",
+    "Duitama",
+    "Malambo",
+    "Ipiales",
+    "La Dorada",
+    "Aguachica",
+    "Acacías",
+    "Melgar",
+    "Santander De Quilichao",
+    "Turbaco",
+    "Cereté",
+    "Ciénaga",
+    "Fonseca",
+    "Ocaña",
+    "Calarca",
+    "Villanueva",
+    "Corozal",
+    "Bogotá D.C.",
+    "Medellín",
+    "Cali",
+    "Barranquilla",
+    "Bucaramanga",
+    "Pereira",
+    "Cartagena",
+    "Funza",
+    "Rionegro"
+   ],
+   "ofertas": 650,
+   "errores": [
+    "Ibagué: The read operation timed out"
+   ],
+   "consultas_restantes": "9871"
+  },
+  {
    "fecha": "2026-10-13T21:01:53+00:00",
    "busquedas": [
     "Administración y finanzas",
@@ -111,5 +180,10 @@
    "consultas_restantes": null
   }
  ],
- "siguiente_industria": 3
+ "siguiente_industria": 3,
+ "avisos": {
+  "restantes": 9871,
+  "enviados": [],
+  "llave_mala": false
+ }
 }

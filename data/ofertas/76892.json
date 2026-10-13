@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:01:53+00:00",
+ "actualizado": "2026-10-13T21:13:05+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -11,18 +11,7 @@
    "h": "hace 21 horas",
    "s": "",
    "i": "Recursos humanos",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Operario maquinista - Para empresa de Alimentos en Yumbo",
-   "e": "S&A  Servicios y Asesorias",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operario-maquinista-para-empresa-de-alimentos-en-yumbo-en-yumbo-AB69BAD15BE8505561373E686DCF3405",
-   "f": null,
-   "h": "hace 21 horas",
-   "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "VENDEDOR ESPECIALIZADO YUMBO",
@@ -33,6 +22,105 @@
    "h": "hace 3 días",
    "s": "",
    "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Representante de Ventas Sala Alimentos - Postobón Yumbo",
+   "e": "POSTOBON S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-representante-de-ventas-sala-alimentos-postobon-yumbo-en-yumbo-0A13CDA9E3C1AC9961373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "production supervisor - supervisor de turno sector alimentos industrial",
+   "e": "IMPORTFOODS S.A.S.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-production-supervisor-supervisor-de-turno-sector-alimentos-industrial-en-yumbo-0010D4FC2F6FB25A61373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Hotelería y alimentos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Operario de Producción Industrial - Yumbo",
+   "e": "STAFFING DE COLOMBIA",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/operario-de-produccion-industrial-yumbo-1095441",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Conductor C2 con experiencia en transporte de mercancia sector ferretero - Acopi Yumbo",
+   "e": "Temporales Especializados S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-conductor-c2-con-experiencia-en-transporte-de-mercancia-sector-ferretero-acopi-yumbo-en-yumbo-20204DCFEB19C1B761373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Técnico de Mantenimiento Industrial – Líneas de Producción",
+   "e": "POSTOBON S.A.",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-2255-3f13c684aeaf00bb66b6d1e500f3b4e7",
+   "f": null,
+   "h": "hace 3 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Auxiliar de monitoreo CCTV - Medios Tecnológicos",
+   "e": "SUPERMERCADO BELALCAZAR",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-monitoreo-cctv-medios-tecnologicos-en-yumbo-1B1A4968519FFB1F61373E686DCF3405",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Seguridad y aseo",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Líder de Línea de Producción de Alimentos",
+   "e": "PRODUCTOS DIFFER SAS",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-2255-0c4375339fe6cfc31cb3f854a6f3d663",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Analista De Mercadeo Y Experiencia Al Cliente - Si no cumple el perfil no se postule",
+   "e": "SOLAIRE SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-analista-de-mercadeo-y-experiencia-al-cliente-si-no-cumple-el-perfil-no-se-postule-en-yumbo-18A2EE969E2F24AB61373E686DCF3405",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Operario maquinista - Para empresa de Alimentos en Yumbo",
+   "e": "S&A  Servicios y Asesorias",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operario-maquinista-para-empresa-de-alimentos-en-yumbo-en-yumbo-AB69BAD15BE8505561373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Producción y operarios",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -47,45 +135,12 @@
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
-   "t": "Operario de Producción Industrial - Yumbo",
-   "e": "STAFFING DE COLOMBIA",
-   "p": "Magneto",
-   "u": "https://www.magneto365.com/co/empleos/operario-de-produccion-industrial-yumbo-1095441",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
    "t": "Operario producción /con moto yumbo",
    "e": "Eficacia",
    "p": "Computrabajo",
    "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operario-produccion-con-moto-yumbo-en-yumbo-6EAB31DD7E0B0A6C61373E686DCF3405",
    "f": null,
    "h": "hace 21 horas",
-   "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Auxiliar de monitoreo CCTV - Medios Tecnológicos",
-   "e": "SUPERMERCADO BELALCAZAR",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-monitoreo-cctv-medios-tecnologicos-en-yumbo-1B1A4968519FFB1F61373E686DCF3405",
-   "f": null,
-   "h": "hace 2 días",
-   "s": "",
-   "i": "Seguridad y aseo",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Técnico de Mantenimiento Industrial – Líneas de Producción",
-   "e": "POSTOBON S.A.",
-   "p": "Trabajo.org",
-   "u": "https://co.trabajo.org/oferta-2255-3f13c684aeaf00bb66b6d1e500f3b4e7",
-   "f": null,
-   "h": "hace 3 días",
    "s": "",
    "i": "Producción y operarios",
    "r": "2026-10-13T21:01:53+00:00"

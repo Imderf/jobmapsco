@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:01:53+00:00",
+ "actualizado": "2026-10-13T21:13:05+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -11,18 +11,7 @@
    "h": "hace 2 días",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Vendedor cortador de carnes",
-   "e": "Empleamos Temporales SAS",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/-5708706220523911161",
-   "f": null,
-   "h": "hace 2 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Auxiliar De Servicios Generales / Vacaciones / Cereté",
@@ -33,7 +22,7 @@
    "h": "hace 6 días",
    "s": "",
    "i": "Servicio al cliente",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Aprendiz técnico en apoyo administrativo - Cerete",
@@ -44,7 +33,7 @@
    "h": "hace 9 días",
    "s": "",
    "i": "Prácticas y aprendices",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Estudiante de Técnico Contable para Practicas Profesionales",
@@ -55,29 +44,7 @@
    "h": "hace 20 días",
    "s": "",
    "i": "Administración y finanzas",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Contador Público, Tecnólogo en Contabilidad y Finanzas - Contratacion Estatal",
-   "e": "DISTRACOM",
-   "p": "Magneto",
-   "u": "https://www.magneto365.com/us/empleos/contador-publico-tecnologo-en-contabilidad-y-finanzas-contratacion-estatal-1091944",
-   "f": null,
-   "h": "hace 8 días",
-   "s": "",
-   "i": "Recursos humanos",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Auxiliar de Trafico Cerete",
-   "e": "Distracom",
-   "p": "BeBee",
-   "u": "https://bebee.com/co/jobs/auxiliar-de-trafico-cerete-distracom-cerete--ss-co-1rf5hmt",
-   "f": null,
-   "h": "hace 26 días",
-   "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Líder comercial",
@@ -88,7 +55,29 @@
    "h": "hace 16 días",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Contador Público, Tecnólogo en Contabilidad y Finanzas - Contratacion Estatal",
+   "e": "DISTRACOM",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/us/empleos/contador-publico-tecnologo-en-contabilidad-y-finanzas-contratacion-estatal-1091944",
+   "f": null,
+   "h": "hace 8 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Auxiliar de Trafico Cerete",
+   "e": "Distracom",
+   "p": "BeBee",
+   "u": "https://bebee.com/co/jobs/auxiliar-de-trafico-cerete-distracom-cerete--ss-co-1rf5hmt",
+   "f": null,
+   "h": "hace 26 días",
+   "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:13:05+00:00"
   },
   {
    "t": "Merca impulsador - mercaderista",
@@ -97,6 +86,39 @@
    "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-merca-impulsador-mercaderista-en-cerete-75DB79DFAF38137D61373E686DCF3405",
    "f": null,
    "h": "hace 23 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Auxiliar de mantenimiento industrial - Turno diurno",
+   "e": "FRITOS PERALZ S.A.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-mantenimiento-industrial-turno-diurno-en-cerete-B1112C5D279036AA61373E686DCF3405",
+   "f": null,
+   "h": "hace 30 días",
+   "s": "",
+   "i": "Construcción y mantenimiento",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Ingeniero de Sistemas / Soporte IT Junior Sin Experiencia",
+   "e": "DISTRACOM",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/us/jobs/ingeniero-de-sistemas-soporte-ti-junior-sin-experiencia-1067643",
+   "f": null,
+   "h": "hace 28 días",
+   "s": "",
+   "i": "Tecnología",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Vendedor cortador de carnes",
+   "e": "Empleamos Temporales SAS",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/-5708706220523911161",
+   "f": null,
+   "h": "hace 2 días",
    "s": "",
    "i": "Ventas y comercial",
    "r": "2026-10-13T21:01:53+00:00"
