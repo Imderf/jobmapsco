@@ -123,6 +123,23 @@ button.chip{background:none;cursor:pointer}
 .filtro{display:block;width:100%;text-align:left;margin:2px 0 8px;background:rgba(47,107,255,.16);border:1px solid rgba(47,107,255,.5);border-radius:6px;padding:6px 9px;cursor:pointer;font:500 12px Inter,sans-serif;white-space:pre}
 .filtro:hover{border-color:#fff}
 .cerrar{float:right;background:none;border:0;color:var(--muted);cursor:pointer;font-size:18px;line-height:1}
+/* registro: popup antes de usar el mapa */
+#registro{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:20px;background:rgba(4,6,12,.62);backdrop-filter:blur(6px)}
+#registro[hidden]{display:none}
+#registro form{width:min(420px,100%);background:#0b1020;border:1px solid rgba(110,140,255,.3);border-radius:12px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:sube .45s cubic-bezier(.2,.8,.2,1) both}
+#registro h2{font:800 26px/1.05 'Inter Tight',sans-serif;letter-spacing:-.02em;margin:8px 0 6px}
+#registro h2 em{font-style:normal;color:var(--blue)}
+#registro p{color:#c5cce0;margin-bottom:16px}
+#registro label{display:block;font:400 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 6px}
+#registro input[type=text],#registro input[type=email]{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+#registro input:focus{outline:1px solid var(--blue)}
+#registro .acepto{display:flex;gap:10px;align-items:flex-start;font:13px/1.4 Inter,sans-serif;letter-spacing:0;text-transform:none;color:#c5cce0;margin-top:16px;cursor:pointer}
+#registro .acepto input{margin-top:3px;accent-color:var(--blue)}
+#registro .acepto a{color:var(--blue2)}
+#registro button{width:100%;margin-top:18px;background:var(--blue);border:0;border-radius:7px;padding:11px;font-weight:500;cursor:pointer}
+#registro button:hover{background:#4f86ff}
+#registro button:disabled{opacity:.6;cursor:default}
+#registro .error{color:var(--down);font-size:12px;margin-top:8px;min-height:1em}
 @media (max-width:1100px){
   #izq,#total{width:270px}
   #der{width:260px}
@@ -188,6 +205,21 @@ button.chip{background:none;cursor:pointer}
 </section>
 
 <div id="acciones" class="ui"><button id="vista-pais">Vista país</button></div>
+
+<div id="registro" hidden role="dialog" aria-modal="true" aria-labelledby="registro-titulo">
+  <form novalidate>
+    <div class="mono"><span class="punto"></span>Antes de explorar</div>
+    <h2 id="registro-titulo">Mira dónde hay <em>trabajo</em>.</h2>
+    <p>Déjanos tu nombre y tu correo para usar el mapa. Solo te lo pedimos una vez.</p>
+    <label for="reg-nombre">Nombre</label>
+    <input id="reg-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80">
+    <label for="reg-correo">Correo</label>
+    <input id="reg-correo" name="correo" type="email" autocomplete="email" required maxlength="120">
+    <label class="acepto"><input id="reg-acepto" name="acepto" type="checkbox" required> <span>Acepto la <a href="politica-de-datos.html" target="_blank" rel="noopener noreferrer">política de tratamiento de datos personales</a>.</span></label>
+    <div class="error" id="reg-error" aria-live="polite"></div>
+    <button type="submit">Explorar el mapa</button>
+  </form>
+</div>
 
 <script type="module">
 const fmt = new Intl.NumberFormat('es-CO');
@@ -777,6 +809,43 @@ function buscar(v) {
   if (v && map.getZoom() > VISTA.zoom + .3) map.flyTo({ ...VISTA, duration: 1600 });
 }
 $('#vista-pais').onclick = () => { leyenda(); map.flyTo({ ...VISTA, duration: 1800 }); };
+
+// ---- registro: antes de usar el mapa (filtrar, buscar, tocar, arrastrar) pide nombre, correo y aceptar la política.
+// Se guarda en la base (Supabase: el navegador solo puede insertar, nunca leer) y en este navegador para no volver a pedirlo.
+const SUPABASE_URL = '';        // https://<proyecto>.supabase.co
+const SUPABASE_ANON = '';       // llave pública "anon" (es pública por diseño; la tabla solo permite insertar)
+const POLITICA = 'politica-de-datos.html v2026-10-13';
+const CLAVE_REGISTRO = 'mapa-empleo:registro';
+let registrado = false;
+try { registrado = !!JSON.parse(localStorage.getItem(CLAVE_REGISTRO))?.correo; } catch { }
+const zonasDelMapa = ['#mapa', '#izq', '#der', '#acciones'];
+function pedirRegistro(e) {
+  if (registrado || !listo || !e.target.closest || !zonasDelMapa.some(z => e.target.closest(z))) return;
+  e.preventDefault(); e.stopPropagation();
+  $('#registro').hidden = false;
+  $('#reg-nombre').focus();
+}
+for (const ev of ['pointerdown', 'wheel', 'focusin', 'keydown', 'touchstart']) document.addEventListener(ev, pedirRegistro, { capture: true, passive: false });
+$('#registro form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nombre = $('#reg-nombre').value.trim(), correo = $('#reg-correo').value.trim().toLowerCase();
+  const error = !nombre ? 'Escribe tu nombre.' : !correo || !$('#reg-correo').checkValidity() ? 'Revisa el correo.' : !$('#reg-acepto').checked ? 'Para seguir, acepta la política de tratamiento de datos.' : '';
+  $('#reg-error').textContent = error;
+  if (error) return;
+  const fila = { nombre, correo, acepto: true, politica: POLITICA };
+  if (SUPABASE_URL && SUPABASE_ANON) {
+    const boton = e.submitter; boton.disabled = true;
+    const ok = await fetch(`${SUPABASE_URL}/rest/v1/registros?on_conflict=correo`, {
+      method: 'POST', body: JSON.stringify(fila),
+      headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}`, 'Content-Type': 'application/json', Prefer: 'return=minimal,resolution=ignore-duplicates' },
+    }).then(r => r.ok).catch(() => false);
+    boton.disabled = false;
+    if (!ok) return $('#reg-error').textContent = 'No pudimos guardar tus datos. Intenta de nuevo en un momento.';
+  }
+  try { localStorage.setItem(CLAVE_REGISTRO, JSON.stringify({ ...fila, fecha: new Date().toISOString() })); } catch { }
+  registrado = true;
+  $('#registro').hidden = true;
+});
 leyenda();
 
 // ---- datos en vivo: revisa el archivo cada minuto; el recolector lo actualiza varias veces al día

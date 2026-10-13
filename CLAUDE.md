@@ -34,6 +34,7 @@ Config `mapa-empleo` en `.claude/launch.json` del vault: `python3 -m http.server
 - Pie del HUD: créditos de mapa obligatorios a la izquierda (OSM, OpenFreeMap, AWS Terrain Tiles) y "Autores Imderf R. / Jaime O." a la derecha (imderf.com, jaimeai.co).
 - En la pestaña Industrias el total de abajo muestra las ofertas recolectadas (lo que suma el ranking por sector), no las publicadas.
 - Filtro único: sector (`filtroInd`) y/o palabras clave del buscador (`filtroTxt`, todas las palabras en cargo o empresa, sin tildes) sobre `data/todas.json` (lo escribe el recolector). `conteo` = ofertas que coinciden por ciudad: manda en barras, ranking (ciudades), total y foco. Sin ciudad elegida, el panel derecho muestra `resultados()` (todas las que coinciden, paginadas, con la ciudad como chip); con ciudad, su ficha filtrada. Si una búsqueda no da ofertas y es el nombre de un municipio, abre ese municipio.
+- Registro: después de aterrizar, cualquier interacción con el mapa o los paneles abre un popup (nombre, correo, casilla de la política `politica-de-datos.html`). Se guarda en Supabase (tabla `registros`, `db/registros.sql`: RLS con anon solo INSERT, correo único, `on_conflict=correo` + ignore-duplicates) y en `localStorage` (`mapa-empleo:registro`) para no volver a pedirlo. `SUPABASE_URL` y `SUPABASE_ANON` en `index.html` (la llave anon es pública por diseño). Sin ellas, solo queda en el navegador.
 - Carga: el globo aparece con datos + mapa listos (máx. 2,5 s); el relieve de Colombia se precarga por detrás sin bloquear.
 
 ## Ciclos
