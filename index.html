@@ -68,7 +68,7 @@ body.listo #saltar{display:none}
 .ui{opacity:0;transform:translateY(14px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1);pointer-events:none}
 body.listo .ui{opacity:1;transform:none;pointer-events:auto}
 .panel{position:fixed;z-index:4;background:var(--panel);border:1px solid var(--line);border-radius:10px;backdrop-filter:blur(12px);padding:14px}
-#izq{top:44px;left:20px;width:310px;transition-delay:.5s}
+#izq{top:44px;left:20px;width:310px;transition-delay:.5s;display:flex;flex-direction:column;max-height:calc(100vh - 214px)}   /* termina antes del panel del total; la lista hace scroll */
 #der{top:44px;right:20px;width:300px;max-height:calc(100% - 150px);overflow:auto;transition-delay:.8s}
 #total{bottom:48px;left:20px;width:310px;transition-delay:.65s}
 #acciones{position:fixed;z-index:4;bottom:48px;right:20px;transition-delay:.9s}
@@ -80,6 +80,7 @@ h2.titulo em{font-style:normal;color:var(--blue)}
 .tabs button{flex:1;min-width:0;background:none;border:1px solid var(--line);border-radius:5px;padding:5px 2px;cursor:pointer;color:var(--muted);font-size:12px}
 .tabs button[aria-pressed=true]{background:rgba(47,107,255,.14);color:var(--text);border-color:rgba(47,107,255,.5)}
 ol{list-style:none}
+#ranking{flex:1 1 auto;min-height:60px;overflow-y:auto;margin-right:-6px;padding-right:6px;scrollbar-width:thin;scrollbar-color:rgba(110,140,255,.35) transparent}   /* lista completa con scroll interno */
 #ranking.entra li,.ficha ol li{animation:sube .5s both}
 ol button{display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:baseline;width:100%;background:none;border:0;border-radius:5px;padding:5px 6px;text-align:left;cursor:pointer;transition:background .2s}
 ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:none}
@@ -115,12 +116,12 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
 @media (max-width:1100px){
   #izq,#total{width:270px}
   #der{width:260px}
-  #ranking li:nth-child(n+6){display:none}
 }
 @media (max-width:760px){
   #hud-sup .der,#hud-inf .der{display:none}
   #izq{top:auto;bottom:40px;left:12px;right:12px;width:auto;max-height:36vh;overflow:auto}
   #izq h2.titulo{display:none}
+  #ranking{max-height:none}   /* en móvil ya hace scroll el panel completo */
   #total,#acciones{display:none}
   #der{top:auto;bottom:40px;left:12px;right:12px;width:auto;max-height:55vh;z-index:5}
   #der:not(.abierta){display:none}
@@ -340,9 +341,10 @@ let crecer = 0, seleccion = null, listo = false, quieto = performance.now();
 const aditivo = { blend: true, blendColorOperation: 'add', blendColorSrcFactor: 'src-alpha', blendColorDstFactor: 'one', depthWriteEnabled: false };
 const overlay = new deck.MapboxOverlay({
   interleaved: false, layers: [],
-  onClick: ({ object: o }) => o && seleccionar(o),
-  getTooltip: ({ object: o }) => o && { text: `${o.n}, ${deptos[o.d]}\n${fmt.format(o.obj)} ofertas`,
-    style: { background: '#090d1a', border: '1px solid rgba(110,140,255,.3)', borderRadius: '6px', fontFamily: 'JetBrains Mono', fontSize: '11px', color: '#eef2ff' } },
+  // las etiquetas de nombre envuelven la ciudad en { c: ciudad, ... }; barras y cifras son la ciudad misma
+  onClick: ({ object: o }) => o && seleccionar(typeof o.c === 'object' ? o.c : o),
+  getTooltip: ({ object }) => { const o = object && (typeof object.c === 'object' ? object.c : object); return o && { text: `${o.n}, ${deptos[o.d]}\n${fmt.format(o.obj)} ofertas`,
+    style: { background: '#090d1a', border: '1px solid rgba(110,140,255,.3)', borderRadius: '6px', fontFamily: 'JetBrains Mono', fontSize: '11px', color: '#eef2ff' } }; },
 });
 map.on('click', 'deptos-zona', e => { if (listo && !overlay.pickObject({ x: e.point.x, y: e.point.y, radius: 4 })) seleccionarDepto(e.features[0].properties.c); });
 for (const ev of ['mousedown', 'touchstart', 'wheel']) map.getCanvasContainer().addEventListener(ev, () => quieto = performance.now(), { passive: true });
@@ -420,7 +422,7 @@ function capas(ahora) {
       updateTriggers: { getPosition: ahora, getFillColor: ahora },
     }),
     new deck.TextLayer({
-      id: 'nombres', data: nombres, getPosition: v => [v.c.lon, v.c.lat, 0], getText: v => v.c.n.toUpperCase(),
+      id: 'nombres', data: nombres, pickable: true, getPosition: v => [v.c.lon, v.c.lat, 0], getText: v => v.c.n.toUpperCase(),
       getSize: 10, getPixelOffset: [0, 13], getColor: v => v.c.c === sel ? [255, 255, 255] : [205, 214, 240],
       fontFamily: 'JetBrains Mono', fontWeight: 500, characterSet: 'auto',
       background: true, getBackgroundColor: [9, 13, 26, 190], backgroundPadding: [5, 2], getBorderColor: [47, 107, 255, 70], getBorderWidth: 1,
@@ -428,7 +430,7 @@ function capas(ahora) {
       updateTriggers: { getColor: sel },
     }),
     new deck.TextLayer({
-      id: 'cifras', data: visibles,
+      id: 'cifras', data: visibles, pickable: true,
       getPosition: c => [c.lon, c.lat, alto(c) * escala + 14000],
       getText: c => etiqueta(c, ahora), getSize: c => c.c === sel ? 15 : 13,
       getColor: c => c.flash > ahora ? (c.delta > 0 ? SUBE : BAJA) : [238, 242, 255],
@@ -521,7 +523,7 @@ function pintarRanking(entra = false) {
     : `Muestra de ${fmt.format(industrias.muestra)} ofertas recientes en ${industrias.ciudades} ciudades, clasificadas por el cargo. Toca una industria para filtrar el mapa.`;
   const deIndustria = () => Object.entries(porIndustria[filtroInd] || {}).map(([c, obj]) => ({ ...porCod[c], obj, ciudad: porCod[c] })).sort((a, b) => b.obj - a.obj);
   const items = (tab === 'municipios' ? ciudades : tab === 'deptos' ? rankDeptos()
-    : filtroInd ? deIndustria() : Object.entries(industrias?.industrias || {}).map(([n, obj]) => ({ n, obj, ind: n }))).slice(0, 10);
+    : filtroInd ? deIndustria() : Object.entries(industrias?.industrias || {}).map(([n, obj]) => ({ n, obj, ind: n })));
   $('#filtro-ind').replaceChildren();
   $('#total .mono').textContent = filtroInd ? `Ofertas de ${filtroInd}` : 'Ofertas publicadas';
   $('#total-txt').textContent = filtroInd ? `en ${Object.keys(porIndustria[filtroInd] || {}).length} ciudades · muestra de ofertas recolectadas`
@@ -540,7 +542,7 @@ function pintarRanking(entra = false) {
     b.append(Object.assign(document.createElement('span'), { className: 'pos', textContent: String(i + 1).padStart(2, '0') }), nom, num);
     b.onclick = () => tab === 'municipios' ? seleccionar(x) : tab === 'deptos' ? seleccionarDepto(x.c)
       : x.ciudad ? seleccionar(x.ciudad) : (filtroInd = x.ind, pintarRanking(true), seleccion && seleccionar(seleccion, false));
-    const li = document.createElement('li'); li.style.animationDelay = i * 40 + 'ms'; li.append(b); return li;
+    const li = document.createElement('li'); li.style.animationDelay = Math.min(i, 12) * 40 + 'ms'; li.append(b); return li;
   }));
 }
 document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
