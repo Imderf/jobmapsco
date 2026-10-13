@@ -1,9 +1,9 @@
 """Recolector: trae ofertas recientes por ciudad desde JSearch (RapidAPI, agrega Google for Jobs) y las guarda en data/.
 
-Plan gratis de JSearch: 200 consultas al mes → 2 corridas al día de 3 consultas (≈186 al mes):
-- 1 búsqueda por industria en todo el país (por turnos: cada industria cada ~7 días); cada oferta se asigna a su
+Plan gratis de JSearch: 200 consultas al mes → 3 corridas al día de 2 consultas (≈186 al mes):
+- 1 búsqueda por industria en todo el país (por turnos: cada industria cada ~5 días); cada oferta se asigna a su
   ciudad por el lugar que trae ("Bogotá • a través de Computrabajo").
-- 2 búsquedas generales por ciudad (por turnos, las de más ofertas primero: cada ciudad cada ~11 días).
+- 1 búsqueda general por ciudad (por turnos, las de más ofertas primero: cada ciudad cada ~15 días).
 Cada consulta trae hasta 10 ofertas con enlace directo al portal. Cada ciudad guarda sus 30 más recientes (máx. 30 días).
 
 Escribe:
@@ -27,7 +27,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 DATA = RAIZ / "data"
-POR_CORRIDA = 3        # plan gratis: 200 consultas/mes → 2 corridas al día de 3
+POR_CORRIDA = 2        # plan gratis: 200 consultas/mes → 3 corridas al día de 2
 POR_INDUSTRIA = 1      # de esas, búsquedas por industria en todo el país; el resto, por ciudad
 MAX_POR_CIUDAD = 30
 VIGENCIA_DIAS = 30
