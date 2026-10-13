@@ -132,7 +132,8 @@ $('#lista-municipios').append(...municipios.map(m => Object.assign(document.crea
 // ---- mapa
 // zoom pensado para 1440×900; se ajusta al tamaño de la pantalla
 const movil = innerWidth <= 760;
-const VISTA = { longitude: -73.5, latitude: movil ? 3.2 : 4.4, zoom: 5.35 + Math.log2(Math.min(innerWidth / (movil ? 900 : 1440), innerHeight / 900)), pitch: 54, bearing: -14 };
+// centrado en la región andina, donde está casi toda la oferta; deja libres los paneles
+const VISTA = { longitude: movil ? -74.3 : -75.2, latitude: movil ? 3.6 : 5.6, zoom: 5.35 + Math.log2(Math.min(innerWidth / (movil ? 900 : 1440), innerHeight / 900)), pitch: 54, bearing: -14 };
 let crecer = 0, seleccion = null;
 
 const deck_ = new deck.DeckGL({
