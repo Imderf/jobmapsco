@@ -1,0 +1,33 @@
+{
+ "siguiente": 6,
+ "registro": [
+  {
+   "fecha": "2026-10-13T18:01:35+00:00",
+   "ciudades": [
+    "Bogotá D.C.",
+    "Medellín",
+    "Cali",
+    "Barranquilla",
+    "Bucaramanga",
+    "Pereira"
+   ],
+   "ofertas": 60,
+   "errores": [],
+   "consultas_restantes": "193"
+  },
+  {
+   "fecha": "2026-10-13T18:01:27+00:00",
+   "ciudades": [],
+   "ofertas": 0,
+   "errores": [
+    "Bogotá D.C.: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>",
+    "Medellín: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>",
+    "Cali: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>",
+    "Barranquilla: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>",
+    "Bucaramanga: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>",
+    "Pereira: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>"
+   ],
+   "consultas_restantes": null
+  }
+ ]
+}

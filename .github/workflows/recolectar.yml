@@ -1,0 +1,26 @@
+# Trae las ofertas de 6 ciudades cada día (plan gratis de JSearch: 200 consultas/mes) y las sube al repo.
+# La llave va como secreto del repo: Settings → Secrets and variables → Actions → RAPIDAPI_KEY.
+name: Recolectar ofertas
+on:
+  schedule:
+    - cron: "0 11 * * *"   # 6:00 a. m. hora Colombia
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: recolectar
+jobs:
+  recolectar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -I scripts/recolectar.py --prueba
+      - run: python3 -I scripts/recolectar.py
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+      - name: Guardar ofertas
+        if: always()
+        run: |
+          git config user.name "recolector"
+          git config user.email "recolector@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || { git commit -m "Ofertas $(date -u +%F)" && git push; }

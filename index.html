@@ -77,7 +77,7 @@ h2.titulo em{font-style:normal;color:var(--blue)}
 #buscar{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin-bottom:12px}
 #buscar:focus{outline:1px solid var(--blue)}
 .tabs{display:flex;gap:4px;margin:8px 0}
-.tabs button{flex:1;background:none;border:1px solid var(--line);border-radius:5px;padding:5px;cursor:pointer;color:var(--muted)}
+.tabs button{flex:1;min-width:0;background:none;border:1px solid var(--line);border-radius:5px;padding:5px 2px;cursor:pointer;color:var(--muted);font-size:12px}
 .tabs button[aria-pressed=true]{background:rgba(47,107,255,.14);color:var(--text);border-color:rgba(47,107,255,.5)}
 ol{list-style:none}
 #ranking.entra li,.ficha ol li{animation:sube .5s both}
@@ -101,6 +101,14 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
 .ficha h2{font:800 28px/1 'Inter Tight',sans-serif;letter-spacing:-.02em;margin:6px 0 4px;text-transform:uppercase}
 .ficha .big{font:500 46px/1 var(--mono);color:var(--blue2);margin:16px 0 4px}
 .ficha .vacio{border:1px dashed var(--line);border-radius:8px;padding:12px;color:var(--muted)}
+.ofertas{list-style:none;display:grid;gap:8px}
+.oferta{border:1px solid var(--line);border-radius:8px;padding:10px;background:rgba(255,255,255,.02);animation:sube .4s both}
+.oferta .cargo{font-weight:500;line-height:1.3}
+.oferta .pie{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap}
+.chip{font:10px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 5px}
+.postular{margin-left:auto;font:500 12px Inter,sans-serif;color:#fff;background:var(--blue);border-radius:5px;padding:5px 9px;text-decoration:none;white-space:nowrap}
+.postular:hover,.postular:focus-visible{background:#4f86ff;outline:none}
+.nota{font-size:11px;color:var(--muted);margin-top:8px}
 .cerrar{float:right;background:none;border:0;color:var(--muted);cursor:pointer;font-size:18px;line-height:1}
 @media (max-width:1100px){
   #izq,#total{width:270px}
@@ -152,8 +160,10 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
   <div class="tabs">
     <button data-tab="municipios" aria-pressed="true">Municipios</button>
     <button data-tab="deptos" aria-pressed="false">Departamentos</button>
+    <button data-tab="industrias" aria-pressed="false">Industrias</button>
   </div>
   <ol id="ranking"></ol>
+  <div class="nota" id="nota-ranking" hidden></div>
 </section>
 
 <section id="der" class="panel ui" aria-live="polite"></section>
@@ -479,10 +489,14 @@ else {
 
 // ---- ranking
 let tab = 'municipios';
+const industrias = await fetch('data/industrias.json', { cache: 'no-cache' }).then(r => r.json()).catch(() => null);
 function pintarRanking(entra = false) {
   const ahora = performance.now();
   $('#ranking').classList.toggle('entra', entra);
-  const items = (tab === 'municipios' ? ciudades : rankDeptos()).slice(0, 10);
+  const nota = $('#nota-ranking');
+  nota.hidden = tab !== 'industrias';
+  if (tab === 'industrias') nota.textContent = industrias ? `Muestra de ${fmt.format(industrias.muestra)} ofertas recientes en ${industrias.ciudades} ciudades, clasificadas por el cargo.` : 'Todavía no hay ofertas recolectadas.';
+  const items = (tab === 'municipios' ? ciudades : tab === 'deptos' ? rankDeptos() : Object.entries(industrias?.industrias || {}).map(([n, obj]) => ({ n, obj }))).slice(0, 10);
   $('#ranking').replaceChildren(...items.map((x, i) => {
     const b = document.createElement('button');
     const nom = document.createElement('span');
@@ -490,7 +504,7 @@ function pintarRanking(entra = false) {
     const num = Object.assign(document.createElement('span'), { className: 'num', textContent: fmt.format(x.obj) });
     if (x.flash > ahora) { num.className += x.delta > 0 ? ' sube' : ' baja'; num.textContent += x.delta > 0 ? ' ▲' : ' ▼'; }
     b.append(Object.assign(document.createElement('span'), { className: 'pos', textContent: String(i + 1).padStart(2, '0') }), nom, num);
-    b.onclick = () => tab === 'municipios' ? seleccionar(x) : seleccionarDepto(x.c);
+    b.onclick = () => tab === 'municipios' ? seleccionar(x) : tab === 'deptos' ? seleccionarDepto(x.c) : null;
     const li = document.createElement('li'); li.style.animationDelay = i * 40 + 'ms'; li.append(b); return li;
   }));
 }
@@ -531,8 +545,9 @@ function seleccionar(m, volar = true) {
     el('div', { className: 'big', textContent: m.obj ? fmt.format(m.obj) : '—' }),
     el('div', { textContent: m.obj ? `ofertas · puesto ${m.puesto} de ${ciudades.length} · ${(m.obj / total * 100).toFixed(1).replace('.', ',')} % del total` : 'Sin dato en este corte' }),
     el('h3', { textContent: 'Ofertas' }),
-    el('div', { className: 'vacio', textContent: `Aquí aparecerán las ofertas de ${m.n}, cada una con el enlace a la página donde está publicada para postularte.` }),
+    el('div', { className: 'lista-ofertas' }),
   );
+  pintarOfertas(m, f.querySelector('.lista-ofertas'));
   const delDepto = ciudades.filter(c => c.d === m.d).slice(0, 5);
   if (delDepto.length) {
     f.append(el('h3', { textContent: `${deptos[m.d]}${datos.deptos[m.d] ? ' · ' + fmt.format(datos.deptos[m.d]) + ' ofertas' : ''}` }));
@@ -547,6 +562,34 @@ function seleccionar(m, volar = true) {
   }
   der.replaceChildren(f);
 }
+// ofertas de una ciudad (las trae el recolector por turnos); el texto es externo: solo textContent y enlaces http(s)
+const cacheOfertas = new Map();
+async function pintarOfertas(m, caja) {
+  const el = (tag, props) => Object.assign(document.createElement(tag), props);
+  if (!cacheOfertas.has(m.c)) cacheOfertas.set(m.c, fetch(`data/ofertas/${m.c}.json`, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null));
+  const d = await cacheOfertas.get(m.c);
+  if (seleccion !== m) return;   // el usuario ya abrió otra ciudad
+  if (!d?.ofertas?.length) {
+    caja.replaceChildren(el('div', { className: 'vacio', textContent: m.obj
+      ? `Las ofertas de ${m.n} llegan en su turno: cada día se actualizan 6 ciudades.`
+      : `No hay ofertas de ${m.n} en este corte.` }));
+    return;
+  }
+  const ol = el('ol', { className: 'ofertas' });
+  d.ofertas.forEach((o, k) => {
+    const li = el('li', { className: 'oferta' });
+    li.style.animationDelay = k * 40 + 'ms';
+    const pie = el('div', { className: 'pie' });
+    if (o.p) pie.append(el('span', { className: 'chip', textContent: o.p }));
+    if (o.i && o.i !== 'Otros') pie.append(el('span', { className: 'chip', textContent: o.i }));
+    if (/^https?:\/\//.test(o.u)) pie.append(el('a', { className: 'postular', href: o.u, target: '_blank', rel: 'noopener noreferrer', textContent: 'Postularme ↗' }));
+    li.append(el('div', { className: 'cargo', textContent: o.t }), el('div', { className: 'sub', textContent: [o.e, o.h, o.s].filter(Boolean).join(' · ') }), pie);
+    ol.append(li);
+  });
+  const horas = Math.round((Date.now() - Date.parse(d.actualizado)) / 36e5);
+  caja.replaceChildren(ol, el('div', { className: 'nota', textContent: `Fuente: ${d.fuente} · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}` }));
+}
+
 function seleccionarDepto(cod) {
   const f = geo.features.find(f => f.properties.c === cod);
   if (!f) return;

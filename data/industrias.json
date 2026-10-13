@@ -1,0 +1,18 @@
+{
+ "muestra": 60,
+ "ciudades": 6,
+ "industrias": {
+  "Producción y operarios": 12,
+  "Servicio al cliente": 10,
+  "Ventas y comercial": 9,
+  "Logística y transporte": 9,
+  "Administración y finanzas": 9,
+  "Salud": 2,
+  "Prácticas y aprendices": 2,
+  "Otros": 2,
+  "Hotelería y alimentos": 2,
+  "Construcción y mantenimiento": 1,
+  "Marketing y comunicación": 1,
+  "Seguridad y aseo": 1
+ }
+}

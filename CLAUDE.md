@@ -36,5 +36,5 @@ Config `mapa-empleo` en `.claude/launch.json` del vault: `python3 -m http.server
 ## Ciclos
 1. ✅ Mapa 3D con línea base fija, ranking, buscador, ficha, móvil (2026-10-13)
 2. ✅ Look Manaure Escucha, intro precargada globo → Colombia, relieve real, barras vivas, órbita de cámara, resto del mundo apagado, zoom limitado a Colombia (2026-10-13)
-3. Recolector GitHub Actions con Jooble + JSearch → `data/ofertas.json` + `data/ofertas/<divipola>.json`
+3. 🔶 Recolector (2026-10-13): `scripts/recolectar.py` (stdlib; `--prueba` sin gastar consultas, `--industrias` reclasifica lo guardado) trae 6 ciudades por corrida desde JSearch por turnos (`data/recoleccion.json`: turno + registro de corridas con consultas restantes), guarda `data/ofertas/<divipola>.json` y `data/industrias.json`. Ficha de ciudad con ofertas y botón "Postularme" (solo enlaces http/https, `noopener noreferrer`); pestaña "Industrias" en el ranking (muestra, clasificada por el cargo). Workflow diario en `.github/workflows/recolectar.yml` (falta repo en GitHub y el secreto `RAPIDAPI_KEY`). En esta Mac el Python de python.org no trae certificados: correr con `SSL_CERT_FILE=/etc/ssl/cert.pem`. Los totales por ciudad siguen siendo la línea base hasta que Jooble habilite Colombia.
 4. Flechas con historial (`data/historial/AAAA-MM-DD.json`)
