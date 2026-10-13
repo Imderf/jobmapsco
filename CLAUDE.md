@@ -13,7 +13,7 @@ Mapa 3D animado de Colombia: una columna de luz por ciudad (altura = ofertas de 
 - `data/raw/departamentos.geo.json` — 33 departamentos (gist john-guerra, base DANE).
 
 ## Local
-Config `mapa-empleo` en `.claude/launch.json` del vault: `python3 -m http.server 4330` en esta carpeta.
+Config `mapa-empleo` en `.claude/launch.json` del vault: `php -S localhost:4330` (PHP de MAMP) en esta carpeta.
 
 ## Fuentes de ofertas (decisión 2026-10-13)
 - **Jooble API**: devuelve `totalCount` por consulta (probado). La llave actual (en `.env`, `JOOBLE_KEY`) es de la base de EE. UU.: Colombia devuelve 0 y `co.jooble.org/api` responde 403. Hay que pedir a Jooble acceso a Colombia. Cupo por defecto: 500 consultas (van 4).
@@ -34,7 +34,8 @@ Config `mapa-empleo` en `.claude/launch.json` del vault: `python3 -m http.server
 - Pie del HUD: créditos de mapa obligatorios a la izquierda (OSM, OpenFreeMap, AWS Terrain Tiles) y "Autores Imderf R. / Jaime O." a la derecha (imderf.com, jaimeai.co).
 - En la pestaña Industrias el total de abajo muestra las ofertas recolectadas (lo que suma el ranking por sector), no las publicadas.
 - Filtro único: sector (`filtroInd`) y/o palabras clave del buscador (`filtroTxt`, todas las palabras en cargo o empresa, sin tildes) sobre `data/todas.json` (lo escribe el recolector). `conteo` = ofertas que coinciden por ciudad: manda en barras, ranking (ciudades), total y foco. Sin ciudad elegida, el panel derecho muestra `resultados()` (todas las que coinciden, paginadas, con la ciudad como chip); con ciudad, su ficha filtrada. Si una búsqueda no da ofertas y es el nombre de un municipio, abre ese municipio.
-- Registro: después de aterrizar, cualquier interacción con el mapa o los paneles abre un popup (nombre, correo, casilla de la política `politica-de-datos.html`). Se guarda en Supabase (tabla `registros`, `db/registros.sql`: RLS con anon solo INSERT, correo único, `on_conflict=correo` + ignore-duplicates) y en `localStorage` (`mapa-empleo:registro`) para no volver a pedirlo. `SUPABASE_URL` y `SUPABASE_ANON` en `index.html` (la llave anon es pública por diseño). Sin ellas, solo queda en el navegador.
+- Registro: después de aterrizar, cualquier interacción con el mapa o los paneles abre un popup (nombre, correo, casilla de la política `politica-de-datos.html`, campo trampa `web` para bots). El JS lo envía por POST a `api/registro.php` (el `<form>` tiene `onsubmit="return false"`: nunca se envía solo, los datos no deben ir en la URL) y lo guarda en `localStorage` (`mapa-empleo:registro`) para no volver a pedirlo. `api/registro.php`: PDO con consultas preparadas, valida nombre/correo/consentimiento, `INSERT IGNORE` (correo único), límite de 10 por hora por IP (IP guardada como SHA-256 con sal). Tabla: `db/registros.mysql.sql`. Credenciales en `api/config.php` (fuera de git; plantilla `api/config.example.php`). El usuario de la base solo necesita SELECT e INSERT sobre `registros`.
+- Local: el servidor de `.claude/launch.json` (config `mapa-empleo`) es `php -S` de MAMP (PHP 8.4) para que funcione `api/`. Para probar el registro hay un MySQL 8 temporal de MAMP en el puerto 3407 (datos en el scratchpad, socket `.my.sock` en esta carpeta, fuera de git); `api/config.php` local apunta ahí.
 - Carga: el globo aparece con datos + mapa listos (máx. 2,5 s); el relieve de Colombia se precarga por detrás sin bloquear.
 
 ## Ciclos

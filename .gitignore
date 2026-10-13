@@ -1,2 +1,4 @@
 .DS_Store
 .env
+api/config.php
+.my.sock*
