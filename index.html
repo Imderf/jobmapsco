@@ -191,18 +191,18 @@ button.chip{background:none;cursor:pointer}
 </div>
 
 <section id="intro">
-  <div class="mono">Colombia · ofertas de trabajo publicadas</div>
+  <div class="mono">Colombia · ofertas de trabajo por ciudad</div>
   <h1><span>Job Maps</span> <span>CO.</span></h1>
-  <p>Dónde hay trabajo en Colombia, ciudad por ciudad, y hacia dónde se mueve.</p>
-  <div id="contador" aria-live="polite"><b id="contador-num">0</b>ofertas en <span id="contador-ciudades">0</span> ciudades</div>
+  <p>Dónde hay trabajo en Colombia, ciudad por ciudad, con el enlace para postularte.</p>
+  <div id="contador" aria-live="polite"><b id="contador-num">0</b>ofertas en <span id="contador-ciudades">0</span> ciudades<span id="contador-corte"></span></div>
   <div id="carga" class="mono" aria-live="polite">
-    <span>Cargando relieve · <span id="carga-num">0 %</span></span>
+    <span>Cargando mapa · <span id="carga-num">0 %</span></span>
     <div id="carga-pista"><div id="carga-barra"></div></div>
   </div>
 </section>
 <div id="marco" aria-hidden="true"></div>
 <div id="pais" aria-hidden="true">COLOMBIA</div>
-<button id="saltar" class="mono">Saltar intro →</button>
+<button id="saltar" class="mono">Ir al mapa →</button>
 
 <section id="izq" class="panel ui" aria-label="Rankings">
   <div class="mono"><span class="punto"></span>02 / Ranking</div>
@@ -302,7 +302,6 @@ const map = new maplibregl.Map({
     projection: { type: 'vertical-perspective' },   // globo puro durante todo el vuelo; pasa a plano al aterrizar
     sky: { 'sky-color': '#04060c', 'horizon-color': '#2f6bff', 'sky-horizon-blend': .6, 'atmosphere-blend': ['interpolate', ['linear'], ['zoom'], 0, 1, 4, .7, 6, 0] },
     sources: {
-      osm: { type: 'vector', url: 'https://tiles.openfreemap.org/planet', attribution: '© OpenStreetMap · OpenFreeMap' },
       // terreno 3D: se activa al aterrizar (con límites dejaría huecos negros en el globo)
       dem: { type: 'raster-dem', tiles: [DEM], encoding: 'terrarium', tileSize: 256, maxzoom: 11 },
       // sombra del relieve solo en Colombia (incluye San Andrés): no se piden teselas de otros países
@@ -311,10 +310,8 @@ const map = new maplibregl.Map({
     layers: [
       // lejos: globo oscuro (los continentes son puntos); cerca: mapa real con relieve. Cambia entre ZA y ZB
       { id: 'tierra', type: 'background', paint: { 'background-color': ['interpolate', ['linear'], ['zoom'], ZA, '#0a1122', ZB, '#d7d1be'] } },
-      { id: 'relieve', type: 'hillshade', source: 'sombra', paint: { 'hillshade-exaggeration': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, .6], 'hillshade-shadow-color': '#39405a', 'hillshade-highlight-color': '#fffbef', 'hillshade-accent-color': '#5b6280' } },
-      { id: 'agua', type: 'fill', source: 'osm', 'source-layer': 'water', paint: { 'fill-color': ['interpolate', ['linear'], ['zoom'], ZA, '#0a1122', ZB, '#1b48ad'] } },
-      { id: 'rios', type: 'line', source: 'osm', 'source-layer': 'waterway', paint: { 'line-color': '#3d7bff', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, .3, 9, 1.6], 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZB, 0, ZB + 1, 1] } },
-      { id: 'fronteras', type: 'line', source: 'osm', 'source-layer': 'boundary', filter: ['all', ['==', ['get', 'admin_level'], 2], ['!=', ['get', 'maritime'], 1]], paint: { 'line-color': '#262b3b', 'line-width': 1.2, 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, 1] } },
+      // relieve, agua, ríos y fronteras no se ven en el globo (< ZA): con minzoom no piden teselas mientras gira
+      { id: 'relieve', type: 'hillshade', source: 'sombra', minzoom: ZA, paint: { 'hillshade-exaggeration': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, .6], 'hillshade-shadow-color': '#39405a', 'hillshade-highlight-color': '#fffbef', 'hillshade-accent-color': '#5b6280' } },
     ],
   },
 });
@@ -323,8 +320,8 @@ map.setPadding({ top: innerHeight * .26, left: 0, right: 0, bottom: 0 });   // b
 let girando = true;
 function girar() { if (!girando) return; const c = map.getCenter(); map.setCenter([c.lng + .035, c.lat]); requestAnimationFrame(girar); }
 
-urlsDem.forEach(u => fetch(u).catch(() => {}));   // precarga del relieve de Colombia, sin esperarla
 const [geo, { deptos, municipios }, datos, mascara, puntos] = await Promise.all(archivos.map(u => fetch(u, { cache: 'no-cache' }).then(r => { avance(); return r.json(); })));
+urlsDem.forEach(u => fetch(u).catch(() => {}));   // precarga del relieve de Colombia para el aterrizaje, sin esperarla (después de los datos para no quitarles ancho de banda)
 
 // ---- modelo: cada ciudad tiene su valor objetivo (obj) y el que se dibuja (vis), que lo persigue
 const porCod = Object.fromEntries(municipios.map(m => [m.c, m]));
@@ -342,9 +339,9 @@ const todas = (todasD?.ofertas || []).map(o => ({ ...o, b: sinTilde(`${o.t} ${o.
 const extras = [...new Set(todas.map(o => o.c))].filter(c => porCod[c] && porCod[c].obj === undefined)
   .map(c => Object.assign(porCod[c], { obj: 0, vis: 0, delta: 0, flash: 0, fv: 0, puesto: Infinity }));
 const barras = [...ciudades, ...extras];   // lo que se dibuja (el ranking usa ciudades)
-// con filtro, cada barra muestra las ofertas de esa industria; kv reescala la altura para que la mayor se vea como Bogotá
+// con filtro, cada barra muestra las ofertas de esa industria; la altura se reescala para que la mayor se vea como Bogotá (ver cuadro())
 let tab = 'municipios';   // pestaña del ranking (la usa también el total de abajo)
-let filtroInd = null, filtroTxt = '', palabras = [], filtroDepto = null, kv = 1, conteo = {};   // filtroDepto: con un departamento elegido solo se ven sus ciudades
+let filtroInd = null, filtroTxt = '', palabras = [], filtroDepto = null, conteo = {};   // filtroDepto: con un departamento elegido solo se ven sus ciudades
 // filtro de ofertas: sector y/o palabras clave (todas deben aparecer en el cargo o la empresa). conteo: ofertas que coinciden por ciudad
 const filtrando = () => !!(filtroInd || filtroTxt);
 const nCiudades = n => `${n} ${n === 1 ? 'ciudad' : 'ciudades'}`;
@@ -370,6 +367,7 @@ const VISTA = {
 {
   const t0 = performance.now(), meta = ciudades.reduce((s, c) => s + c.obj, 0);
   $('#contador-ciudades').textContent = ciudades.length;
+  $('#contador-corte').textContent = ` · corte al ${new Date(datos.actualizado + 'T12:00').toLocaleDateString('es-CO', { day: 'numeric', month: 'short' }).replace('.', '')}`;   // la cifra es un corte, no en vivo
   (function contar(t) {
     const p = Math.min(1, (t - t0) / 2200);
     $('#contador-num').textContent = fmt.format(Math.round(meta * (1 - Math.pow(1 - p, 4))));
@@ -380,6 +378,11 @@ $('#total-txt').textContent = `en ${ciudades.length} ciudades de los ${fmt.forma
 
 // ---- capas propias en MapLibre: departamentos con brillo azul
 await new Promise(r => map.loaded() ? r() : map.once('load', r));
+// agua, ríos y fronteras (OpenFreeMap) entran después de 'load': su TileJSON a veces tarda segundos y no debe frenar el globo, donde no se ven
+map.addSource('osm', { type: 'vector', url: 'https://tiles.openfreemap.org/planet' });
+map.addLayer({ id: 'agua', type: 'fill', source: 'osm', 'source-layer': 'water', minzoom: ZA, paint: { 'fill-color': ['interpolate', ['linear'], ['zoom'], ZA, '#0a1122', ZB, '#1b48ad'] } });
+map.addLayer({ id: 'rios', type: 'line', source: 'osm', 'source-layer': 'waterway', minzoom: ZA, paint: { 'line-color': '#3d7bff', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, .3, 9, 1.6], 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZB, 0, ZB + 1, 1] } });
+map.addLayer({ id: 'fronteras', type: 'line', source: 'osm', 'source-layer': 'boundary', minzoom: ZA, filter: ['all', ['==', ['get', 'admin_level'], 2], ['!=', ['get', 'maritime'], 1]], paint: { 'line-color': '#262b3b', 'line-width': 1.2, 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, 1] } });
 map.addSource('deptos', { type: 'geojson', data: geo });
 map.addSource('mascara', { type: 'geojson', data: mascara });
 const OPACO = .68;   // vecinos atenuados pero visibles (sin relieve: la sombra solo cubre Colombia)
@@ -429,9 +432,11 @@ function tono(c, ahora) {
   return t ? mezcla(AZUL, c.delta > 0 ? SUBE : BAJA, t) : AZUL;
 }
 // con filtro, la etiqueta lleva el nombre: las cifras chicas solas no dicen de qué ciudad son
-const etiqueta = (c, ahora) => (filtrando() || filtroDepto || seleccion ? `${c.n.toUpperCase()} · ` : '') + fmt.format(Math.round(c.vis)) + (c.flash > ahora ? ` ${c.delta > 0 ? '▲' : '▼'}${fmt.format(Math.abs(c.delta))}` : '');
+// la cifra cuenta (vis) solo cuando el dato cambia en vivo; al filtrar salta al valor, para no mostrar por un instante cifras de otro filtro
+const cifra = (c, ahora) => c.flash > ahora ? c.vis : valor(c);
+const etiqueta = (c, ahora) => (filtrando() || filtroDepto || seleccion ? `${c.n.toUpperCase()} · ` : '') + fmt.format(Math.round(cifra(c, ahora))) + (c.flash > ahora ? ` ${c.delta > 0 ? '▲' : '▼'}${fmt.format(Math.abs(c.delta))}` : '');
 
-const alto = c => altura(c.vis) * kv;
+const alto = c => c.h || 0;   // altura dibujada (la anima cuadro())
 function capas(ahora) {
   if (!listo) return [];
   const sel = seleccion?.c;
@@ -520,15 +525,17 @@ function capas(ahora) {
 // bucle: las barras persiguen su valor objetivo (suben o bajan en vivo) y la cámara orbita si nadie toca el mapa
 (function cuadro() {
   const ahora = performance.now();
+  // con filtro o foco, la barra mayor se ve tan alta como Bogotá. Se anima la altura final, no cifra y escala por separado:
+  // juntas se multiplicaban a medio camino y las barras crecían de más antes de bajar
+  const k = filtrando() || filtroDepto || seleccion ? Math.sqrt(ciudades[0].obj / Math.max(1, ...barras.map(valor))) : 1;
   for (const c of barras) {
-    const v = valor(c);
+    const v = valor(c), h = altura(v) * k;
     c.vis += Math.abs(v - c.vis) < .5 ? v - c.vis : (v - c.vis) * .06;
+    c.h = (c.h || 0) + (h - (c.h || 0)) * .06;
     c.fv += ((v > 0 ? 1 : 0) - c.fv) * .08;
   }
-  const kMeta = filtrando() || filtroDepto || seleccion ? Math.sqrt(ciudades[0].obj / Math.max(1, ...barras.map(valor))) : 1;
-  kv += (kMeta - kv) * .06;
   if (listo) {
-    $('#total-num').textContent = fmt.format(tab === 'industrias' && !filtrando() && !seleccion && !filtroDepto && industrias ? industrias.muestra : filtroDepto && !filtrando() && !seleccion ? datos.deptos[filtroDepto] || 0 : Math.round(barras.reduce((s, c) => s + c.vis, 0)));
+    $('#total-num').textContent = fmt.format(tab === 'industrias' && !filtrando() && !seleccion && !filtroDepto && industrias ? industrias.muestra : filtroDepto && !filtrando() && !seleccion ? datos.deptos[filtroDepto] || 0 : Math.round(barras.reduce((s, c) => s + cifra(c, ahora), 0)));
     if (!sinMovimiento && !seleccion && !map.isMoving() && ahora - quieto > 5000) map.setBearing(map.getBearing() + .03);
   }
   overlay.setProps({ layers: capas(ahora) });
@@ -545,8 +552,8 @@ function fijar(c, n) {
 
 // ---- intro
 await document.fonts.load('500 13px "JetBrains Mono"');
-// el globo aparece cuando sus teselas cargaron (o a los 5 s, lo que pase primero) y desde ahí gira y late
-await Promise.race([new Promise(r => map.loaded() ? r() : map.once('idle', r)), espera(2500)]);
+// el globo solo dibuja capas propias (puntos GeoJSON): aparece cuando están listas (máx. 1 s), sin esperar teselas ni 'idle'
+await Promise.race([new Promise(r => { const ok = () => map.isSourceLoaded('puntos-mundo') && map.isSourceLoaded('puntos-co'); if (ok()) return r(); const f = () => { if (ok()) { map.off('sourcedata', f); r(); } }; map.on('sourcedata', f); }), espera(1000)]);
 avance();
 document.body.classList.add('cargado');
 girar(); pulsar();
@@ -576,7 +583,7 @@ $('#saltar').onclick = () => { map.stop(); map.jumpTo(VISTA); aterrizar(); };
 
 if (sinMovimiento) { map.jumpTo(VISTA); aterrizar(); }
 else {
-  await espera(3000);
+  await espera(2000);
   if (!aterrizado) {
     girando = false;
     document.body.classList.add('volando');
