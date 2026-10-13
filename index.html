@@ -1,14 +1,36 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mapa del Empleo</title>
+<title>Job Maps CO · Ofertas de trabajo en Colombia por ciudad</title>
+<meta name="description" content="Mapa 3D de las ofertas de trabajo publicadas en Colombia, ciudad por ciudad. Busca empleo por palabra clave, sector o departamento y postúlate en la fuente original.">
+<meta name="theme-color" content="#04060c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Job Maps CO">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Job Maps CO · Dónde hay trabajo en Colombia">
+<meta property="og:description" content="Mapa 3D de las ofertas de trabajo publicadas en Colombia, ciudad por ciudad, con enlace a la fuente para postularte.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Job Maps CO","alternateName":"Mapa del empleo en Colombia","description":"Mapa 3D de las ofertas de trabajo publicadas en Colombia, ciudad por ciudad. Busca empleo por palabra clave, sector o departamento y postúlate en la fuente original.","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"es-CO","isAccessibleForFree":true,"spatialCoverage":{"@type":"Country","name":"Colombia"},"author":[{"@type":"Person","name":"Imderf R.","url":"https://imderf.com/"},{"@type":"Person","name":"Jaime O.","url":"https://jaimeai.co/"}]}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH9WV4JYZB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WH9WV4JYZB');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet">
-<script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="https://unpkg.com/deck.gl@9.4.0/dist.min.js"></script>
+<script defer src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+<script defer src="https://unpkg.com/deck.gl@9.4.0/dist.min.js"></script>
 <style>
 :root{--bg:#04060c;--panel:rgba(9,13,26,.8);--line:rgba(110,140,255,.17);--blue:#2f6bff;--blue2:#6b95ff;--text:#eef2ff;--muted:#7a85a6;--up:#38e0a0;--down:#ff5c6c;--mono:'JetBrains Mono',ui-monospace,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -160,7 +182,7 @@ button.chip{background:none;cursor:pointer}
 <div id="mapa"></div>
 
 <div id="hud-sup" class="mono">
-  <span><span class="punto"></span>01 / Mapa del Empleo · Colombia</span>
+  <span><span class="punto"></span>01 / Job Maps CO</span>
   <span class="der vivo"><span class="punto"></span><span id="demo" hidden>Simulación · </span><span id="reloj"></span></span>
 </div>
 <div id="hud-inf" class="mono">
@@ -170,7 +192,7 @@ button.chip{background:none;cursor:pointer}
 
 <section id="intro">
   <div class="mono">Colombia · ofertas de trabajo publicadas</div>
-  <h1><span>Mapa del</span> <span>Empleo.</span></h1>
+  <h1><span>Job Maps</span> <span>CO.</span></h1>
   <p>Dónde hay trabajo en Colombia, ciudad por ciudad, y hacia dónde se mueve.</p>
   <div id="contador" aria-live="polite"><b id="contador-num">0</b>ofertas en <span id="contador-ciudades">0</span> ciudades</div>
   <div id="carga" class="mono" aria-live="polite">

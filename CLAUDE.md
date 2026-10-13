@@ -1,4 +1,4 @@
-# Mapa del Empleo Colombia
+# Job Maps CO (mapa del empleo en Colombia)
 
 Proyecto de laboratorio de Imderf Ríos (no es de Ogilvy). Fuente de verdad del plan: nota del vault `laboratorio/plataformas/mapa-empleo-colombia.md` (Vault person). Metodología de 11 pasos obligatoria (`~/.claude/CLAUDE.md`).
 
@@ -11,6 +11,11 @@ Mapa 3D animado de Colombia: una columna de luz por ciudad (altura = ofertas de 
 - `scripts/preparar_datos.py` — genera `data/municipios.json`, `data/departamentos.geo.json` y `data/ofertas.json` desde `data/raw/`. Correr con `python3 -I scripts/preparar_datos.py`.
 - `data/raw/divipola.json` — MinSalud Divipola (datos.gov.co `pqwj-3fi4`), 1.122 municipios con lat/lon. Los códigos vienen sin cero inicial; el script los rellena a 5 dígitos.
 - `data/raw/departamentos.geo.json` — 33 departamentos (gist john-guerra, base DANE).
+
+## SEO y analítica
+- Marca: **Job Maps CO** (2026-10-13). Google Analytics 4 `G-WH9WV4JYZB` en `index.html` y `politica-de-datos.html`; la política lo declara (sección "Analítica y cookies"). Nunca mandar nombre ni correo a Analytics.
+- Head de `index.html`: título, descripción, Open Graph, JSON-LD `WebApplication`, `favicon.svg`. `robots.txt` bloquea `/api/`. MapLibre y deck.gl van con `defer` (el script principal es `type="module"` y corre después, en orden).
+- Falta cuando haya dominio: `canonical`, `og:url`, `og:image` 1200×630 con URL absoluta, `twitter:card`, `sitemap.xml` y su línea en `robots.txt`.
 
 ## Local
 Config `mapa-empleo` en `.claude/launch.json` del vault: `php -S localhost:4330` (PHP de MAMP) en esta carpeta.
