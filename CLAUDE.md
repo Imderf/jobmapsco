@@ -23,8 +23,10 @@ Config `mapa-empleo` en `.claude/launch.json` del vault: `python3 -m http.server
 ## Reglas
 - Las llaves de API van solo como secretos de GitHub Actions. El navegador nunca llama a las APIs.
 - Texto externo (ofertas) siempre con `textContent`, nunca `innerHTML`. Enlaces externos con `rel="noopener noreferrer"`.
-- deck.gl lanza `Unsupported projection` con la proyección mixta de MapLibre: el overlay se agrega solo al aterrizar, después de `setProjection({type:'mercator'})` (a zoom país ya es plana, no se nota).
-- Al aterrizar: tierra y agua se apagan (Colombia es una capa `fill` propia debajo del relieve), zoom mínimo = ver Colombia completa y `maxBounds` sobre Colombia.
+- Intro: globo puro (`vertical-perspective`) todo el vuelo; la mezcla globo/plano deformaba los bordes. Al aterrizar pasa a `mercator` y recién ahí se agrega el overlay de deck.gl (con otra proyección lanza `Unsupported projection`).
+- Fuera de Colombia: capa `fuera` (`data/mascara.geo.json`, mundo con Colombia recortada, la genera el script) que se oscurece desde que arranca el vuelo. La sombra del relieve tiene `bounds` de Colombia; el terreno 3D se activa al aterrizar (con `bounds` en el terreno quedan huecos negros en el globo).
+- Después de aterrizar: zoom mínimo = ver Colombia completa y `maxBounds` sobre Colombia.
+- Barras: halo que pulsa, puntos de luz que suben por la barra (bajan en rojo y más rápido cuando el dato cae), anillo tipo radar en la base, nombre de cada ciudad en mono. Etiquetas y nombres se descartan si chocan en pantalla (proyección con `WebMercatorViewport`).
 - Barras "en vivo": cada ciudad tiene `obj` (dato) y `vis` (dibujado) que lo persigue; un cambio destella verde ▲ o rojo ▼ 5 s. La página relee `data/ofertas.json` cada minuto. `?demo` simula cambios y lo marca "Simulación" en el HUD.
 - Créditos de mapa obligatorios en el pie del HUD (OSM, OpenFreeMap, AWS Terrain Tiles).
 

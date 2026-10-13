@@ -75,6 +75,44 @@ def redondear(coords):
     return [redondear(c) for c in coords]
 
 
+def mascara(geo):
+    """Mundo con Colombia recortada: los bordes que usa un solo departamento forman el contorno del país."""
+    from collections import Counter, defaultdict
+    usos = Counter()
+    for f in geo["features"]:
+        g = f["geometry"]
+        for r in (g["coordinates"] if g["type"] == "Polygon" else [r for p in g["coordinates"] for r in p]):
+            usos.update(frozenset((tuple(a), tuple(b))) for a, b in zip(r, r[1:]) if a != b)
+    vecinos = defaultdict(set)
+    for s, n in usos.items():
+        if n == 1:
+            a, b = tuple(s)
+            vecinos[a].add(b); vecinos[b].add(a)
+    anillos = []
+    while vecinos:
+        inicio = p = next(iter(vecinos)); r = [inicio]
+        while vecinos.get(p):
+            q = vecinos[p].pop(); vecinos[q].discard(p)
+            r.append(q); p = q
+            if q == inicio: break
+        for k in [k for k in vecinos if not vecinos[k]]: del vecinos[k]
+        if len(r) > 3 and r[0] == r[-1]: anillos.append(r)
+    area = lambda r: sum(x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in zip(r, r[1:])) / 2
+    def dentro(pt, r):
+        x, y, c = pt[0], pt[1], False
+        for (x1, y1), (x2, y2) in zip(r, r[1:]):
+            if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1: c = not c
+        return c
+    anillos.sort(key=lambda r: -abs(area(r)))
+    # quedan el contorno principal y las islas (San Andrés); las astillas internas de bordes que no calzan se descartan
+    huecos = [anillos[0]] + [r for r in anillos[1:] if not dentro(r[0], anillos[0])]
+    huecos = [r if area(r) < 0 else r[::-1] for r in huecos]              # huecos en sentido horario
+    mundo = [[-180, -85], [180, -85], [180, 85], [-180, 85], [-180, -85]]  # exterior antihorario
+    assert len(huecos) >= 1 and abs(area(huecos[0])) > 50, "el contorno de Colombia no cerró"
+    return {"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {},
+            "geometry": {"type": "Polygon", "coordinates": [mundo] + [[list(p) for p in r] for r in huecos]}}]}
+
+
 def main():
     municipios = []
     for r in json.load(open(DATA / "raw/divipola.json", encoding="utf-8")):
@@ -89,6 +127,8 @@ def main():
         cod = f["properties"]["DPTO"]
         f["properties"] = {"c": cod, "n": DEPTOS[cod]}
         f["geometry"]["coordinates"] = redondear(f["geometry"]["coordinates"])
+
+    json.dump(mascara(geo), open(DATA / "mascara.geo.json", "w", encoding="utf-8"), separators=(",", ":"))
 
     ofertas = {buscar(municipios, n, d): v for n, d, v in LINEA_BASE}
     assert len(ofertas) == len(LINEA_BASE), "dos ciudades cayeron en el mismo código"
