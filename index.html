@@ -116,6 +116,10 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
 .paginador button:not(:disabled):hover{border-color:#fff}
 .ver-todas{display:block;margin-top:10px;color:var(--blue2);font-size:12px;text-decoration:none}
 .ver-todas:hover{color:#fff}
+button.chip{background:none;cursor:pointer}
+.chip-ciudad{color:var(--blue2);border-color:rgba(47,107,255,.5)}
+.chip-ciudad:hover{color:#fff;border-color:#fff}
+#filtro-ind{display:flex;flex-direction:column;gap:6px}
 .filtro{display:block;width:100%;text-align:left;margin:2px 0 8px;background:rgba(47,107,255,.16);border:1px solid rgba(47,107,255,.5);border-radius:6px;padding:6px 9px;cursor:pointer;font:500 12px Inter,sans-serif;white-space:pre}
 .filtro:hover{border-color:#fff}
 .cerrar{float:right;background:none;border:0;color:var(--muted);cursor:pointer;font-size:18px;line-height:1}
@@ -164,8 +168,7 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
 <section id="izq" class="panel ui" aria-label="Rankings">
   <div class="mono"><span class="punto"></span>02 / Ranking</div>
   <h2 class="titulo">¿Dónde hay <em>trabajo</em>?</h2>
-  <input id="buscar" list="lista-municipios" placeholder="Buscar municipio…" aria-label="Buscar municipio" autocomplete="off">
-  <datalist id="lista-municipios"></datalist>
+  <input id="buscar" type="search" placeholder="Buscar empleo: desarrollador web, planner…" aria-label="Buscar empleo por palabra clave" autocomplete="off">
   <div class="tabs">
     <button data-tab="municipios" aria-pressed="true">Municipios</button>
     <button data-tab="deptos" aria-pressed="false">Departamentos</button>
@@ -227,7 +230,7 @@ for (const z of [4, 5, 6]) {
 }
 const archivos = ['data/departamentos.geo.json', 'data/municipios.json', 'data/ofertas.json', 'data/mascara.geo.json', 'data/puntos.json'];
 let hechos = 0;
-const totalPasos = archivos.length + urlsDem.length + 1;
+const totalPasos = archivos.length + 1;   // datos + mapa; el relieve se descarga por detrás (se usa al aterrizar)
 const avance = () => { const p = Math.round(++hechos / totalPasos * 100); $('#carga-num').textContent = p + ' %'; $('#carga-barra').style.width = p + '%'; };
 
 // globo de la entrada: radio ≈ 40 % del lado corto (a zoom z el radio mide ~81,5·2^z px).
@@ -265,7 +268,7 @@ map.setPadding({ top: innerHeight * .26, left: 0, right: 0, bottom: 0 });   // b
 let girando = true;
 function girar() { if (!girando) return; const c = map.getCenter(); map.setCenter([c.lng + .035, c.lat]); requestAnimationFrame(girar); }
 
-const precarga = urlsDem.map(u => fetch(u).then(avance, avance));
+urlsDem.forEach(u => fetch(u).catch(() => {}));   // precarga del relieve de Colombia, sin esperarla
 const [geo, { deptos, municipios }, datos, mascara, puntos] = await Promise.all(archivos.map(u => fetch(u, { cache: 'no-cache' }).then(r => { avance(); return r.json(); })));
 
 // ---- modelo: cada ciudad tiene su valor objetivo (obj) y el que se dibuja (vis), que lo persigue
@@ -277,18 +280,26 @@ const puestos = () => {
   total = ciudades.reduce((s, c) => s + c.obj, 0);
 };
 puestos();
-// ofertas recolectadas por industria (muestra). Ciudades con ofertas pero sin cifra en la línea base: barra solo con filtro
-const industrias = await fetch('data/industrias.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null);
-const porIndustria = industrias?.por_ciudad || {};
-const extras = [...new Set(Object.values(porIndustria).flatMap(Object.keys))].filter(c => porCod[c] && porCod[c].obj === undefined)
+// ofertas recolectadas (todas.json: cada una con su ciudad). Ciudades con ofertas pero sin cifra en la línea base: barra solo con filtro
+const [industrias, todasD] = await Promise.all(['data/industrias.json', 'data/todas.json'].map(u => fetch(u, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null)));
+const sinTilde = t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const todas = (todasD?.ofertas || []).map(o => ({ ...o, b: sinTilde(`${o.t} ${o.e || ''}`) }));   // b: texto para buscar por palabras
+const extras = [...new Set(todas.map(o => o.c))].filter(c => porCod[c] && porCod[c].obj === undefined)
   .map(c => Object.assign(porCod[c], { obj: 0, vis: 0, delta: 0, flash: 0, fv: 0, puesto: Infinity }));
 const barras = [...ciudades, ...extras];   // lo que se dibuja (el ranking usa ciudades)
 // con filtro, cada barra muestra las ofertas de esa industria; kv reescala la altura para que la mayor se vea como Bogotá
 let tab = 'municipios';   // pestaña del ranking (la usa también el total de abajo)
-let filtroInd = null, filtroDepto = null, kv = 1;   // filtroDepto: con un departamento elegido solo se ven sus ciudades
+let filtroInd = null, filtroTxt = '', palabras = [], filtroDepto = null, kv = 1, conteo = {};   // filtroDepto: con un departamento elegido solo se ven sus ciudades
+// filtro de ofertas: sector y/o palabras clave (todas deben aparecer en el cargo o la empresa). conteo: ofertas que coinciden por ciudad
+const filtrando = () => !!(filtroInd || filtroTxt);
+const nCiudades = n => `${n} ${n === 1 ? 'ciudad' : 'ciudades'}`;
+const nombreFiltro = () => [filtroInd, filtroTxt && `“${filtroTxt}”`].filter(Boolean).join(' · ');
+const coincide = o => (!filtroInd || o.i === filtroInd) && palabras.every(p => o.b.includes(p));
+function fijarTexto(t) { filtroTxt = t; palabras = sinTilde(t).split(/\s+/).filter(Boolean); }
+function recontar() { conteo = {}; if (filtrando()) for (const o of todas) if (coincide(o)) conteo[o.c] = (conteo[o.c] || 0) + 1; }
 // foco: ciudad elegida > departamento > todo. Lo que queda fuera del foco baja a 0 y se oculta
 const visible = c => seleccion ? c === seleccion : !filtroDepto || c.d === filtroDepto;
-const valor = c => !visible(c) ? 0 : filtroInd ? (porIndustria[filtroInd]?.[c.c] || 0) : c.obj;
+const valor = c => !visible(c) ? 0 : filtrando() ? (conteo[c.c] || 0) : c.obj;
 const rankDeptos = () => Object.entries(datos.deptos).map(([c, n]) => ({ c, n: deptos[c], obj: n })).sort((a, b) => b.obj - a.obj);
 
 const ALTURA = 2200;                                   // metros por raíz de oferta: Bogotá ≈ 380 km a zoom país
@@ -310,7 +321,6 @@ const VISTA = {
   })(t0);
 }
 $('#total-txt').textContent = `en ${ciudades.length} ciudades de los ${fmt.format(municipios.length)} municipios`;
-$('#lista-municipios').append(...municipios.map(m => Object.assign(document.createElement('option'), { value: `${m.n}, ${deptos[m.d]}` })));
 
 // ---- capas propias en MapLibre: departamentos con brillo azul
 await new Promise(r => map.loaded() ? r() : map.once('load', r));
@@ -363,7 +373,7 @@ function tono(c, ahora) {
   return t ? mezcla(AZUL, c.delta > 0 ? SUBE : BAJA, t) : AZUL;
 }
 // con filtro, la etiqueta lleva el nombre: las cifras chicas solas no dicen de qué ciudad son
-const etiqueta = (c, ahora) => (filtroInd || filtroDepto || seleccion ? `${c.n.toUpperCase()} · ` : '') + fmt.format(Math.round(c.vis)) + (c.flash > ahora ? ` ${c.delta > 0 ? '▲' : '▼'}${fmt.format(Math.abs(c.delta))}` : '');
+const etiqueta = (c, ahora) => (filtrando() || filtroDepto || seleccion ? `${c.n.toUpperCase()} · ` : '') + fmt.format(Math.round(c.vis)) + (c.flash > ahora ? ` ${c.delta > 0 ? '▲' : '▼'}${fmt.format(Math.abs(c.delta))}` : '');
 
 const alto = c => altura(c.vis) * kv;
 function capas(ahora) {
@@ -372,7 +382,7 @@ function capas(ahora) {
   const acerca = Math.min(1, 2 ** (VISTA.zoom - map.getZoom()));      // al acercarse, columnas más delgadas y bajas
   const escala = crecer * Math.min(1.2, 2 ** (VISTA.zoom - map.getZoom()));
   // etiquetas: seleccionada, top 3 y las que acaban de cambiar (top 15), sin dos demasiado cerca
-  const candidatas = barras.filter(c => c.fv > .5).filter(c => c.c === sel || filtroInd || filtroDepto || c.puesto <= (movil ? 1 : 3) || (c.flash > ahora && c.puesto <= 15))
+  const candidatas = barras.filter(c => c.fv > .5).filter(c => c.c === sel || filtrando() || filtroDepto || c.puesto <= (movil ? 1 : 3) || (c.flash > ahora && c.puesto <= 15))
     .sort((a, b) => (b.c === sel) - (a.c === sel) || a.puesto - b.puesto);
   const { lng, lat } = map.getCenter();
   const vista = new deck.WebMercatorViewport({ width: innerWidth, height: innerHeight, longitude: lng, latitude: lat, zoom: map.getZoom(), pitch: map.getPitch(), bearing: map.getBearing() });
@@ -404,7 +414,7 @@ function capas(ahora) {
   const fase = c => (ahora / 2400 + (((c.lat * 5.1) % 1) + 1)) % 1;
   return [
     new deck.ScatterplotLayer({
-      id: 'pulso', data: barras.filter(c => (filtroInd || c.puesto <= 25) && c.fv > .5), stroked: true, filled: false, lineWidthUnits: 'pixels', getLineWidth: 1.4,
+      id: 'pulso', data: barras.filter(c => (filtrando() || c.puesto <= 25) && c.fv > .5), stroked: true, filled: false, lineWidthUnits: 'pixels', getLineWidth: 1.4,
       getPosition: c => [c.lon, c.lat, 0], getRadius: c => (4000 + fase(c) * 30000) * acerca,
       getLineColor: c => [...tono(c, ahora), 170 * (1 - fase(c))], parameters: aditivo,
       updateTriggers: { getRadius: ahora, getLineColor: ahora },
@@ -459,10 +469,10 @@ function capas(ahora) {
     c.vis += Math.abs(v - c.vis) < .5 ? v - c.vis : (v - c.vis) * .06;
     c.fv += ((v > 0 ? 1 : 0) - c.fv) * .08;
   }
-  const kMeta = filtroInd || filtroDepto || seleccion ? Math.sqrt(ciudades[0].obj / Math.max(1, ...barras.map(valor))) : 1;
+  const kMeta = filtrando() || filtroDepto || seleccion ? Math.sqrt(ciudades[0].obj / Math.max(1, ...barras.map(valor))) : 1;
   kv += (kMeta - kv) * .06;
   if (listo) {
-    $('#total-num').textContent = fmt.format(tab === 'industrias' && !filtroInd && !seleccion && !filtroDepto && industrias ? industrias.muestra : filtroDepto && !filtroInd && !seleccion ? datos.deptos[filtroDepto] || 0 : Math.round(barras.reduce((s, c) => s + c.vis, 0)));
+    $('#total-num').textContent = fmt.format(tab === 'industrias' && !filtrando() && !seleccion && !filtroDepto && industrias ? industrias.muestra : filtroDepto && !filtrando() && !seleccion ? datos.deptos[filtroDepto] || 0 : Math.round(barras.reduce((s, c) => s + c.vis, 0)));
     if (!sinMovimiento && !seleccion && !map.isMoving() && ahora - quieto > 5000) map.setBearing(map.getBearing() + .03);
   }
   overlay.setProps({ layers: capas(ahora) });
@@ -478,9 +488,9 @@ function fijar(c, n) {
 }
 
 // ---- intro
-await Promise.all([...precarga, document.fonts.load('500 13px "JetBrains Mono"')]);
+await document.fonts.load('500 13px "JetBrains Mono"');
 // el globo aparece cuando sus teselas cargaron (o a los 5 s, lo que pase primero) y desde ahí gira y late
-await Promise.race([new Promise(r => map.loaded() ? r() : map.once('idle', r)), espera(5000)]);
+await Promise.race([new Promise(r => map.loaded() ? r() : map.once('idle', r)), espera(2500)]);
 avance();
 document.body.classList.add('cargado');
 girar(); pulsar();
@@ -510,7 +520,7 @@ $('#saltar').onclick = () => { map.stop(); map.jumpTo(VISTA); aterrizar(); };
 
 if (sinMovimiento) { map.jumpTo(VISTA); aterrizar(); }
 else {
-  await espera(3800);
+  await espera(3000);
   if (!aterrizado) {
     girando = false;
     document.body.classList.add('volando');
@@ -521,24 +531,29 @@ else {
 }
 
 // ---- ranking
+function chip(texto, quitar) {
+  const b = Object.assign(document.createElement('button'), { className: 'filtro', textContent: `${texto}  ✕`, ariaLabel: `Quitar filtro ${texto}` });
+  b.onclick = quitar;
+  return b;
+}
 function pintarRanking(entra = false) {
   const ahora = performance.now();
+  recontar();
   $('#ranking').classList.toggle('entra', entra);
-  const nota = $('#nota-ranking');
-  nota.hidden = tab !== 'industrias';
-  if (tab === 'industrias') nota.textContent = !industrias ? 'Todavía no hay ofertas recolectadas.' : filtroInd
-    ? `Ofertas de ${filtroInd} en la muestra de ${industrias.ciudades} ciudades. Toca una ciudad para verlas.`
+  const nota = $('#nota-ranking'), ciudadesF = Object.keys(conteo).length;
+  nota.hidden = !(filtrando() || tab === 'industrias');
+  nota.textContent = filtrando()
+    ? (ciudadesF ? `${nCiudades(ciudadesF)} con ofertas de ${nombreFiltro()} entre las ${fmt.format(todas.length)} recolectadas. Toca una ciudad para ver las suyas.` : `No hay ofertas de ${nombreFiltro()} entre las ${fmt.format(todas.length)} recolectadas.`)
+    : !industrias ? 'Todavía no hay ofertas recolectadas.'
     : `Muestra de ${fmt.format(industrias.muestra)} ofertas recientes en ${industrias.ciudades} ciudades, clasificadas por el cargo. Toca una industria para filtrar el mapa.`;
-  const deIndustria = () => Object.entries(porIndustria[filtroInd] || {}).map(([c, obj]) => ({ ...porCod[c], obj, ciudad: porCod[c] })).sort((a, b) => b.obj - a.obj);
-  const items = (tab === 'municipios' ? ciudades : tab === 'deptos' ? rankDeptos()
-    : filtroInd ? deIndustria() : Object.entries(industrias?.industrias || {}).map(([n, obj]) => ({ n, obj, ind: n })));
-  $('#filtro-ind').replaceChildren();
+  // con filtro, la lista son las ciudades con ofertas que coinciden (en cualquier pestaña)
+  const items = filtrando() ? Object.entries(conteo).map(([c, obj]) => ({ ...porCod[c], obj, ciudad: porCod[c] })).sort((a, b) => b.obj - a.obj)
+    : tab === 'municipios' ? ciudades : tab === 'deptos' ? rankDeptos() : Object.entries(industrias?.industrias || {}).map(([n, obj]) => ({ n, obj, ind: n }));
+  $('#filtro-ind').replaceChildren(...[
+    filtroInd && chip(filtroInd, () => { filtroInd = null; refiltrar(); }),
+    filtroTxt && chip(`“${filtroTxt}”`, () => { fijarTexto(''); $('#buscar').value = ''; refiltrar(); }),
+  ].filter(Boolean));
   aplicarFoco();
-  if (tab === 'industrias' && filtroInd) {
-    const quitar = Object.assign(document.createElement('button'), { className: 'filtro', textContent: `${filtroInd}  ✕`, ariaLabel: 'Quitar filtro' });
-    quitar.onclick = () => { filtroInd = null; pintarRanking(true); if (seleccion) seleccionar(seleccion, false); };
-    $('#filtro-ind').append(quitar);
-  }
   $('#ranking').replaceChildren(...items.map((x, i) => {
     const b = document.createElement('button');
     const nom = document.createElement('span');
@@ -546,42 +561,46 @@ function pintarRanking(entra = false) {
     const num = Object.assign(document.createElement('span'), { className: 'num', textContent: fmt.format(x.obj) });
     if (x.flash > ahora) { num.className += x.delta > 0 ? ' sube' : ' baja'; num.textContent += x.delta > 0 ? ' ▲' : ' ▼'; }
     b.append(Object.assign(document.createElement('span'), { className: 'pos', textContent: String(i + 1).padStart(2, '0') }), nom, num);
-    b.onclick = () => tab === 'municipios' ? seleccionar(x) : tab === 'deptos' ? seleccionarDepto(x.c)
-      : x.ciudad ? seleccionar(x.ciudad) : elegirIndustria(x.ind);
+    b.onclick = () => x.ciudad ? seleccionar(x.ciudad) : tab === 'municipios' ? seleccionar(x) : tab === 'deptos' ? seleccionarDepto(x.c) : elegirIndustria(x.ind);
     const li = document.createElement('li'); li.style.animationDelay = Math.min(i, 12) * 40 + 'ms'; li.append(b); return li;
   }));
 }
 document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
   tab = b.dataset.tab;
-  if (tab !== 'industrias') filtroInd = null;   // el filtro vive solo en la pestaña de industrias
   document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  if (tab !== 'industrias' && filtroInd) { filtroInd = null; return refiltrar(); }   // el sector vive en su pestaña; la palabra clave se mantiene
   pintarRanking(true);
 });
 pintarRanking(true);
 
-// una industria nueva reemplaza la ciudad o el departamento elegidos (cierra la ficha y vuelve a la vista país)
-function elegirIndustria(ind) {
-  filtroInd = ind;
-  leyenda();
+// tras cambiar sector o palabra: panel derecho (ficha de la ciudad, resultados o leyenda) y ranking
+function refiltrar() {
+  recontar();
+  if (seleccion) seleccionar(seleccion, false); else if (filtrando()) resultados(); else leyenda();
   pintarRanking(true);
+}
+// un sector nuevo reemplaza la ciudad o el departamento elegidos y vuelve a la vista país
+function elegirIndustria(ind) {
+  filtroInd = ind; seleccion = null; filtroDepto = null;
+  refiltrar();
   if (map.getZoom() > VISTA.zoom + .3) map.flyTo({ ...VISTA, duration: 1600 });
 }
 function textosTotal() {
   const conDato = barras.filter(c => valor(c) > 0).length, donde = seleccion ? seleccion.n : filtroDepto && deptos[filtroDepto];
-  if (tab === 'industrias' && !filtroInd && !donde && industrias) {   // el ranking por sector suma la muestra, no el total publicado
+  if (tab === 'industrias' && !filtrando() && !donde && industrias) {   // el ranking por sector suma la muestra, no el total publicado
     $('#total .mono').textContent = 'Ofertas recolectadas por sector';
     $('#total-txt').textContent = `de ${fmt.format(ciudades.reduce((s, c) => s + c.obj, 0))} publicadas · en ${industrias.ciudades} ciudades`;
     return;
   }
-  $('#total .mono').textContent = [filtroInd ? `Ofertas de ${filtroInd}` : 'Ofertas publicadas', donde && `en ${donde}`].filter(Boolean).join(' ');
-  $('#total-txt').textContent = seleccion ? `${deptos[seleccion.d]}, Colombia${filtroInd ? ' · muestra recolectada' : ''}`
-    : filtroInd ? `en ${conDato} ciudades · muestra de ofertas recolectadas`
+  $('#total .mono').textContent = [filtrando() ? `Ofertas de ${nombreFiltro()}` : 'Ofertas publicadas', donde && `en ${donde}`].filter(Boolean).join(' ');
+  $('#total-txt').textContent = seleccion ? `${deptos[seleccion.d]}, Colombia${filtrando() ? ' · ofertas recolectadas' : ''}`
+    : filtrando() ? `en ${nCiudades(conDato)} · ofertas recolectadas`
     : filtroDepto ? `${conDato} ciudades con dato`
     : `en ${ciudades.length} ciudades de los ${fmt.format(municipios.length)} municipios`;
 }
 // oscurece los departamentos fuera del foco (ciudad elegida, departamento o industria) y ajusta el total
 function aplicarFoco() {
-  const luz = seleccion ? [seleccion.d] : filtroDepto ? [filtroDepto] : filtroInd ? [...new Set(barras.filter(c => valor(c) > 0).map(c => c.d))] : null;
+  const luz = seleccion ? [seleccion.d] : filtroDepto ? [filtroDepto] : filtrando() ? [...new Set(barras.filter(c => valor(c) > 0).map(c => c.d))] : null;
   map.setPaintProperty('deptos-zona', 'fill-opacity', luz ? ['case', ['in', ['get', 'c'], ['literal', luz]], 0, .55] : 0);
   textosTotal();
 }
@@ -591,6 +610,7 @@ function fijarDepto(cod) { filtroDepto = cod; aplicarFoco(); }
 function leyenda() {
   seleccion = null; quieto = performance.now();
   fijarDepto(null);
+  if (filtrando()) return resultados();
   $('#der').classList.remove('abierta');
   $('#der').innerHTML = `<details ${innerWidth > 1100 ? 'open' : ''}><summary class="mono"><span class="punto"></span>03 / Cómo leer el mapa</summary>
     <h3>Columna</h3>
@@ -618,12 +638,12 @@ function seleccionar(m, volar = true) {
     el('h2', { textContent: m.n }),
     el('div', { className: 'sub', textContent: `${deptos[m.d]}, Colombia · DIVIPOLA ${m.c}` }),
   );
-  if (filtroInd) {   // con filtro, la cifra grande es la de esa industria (como en el mapa y el ranking)
-    const deInd = Object.entries(porIndustria[filtroInd] || {}).sort((a, b) => b[1] - a[1]);
-    const n = porIndustria[filtroInd]?.[m.c] || 0, puesto = deInd.findIndex(([c]) => c === m.c) + 1;
+  if (filtrando()) {   // con filtro, la cifra grande es la de ese filtro (como en el mapa y el ranking)
+    const deFiltro = Object.entries(conteo).sort((a, b) => b[1] - a[1]);
+    const n = conteo[m.c] || 0, puesto = deFiltro.findIndex(([c]) => c === m.c) + 1;
     f.append(
       el('div', { className: 'big', textContent: fmt.format(n) }),
-      el('div', { textContent: n ? `ofertas de ${filtroInd} en la muestra · puesto ${puesto} de ${deInd.length} ciudades` : `Sin ofertas de ${filtroInd} en la muestra` }),
+      el('div', { textContent: n ? `ofertas de ${nombreFiltro()} · puesto ${puesto} de ${nCiudades(deFiltro.length)}` : `Sin ofertas de ${nombreFiltro()}` }),
       el('div', { className: 'nota', textContent: m.obj ? `${fmt.format(m.obj)} ofertas en total en la ciudad` : '' }),
     );
   } else f.append(
@@ -631,10 +651,10 @@ function seleccionar(m, volar = true) {
     el('div', { textContent: m.obj ? `ofertas · puesto ${m.puesto} de ${ciudades.length} · ${(m.obj / total * 100).toFixed(1).replace('.', ',')} % del total` : 'Sin dato en este corte' }),
   );
   f.append(
-    el('h3', { textContent: filtroInd ? `Ofertas de ${filtroInd}` : 'Ofertas' }),
+    el('h3', { textContent: filtrando() ? `Ofertas de ${nombreFiltro()}` : 'Ofertas' }),
     el('div', { className: 'lista-ofertas' }),
   );
-  pintarOfertas(m, f.querySelector('.lista-ofertas'));
+  pintarLista(f.querySelector('.lista-ofertas'), todas.filter(o => o.c === m.c && coincide(o)), m);
   const delDepto = ciudades.filter(c => c.d === m.d).slice(0, 5);
   if (delDepto.length) {
     f.append(el('h3', { textContent: `${deptos[m.d]}${datos.deptos[m.d] ? ' · ' + fmt.format(datos.deptos[m.d]) + ' ofertas' : ''}` }));
@@ -649,22 +669,16 @@ function seleccionar(m, volar = true) {
   }
   der.replaceChildren(f);
 }
-// ofertas de una ciudad (las trae el recolector por turnos); el texto es externo: solo textContent y enlaces http(s)
-const cacheOfertas = new Map();
+// lista de ofertas paginada: de una ciudad (m) o de todas las que coinciden con el filtro (sin m: cada oferta lleva su ciudad).
+// El texto es externo: solo textContent y enlaces http(s)
 const POR_PAGINA = 10;
-async function pintarOfertas(m, caja, pagina = 0) {
+function pintarLista(caja, lista, m, pagina = 0) {
   const el = (tag, props) => Object.assign(document.createElement(tag), props);
-  if (!cacheOfertas.has(m.c)) cacheOfertas.set(m.c, fetch(`data/ofertas/${m.c}.json`, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null));
-  const d = await cacheOfertas.get(m.c);
-  if (seleccion !== m) return;   // el usuario ya abrió otra ciudad
-  const lista = (d?.ofertas || []).filter(o => !filtroInd || o.i === filtroInd);
   if (!lista.length) {
-    caja.replaceChildren(el('div', { className: 'vacio', textContent: m.obj
-      ? (d?.ofertas?.length ? `No hay ofertas de ${filtroInd} en ${m.n} en la muestra.` : `Las ofertas de ${m.n} llegan en la próxima actualización (6 a. m., 12 m. y 6 p. m.).`)
-      : `No hay ofertas de ${m.n} en este corte.` }));
+    caja.replaceChildren(el('div', { className: 'vacio', textContent: filtrando() ? `No hay ofertas de ${nombreFiltro()}${m ? ` en ${m.n}` : ''}.`
+      : m?.obj ? `Las ofertas de ${m.n} llegan en la próxima actualización (6 a. m. y 6 p. m.).` : `No hay ofertas de ${m?.n || 'este filtro'} en este corte.` }));
     return;
   }
-  // paginador: 10 por página sobre las ofertas guardadas (hasta 200 por ciudad); el total publicado se ve en la fuente
   const total = Math.ceil(lista.length / POR_PAGINA);
   pagina = Math.max(0, Math.min(pagina, total - 1));
   const ol = el('ol', { className: 'ofertas' });
@@ -672,22 +686,45 @@ async function pintarOfertas(m, caja, pagina = 0) {
     const li = el('li', { className: 'oferta' });
     li.style.animationDelay = k * 40 + 'ms';
     const pie = el('div', { className: 'pie' });
+    if (!m && porCod[o.c]) pie.append(el('button', { className: 'chip chip-ciudad', textContent: porCod[o.c].n, title: `Ver ${porCod[o.c].n}`, onclick: () => seleccionar(porCod[o.c]) }));
     if (o.p) pie.append(el('span', { className: 'chip', textContent: o.p }));
-    if (o.i && o.i !== 'Otros') pie.append(el('span', { className: 'chip', textContent: o.i }));
+    if (o.i && o.i !== 'Otros' && o.i !== filtroInd) pie.append(el('span', { className: 'chip', textContent: o.i }));
     if (/^https?:\/\//.test(o.u)) pie.append(el('a', { className: 'postular', href: o.u, target: '_blank', rel: 'noopener noreferrer', textContent: 'Postularme ↗' }));
     li.append(el('div', { className: 'cargo', textContent: o.t }), el('div', { className: 'sub', textContent: [o.e, o.h, o.s].filter(Boolean).join(' · ') }), pie);
     ol.append(li);
   });
-  const ir = n => () => { pintarOfertas(m, caja, n); $('#der').scrollTop = caja.offsetTop - 60; };
+  const ir = n => () => { pintarLista(caja, lista, m, n); $('#der').scrollTop = caja.offsetTop - 60; };
   const paginador = total > 1 && el('div', { className: 'paginador' });
   if (paginador) paginador.append(
     el('button', { textContent: '‹ Anterior', disabled: pagina === 0, onclick: ir(pagina - 1) }),
     el('span', { className: 'mono', textContent: `${pagina + 1} / ${total}` }),
     el('button', { textContent: 'Siguiente ›', disabled: pagina === total - 1, onclick: ir(pagina + 1) }));
-  const resumen = el('div', { className: 'nota', textContent: `Mostrando ${fmt.format(lista.length)} ofertas recientes${filtroInd ? ` de ${filtroInd}` : m.obj ? ` de ${fmt.format(m.obj)} publicadas` : ''}` });
-  const enlace = !filtroInd && datos.enlaces?.[m.c] && el('a', { className: 'ver-todas', href: datos.enlaces[m.c], target: '_blank', rel: 'noopener noreferrer', textContent: `Ver las ${fmt.format(m.obj)} en Computrabajo ↗` });
-  const horas = Math.round((Date.now() - Date.parse(d.actualizado)) / 36e5);
-  caja.replaceChildren(...[resumen, ol, paginador, enlace].filter(Boolean), el('div', { className: 'nota', textContent: `${filtroInd ? `Filtro: ${filtroInd} · ` : ''}Fuente: ${d.fuente} · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}` }));
+  const resumen = el('div', { className: 'nota', textContent: `Mostrando ${fmt.format(lista.length)} ofertas recientes${filtrando() ? ` de ${nombreFiltro()}` : m?.obj ? ` de ${fmt.format(m.obj)} publicadas` : ''}` });
+  const enlace = m && !filtrando() && datos.enlaces?.[m.c] && el('a', { className: 'ver-todas', href: datos.enlaces[m.c], target: '_blank', rel: 'noopener noreferrer', textContent: `Ver las ${fmt.format(m.obj)} en Computrabajo ↗` });
+  const horas = Math.round((Date.now() - Date.parse(todasD?.actualizado)) / 36e5);
+  const cuando = isNaN(horas) ? '' : ` · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}`;
+  caja.replaceChildren(...[resumen, ol, paginador, enlace].filter(Boolean), el('div', { className: 'nota', textContent: `Fuente: ${todasD?.fuente || 'JSearch'}${cuando}` }));
+}
+
+// panel derecho con un filtro activo y ninguna ciudad elegida: todas las ofertas que coinciden, de todas las ciudades
+function resultados() {
+  const el = (tag, props) => Object.assign(document.createElement(tag), props);
+  const lista = todas.filter(coincide);
+  const f = el('div', { className: 'ficha' });
+  const caja = el('div', { className: 'lista-ofertas' });
+  f.append(
+    el('button', { className: 'cerrar', textContent: '×', ariaLabel: 'Quitar filtros', onclick: () => { filtroInd = null; fijarTexto(''); $('#buscar').value = ''; refiltrar(); } }),
+    el('div', { className: 'mono', innerHTML: '<span class="punto"></span>Resultados' }),
+    el('h2', { textContent: filtroInd || `“${filtroTxt}”` }),
+    el('div', { className: 'sub', textContent: filtroInd && filtroTxt ? `Con “${filtroTxt}”` : 'En toda Colombia' }),
+    el('div', { className: 'big', textContent: fmt.format(lista.length) }),
+    el('div', { textContent: `ofertas en ${nCiudades(Object.keys(conteo).length)} · toca una ciudad para ver solo las suyas` }),
+    el('h3', { textContent: 'Ofertas' }),
+    caja,
+  );
+  pintarLista(caja, lista, null);
+  $('#der').classList.add('abierta');
+  $('#der').replaceChildren(f);
 }
 
 function seleccionarDepto(cod) {
@@ -723,11 +760,21 @@ function seleccionarDepto(cod) {
   $('#der').replaceChildren(fi);
 }
 
-$('#buscar').addEventListener('change', e => {
-  const v = e.target.value.trim().toLowerCase();
-  const m = municipios.find(m => `${m.n}, ${deptos[m.d]}`.toLowerCase() === v) || municipios.find(m => m.n.toLowerCase() === v);
-  if (m) { seleccionar(m); e.target.blur(); }
-});
+// buscador por palabras clave (cargo o empresa). Si nada coincide y es el nombre de un municipio, abre ese municipio
+let pausaBusqueda;
+$('#buscar').addEventListener('input', e => { clearTimeout(pausaBusqueda); pausaBusqueda = setTimeout(() => buscar(e.target.value), 350); });
+function buscar(v) {
+  v = v.trim();
+  if (v === filtroTxt) return;
+  fijarTexto(v);
+  if (v && !todas.some(coincide)) {
+    const m = municipios.find(m => sinTilde(m.n) === sinTilde(v));
+    if (m) { fijarTexto(''); $('#buscar').value = ''; recontar(); pintarRanking(true); return seleccionar(porCod[m.c]); }
+  }
+  seleccion = null; filtroDepto = null;
+  refiltrar();
+  if (v && map.getZoom() > VISTA.zoom + .3) map.flyTo({ ...VISTA, duration: 1600 });
+}
 $('#vista-pais').onclick = () => { leyenda(); map.flyTo({ ...VISTA, duration: 1800 }); };
 leyenda();
 

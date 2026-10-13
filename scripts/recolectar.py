@@ -1,16 +1,17 @@
 """Recolector: trae ofertas recientes por ciudad desde JSearch (RapidAPI, agrega Google for Jobs) y las guarda en data/.
 
 Plan Pro de JSearch (10.000 consultas al mes; cada consulta extra se cobra): 2 corridas al día, y en cada una
-- 1 búsqueda por cada sector en todo el país (18, incluidos los de agencia); cada oferta va a su ciudad por el lugar que trae
+- 1 búsqueda por cada sector en todo el país (18, incluidos los de agencia), de 3 páginas (30 ofertas); cada oferta va a su ciudad por el lugar que trae
   ("Bogotá • a través de Computrabajo").
 - 1 búsqueda general por cada ciudad de la línea base (45); las grandes piden más páginas (cada página = 1 consulta,
   10 ofertas): Bogotá 5, Medellín y Cali 3, Barranquilla y Bucaramanga 2.
-73 consultas por corrida ≈ 4.500 al mes. Cada ciudad guarda hasta 200 ofertas de los últimos 30 días. Si en el mes quedan menos de RESERVA consultas, se detiene (sin cobros extra).
+109 consultas por corrida ≈ 6.800 al mes. Cada ciudad guarda hasta 200 ofertas de los últimos 30 días. Si en el mes quedan menos de RESERVA consultas, se detiene (sin cobros extra).
 Cada consulta trae hasta 10 ofertas con enlace directo al portal. Cada ciudad guarda sus 30 más recientes (máx. 30 días).
 
 Escribe:
 - data/ofertas/<divipola>.json  ofertas de cada ciudad (las nuevas se suman a las anteriores)
 - data/industrias.json          conteo por industria sobre todas las ofertas guardadas
+- data/todas.json               todas las ofertas guardadas con su ciudad (el buscador por palabras y los filtros de la página)
 - data/recoleccion.json         turno siguiente y registro de las últimas corridas
 
 Uso: python3 -I scripts/recolectar.py          (llave en RAPIDAPI_KEY o en .env)
@@ -31,7 +32,8 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 DATA = RAIZ / "data"
 CIUDADES_POR_CORRIDA = 45     # todas (con el plan gratis eran 1 o 2 por turnos)
-PAGINAS = ((20000, 5), (5000, 3), (1500, 2))   # (ofertas en la línea base desde, páginas): más ofertas para las ciudades grandes
+PAGINAS = ((20000, 5), (5000, 3), (1500, 2))
+PAGINAS_SECTOR = 3            # cada búsqueda por sector trae 30 ofertas (3 consultas)   # (ofertas en la línea base desde, páginas): más ofertas para las ciudades grandes
 CORRIDAS_AL_DIA = 2           # 6 a. m. y 6 p. m. (el horario está en .github/workflows/recolectar.yml)
 RESERVA = 300                 # consultas del mes que nunca se gastan: protege de cobros por exceso
 PAUSA = 0.3                   # segundos entre consultas (límite del plan: 5 por segundo)
@@ -221,8 +223,8 @@ def consultar(clave, texto, num_paginas=1):
 
 
 def resumir_industrias():
-    """Reclasifica lo guardado (por si cambiaron las reglas) y cuenta por industria."""
-    conteo, muestra, ciudades, por_ciudad = {}, 0, 0, {}
+    """Reclasifica lo guardado (por si cambiaron las reglas), cuenta por industria y escribe data/todas.json."""
+    conteo, muestra, ciudades, por_ciudad, todas = {}, 0, 0, {}, []
     for f in (DATA / "ofertas").glob("*.json"):
         d = json.loads(f.read_text())
         ofertas = d["ofertas"]
@@ -234,13 +236,16 @@ def resumir_industrias():
                 o["i"] = o["q"]
             cod = por_ciudad.setdefault(o["i"], {})
             cod[f.stem] = cod.get(f.stem, 0) + 1
+            todas.append({**{k: o[k] for k in ("t", "e", "p", "u", "h", "s", "i") if o.get(k)}, "c": f.stem})
         f.write_text(json.dumps(d, ensure_ascii=False, indent=1))
         ciudades += bool(ofertas)
         for o in ofertas:
             conteo[o["i"]] = conteo.get(o["i"], 0) + 1
             muestra += 1
-    todas = list(dict.fromkeys(n for n, _ in INDUSTRIAS)) + ["Otros"]
-    orden = {n: conteo.get(n, 0) for n in sorted(todas, key=lambda n: (-conteo.get(n, 0), n == "Otros"))}
+    ahora = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    (DATA / "todas.json").write_text(json.dumps({"actualizado": ahora, "fuente": "JSearch (Google for Jobs)", "ofertas": todas}, ensure_ascii=False, separators=(",", ":")))
+    nombres = list(dict.fromkeys(n for n, _ in INDUSTRIAS)) + ["Otros"]
+    orden = {n: conteo.get(n, 0) for n in sorted(nombres, key=lambda n: (-conteo.get(n, 0), n == "Otros"))}
     return {"muestra": muestra, "ciudades": ciudades, "industrias": orden, "por_ciudad": por_ciudad}
 
 
@@ -267,7 +272,7 @@ def main():
             break
         time.sleep(PAUSA)
         try:
-            cuerpo, restantes, renueva = consultar(clave, texto, 1 if tipo == "industria" else paginas(base["ciudades"][x]))
+            cuerpo, restantes, renueva = consultar(clave, texto, PAGINAS_SECTOR if tipo == "industria" else paginas(base["ciudades"][x]))
         except urllib.error.HTTPError as e:
             errores.append(f"{nombre}: HTTP {e.code}")
             if e.code in (401, 403, 429):   # llave inválida o cupo agotado: no seguir gastando
@@ -296,7 +301,7 @@ def main():
     n = int(restantes) if restantes is not None else None
     nuevos, estado["avisos"] = avisos_pendientes(n, estado.get("avisos", {}))
     if nuevos:
-        dias = n // (sum(paginas(v) for v in base["ciudades"].values()) + len(BUSQUEDAS)) // CORRIDAS_AL_DIA
+        dias = n // (sum(paginas(v) for v in base["ciudades"].values()) + len(BUSQUEDAS) * PAGINAS_SECTOR) // CORRIDAS_AL_DIA
         cuando = datetime.fromtimestamp(datetime.now(timezone.utc).timestamp() + int(renueva or 0), timezone.utc).strftime("%Y-%m-%d") if renueva else "sin dato"
         avisar(f"Mapa del Empleo: quedan {n} consultas de JSearch este mes",
                f"Al ritmo actual ({CORRIDAS_AL_DIA} corridas al día) alcanzan para unos {dias} días. El cupo se renueva el {cuando}.\n"
