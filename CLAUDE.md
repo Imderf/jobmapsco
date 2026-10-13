@@ -17,12 +17,15 @@ Config `mapa-empleo` en `.claude/launch.json` del vault: `python3 -m http.server
 
 ## Fuentes de ofertas (decisión 2026-10-13)
 - **Jooble API**: devuelve `totalCount` por consulta (probado). La llave actual (en `.env`, `JOOBLE_KEY`) es de la base de EE. UU.: Colombia devuelve 0 y `co.jooble.org/api` responde 403. Hay que pedir a Jooble acceso a Colombia. Cupo por defecto: 500 consultas (van 4).
-- **JSearch en RapidAPI**: enlaces directos a la fuente. **Empezar con el plan gratis** (200 consultas/mes, ~6/día: rotar pocas ciudades al día); el plan de pago entra cuando todo esté al 100 %.
+- **JSearch en RapidAPI** (OpenWeb Ninja, endpoint `GET /search-v2`, `country=co`; llave en `.env` como `RAPIDAPI_KEY`; probado 2026-10-13: 10 ofertas por página con `job_apply_link` a Computrabajo, LinkedIn, elempleo, Magneto, Indeed, BeBee; sin total por ciudad; `job_city` suele venir vacío): enlaces directos a la fuente. **Empezar con el plan gratis** (200 consultas/mes, ~6/día: rotar pocas ciudades al día); el plan de pago entra cuando todo esté al 100 %.
 - No leer Computrabajo ni LinkedIn directamente (términos de uso). `data/ofertas.json` hoy es una línea base manual de Computrabajo del 2026-10-13, solo para diseño.
 
 ## Reglas
 - Las llaves de API van solo como secretos de GitHub Actions. El navegador nunca llama a las APIs.
 - Texto externo (ofertas) siempre con `textContent`, nunca `innerHTML`. Enlaces externos con `rel="noopener noreferrer"`.
+- Entrada (referencias: globos de GitHub/Stripe y COBE): globo oscuro de puntos (`data/puntos.json`: tierra cada 1,2°, Colombia con la misma rejilla en azul), pulsos tipo radar en las ciudades, título letra por letra, contador de ofertas, marco HUD con línea de escaneo. Los puntos se vuelven mapa real entre `ZA` y `ZB` (relativos al zoom del globo `Z0`, para cualquier pantalla). Giro y pulsos arrancan después de cargar: con animación corriendo el mapa nunca llega a `idle`.
+- La vista de Colombia es plana (mercator) con deck.gl. Probado y descartado (2026-10-13): dejarla sobre la curva del globo con barras `fill-extrusion` y terreno; el mapa se quedó sin dibujar. Imderf pidió volver a la vista plana.
+- Clic en un departamento (capa invisible `deptos-zona`, si no se tocó una barra) o en el ranking de departamentos: zoom a su área y ficha con sus ciudades.
 - Intro: globo puro (`vertical-perspective`) todo el vuelo; la mezcla globo/plano deformaba los bordes. Al aterrizar pasa a `mercator` y recién ahí se agrega el overlay de deck.gl (con otra proyección lanza `Unsupported projection`).
 - Fuera de Colombia (atenuado al 68 %, no oculto; vecinos visibles sin relieve): capa `fuera` (`data/mascara.geo.json`, mundo con Colombia recortada, la genera el script) que se oscurece desde que arranca el vuelo. La sombra del relieve tiene `bounds` de Colombia; el terreno 3D se activa al aterrizar (con `bounds` en el terreno quedan huecos negros en el globo).
 - Después de aterrizar: zoom mínimo = ver Colombia completa y `maxBounds` sobre Colombia.

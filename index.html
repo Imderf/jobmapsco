@@ -35,12 +35,24 @@ body.cargado #mapa{opacity:1}   /* el globo aparece ya con agua y relieve, no a 
 /* intro */
 #intro{position:fixed;top:52px;left:0;right:0;z-index:6;text-align:center;padding:0 20px;pointer-events:none;transition:opacity .9s;text-shadow:0 4px 30px #04060c}
 #intro h1{font:800 clamp(40px,6.4vw,96px)/.95 'Inter Tight',sans-serif;letter-spacing:-.035em;margin:10px 0 12px}
-#intro h1 span{display:inline-block;animation:sube 1s cubic-bezier(.2,.7,.2,1) both}
-#intro h1 span+span{color:var(--blue);animation-delay:.15s}
+#intro h1>span{display:inline-block}
+#intro h1>span+span{color:var(--blue)}
 #intro p{font-size:16px;color:#c5cce0;max-width:460px;margin:0 auto;animation:sube 1s .3s both}
 #intro .mono{color:var(--blue2);animation:sube 1s both}
 @keyframes sube{from{opacity:0;transform:translateY(24px)}}
-#carga{margin:20px auto 0;width:220px}
+#carga{margin:14px auto 0;width:220px}
+.letra{display:inline-block;animation:letra .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 32ms + .2s)}
+@keyframes letra{from{opacity:0;transform:translateY(45%) rotateX(-70deg);filter:blur(8px)}}
+#contador{margin-top:18px;font:500 15px var(--mono);color:var(--muted);letter-spacing:.06em;animation:sube 1s .6s both}
+#contador b{font-weight:500;color:var(--blue2);font-size:22px;margin-right:6px}
+#marco{position:fixed;inset:44px 20px 40px;z-index:2;pointer-events:none;transition:opacity .8s;
+  background:linear-gradient(var(--blue),var(--blue)) 0 0/18px 1px,linear-gradient(var(--blue),var(--blue)) 0 0/1px 18px,
+  linear-gradient(var(--blue),var(--blue)) 100% 0/18px 1px,linear-gradient(var(--blue),var(--blue)) 100% 0/1px 18px,
+  linear-gradient(var(--blue),var(--blue)) 0 100%/18px 1px,linear-gradient(var(--blue),var(--blue)) 0 100%/1px 18px,
+  linear-gradient(var(--blue),var(--blue)) 100% 100%/18px 1px,linear-gradient(var(--blue),var(--blue)) 100% 100%/1px 18px;background-repeat:no-repeat}
+#marco::after{content:'';position:absolute;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(47,107,255,.07) 70%,rgba(107,149,255,.35) 99%,transparent);animation:escaneo 5s linear infinite}
+@keyframes escaneo{from{top:-120px}to{top:100%}}
+body.volando #marco{opacity:0}
 #carga-pista{height:2px;background:var(--line);margin-top:8px}
 #carga-barra{height:2px;width:0;background:var(--blue);box-shadow:0 0 8px var(--blue);transition:width .3s}
 #saltar{position:fixed;right:20px;bottom:44px;z-index:7;background:none;border:1px solid var(--line);border-radius:6px;padding:7px 12px;cursor:pointer;color:var(--muted)}
@@ -122,11 +134,13 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
   <div class="mono">Colombia · ofertas de trabajo publicadas</div>
   <h1><span>Mapa del</span> <span>Empleo.</span></h1>
   <p>Dónde hay trabajo en Colombia, ciudad por ciudad, y hacia dónde se mueve.</p>
+  <div id="contador" aria-live="polite"><b id="contador-num">0</b>ofertas en <span id="contador-ciudades">0</span> ciudades</div>
   <div id="carga" class="mono" aria-live="polite">
     <span>Cargando relieve · <span id="carga-num">0 %</span></span>
     <div id="carga-pista"><div id="carga-barra"></div></div>
   </div>
 </section>
+<div id="marco" aria-hidden="true"></div>
 <div id="pais" aria-hidden="true">COLOMBIA</div>
 <button id="saltar" class="mono">Saltar intro →</button>
 
@@ -157,6 +171,11 @@ const fmt = new Intl.NumberFormat('es-CO');
 const $ = s => document.querySelector(s);
 const espera = ms => new Promise(r => setTimeout(r, ms));
 const DEMO = new URLSearchParams(location.search).has('demo');
+// título letra por letra
+document.querySelectorAll('#intro h1 span').forEach((sp, k, todos) => {
+  const previas = [...todos].slice(0, k).reduce((n, x) => n + x.textContent.length, 0);
+  sp.replaceChildren(...[...sp.textContent].map((ch, i) => Object.assign(document.createElement('span'), { className: 'letra', textContent: ch === ' ' ? '\u00a0' : ch, style: `--i:${previas + i}` })));
+});
 const movil = innerWidth <= 760;
 const sinMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const AZUL = [47, 107, 255], SUBE = [56, 224, 160], BAJA = [255, 92, 108];
@@ -186,16 +205,18 @@ for (const z of [4, 5, 6]) {
   const [x0, y0] = tesela(COLOMBIA[0], COLOMBIA[3], z), [x1, y1] = tesela(COLOMBIA[2], COLOMBIA[1], z);
   for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) urlsDem.push(DEM.replace('{z}', z).replace('{x}', x).replace('{y}', y));
 }
-const archivos = ['data/departamentos.geo.json', 'data/municipios.json', 'data/ofertas.json', 'data/mascara.geo.json'];
+const archivos = ['data/departamentos.geo.json', 'data/municipios.json', 'data/ofertas.json', 'data/mascara.geo.json', 'data/puntos.json'];
 let hechos = 0;
 const totalPasos = archivos.length + urlsDem.length + 1;
 const avance = () => { const p = Math.round(++hechos / totalPasos * 100); $('#carga-num').textContent = p + ' %'; $('#carga-barra').style.width = p + '%'; };
 
+// globo de la entrada: radio ≈ 40 % del lado corto (a zoom z el radio mide ~81,5·2^z px).
+// De los puntos al mapa real entre ZA y ZB: relativo a Z0 para que funcione en cualquier pantalla
+const Z0 = Math.log2(.4 * Math.min(innerWidth, innerHeight) / 81.5), ZA = Z0 + .3, ZB = Z0 + 1.2;
 // ---- mapa: globo que pasa a plano al acercarse, relieve SRTM, agua y ríos de OpenStreetMap
 const map = new maplibregl.Map({
   container: 'mapa',
-  // globo grande: radio ≈ 40 % del lado corto (a zoom z el radio mide ~81,5·2^z px)
-  center: [-96, 6], zoom: Math.log2(.4 * Math.min(innerWidth, innerHeight) / 81.5),
+  center: [-96, 6], zoom: Z0,
   attributionControl: false,   // los créditos van en el pie del HUD
   maxPitch: 75,
   style: {
@@ -210,21 +231,22 @@ const map = new maplibregl.Map({
       sombra: { type: 'raster-dem', tiles: [DEM], bounds: COLOMBIA, encoding: 'terrarium', tileSize: 256, maxzoom: 11 },
     },
     layers: [
-      { id: 'tierra', type: 'background', paint: { 'background-color': '#d7d1be' } },
-      { id: 'relieve', type: 'hillshade', source: 'sombra', paint: { 'hillshade-exaggeration': .6, 'hillshade-shadow-color': '#39405a', 'hillshade-highlight-color': '#fffbef', 'hillshade-accent-color': '#5b6280' } },
-      { id: 'agua', type: 'fill', source: 'osm', 'source-layer': 'water', paint: { 'fill-color': '#1b48ad' } },
-      { id: 'rios', type: 'line', source: 'osm', 'source-layer': 'waterway', paint: { 'line-color': '#3d7bff', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, .3, 9, 1.6] } },
-      { id: 'fronteras', type: 'line', source: 'osm', 'source-layer': 'boundary', filter: ['all', ['==', ['get', 'admin_level'], 2], ['!=', ['get', 'maritime'], 1]], paint: { 'line-color': '#262b3b', 'line-width': 1.2 } },
+      // lejos: globo oscuro (los continentes son puntos); cerca: mapa real con relieve. Cambia entre ZA y ZB
+      { id: 'tierra', type: 'background', paint: { 'background-color': ['interpolate', ['linear'], ['zoom'], ZA, '#0a1122', ZB, '#d7d1be'] } },
+      { id: 'relieve', type: 'hillshade', source: 'sombra', paint: { 'hillshade-exaggeration': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, .6], 'hillshade-shadow-color': '#39405a', 'hillshade-highlight-color': '#fffbef', 'hillshade-accent-color': '#5b6280' } },
+      { id: 'agua', type: 'fill', source: 'osm', 'source-layer': 'water', paint: { 'fill-color': ['interpolate', ['linear'], ['zoom'], ZA, '#0a1122', ZB, '#1b48ad'] } },
+      { id: 'rios', type: 'line', source: 'osm', 'source-layer': 'waterway', paint: { 'line-color': '#3d7bff', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, .3, 9, 1.6], 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZB, 0, ZB + 1, 1] } },
+      { id: 'fronteras', type: 'line', source: 'osm', 'source-layer': 'boundary', filter: ['all', ['==', ['get', 'admin_level'], 2], ['!=', ['get', 'maritime'], 1]], paint: { 'line-color': '#262b3b', 'line-width': 1.2, 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, 1] } },
     ],
   },
 });
 map.setPadding({ top: innerHeight * .26, left: 0, right: 0, bottom: 0 });   // baja el globo y deja el título arriba
 
 let girando = true;
-(function girar() { if (!girando) return; const c = map.getCenter(); map.setCenter([c.lng + .035, c.lat]); requestAnimationFrame(girar); })();
+function girar() { if (!girando) return; const c = map.getCenter(); map.setCenter([c.lng + .035, c.lat]); requestAnimationFrame(girar); }
 
 const precarga = urlsDem.map(u => fetch(u).then(avance, avance));
-const [geo, { deptos, municipios }, datos, mascara] = await Promise.all(archivos.map(u => fetch(u, { cache: 'no-cache' }).then(r => { avance(); return r.json(); })));
+const [geo, { deptos, municipios }, datos, mascara, puntos] = await Promise.all(archivos.map(u => fetch(u, { cache: 'no-cache' }).then(r => { avance(); return r.json(); })));
 
 // ---- modelo: cada ciudad tiene su valor objetivo (obj) y el que se dibuja (vis), que lo persigue
 const porCod = Object.fromEntries(municipios.map(m => [m.c, m]));
@@ -245,6 +267,16 @@ const VISTA = {
   pitch: 55, bearing: -14, padding: { left: 0, top: 0, right: 0, bottom: 0 },
 };
 
+// contador de la entrada: sube hasta el total del corte
+{
+  const t0 = performance.now(), meta = ciudades.reduce((s, c) => s + c.obj, 0);
+  $('#contador-ciudades').textContent = ciudades.length;
+  (function contar(t) {
+    const p = Math.min(1, (t - t0) / 2200);
+    $('#contador-num').textContent = fmt.format(Math.round(meta * (1 - Math.pow(1 - p, 4))));
+    if (p < 1) requestAnimationFrame(contar);
+  })(t0);
+}
 $('#total-txt').textContent = `en ${ciudades.length} ciudades de los ${fmt.format(municipios.length)} municipios`;
 $('#corte').textContent = `Fuente: ${datos.fuente} · corte ${datos.actualizado}`;
 $('#lista-municipios').append(...municipios.map(m => Object.assign(document.createElement('option'), { value: `${m.n}, ${deptos[m.d]}` })));
@@ -256,8 +288,28 @@ map.addSource('mascara', { type: 'geojson', data: mascara });
 const OPACO = .68;   // vecinos atenuados pero visibles (sin relieve: la sombra solo cubre Colombia)
 // fuera de Colombia: plano y oscuro (tapa relieve, agua, ríos y fronteras); se enciende al aterrizar
 map.addLayer({ id: 'fuera', type: 'fill', source: 'mascara', paint: { 'fill-color': '#070a14', 'fill-opacity': 0, 'fill-opacity-transition': { duration: 2600 } } });
-map.addLayer({ id: 'deptos-brillo', type: 'line', source: 'deptos', paint: { 'line-color': '#2f6bff', 'line-width': 6, 'line-blur': 5, 'line-opacity': .4 } });
-map.addLayer({ id: 'deptos-linea', type: 'line', source: 'deptos', paint: { 'line-color': '#4f86ff', 'line-width': 1.3 } });
+map.addLayer({ id: 'deptos-zona', type: 'fill', source: 'deptos', paint: { 'fill-color': '#000', 'fill-opacity': 0 } });
+map.addLayer({ id: 'deptos-brillo', type: 'line', source: 'deptos', paint: { 'line-color': '#2f6bff', 'line-width': 6, 'line-blur': 5, 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, .4] } });
+map.addLayer({ id: 'deptos-linea', type: 'line', source: 'deptos', paint: { 'line-color': '#4f86ff', 'line-width': 1.3, 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, 1] } });
+
+// globo de puntos (entrada): continentes en puntos claros, Colombia en puntos azules; se desvanecen al acercarse
+const enPuntos = a => ({ type: 'FeatureCollection', features: Array.from({ length: a.length / 2 }, (_, i) => ({ type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: [a[2 * i], a[2 * i + 1]] } })) });
+const desvanece = (desde, hasta) => ['interpolate', ['linear'], ['zoom'], ZA, desde, ZB, hasta];
+map.addSource('puntos-mundo', { type: 'geojson', data: enPuntos(puntos.t) });
+map.addSource('puntos-co', { type: 'geojson', data: enPuntos(puntos.co) });
+map.addLayer({ id: 'puntos-mundo', type: 'circle', source: 'puntos-mundo', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, .7, 2, 1.7, 4, 3], 'circle-color': '#b9c4e6', 'circle-opacity': desvanece(.7, 0), 'circle-pitch-alignment': 'map' } });
+map.addLayer({ id: 'puntos-co', type: 'circle', source: 'puntos-co', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, .7, 2, 1.7, 4, 3], 'circle-color': '#5b8cff', 'circle-opacity': desvanece(1, 0), 'circle-pitch-alignment': 'map' } });
+// pulsos tipo radar en cada ciudad con ofertas (tamaño según ofertas)
+map.addSource('pulsos', { type: 'geojson', data: { type: 'FeatureCollection', features: ciudades.map((c, i) => ({ type: 'Feature', properties: { f: (i * .137) % 1, s: 3 + Math.sqrt(c.obj) / 9 }, geometry: { type: 'Point', coordinates: [c.lon, c.lat] } })) } });
+map.addLayer({ id: 'pulsos', type: 'circle', source: 'pulsos', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': '#8fb0ff', 'circle-stroke-width': 1.2 } });
+map.addLayer({ id: 'nucleos', type: 'circle', source: 'pulsos', paint: { 'circle-radius': ['*', ['get', 's'], .28], 'circle-color': '#ffffff', 'circle-blur': .4, 'circle-opacity': desvanece(1, 0) } });
+function pulsar() {   // arranca después de cargar: si corre antes, el mapa nunca queda en reposo ('idle')
+  if (document.body.classList.contains('listo')) return map.setLayoutProperty('pulsos', 'visibility', 'none');
+  const fase = ['%', ['+', performance.now() / 1700, ['get', 'f']], 1];
+  map.setPaintProperty('pulsos', 'circle-radius', ['*', ['get', 's'], ['+', .3, ['*', 1.4, fase]]]);
+  map.setPaintProperty('pulsos', 'circle-stroke-opacity', ['-', 1, fase]);
+  requestAnimationFrame(pulsar);
+}
 
 // ---- columnas y cifras (deck.gl encima del mapa; solo en vista plana)
 let crecer = 0, seleccion = null, listo = false, quieto = performance.now();
@@ -268,6 +320,7 @@ const overlay = new deck.MapboxOverlay({
   getTooltip: ({ object: o }) => o && { text: `${o.n}, ${deptos[o.d]}\n${fmt.format(o.obj)} ofertas`,
     style: { background: '#090d1a', border: '1px solid rgba(110,140,255,.3)', borderRadius: '6px', fontFamily: 'JetBrains Mono', fontSize: '11px', color: '#eef2ff' } },
 });
+map.on('click', 'deptos-zona', e => { if (listo && !overlay.pickObject({ x: e.point.x, y: e.point.y, radius: 4 })) seleccionarDepto(e.features[0].properties.c); });
 for (const ev of ['mousedown', 'touchstart', 'wheel']) map.getCanvasContainer().addEventListener(ev, () => quieto = performance.now(), { passive: true });
 
 const mezcla = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
@@ -383,9 +436,11 @@ function fijar(c, n) {
 
 // ---- intro
 await Promise.all([...precarga, document.fonts.load('500 13px "JetBrains Mono"')]);
-await new Promise(r => map.loaded() ? r() : map.once('idle', r));
+// el globo aparece cuando sus teselas cargaron (o a los 5 s, lo que pase primero) y desde ahí gira y late
+await Promise.race([new Promise(r => map.loaded() ? r() : map.once('idle', r)), espera(5000)]);
 avance();
 document.body.classList.add('cargado');
+girar(); pulsar();
 
 let aterrizado = false;
 function aterrizar() {
@@ -412,7 +467,7 @@ $('#saltar').onclick = () => { map.stop(); map.jumpTo(VISTA); aterrizar(); };
 
 if (sinMovimiento) { map.jumpTo(VISTA); aterrizar(); }
 else {
-  await espera(3000);
+  await espera(3800);
   if (!aterrizado) {
     girando = false;
     document.body.classList.add('volando');
@@ -492,7 +547,37 @@ function seleccionar(m, volar = true) {
   }
   der.replaceChildren(f);
 }
-const seleccionarDepto = cod => { const c = ciudades.find(c => c.d === cod); if (c) seleccionar(c); };
+function seleccionarDepto(cod) {
+  const f = geo.features.find(f => f.properties.c === cod);
+  if (!f) return;
+  const pts = f.geometry.type === 'Polygon' ? f.geometry.coordinates.flat() : f.geometry.coordinates.flat(2);
+  const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+  map.fitBounds([[Math.min(...xs), Math.min(...ys)], [Math.max(...xs), Math.max(...ys)]], { padding: 90, pitch: 55, bearing: -15, maxZoom: VISTA.zoom + 2, duration: 1800 });
+  seleccion = null;
+  const el = (tag, props) => Object.assign(document.createElement(tag), props);
+  const fi = el('div', { className: 'ficha' });
+  const suyas = ciudades.filter(c => c.d === cod);
+  fi.append(
+    el('button', { className: 'cerrar', textContent: '×', ariaLabel: 'Cerrar ficha', onclick: leyenda }),
+    el('div', { className: 'mono', innerHTML: '<span class="punto"></span>Departamento' }),
+    el('h2', { textContent: deptos[cod] }),
+    el('div', { className: 'big', textContent: datos.deptos[cod] ? fmt.format(datos.deptos[cod]) : '—' }),
+    el('div', { textContent: datos.deptos[cod] ? `ofertas · ${suyas.length} ciudades con dato` : 'Sin dato en este corte' }),
+  );
+  if (suyas.length) {
+    fi.append(el('h3', { textContent: 'Ciudades' }));
+    const ol = document.createElement('ol');
+    for (const c of suyas) {
+      const b = document.createElement('button');
+      b.append(el('span', { className: 'pos', textContent: String(c.puesto).padStart(2, '0') }), c.n, el('span', { className: 'num', textContent: fmt.format(c.obj) }));
+      b.onclick = () => seleccionar(c);
+      const li = document.createElement('li'); li.append(b); ol.append(li);
+    }
+    fi.append(ol);
+  }
+  $('#der').classList.add('abierta');
+  $('#der').replaceChildren(fi);
+}
 
 $('#buscar').addEventListener('change', e => {
   const v = e.target.value.trim().toLowerCase();

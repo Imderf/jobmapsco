@@ -75,6 +75,43 @@ def redondear(coords):
     return [redondear(c) for c in coords]
 
 
+def dentro(pt, r):
+    x, y, c = pt[0], pt[1], False
+    for (x1, y1), (x2, y2) in zip(r, r[1:]):
+        if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
+            c = not c
+    return c
+
+
+def puntos(colombia):
+    """Globo de puntos para la entrada: tierra cada 1,2° (sin Colombia) y Colombia cada 0,4°, en [lon, lat, ...]."""
+    import math
+    tierra = []
+    for f in json.load(open(DATA / "raw/tierra-110m.geo.json", encoding="utf-8"))["features"]:
+        r = f["geometry"]["coordinates"][0]
+        xs, ys = [p[0] for p in r], [p[1] for p in r]
+        tierra.append((min(xs), min(ys), max(xs), max(ys), r))
+    en = lambda pt, anillos: any(dentro(pt, a) for a in anillos)
+    en_tierra = lambda pt: any(x0 <= pt[0] <= x1 and y0 <= pt[1] <= y1 and dentro(pt, r) for x0, y0, x1, y1, r in tierra)
+    def rejilla(paso, lat0, lat1, lon0, lon1, cond):
+        out, lat = [], lat0
+        while lat <= lat1:
+            dlon = paso / max(math.cos(math.radians(lat)), .2)   # mismo espacio entre puntos a cualquier latitud
+            lon = lon0
+            while lon <= lon1:
+                if cond((lon, lat)): out += [round(lon, 2), round(lat, 2)]
+                lon += dlon
+            lat += paso
+        return out
+    # misma rejilla para todo el mundo: Colombia solo cambia de color (va aparte para pintarla azul)
+    todos = rejilla(1.2, -56, 78, -180, 180, lambda p: en(p, colombia) or en_tierra(p))
+    mundo, co = [], []
+    for i in range(0, len(todos), 2):
+        (co if en((todos[i], todos[i + 1]), colombia) else mundo).extend(todos[i:i + 2])
+    print(f"puntos: {len(mundo) // 2} de tierra, {len(co) // 2} de Colombia")
+    return {"t": mundo, "co": co}
+
+
 def mascara(geo):
     """Mundo con Colombia recortada: los bordes que usa un solo departamento forman el contorno del país."""
     from collections import Counter, defaultdict
@@ -98,11 +135,6 @@ def mascara(geo):
         for k in [k for k in vecinos if not vecinos[k]]: del vecinos[k]
         if len(r) > 3 and r[0] == r[-1]: anillos.append(r)
     area = lambda r: sum(x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in zip(r, r[1:])) / 2
-    def dentro(pt, r):
-        x, y, c = pt[0], pt[1], False
-        for (x1, y1), (x2, y2) in zip(r, r[1:]):
-            if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1: c = not c
-        return c
     anillos.sort(key=lambda r: -abs(area(r)))
     # quedan el contorno principal y las islas (San Andrés); las astillas internas de bordes que no calzan se descartan
     huecos = [anillos[0]] + [r for r in anillos[1:] if not dentro(r[0], anillos[0])]
@@ -128,7 +160,9 @@ def main():
         f["properties"] = {"c": cod, "n": DEPTOS[cod]}
         f["geometry"]["coordinates"] = redondear(f["geometry"]["coordinates"])
 
-    json.dump(mascara(geo), open(DATA / "mascara.geo.json", "w", encoding="utf-8"), separators=(",", ":"))
+    m = mascara(geo)
+    json.dump(m, open(DATA / "mascara.geo.json", "w", encoding="utf-8"), separators=(",", ":"))
+    json.dump(puntos(m["features"][0]["geometry"]["coordinates"][1:]), open(DATA / "puntos.json", "w"), separators=(",", ":"))
 
     ofertas = {buscar(municipios, n, d): v for n, d, v in LINEA_BASE}
     assert len(ofertas) == len(LINEA_BASE), "dos ciudades cayeron en el mismo código"
