@@ -5,82 +5,137 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mapa del Empleo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/deck.gl@9.0.38/dist.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/deck.gl@9.4.0/dist.min.js"></script>
 <style>
-:root{--bg:#030604;--panel:rgba(6,12,8,.84);--line:rgba(69,255,143,.16);--neon:#45ff8f;--text:#e6f4ea;--muted:#7d978a}
+:root{--bg:#04060c;--panel:rgba(9,13,26,.8);--line:rgba(110,140,255,.17);--blue:#2f6bff;--blue2:#6b95ff;--text:#eef2ff;--muted:#7a85a6;--up:#38e0a0;--down:#ff5c6c;--mono:'JetBrains Mono',ui-monospace,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:var(--bg);color:var(--text);font:13px/1.45 Geist,system-ui,sans-serif;overflow:hidden}
-#mapa{position:fixed;inset:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font:13px/1.45 Inter,system-ui,sans-serif}
 button,input{font:inherit;color:inherit}
-.panel{position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:10px;backdrop-filter:blur(10px);padding:14px;animation:entra .8s cubic-bezier(.2,.7,.2,1) both}
-@keyframes entra{from{opacity:0;transform:translateY(10px)}}
-.kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-header{position:absolute;top:22px;left:24px;max-width:380px;pointer-events:none;animation:entra 1s both}
-h1{font:400 46px/1 'Instrument Serif',serif;margin:6px 0 8px}
-h1 em{color:var(--neon);font-style:italic}
-header p{color:var(--muted)}
-#izq{top:168px;left:24px;width:300px;animation-delay:.3s}
-#buscar{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin-bottom:12px}
-#buscar:focus{outline:1px solid var(--neon)}
+#mapa{position:fixed;inset:0;opacity:0;transition:opacity 1.4s}
+body.cargado #mapa{opacity:1}   /* el globo aparece ya con agua y relieve, no a medio cargar */
+#hud-inf a{color:inherit;pointer-events:auto}
+#hud-inf a:hover{color:var(--text)}
+.mono{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.punto{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin-right:8px;vertical-align:1px}
+.vivo .punto{animation:late 1.6s infinite}
+@keyframes late{50%{opacity:.25}}
+
+/* HUD */
+#hud-sup,#hud-inf{position:fixed;left:20px;right:20px;display:flex;justify-content:space-between;gap:16px;z-index:5;pointer-events:none}
+#hud-sup{top:14px}
+#hud-inf{bottom:12px;border-top:1px solid var(--line);padding-top:8px;font-size:9px;white-space:nowrap}
+#hud-inf>span{overflow:hidden;text-overflow:ellipsis}
+#hud-inf::before{content:'';position:absolute;top:-1px;left:0;width:60px;height:1px;background:var(--blue)}
+#demo{color:#ffcf5c}
+
+/* intro */
+#intro{position:fixed;top:52px;left:0;right:0;z-index:6;text-align:center;padding:0 20px;pointer-events:none;transition:opacity .9s;text-shadow:0 4px 30px #04060c}
+#intro h1{font:800 clamp(40px,6.4vw,96px)/.95 'Inter Tight',sans-serif;letter-spacing:-.035em;margin:10px 0 12px}
+#intro h1 span{display:inline-block;animation:sube 1s cubic-bezier(.2,.7,.2,1) both}
+#intro h1 span+span{color:var(--blue);animation-delay:.15s}
+#intro p{font-size:16px;color:#c5cce0;max-width:460px;margin:0 auto;animation:sube 1s .3s both}
+#intro .mono{color:var(--blue2);animation:sube 1s both}
+@keyframes sube{from{opacity:0;transform:translateY(24px)}}
+#carga{margin:20px auto 0;width:220px}
+#carga-pista{height:2px;background:var(--line);margin-top:8px}
+#carga-barra{height:2px;width:0;background:var(--blue);box-shadow:0 0 8px var(--blue);transition:width .3s}
+#saltar{position:fixed;right:20px;bottom:44px;z-index:7;background:none;border:1px solid var(--line);border-radius:6px;padding:7px 12px;cursor:pointer;color:var(--muted)}
+#saltar:hover{color:var(--text);border-color:var(--blue)}
+#pais{position:fixed;left:0;right:0;bottom:14vh;z-index:6;text-align:center;font:500 clamp(18px,2.4vw,30px) var(--mono);letter-spacing:.9em;color:#fff;text-shadow:0 2px 16px #000;opacity:0;transition:opacity 1.2s,letter-spacing 3s;pointer-events:none}
+body.cargado #carga{opacity:0;transition:opacity .5s}
+body.volando #intro{opacity:0}
+body.volando #pais{opacity:1;letter-spacing:.6em}
+body.listo #pais{opacity:0}
+body.listo #saltar{display:none}
+
+/* interfaz principal */
+.ui{opacity:0;transform:translateY(14px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+body.listo .ui{opacity:1;transform:none;pointer-events:auto}
+.panel{position:fixed;z-index:4;background:var(--panel);border:1px solid var(--line);border-radius:10px;backdrop-filter:blur(12px);padding:14px}
+#izq{top:44px;left:20px;width:310px;transition-delay:.5s}
+#der{top:44px;right:20px;width:300px;max-height:calc(100% - 150px);overflow:auto;transition-delay:.8s}
+#total{bottom:48px;left:20px;width:310px;transition-delay:.65s}
+#acciones{position:fixed;z-index:4;bottom:48px;right:20px;transition-delay:.9s}
+h2.titulo{font:800 26px/1 'Inter Tight',sans-serif;letter-spacing:-.02em;margin:6px 0 12px}
+h2.titulo em{font-style:normal;color:var(--blue)}
+#buscar{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin-bottom:12px}
+#buscar:focus{outline:1px solid var(--blue)}
 .tabs{display:flex;gap:4px;margin:8px 0}
 .tabs button{flex:1;background:none;border:1px solid var(--line);border-radius:5px;padding:5px;cursor:pointer;color:var(--muted)}
-.tabs button[aria-pressed=true]{background:rgba(69,255,143,.1);color:var(--text);border-color:rgba(69,255,143,.4)}
+.tabs button[aria-pressed=true]{background:rgba(47,107,255,.14);color:var(--text);border-color:rgba(47,107,255,.5)}
 ol{list-style:none}
-ol button{display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:baseline;width:100%;background:none;border:0;border-radius:5px;padding:5px 6px;text-align:left;cursor:pointer}
-ol button:hover,ol button:focus-visible{background:rgba(69,255,143,.08);outline:none}
-.pos{color:var(--muted);font-size:11px}
+#ranking.entra li,.ficha ol li{animation:sube .5s both}
+ol button{display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:baseline;width:100%;background:none;border:0;border-radius:5px;padding:5px 6px;text-align:left;cursor:pointer;transition:background .2s}
+ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:none}
+.pos{font:11px var(--mono);color:var(--muted)}
 .sub{color:var(--muted);font-size:11px}
-.num{font-weight:600;font-variant-numeric:tabular-nums}
-#der{top:22px;right:24px;width:290px;max-height:calc(100% - 100px);overflow:auto;animation-delay:.5s}
-#der h3{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px;font-weight:500}
-#der summary{cursor:pointer}
-#der summary + *{margin-top:10px}
-.fila{display:flex;align-items:center;gap:8px;margin:4px 0}
-.sw{width:14px;height:10px;border-radius:2px;flex:none}
-.pilar{width:4px;height:22px;background:var(--neon);box-shadow:0 0 8px var(--neon);border-radius:2px;margin:0 5px}
-.punto{width:6px;height:6px;border-radius:50%;background:rgba(69,255,143,.5);margin:0 4px}
-#total{bottom:22px;left:24px;width:300px;animation-delay:.4s}
-#total .big{font:400 30px/1 'Instrument Serif',serif;color:var(--neon)}
-#acciones{position:absolute;bottom:22px;right:24px;display:flex;gap:6px}
+.num{font:500 13px var(--mono);transition:color .4s}
+.sube{color:var(--up)}.baja{color:var(--down)}
+#total .big{font:500 34px/1 var(--mono);color:var(--blue2);margin:6px 0}
 #acciones button{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:7px 12px;cursor:pointer}
-#acciones button:hover{border-color:var(--neon)}
-.ficha h2{font:400 32px/1.05 'Instrument Serif',serif;margin:4px 0 2px}
-.ficha .big{font:400 54px/1 'Instrument Serif',serif;color:var(--neon);margin-top:12px}
-.ficha .vacio{border:1px dashed var(--line);border-radius:8px;padding:12px;color:var(--muted);margin-top:8px}
+#acciones button:hover{border-color:var(--blue)}
+#der h3{font:400 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+#der summary{cursor:pointer;list-style:none}
+.fila{display:flex;align-items:center;gap:10px;margin:5px 0}
+.pilar{width:5px;height:22px;background:var(--blue);box-shadow:0 0 10px var(--blue);border-radius:2px;margin:0 4px}
+.linea{width:14px;height:2px;background:var(--blue);box-shadow:0 0 6px var(--blue)}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--blue2);margin:0 4px}
+.ficha>*{animation:sube .5s both}
+.ficha>*:nth-child(n+4){animation-delay:.08s}
+.ficha>*:nth-child(n+6){animation-delay:.16s}
+.ficha h2{font:800 28px/1 'Inter Tight',sans-serif;letter-spacing:-.02em;margin:6px 0 4px;text-transform:uppercase}
+.ficha .big{font:500 46px/1 var(--mono);color:var(--blue2);margin:16px 0 4px}
+.ficha .vacio{border:1px dashed var(--line);border-radius:8px;padding:12px;color:var(--muted)}
 .cerrar{float:right;background:none;border:0;color:var(--muted);cursor:pointer;font-size:18px;line-height:1}
-.fuente{color:var(--muted);font-size:11px;margin-top:6px}
 @media (max-width:1100px){
-  #izq,#total{width:260px}
-  #der{width:250px}
-  header p{display:none}
-  #izq{top:120px}
+  #izq,#total{width:270px}
+  #der{width:260px}
   ol li:nth-child(n+6){display:none}
 }
 @media (max-width:760px){
-  header{top:14px;left:16px;right:16px}
-  h1{font-size:34px}
-  header p{display:none}
-  #izq{top:auto;bottom:16px;left:16px;right:16px;width:auto;max-height:38vh;overflow:auto}
+  #hud-sup .der,#hud-inf .der{display:none}
+  #izq{top:auto;bottom:40px;left:12px;right:12px;width:auto;max-height:36vh;overflow:auto}
+  #izq h2.titulo{display:none}
   #total,#acciones{display:none}
-  #der{top:auto;bottom:16px;left:16px;right:16px;width:auto;max-height:55vh;z-index:2}
+  #der{top:auto;bottom:40px;left:12px;right:12px;width:auto;max-height:55vh;z-index:5}
   #der:not(.abierta){display:none}
 }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 <div id="mapa"></div>
 
-<header>
-  <div class="kicker">Mapa del Empleo · Colombia</div>
-  <h1>¿Dónde hay <em>trabajo</em>?</h1>
-  <p id="lead"></p>
-</header>
+<div id="hud-sup" class="mono">
+  <span><span class="punto"></span>01 / Mapa del Empleo · Colombia</span>
+  <span class="der vivo"><span class="punto"></span><span id="demo" hidden>Simulación · </span><span id="reloj"></span></span>
+</div>
+<div id="hud-inf" class="mono">
+  <span>Relieve SRTM · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a> · <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener noreferrer">AWS Terrain Tiles</a></span>
+  <span class="der" id="corte"></span>
+</div>
 
-<section id="izq" class="panel" aria-label="Rankings">
+<section id="intro">
+  <div class="mono">Colombia · ofertas de trabajo publicadas</div>
+  <h1><span>Mapa del</span> <span>Empleo.</span></h1>
+  <p>Dónde hay trabajo en Colombia, ciudad por ciudad, y hacia dónde se mueve.</p>
+  <div id="carga" class="mono" aria-live="polite">
+    <span>Cargando relieve · <span id="carga-num">0 %</span></span>
+    <div id="carga-pista"><div id="carga-barra"></div></div>
+  </div>
+</section>
+<div id="pais" aria-hidden="true">COLOMBIA</div>
+<button id="saltar" class="mono">Saltar intro →</button>
+
+<section id="izq" class="panel ui" aria-label="Rankings">
+  <div class="mono"><span class="punto"></span>02 / Ranking</div>
+  <h2 class="titulo">¿Dónde hay <em>trabajo</em>?</h2>
   <input id="buscar" list="lista-municipios" placeholder="Buscar municipio…" aria-label="Buscar municipio" autocomplete="off">
   <datalist id="lista-municipios"></datalist>
-  <div class="kicker">Rankings</div>
   <div class="tabs">
     <button data-tab="municipios" aria-pressed="true">Municipios</button>
     <button data-tab="deptos" aria-pressed="false">Departamentos</button>
@@ -88,209 +143,343 @@ ol button:hover,ol button:focus-visible{background:rgba(69,255,143,.08);outline:
   <ol id="ranking"></ol>
 </section>
 
-<section id="der" class="panel" aria-live="polite"></section>
+<section id="der" class="panel ui" aria-live="polite"></section>
 
-<section id="total" class="panel" aria-label="Total">
-  <div class="big" id="total-num"></div>
-  <div id="total-txt"></div>
-  <div class="fuente" id="fuente"></div>
+<section id="total" class="panel ui" aria-label="Total">
+  <div class="mono">Ofertas publicadas</div>
+  <div class="big" id="total-num">0</div>
+  <div class="sub" id="total-txt"></div>
 </section>
 
-<div id="acciones"><button id="vista-pais">Vista país</button></div>
+<div id="acciones" class="ui"><button id="vista-pais">Vista país</button></div>
 
 <script type="module">
 const fmt = new Intl.NumberFormat('es-CO');
-const NEON = [69, 255, 143];
 const $ = s => document.querySelector(s);
+const espera = ms => new Promise(r => setTimeout(r, ms));
+const DEMO = new URLSearchParams(location.search).has('demo');
+const movil = innerWidth <= 760;
+const sinMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const AZUL = [47, 107, 255], SUBE = [56, 224, 160], BAJA = [255, 92, 108];
 
-const [geo, { deptos, municipios }, datos] = await Promise.all(
-  ['data/departamentos.geo.json', 'data/municipios.json', 'data/ofertas.json'].map(u => fetch(u).then(r => r.json()))
-);
+// ---- fondo de estrellas
+{
+  const c = Object.assign(document.createElement('canvas'), { width: 700, height: 700 });
+  const g = c.getContext('2d');
+  for (let i = 0; i < 300; i++) {
+    g.fillStyle = `rgba(255,255,255,${Math.random() * .6 + .1})`;
+    g.beginPath(); g.arc(Math.random() * 700, Math.random() * 700, Math.random() < .93 ? .6 : 1.2, 0, 7); g.fill();
+  }
+  document.body.style.backgroundImage = `url(${c.toDataURL()})`;
+}
 
+// ---- reloj del HUD
+const reloj = () => $('#reloj').textContent = new Date().toLocaleTimeString('es-CO', { hour12: false, timeZone: 'America/Bogota' }) + ' COT';
+reloj(); setInterval(reloj, 1000);
+$('#demo').hidden = !DEMO;
+
+// ---- precarga: datos + relieve de Colombia (zoom 4–6) mientras gira el globo
+const DEM = 'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png';
+const tesela = (lon, lat, z) => { const n = 2 ** z, r = lat * Math.PI / 180; return [Math.floor((lon + 180) / 360 * n), Math.floor((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * n)]; };
+const urlsDem = [];
+for (const z of [4, 5, 6]) {
+  const [x0, y0] = tesela(-79.5, 13, z), [x1, y1] = tesela(-66.5, -4.5, z);
+  for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) urlsDem.push(DEM.replace('{z}', z).replace('{x}', x).replace('{y}', y));
+}
+const archivos = ['data/departamentos.geo.json', 'data/municipios.json', 'data/ofertas.json'];
+let hechos = 0;
+const totalPasos = archivos.length + urlsDem.length + 1;
+const avance = () => { const p = Math.round(++hechos / totalPasos * 100); $('#carga-num').textContent = p + ' %'; $('#carga-barra').style.width = p + '%'; };
+
+// ---- mapa: globo que pasa a plano al acercarse, relieve SRTM, agua y ríos de OpenStreetMap
+const map = new maplibregl.Map({
+  container: 'mapa',
+  // globo grande: radio ≈ 40 % del lado corto (a zoom z el radio mide ~81,5·2^z px)
+  center: [-96, 6], zoom: Math.log2(.4 * Math.min(innerWidth, innerHeight) / 81.5),
+  attributionControl: false,   // los créditos van en el pie del HUD
+  maxPitch: 75,
+  style: {
+    version: 8,
+    projection: { type: ['interpolate', ['linear'], ['zoom'], 2.6, 'vertical-perspective', 3.8, 'mercator'] },
+    sky: { 'sky-color': '#04060c', 'horizon-color': '#2f6bff', 'sky-horizon-blend': .6, 'atmosphere-blend': ['interpolate', ['linear'], ['zoom'], 0, 1, 4, .7, 6, 0] },
+    terrain: { source: 'dem', exaggeration: 1.6 },
+    sources: {
+      osm: { type: 'vector', url: 'https://tiles.openfreemap.org/planet', attribution: '© OpenStreetMap · OpenFreeMap' },
+      dem: { type: 'raster-dem', tiles: [DEM], encoding: 'terrarium', tileSize: 256, maxzoom: 11, attribution: 'Relieve: AWS Terrain Tiles (SRTM)' },
+      sombra: { type: 'raster-dem', tiles: [DEM], encoding: 'terrarium', tileSize: 256, maxzoom: 11 },
+    },
+    layers: [
+      // al aterrizar, tierra y agua se apagan; Colombia (capa 'colombia', debajo del relieve) conserva su color
+      { id: 'tierra', type: 'background', paint: { 'background-color': '#d7d1be', 'background-color-transition': { duration: 1800 } } },
+      { id: 'relieve', type: 'hillshade', source: 'sombra', paint: { 'hillshade-exaggeration': .6, 'hillshade-shadow-color': '#39405a', 'hillshade-highlight-color': '#fffbef', 'hillshade-accent-color': '#5b6280', 'hillshade-highlight-color-transition': { duration: 1800 } } },
+      { id: 'agua', type: 'fill', source: 'osm', 'source-layer': 'water', paint: { 'fill-color': '#1b48ad', 'fill-color-transition': { duration: 1800 } } },
+      { id: 'rios', type: 'line', source: 'osm', 'source-layer': 'waterway', paint: { 'line-color': '#3d7bff', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, .3, 9, 1.6] } },
+      { id: 'fronteras', type: 'line', source: 'osm', 'source-layer': 'boundary', filter: ['all', ['==', ['get', 'admin_level'], 2], ['!=', ['get', 'maritime'], 1]], paint: { 'line-color': '#262b3b', 'line-width': 1.2 } },
+    ],
+  },
+});
+map.setPadding({ top: innerHeight * .26, left: 0, right: 0, bottom: 0 });   // baja el globo y deja el título arriba
+
+let girando = true;
+(function girar() { if (!girando) return; const c = map.getCenter(); map.setCenter([c.lng + .035, c.lat]); requestAnimationFrame(girar); })();
+
+const precarga = urlsDem.map(u => fetch(u).then(avance, avance));
+const [geo, { deptos, municipios }, datos] = await Promise.all(archivos.map(u => fetch(u, { cache: 'no-cache' }).then(r => { avance(); return r.json(); })));
+
+// ---- modelo: cada ciudad tiene su valor objetivo (obj) y el que se dibuja (vis), que lo persigue
 const porCod = Object.fromEntries(municipios.map(m => [m.c, m]));
-const ciudades = Object.entries(datos.ciudades)
-  .map(([c, n]) => ({ ...porCod[c], ofertas: n }))
-  .sort((a, b) => b.ofertas - a.ofertas);
-ciudades.forEach((c, i) => { c.puesto = i + 1; porCod[c.c].ofertas = c.ofertas; porCod[c.c].puesto = c.puesto; });
-const rankDeptos = Object.entries(datos.deptos).map(([c, n]) => ({ c, n: deptos[c], ofertas: n })).sort((a, b) => b.ofertas - a.ofertas);
-const total = ciudades.reduce((s, c) => s + c.ofertas, 0);
+const ciudades = Object.entries(datos.ciudades).map(([c, n]) => Object.assign(porCod[c], { obj: n, vis: 0, delta: 0, flash: 0 }));
+let total = 0;
+const puestos = () => {
+  ciudades.sort((a, b) => b.obj - a.obj).forEach((c, i) => c.puesto = i + 1);
+  total = ciudades.reduce((s, c) => s + c.obj, 0);
+};
+puestos();
+const rankDeptos = () => Object.entries(datos.deptos).map(([c, n]) => ({ c, n: deptos[c], obj: n })).sort((a, b) => b.obj - a.obj);
 
-// ---- escala y color
-const ALTURA = 2200;                          // metros por raíz de oferta: Bogotá ≈ 380 km
-const altura = n => Math.sqrt(n) * ALTURA;
-const CORTES = [10000, 3000, 1000, 300, 1];
-const TONOS = [[30, 120, 66], [22, 92, 50], [16, 68, 38], [11, 48, 28], [8, 32, 19]];
-const tonoDepto = c => { const n = datos.deptos[c] || 0; const i = CORTES.findIndex(x => n >= x); return i < 0 ? [6, 16, 10] : TONOS[i]; };
+const ALTURA = 2200;                                   // metros por raíz de oferta: Bogotá ≈ 380 km a zoom país
+const altura = n => Math.sqrt(Math.max(n, 0)) * ALTURA;
+const VISTA = {
+  center: movil ? [-74.3, 3.6] : [-75.2, 5.6],
+  zoom: 5.35 + Math.log2(Math.min(innerWidth / (movil ? 900 : 1440), innerHeight / 900)),
+  pitch: 55, bearing: -14, padding: { left: 0, top: 0, right: 0, bottom: 0 },
+};
 
-// ---- textos fijos
-$('#lead').textContent = `Ofertas de trabajo publicadas en ${ciudades.length} ciudades de los ${fmt.format(municipios.length)} municipios de Colombia.`;
-$('#total-num').textContent = fmt.format(total);
-$('#total-txt').textContent = `ofertas en las ${ciudades.length} ciudades del corte`;
-$('#fuente').textContent = `Fuente: ${datos.fuente} · corte ${datos.actualizado}`;
+$('#total-txt').textContent = `en ${ciudades.length} ciudades de los ${fmt.format(municipios.length)} municipios`;
+$('#corte').textContent = `Fuente: ${datos.fuente} · corte ${datos.actualizado}`;
 $('#lista-municipios').append(...municipios.map(m => Object.assign(document.createElement('option'), { value: `${m.n}, ${deptos[m.d]}` })));
 
-// ---- mapa
-// zoom pensado para 1440×900; se ajusta al tamaño de la pantalla
-const movil = innerWidth <= 760;
-// centrado en la región andina, donde está casi toda la oferta; deja libres los paneles
-const VISTA = { longitude: movil ? -74.3 : -75.2, latitude: movil ? 3.6 : 5.6, zoom: 5.35 + Math.log2(Math.min(innerWidth / (movil ? 900 : 1440), innerHeight / 900)), pitch: 54, bearing: -14 };
-let crecer = 0, seleccion = null;
+// ---- capas propias en MapLibre: departamentos con brillo azul y municipios como puntos
+await new Promise(r => map.loaded() ? r() : map.once('load', r));
+map.addSource('deptos', { type: 'geojson', data: geo });
+map.addLayer({ id: 'colombia', type: 'fill', source: 'deptos', paint: { 'fill-color': '#d7d1be' } }, 'relieve');
+map.addSource('munis', { type: 'geojson', data: { type: 'FeatureCollection', features: municipios.map(m => ({ type: 'Feature', properties: { c: m.c }, geometry: { type: 'Point', coordinates: [m.lon, m.lat] } })) } });
+map.addLayer({ id: 'deptos-brillo', type: 'line', source: 'deptos', paint: { 'line-color': '#2f6bff', 'line-width': 6, 'line-blur': 5, 'line-opacity': .4 } });
+map.addLayer({ id: 'deptos-linea', type: 'line', source: 'deptos', paint: { 'line-color': '#4f86ff', 'line-width': 1.3 } });
+map.addLayer({ id: 'munis', type: 'circle', source: 'munis', minzoom: 4.5, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 5, 1.4, 9, 3.5], 'circle-color': '#1f3f99', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': .6 } });
+map.on('click', 'munis', e => seleccionar(porCod[e.features[0].properties.c]));
+map.on('mouseenter', 'munis', () => map.getCanvas().style.cursor = 'pointer');
+map.on('mouseleave', 'munis', () => map.getCanvas().style.cursor = '');
 
-const deck_ = new deck.DeckGL({
-  container: 'mapa',
-  initialViewState: { ...VISTA, zoom: 4.4, pitch: 0, bearing: 0 },
-  controller: true,
-  getCursor: ({ isHovering }) => isHovering ? 'pointer' : 'grab',
-  getTooltip: ({ object: o }) => o && o.c && o.d && { text: `${o.n}, ${deptos[o.d]}\n${o.ofertas ? fmt.format(o.ofertas) + ' ofertas' : 'Sin dato en este corte'}`,
-    style: { background: '#07100b', border: '1px solid rgba(69,255,143,.3)', borderRadius: '6px', fontFamily: 'Geist', fontSize: '12px', color: '#e6f4ea' } },
-  onClick: ({ object: o }) => o && o.c && o.d && seleccionar(o),
-  onLoad: intro,  // deck crea WebGL en asíncrono: antes de esto el cambio de cámara se pierde
-  layers: [],
-});
-
+// ---- columnas y cifras (deck.gl encima del mapa; solo en vista plana)
+let crecer = 0, seleccion = null, listo = false, quieto = performance.now();
 const aditivo = { blend: true, blendColorOperation: 'add', blendColorSrcFactor: 'src-alpha', blendColorDstFactor: 'one', depthWriteEnabled: false };
+const overlay = new deck.MapboxOverlay({
+  interleaved: false, layers: [],
+  onClick: ({ object: o }) => o && seleccionar(o),
+  getTooltip: ({ object: o }) => o && { text: `${o.n}, ${deptos[o.d]}\n${fmt.format(o.obj)} ofertas`,
+    style: { background: '#090d1a', border: '1px solid rgba(110,140,255,.3)', borderRadius: '6px', fontFamily: 'JetBrains Mono', fontSize: '11px', color: '#eef2ff' } },
+});
+for (const ev of ['mousedown', 'touchstart', 'wheel']) map.getCanvasContainer().addEventListener(ev, () => quieto = performance.now(), { passive: true });
 
-function capas() {
+const mezcla = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
+function tono(c, ahora) {
+  const t = Math.max(0, (c.flash - ahora) / 5000);           // el destello de subida/bajada se apaga en 5 s
+  return t ? mezcla(AZUL, c.delta > 0 ? SUBE : BAJA, t) : AZUL;
+}
+const etiqueta = (c, ahora) => fmt.format(Math.round(c.vis)) + (c.flash > ahora ? ` ${c.delta > 0 ? '▲' : '▼'}${fmt.format(Math.abs(c.delta))}` : '');
+
+function capas(ahora) {
+  if (!listo) return [];
   const sel = seleccion?.c;
+  const acerca = Math.min(1, 2 ** (VISTA.zoom - map.getZoom()));      // al acercarse, columnas más delgadas y bajas
+  const escala = crecer * Math.min(1.2, 2 ** (VISTA.zoom - map.getZoom()));
+  // etiquetas: seleccionada, top 3 y las que acaban de cambiar (top 15), sin dos demasiado cerca
+  const candidatas = ciudades.filter(c => c.c === sel || c.puesto <= (movil ? 1 : 3) || (c.flash > ahora && c.puesto <= 15))
+    .sort((a, b) => (b.c === sel) - (a.c === sel) || a.puesto - b.puesto);
+  const { lng, lat } = map.getCenter();
+  const vista = new deck.WebMercatorViewport({ width: innerWidth, height: innerHeight, longitude: lng, latitude: lat, zoom: map.getZoom(), pitch: map.getPitch(), bearing: map.getBearing() });
+  const visibles = [];
+  for (const c of candidatas) {
+    const [x, y] = vista.project([c.lon, c.lat, altura(c.vis) * escala + 14000]);
+    const ancho = etiqueta(c, ahora).length * 8.5 + 16;
+    if (visibles.every(v => Math.abs(v.x - x) > (v.ancho + ancho) / 2 + 4 || Math.abs(v.y - y) > 26)) visibles.push(Object.assign(c, { x, y, ancho }));
+  }
   return [
-    new deck.GeoJsonLayer({
-      id: 'deptos', data: geo, extruded: true, wireframe: true, getElevation: 9000,
-      getFillColor: f => tonoDepto(f.properties.c), getLineColor: [...NEON, 90],
-      material: { ambient: 0.8, diffuse: 0.4, shininess: 8 },
-      updateTriggers: { getFillColor: datos.actualizado },
-    }),
-    new deck.GeoJsonLayer({
-      id: 'bordes', data: geo, filled: false, stroked: true, lineWidthUnits: 'pixels',
-      getLineWidth: 1.2, getLineColor: [...NEON, 200], parameters: { depthCompare: 'always' },
-    }),
-    new deck.ScatterplotLayer({
-      id: 'puntos', data: municipios, pickable: true, radiusUnits: 'pixels',
-      getPosition: m => [m.lon, m.lat, 9100], getRadius: m => m.c === sel ? 5 : 1.6,
-      getFillColor: m => m.c === sel ? [255, 255, 255, 255] : [...NEON, m.ofertas ? 230 : 70],
-      parameters: aditivo, updateTriggers: { getRadius: sel, getFillColor: sel },
-    }),
-    ...[[26000, 12], [13000, 34]].map(([radio, alfa], i) => new deck.ColumnLayer({
-      id: 'halo' + i, data: ciudades, diskResolution: 24, radius: radio, extruded: true,
-      getPosition: c => [c.lon, c.lat, 9000], getElevation: c => altura(c.ofertas), elevationScale: crecer,
-      getFillColor: [...NEON, alfa], material: false, parameters: aditivo,
+    ...[[26000, 14], [12000, 40]].map(([radio, alfa], i) => new deck.ColumnLayer({
+      id: 'halo' + i, data: ciudades, diskResolution: 24, radius: radio * acerca, extruded: true,
+      getPosition: c => [c.lon, c.lat], getElevation: c => altura(c.vis), elevationScale: escala,
+      getFillColor: c => [...tono(c, ahora), alfa * (.75 + .25 * Math.sin(ahora / 700 + c.lon * 3))],   // pulso de luz
+      material: false, parameters: aditivo,
+      updateTriggers: { getElevation: ahora, getFillColor: ahora },
     })),
     new deck.ColumnLayer({
-      id: 'columnas', data: ciudades, pickable: true, diskResolution: 16, radius: 4500, extruded: true,
-      getPosition: c => [c.lon, c.lat, 9000], getElevation: c => altura(c.ofertas), elevationScale: crecer,
-      getFillColor: c => c.c === sel ? [255, 255, 255] : [175, 255, 205],
-      material: { ambient: 1, diffuse: 0.3, shininess: 32 },
-      updateTriggers: { getFillColor: sel },
+      id: 'columnas', data: ciudades, pickable: true, diskResolution: 16, radius: 4200 * acerca, extruded: true,
+      getPosition: c => [c.lon, c.lat], getElevation: c => altura(c.vis), elevationScale: escala,
+      getFillColor: c => c.c === sel ? [255, 255, 255] : mezcla(tono(c, ahora), [255, 255, 255], .35),
+      material: { ambient: .9, diffuse: .4, shininess: 24 },
+      updateTriggers: { getElevation: ahora, getFillColor: ahora },
     }),
     new deck.TextLayer({
-      id: 'cifras', data: ciudades.filter(c => c.puesto <= (movil ? 1 : 3) || c.c === sel),
-      getPosition: c => [c.lon, c.lat, 9000 + altura(c.ofertas) * crecer + 9000],
-      getText: c => fmt.format(c.ofertas), getSize: c => c.c === sel ? 18 : 14,
-      getColor: c => c.c === sel ? [255, 255, 255] : NEON, fontFamily: 'Geist', fontWeight: 600,
-      characterSet: '0123456789.', fontSettings: { sdf: true }, outlineWidth: 3, outlineColor: [3, 6, 4, 255],
-      opacity: crecer, parameters: { depthCompare: 'always' },
-      updateTriggers: { getPosition: crecer, getSize: sel, getColor: sel },
+      id: 'cifras', data: visibles,
+      getPosition: c => [c.lon, c.lat, altura(c.vis) * escala + 14000],
+      getText: c => etiqueta(c, ahora), getSize: c => c.c === sel ? 15 : 13,
+      getColor: c => c.flash > ahora ? (c.delta > 0 ? SUBE : BAJA) : [238, 242, 255],
+      fontFamily: 'JetBrains Mono', fontWeight: 500, characterSet: '0123456789.▲▼ ',
+      background: true, getBackgroundColor: [9, 13, 26, 225], backgroundPadding: [7, 4], getBorderColor: [47, 107, 255, 140], getBorderWidth: 1,
+      parameters: { depthCompare: 'always' },
+      updateTriggers: { getPosition: ahora, getText: ahora, getColor: ahora, getSize: sel },
     }),
   ];
 }
-const pintar = () => deck_.setProps({ layers: capas() });
 
-function volar(v, ms = 1800) {
-  deck_.setProps({ initialViewState: { ...v, transitionDuration: ms, transitionInterpolator: new deck.FlyToInterpolator({ speed: 1.2 }) } });
+// bucle: las barras persiguen su valor objetivo (suben o bajan en vivo) y la cámara orbita si nadie toca el mapa
+(function cuadro() {
+  const ahora = performance.now();
+  for (const c of ciudades) c.vis += Math.abs(c.obj - c.vis) < .5 ? c.obj - c.vis : (c.obj - c.vis) * .06;
+  if (listo) {
+    $('#total-num').textContent = fmt.format(Math.round(ciudades.reduce((s, c) => s + c.vis, 0)));
+    if (!sinMovimiento && !seleccion && !map.isMoving() && ahora - quieto > 5000) map.setBearing(map.getBearing() + .03);
+  }
+  overlay.setProps({ layers: capas(ahora) });
+  requestAnimationFrame(cuadro);
+})();
+
+// un dato nuevo: la barra se mueve hacia él y destella verde (sube) o rojo (baja)
+function fijar(c, n) {
+  if (n === c.obj) return;
+  c.delta = n - c.obj; c.obj = n; c.flash = performance.now() + 5000;
+  puestos(); pintarRanking();
+  if (seleccion === c) seleccionar(c, false);
 }
 
-// ---- intro: cámara se inclina y las columnas crecen
-function intro() {
-  volar(VISTA, 2600);
-  const t0 = performance.now() + 700;
+// ---- intro
+await Promise.all([...precarga, document.fonts.load('500 13px "JetBrains Mono"')]);
+await new Promise(r => map.loaded() ? r() : map.once('idle', r));
+avance();
+document.body.classList.add('cargado');
+
+let aterrizado = false;
+function aterrizar() {
+  if (aterrizado) return; aterrizado = true;
+  girando = false; listo = true; quieto = performance.now();
+  // deck.gl no acepta la proyección mixta; a zoom país ya es plana, así que el cambio no se ve
+  map.setProjection({ type: 'mercator' });
+  map.addControl(overlay);
+  map.setPaintProperty('tierra', 'background-color', '#10141f');   // se apaga todo menos Colombia
+  // desde aquí solo se acerca: el máximo alejamiento es ver Colombia completa, y no se sale de ella
+  map.setMinZoom(VISTA.zoom - .25);
+  map.setMaxBounds([[-90, -12], [-58, 19]]);
+  map.setPaintProperty('agua', 'fill-color', '#0a1430');
+  map.setPaintProperty('relieve', 'hillshade-highlight-color', 'rgba(255,250,235,.35)');   // relieve tenue fuera de Colombia
+  document.body.classList.add('volando', 'listo');
+  const t0 = performance.now() + 300;
   (function animar(t) {
-    const p = Math.min(1, Math.max(0, (t - t0) / 1800));
+    const p = Math.min(1, Math.max(0, (t - t0) / 2000));
     crecer = 1 - Math.pow(1 - p, 3);
-    pintar();
     if (p < 1) requestAnimationFrame(animar);
   })(performance.now());
 }
-pintar();
+$('#saltar').onclick = () => { map.stop(); map.jumpTo(VISTA); aterrizar(); };
+
+if (sinMovimiento) { map.jumpTo(VISTA); aterrizar(); }
+else {
+  await espera(3000);
+  if (!aterrizado) {
+    girando = false;
+    document.body.classList.add('volando');
+    map.once('moveend', aterrizar);
+    map.flyTo({ ...VISTA, duration: 6500, curve: 1.5, essential: true });
+  }
+}
 
 // ---- ranking
 let tab = 'municipios';
-function pintarRanking() {
-  const items = (tab === 'municipios' ? ciudades : rankDeptos).slice(0, 10);
+function pintarRanking(entra = false) {
+  const ahora = performance.now();
+  $('#ranking').classList.toggle('entra', entra);
+  const items = (tab === 'municipios' ? ciudades : rankDeptos()).slice(0, 10);
   $('#ranking').replaceChildren(...items.map((x, i) => {
     const b = document.createElement('button');
-    const pos = Object.assign(document.createElement('span'), { className: 'pos', textContent: i + 1 });
     const nom = document.createElement('span');
     nom.append(x.n, ' ', Object.assign(document.createElement('span'), { className: 'sub', textContent: tab === 'municipios' ? deptos[x.d] : '' }));
-    const num = Object.assign(document.createElement('span'), { className: 'num', textContent: fmt.format(x.ofertas) });
-    b.append(pos, nom, num);
+    const num = Object.assign(document.createElement('span'), { className: 'num', textContent: fmt.format(x.obj) });
+    if (x.flash > ahora) { num.className += x.delta > 0 ? ' sube' : ' baja'; num.textContent += x.delta > 0 ? ' ▲' : ' ▼'; }
+    b.append(Object.assign(document.createElement('span'), { className: 'pos', textContent: String(i + 1).padStart(2, '0') }), nom, num);
     b.onclick = () => tab === 'municipios' ? seleccionar(x) : seleccionarDepto(x.c);
-    const li = document.createElement('li'); li.append(b); return li;
+    const li = document.createElement('li'); li.style.animationDelay = i * 40 + 'ms'; li.append(b); return li;
   }));
 }
 document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
   tab = b.dataset.tab;
   document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
-  pintarRanking();
+  pintarRanking(true);
 });
-pintarRanking();
+pintarRanking(true);
 
 // ---- panel derecho: leyenda o ficha
 function leyenda() {
-  seleccion = null; pintar();
+  seleccion = null; quieto = performance.now();
   $('#der').classList.remove('abierta');
-  $('#der').innerHTML = `<details ${innerWidth > 1100 ? 'open' : ''}><summary class="kicker">Cómo leer el mapa</summary>
-    <div class="fila"><span class="punto"></span> Punto = municipio</div>
-    <div class="fila"><span class="pilar"></span> Altura = ofertas publicadas (escala raíz)</div>
-    <h3>Ofertas por departamento</h3>
-    ${CORTES.map((c, i) => `<div class="fila"><span class="sw" style="background:rgb(${TONOS[i]})"></span>${i ? fmt.format(c) + ' – ' + fmt.format(CORTES[i - 1] - 1) : 'Más de ' + fmt.format(c)}</div>`).join('')}
-    <div class="fila"><span class="sw" style="background:rgb(6,16,10);border:1px solid var(--line)"></span>Sin dato en este corte</div>
+  $('#der').innerHTML = `<details ${innerWidth > 1100 ? 'open' : ''}><summary class="mono"><span class="punto"></span>03 / Cómo leer el mapa</summary>
+    <h3>Columna</h3>
+    <div class="fila"><span class="pilar"></span>Altura = ofertas publicadas (escala raíz)</div>
+    <div class="fila"><span class="sube">▲</span> Verde: subió en la última actualización</div>
+    <div class="fila"><span class="baja">▼</span> Rojo: bajó en la última actualización</div>
+    <h3>Mapa</h3>
+    <div class="fila"><span class="linea"></span>Límite de departamento</div>
+    <div class="fila"><span class="dot"></span>Municipio</div>
     <h3>Altura de la columna</h3>
     ${[30000, 10000, 1000].map(n => `<div class="fila"><span class="num" style="width:56px">${fmt.format(n)}</span><span class="sub">${Math.round(altura(n) / 1000)} km de alto</span></div>`).join('')}</details>`;
 }
 
-function seleccionar(m) {
-  seleccion = m; pintar();
-  volar({ ...VISTA, longitude: m.lon, latitude: m.lat - 0.3, zoom: VISTA.zoom + 1.1, pitch: 58, bearing: -20 });
-  const delDepto = ciudades.filter(c => c.d === m.d).slice(0, 5);
+function seleccionar(m, volar = true) {
+  seleccion = m;
+  if (volar) map.flyTo({ ...VISTA, center: [m.lon, m.lat - .25], zoom: VISTA.zoom + 1.6, pitch: 62, bearing: -20, duration: 1800 });
   const der = $('#der');
   der.classList.add('abierta');
-  der.replaceChildren();
-  const cerrar = Object.assign(document.createElement('button'), { className: 'cerrar', textContent: '×', ariaLabel: 'Cerrar ficha', onclick: leyenda });
-  const f = Object.assign(document.createElement('div'), { className: 'ficha' });
-  f.append(cerrar,
-    Object.assign(document.createElement('div'), { className: 'kicker', textContent: 'Municipio' }),
-    Object.assign(document.createElement('h2'), { textContent: m.n }),
-    Object.assign(document.createElement('div'), { className: 'sub', textContent: `${deptos[m.d]} · DIVIPOLA ${m.c}` }),
-    Object.assign(document.createElement('div'), { className: 'big', textContent: m.ofertas ? fmt.format(m.ofertas) : '—' }),
-    Object.assign(document.createElement('div'), { textContent: m.ofertas ? `ofertas · puesto ${m.puesto} de ${ciudades.length} ciudades · ${(m.ofertas / total * 100).toFixed(1).replace('.', ',')} % del total` : 'Sin dato en este corte' }),
-    Object.assign(document.createElement('h3'), { textContent: 'Ofertas' }),
-    Object.assign(document.createElement('div'), { className: 'vacio', textContent: `Aquí aparecerán las ofertas de ${m.n}, cada una con el enlace a la página donde está publicada para postularte.` }),
+  const el = (tag, props) => Object.assign(document.createElement(tag), props);
+  const f = el('div', { className: 'ficha' });
+  f.append(
+    el('button', { className: 'cerrar', textContent: '×', ariaLabel: 'Cerrar ficha', onclick: leyenda }),
+    el('div', { className: 'mono', innerHTML: '<span class="punto"></span>Municipio' }),
+    el('h2', { textContent: m.n }),
+    el('div', { className: 'sub', textContent: `${deptos[m.d]}, Colombia · DIVIPOLA ${m.c}` }),
+    el('div', { className: 'big', textContent: m.obj ? fmt.format(m.obj) : '—' }),
+    el('div', { textContent: m.obj ? `ofertas · puesto ${m.puesto} de ${ciudades.length} · ${(m.obj / total * 100).toFixed(1).replace('.', ',')} % del total` : 'Sin dato en este corte' }),
+    el('h3', { textContent: 'Ofertas' }),
+    el('div', { className: 'vacio', textContent: `Aquí aparecerán las ofertas de ${m.n}, cada una con el enlace a la página donde está publicada para postularte.` }),
   );
+  const delDepto = ciudades.filter(c => c.d === m.d).slice(0, 5);
   if (delDepto.length) {
-    f.append(Object.assign(document.createElement('h3'), { textContent: `${deptos[m.d]}${datos.deptos[m.d] ? ' · ' + fmt.format(datos.deptos[m.d]) + ' ofertas' : ''}` }));
+    f.append(el('h3', { textContent: `${deptos[m.d]}${datos.deptos[m.d] ? ' · ' + fmt.format(datos.deptos[m.d]) + ' ofertas' : ''}` }));
     const ol = document.createElement('ol');
     for (const c of delDepto) {
       const b = document.createElement('button');
-      b.append(Object.assign(document.createElement('span'), { className: 'pos', textContent: c.puesto }), c.n, Object.assign(document.createElement('span'), { className: 'num', textContent: fmt.format(c.ofertas) }));
+      b.append(el('span', { className: 'pos', textContent: String(c.puesto).padStart(2, '0') }), c.n, el('span', { className: 'num', textContent: fmt.format(c.obj) }));
       b.onclick = () => seleccionar(c);
       const li = document.createElement('li'); li.append(b); ol.append(li);
     }
     f.append(ol);
   }
-  der.append(f);
+  der.replaceChildren(f);
 }
-
-function seleccionarDepto(cod) {
-  const capital = ciudades.find(c => c.d === cod);
-  if (capital) seleccionar(capital);
-}
+const seleccionarDepto = cod => { const c = ciudades.find(c => c.d === cod); if (c) seleccionar(c); };
 
 $('#buscar').addEventListener('change', e => {
   const v = e.target.value.trim().toLowerCase();
   const m = municipios.find(m => `${m.n}, ${deptos[m.d]}`.toLowerCase() === v) || municipios.find(m => m.n.toLowerCase() === v);
-  if (m) { seleccionar(porCod[m.c]); e.target.blur(); }
+  if (m) { seleccionar(m); e.target.blur(); }
 });
-$('#vista-pais').onclick = () => { leyenda(); volar(VISTA); };
+$('#vista-pais').onclick = () => { leyenda(); map.flyTo({ ...VISTA, duration: 1800 }); };
 leyenda();
+
+// ---- datos en vivo: revisa el archivo cada minuto; el recolector lo actualiza varias veces al día
+setInterval(async () => {
+  const nuevo = await fetch('data/ofertas.json', { cache: 'no-store' }).then(r => r.json()).catch(() => null);
+  if (!nuevo) return;
+  Object.assign(datos.deptos, nuevo.deptos);
+  for (const [c, n] of Object.entries(nuevo.ciudades)) if (porCod[c]?.obj !== undefined) fijar(porCod[c], n);
+  $('#corte').textContent = `Fuente: ${nuevo.fuente} · corte ${nuevo.actualizado}`;
+}, 60000);
+
+// ?demo: mueve cifras al azar para ver la animación (marcado como "Simulación" en el HUD)
+if (DEMO) setInterval(() => {
+  for (let i = 0; i < 3; i++) {
+    const c = ciudades[Math.floor(Math.random() * ciudades.length)];
+    fijar(c, Math.max(1, c.obj + (Math.round(c.obj * (Math.random() - .45) * .05) || 1)));
+  }
+}, 2500);
 </script>
 </body>
 </html>
