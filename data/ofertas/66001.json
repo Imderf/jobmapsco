@@ -1,7 +1,19 @@
 {
- "actualizado": "2026-10-13T18:01:35+00:00",
+ "actualizado": "2026-10-13T18:08:55+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
+  {
+   "t": "Profesional de marketing estratégico y contenido digital",
+   "e": "Empleos del Eje",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/profesional-de-marketing-estrat%C3%A9gico-y-contenido-digital-at-empleos-del-eje-4475740129",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Marketing y comunicación",
+   "q": "Marketing y comunicación",
+   "r": "2026-10-13T18:08:55+00:00"
+  },
   {
    "t": "Asesor Comercial  de Temporada - Pereira",
    "e": "Century Sports (Sportline, Nike, Kicks, Converse, KREM, Super Outlet)",
@@ -10,7 +22,8 @@
    "f": null,
    "h": "hace 18 horas",
    "s": "",
-   "i": "Ventas y comercial"
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T18:08:55+00:00"
   },
   {
    "t": "Técnico / Tecnologo en Mantenimiento",
@@ -20,7 +33,8 @@
    "f": null,
    "h": "hace 2 días",
    "s": "",
-   "i": "Construcción y mantenimiento"
+   "i": "Construcción y mantenimiento",
+   "r": "2026-10-13T18:08:55+00:00"
   },
   {
    "t": "Auxiliar  de  Bodega - Pereira",
@@ -30,7 +44,8 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Logística y transporte"
+   "i": "Logística y transporte",
+   "r": "2026-10-13T18:08:55+00:00"
   },
   {
    "t": "Auxiliar Administrativo en salud - Control de turnos",
@@ -40,7 +55,8 @@
    "f": null,
    "h": "hace 2 días",
    "s": "",
-   "i": "Salud"
+   "i": "Salud",
+   "r": "2026-10-13T18:08:55+00:00"
   },
   {
    "t": "AUXILIAR DE BODEGAS / ESTIBADOR DE FRUTAS Y VERDURAS / TEMPORADA EN PEREIRA",
@@ -50,7 +66,8 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Logística y transporte"
+   "i": "Logística y transporte",
+   "r": "2026-10-13T18:08:55+00:00"
   },
   {
    "t": "Analista logístico",
@@ -60,7 +77,8 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Logística y transporte"
+   "i": "Logística y transporte",
+   "r": "2026-10-13T18:08:55+00:00"
   },
   {
    "t": "Operario Básico Pereira",
@@ -70,7 +88,8 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Producción y operarios"
+   "i": "Producción y operarios",
+   "r": "2026-10-13T18:08:55+00:00"
   },
   {
    "t": "Jefe Administrativo",
@@ -80,17 +99,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Administración y finanzas"
-  },
-  {
-   "t": "Profesional de marketing estratégico y contenido digital",
-   "e": "Empleos del Eje",
-   "p": "LinkedIn",
-   "u": "https://co.linkedin.com/jobs/view/profesional-de-marketing-estrat%C3%A9gico-y-contenido-digital-at-empleos-del-eje-4475740129",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Marketing y comunicación"
+   "i": "Administración y finanzas",
+   "r": "2026-10-13T18:08:55+00:00"
   },
   {
    "t": "Atención al cliente y apoyo administrativo",
@@ -100,7 +110,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Servicio al cliente"
+   "i": "Servicio al cliente",
+   "r": "2026-10-13T18:08:55+00:00"
   }
  ]
 }

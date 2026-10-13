@@ -1,18 +1,110 @@
 {
- "muestra": 60,
- "ciudades": 6,
+ "muestra": 112,
+ "ciudades": 12,
  "industrias": {
-  "Producción y operarios": 12,
+  "Producción y operarios": 21,
+  "Ventas y comercial": 14,
+  "Logística y transporte": 14,
+  "Administración y finanzas": 12,
   "Servicio al cliente": 10,
-  "Ventas y comercial": 9,
-  "Logística y transporte": 9,
-  "Administración y finanzas": 9,
-  "Salud": 2,
-  "Prácticas y aprendices": 2,
-  "Otros": 2,
+  "Salud": 9,
+  "Tecnología": 9,
+  "Marketing y comunicación": 8,
+  "Otros": 7,
+  "Prácticas y aprendices": 4,
   "Hotelería y alimentos": 2,
   "Construcción y mantenimiento": 1,
-  "Marketing y comunicación": 1,
-  "Seguridad y aseo": 1
+  "Seguridad y aseo": 1,
+  "Recursos humanos": 0,
+  "Educación": 0
+ },
+ "por_ciudad": {
+  "Salud": {
+   "25286": 1,
+   "66001": 1,
+   "68001": 2,
+   "11001": 3,
+   "73001": 1,
+   "08001": 1
+  },
+  "Producción y operarios": {
+   "25286": 1,
+   "66001": 1,
+   "76001": 2,
+   "05001": 1,
+   "13001": 1,
+   "68001": 3,
+   "05615": 7,
+   "11001": 3,
+   "08001": 2
+  },
+  "Logística y transporte": {
+   "25286": 4,
+   "66001": 3,
+   "76001": 2,
+   "05001": 1,
+   "13001": 1,
+   "11001": 1,
+   "08001": 2
+  },
+  "Otros": {
+   "25286": 2,
+   "76001": 1,
+   "05001": 1,
+   "13001": 2,
+   "05615": 1
+  },
+  "Ventas y comercial": {
+   "25286": 2,
+   "66001": 1,
+   "76001": 1,
+   "05001": 2,
+   "13001": 2,
+   "68001": 1,
+   "05615": 1,
+   "11001": 2,
+   "08001": 2
+  },
+  "Marketing y comunicación": {
+   "66001": 1,
+   "25473": 1,
+   "05088": 1,
+   "11001": 5
+  },
+  "Construcción y mantenimiento": {
+   "66001": 1
+  },
+  "Administración y finanzas": {
+   "66001": 1,
+   "05001": 2,
+   "13001": 2,
+   "68001": 3,
+   "05615": 1,
+   "08001": 3
+  },
+  "Servicio al cliente": {
+   "66001": 1,
+   "76001": 3,
+   "05001": 1,
+   "68001": 1,
+   "11001": 3,
+   "08001": 1
+  },
+  "Tecnología": {
+   "76001": 1,
+   "11001": 8
+  },
+  "Prácticas y aprendices": {
+   "76001": 1,
+   "05001": 1,
+   "13001": 2
+  },
+  "Hotelería y alimentos": {
+   "05001": 1,
+   "68001": 1
+  },
+  "Seguridad y aseo": {
+   "11001": 1
+  }
  }
 }

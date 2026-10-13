@@ -1,6 +1,20 @@
 {
- "siguiente": 6,
+ "siguiente": 9,
  "registro": [
+  {
+   "fecha": "2026-10-13T18:08:55+00:00",
+   "busquedas": [
+    "Tecnología",
+    "Marketing y comunicación",
+    "Salud",
+    "Cartagena",
+    "Funza",
+    "Rionegro"
+   ],
+   "ofertas": 60,
+   "errores": [],
+   "consultas_restantes": "187"
+  },
   {
    "fecha": "2026-10-13T18:01:35+00:00",
    "ciudades": [
@@ -29,5 +43,6 @@
    ],
    "consultas_restantes": null
   }
- ]
+ ],
+ "siguiente_industria": 3
 }

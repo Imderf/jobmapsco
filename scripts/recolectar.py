@@ -1,10 +1,13 @@
 """Recolector: trae ofertas recientes por ciudad desde JSearch (RapidAPI, agrega Google for Jobs) y las guarda en data/.
 
-Plan gratis de JSearch: 200 consultas al mes → 6 ciudades por corrida, una corrida al día, por turnos (las de más
-ofertas primero). Cada consulta trae hasta 10 ofertas con enlace directo al portal donde están publicadas.
+Plan gratis de JSearch: 200 consultas al mes → 6 consultas por corrida, una corrida al día:
+- 3 búsquedas por industria en todo el país (por turnos), para que haya ofertas de cada industria; cada oferta se
+  asigna a su ciudad por el lugar que trae ("Bogotá • a través de Computrabajo").
+- 3 búsquedas generales por ciudad (por turnos, las de más ofertas primero).
+Cada consulta trae hasta 10 ofertas con enlace directo al portal. Cada ciudad guarda sus 30 más recientes (máx. 30 días).
 
 Escribe:
-- data/ofertas/<divipola>.json  ofertas de cada ciudad (se reemplaza en su turno)
+- data/ofertas/<divipola>.json  ofertas de cada ciudad (las nuevas se suman a las anteriores)
 - data/industrias.json          conteo por industria sobre todas las ofertas guardadas
 - data/recoleccion.json         turno siguiente y registro de las últimas corridas
 
@@ -24,7 +27,10 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 DATA = RAIZ / "data"
-POR_CORRIDA = 6
+POR_CORRIDA = 6        # plan gratis: 200 consultas/mes ≈ 6 por día
+POR_INDUSTRIA = 3      # de esas, búsquedas por industria en todo el país; el resto, por ciudad
+MAX_POR_CIUDAD = 30
+VIGENCIA_DIAS = 30
 API = "https://jsearch.p.rapidapi.com/search-v2"
 
 # Primera regla que coincide con el cargo gana; el orden importa ("auxiliar de enfermería" antes que "auxiliar").
@@ -44,6 +50,17 @@ INDUSTRIAS = [
     ("Seguridad y aseo", ["guarda", "vigilante", "seguridad", "aseo", "servicios generales", "limpieza", "escolta"]),
     ("Educación", ["docente", "profesor", "maestr", "tutor", "instructor", "educacion"]),
 ]
+
+
+# Búsqueda por industria (todo Colombia), en orden de turno
+BUSQUEDAS = {
+    "Tecnología": "desarrollador software", "Marketing y comunicación": "marketing publicidad", "Salud": "enfermería salud",
+    "Administración y finanzas": "contador administrativo", "Recursos humanos": "recursos humanos",
+    "Construcción y mantenimiento": "ingeniero construcción mantenimiento", "Educación": "docente", "Hotelería y alimentos": "cocinero mesero",
+    "Logística y transporte": "logística bodega conductor", "Servicio al cliente": "servicio al cliente call center",
+    "Ventas y comercial": "asesor comercial ventas", "Producción y operarios": "operario producción",
+    "Seguridad y aseo": "guarda de seguridad aseo", "Prácticas y aprendices": "practicante aprendiz",
+}
 
 
 def simple(s):
@@ -81,6 +98,39 @@ def oferta(j):
     }
 
 
+def indice_ciudades(municipios, ofertas_base):
+    """nombre normalizado → código DIVIPOLA. Nombres repetidos: gana el de más ofertas en la línea base."""
+    idx = {}
+    for m in sorted(municipios, key=lambda m: ofertas_base.get(m["c"], 0)):
+        n = simple(m["n"]).strip()
+        for alias in {n, n.replace(" d.c.", "").replace(" dc", ""), n.split(" de ")[0]}:
+            idx[alias] = m["c"]
+    return idx
+
+
+def ciudad_de(j, idx):
+    lugar = (j.get("job_city") or j.get("job_location") or "").split("•")[0].split(",")[0]
+    n = simple(lugar).strip()
+    if n in ("", "colombia", "remoto", "remote"):   # sin ciudad (existe un municipio "Colombia" en el Huila)
+        return None
+    return idx.get(n) or idx.get(n.split(" de ")[0])
+
+
+def guardar(cod, nuevas, ahora):
+    """Suma las nuevas a las guardadas: sin repetir enlace, máximo 30, nada de hace más de 30 días."""
+    f = DATA / "ofertas" / f"{cod}.json"
+    viejas = json.loads(f.read_text())["ofertas"] if f.exists() else []
+    limite = datetime.now(timezone.utc).timestamp() - VIGENCIA_DIAS * 86400
+    vistos, lista = set(), []
+    for o in nuevas + viejas:
+        o.setdefault("r", ahora)
+        if o["u"] in vistos or datetime.fromisoformat(o["r"]).timestamp() < limite:
+            continue
+        vistos.add(o["u"]); lista.append(o)
+    f.write_text(json.dumps({"actualizado": ahora, "fuente": "JSearch (Google for Jobs)", "ofertas": lista[:MAX_POR_CIUDAD]}, ensure_ascii=False, indent=1))
+    return len(nuevas)
+
+
 def llave():
     if os.environ.get("RAPIDAPI_KEY"):
         return os.environ["RAPIDAPI_KEY"].strip()
@@ -92,8 +142,8 @@ def llave():
     sys.exit("Falta RAPIDAPI_KEY (variable de entorno o .env)")
 
 
-def consultar(clave, ciudad, depto):
-    q = urllib.parse.urlencode({"query": f"empleos en {ciudad}, {depto}", "country": "co", "num_pages": 1, "date_posted": "month"})
+def consultar(clave, texto):
+    q = urllib.parse.urlencode({"query": texto, "country": "co", "num_pages": 1, "date_posted": "month"})
     req = urllib.request.Request(f"{API}?{q}", headers={"x-rapidapi-key": clave, "x-rapidapi-host": "jsearch.p.rapidapi.com"})
     with urllib.request.urlopen(req, timeout=40) as r:
         return json.load(r), r.headers.get("x-ratelimit-requests-remaining")
@@ -101,19 +151,24 @@ def consultar(clave, ciudad, depto):
 
 def resumir_industrias():
     """Reclasifica lo guardado (por si cambiaron las reglas) y cuenta por industria."""
-    conteo, muestra, ciudades = {}, 0, 0
+    conteo, muestra, ciudades, por_ciudad = {}, 0, 0, {}
     for f in (DATA / "ofertas").glob("*.json"):
         d = json.loads(f.read_text())
         ofertas = d["ofertas"]
         for o in ofertas:
             o["i"] = industria(o["t"])
+            if o["i"] == "Otros" and o.get("q"):
+                o["i"] = o["q"]
+            cod = por_ciudad.setdefault(o["i"], {})
+            cod[f.stem] = cod.get(f.stem, 0) + 1
         f.write_text(json.dumps(d, ensure_ascii=False, indent=1))
         ciudades += bool(ofertas)
         for o in ofertas:
             conteo[o["i"]] = conteo.get(o["i"], 0) + 1
             muestra += 1
-    orden = dict(sorted(conteo.items(), key=lambda kv: -kv[1]))
-    return {"muestra": muestra, "ciudades": ciudades, "industrias": orden}
+    todas = [n for n, _ in INDUSTRIAS] + ["Otros"]
+    orden = {n: conteo.get(n, 0) for n in sorted(todas, key=lambda n: (-conteo.get(n, 0), n == "Otros"))}
+    return {"muestra": muestra, "ciudades": ciudades, "industrias": orden, "por_ciudad": por_ciudad}
 
 
 def main():
@@ -124,39 +179,46 @@ def main():
     codigos = sorted(base["ciudades"], key=lambda c: -base["ciudades"][c])
     estado_f = DATA / "recoleccion.json"
     estado = json.loads(estado_f.read_text()) if estado_f.exists() else {"siguiente": 0, "registro": []}
-    hoy, siguiente = turno(codigos, estado["siguiente"])
+    ciudades_hoy, sig_c = turno(codigos, estado.get("siguiente", 0), POR_CORRIDA - POR_INDUSTRIA)
+    industrias_hoy, sig_i = turno(list(BUSQUEDAS), estado.get("siguiente_industria", 0), POR_INDUSTRIA)
+    idx = indice_ciudades(muni["municipios"], base["ciudades"])
 
     (DATA / "ofertas").mkdir(exist_ok=True)
     ahora = datetime.now(timezone.utc).isoformat(timespec="seconds")
     hechas, errores, restantes, total = [], [], None, 0
-    for cod in hoy:
-        m = por_cod[cod]
+    for tipo, x in [("industria", i) for i in industrias_hoy] + [("ciudad", c) for c in ciudades_hoy]:
+        nombre = x if tipo == "industria" else por_cod[x]["n"]
+        texto = f"{BUSQUEDAS[x]} en Colombia" if tipo == "industria" else f"empleos en {nombre}, {muni['deptos'][por_cod[x]['d']]}"
         try:
-            cuerpo, restantes = consultar(clave, m["n"], muni["deptos"][m["d"]])
+            cuerpo, restantes = consultar(clave, texto)
         except urllib.error.HTTPError as e:
-            errores.append(f"{m['n']}: HTTP {e.code}")
+            errores.append(f"{nombre}: HTTP {e.code}")
             if e.code in (401, 403, 429):   # llave inválida o cupo agotado: no seguir gastando
                 break
             continue
         except (urllib.error.URLError, TimeoutError) as e:
-            errores.append(f"{m['n']}: {e}")
+            errores.append(f"{nombre}: {e}")
             continue
-        vistos, ofertas = set(), []
+        por_ciudad, vistos = {}, set()
         for j in (cuerpo.get("data") or {}).get("jobs", []):
             o = oferta(j)
-            if o and o["u"] not in vistos:
-                vistos.add(o["u"]); ofertas.append(o)
-        (DATA / "ofertas" / f"{cod}.json").write_text(json.dumps(
-            {"actualizado": ahora, "fuente": "JSearch (Google for Jobs)", "ofertas": ofertas}, ensure_ascii=False, indent=1))
-        hechas.append(m["n"]); total += len(ofertas)
-        print(f"  {m['n']:24} {len(ofertas):2} ofertas")
+            cod = ciudad_de(j, idx) if tipo == "industria" else x
+            if not o or not cod or o["u"] in vistos:
+                continue
+            if tipo == "industria":
+                o["q"] = x   # si el cargo no deja clasificarla, queda en la industria que se buscó
+            vistos.add(o["u"]); por_ciudad.setdefault(cod, []).append(o)
+        n = sum(guardar(cod, lista, ahora) for cod, lista in por_ciudad.items())
+        hechas.append(nombre); total += n
+        print(f"  {tipo:9} {nombre:30} {n:2} ofertas en {len(por_ciudad)} ciudades")
 
     (DATA / "industrias.json").write_text(json.dumps(resumir_industrias(), ensure_ascii=False, indent=1))
-    estado["siguiente"] = siguiente if not errores else (estado["siguiente"] + len(hechas)) % len(codigos)
-    estado["registro"] = ([{"fecha": ahora, "ciudades": hechas, "ofertas": total, "errores": errores, "consultas_restantes": restantes}]
+    if not errores:   # con errores se repite el mismo turno mañana
+        estado["siguiente"], estado["siguiente_industria"] = sig_c, sig_i
+    estado["registro"] = ([{"fecha": ahora, "busquedas": hechas, "ofertas": total, "errores": errores, "consultas_restantes": restantes}]
                           + estado["registro"])[:60]
     estado_f.write_text(json.dumps(estado, ensure_ascii=False, indent=1))
-    print(f"{len(hechas)} ciudades, {total} ofertas, {len(errores)} errores, consultas restantes del mes: {restantes}")
+    print(f"{len(hechas)} búsquedas, {total} ofertas, {len(errores)} errores, consultas restantes del mes: {restantes}")
     if errores:
         print("errores:", *errores, sep="\n  ")
         sys.exit(1 if not hechas else 0)
@@ -176,6 +238,11 @@ def prueba():
     assert turno(list("abcdefgh"), 5, 6) == (list("fghabc"), 3)
     assert turno(list("ab"), 1, 6) == (["b", "a"], 1)
     assert oferta({"job_title": "X", "job_apply_link": "javascript:alert(1)"}) is None
+    idx = indice_ciudades([{"c": "41206", "n": "Colombia"}, {"c": "11001", "n": "Bogotá D.C."}, {"c": "13001", "n": "Cartagena"}, {"c": "05615", "n": "Rionegro"}, {"c": "68615", "n": "Rionegro"}], {"05615": 1049})
+    assert ciudad_de({"job_location": "Bogotá     •  a través de Computrabajo"}, idx) == "11001"
+    assert ciudad_de({"job_location": "Cartagena de Indias, Bolívar"}, idx) == "13001"
+    assert ciudad_de({"job_location": "Rionegro, Antioquia"}, idx) == "05615"
+    assert ciudad_de({"job_location": "Colombia"}, idx) is None
     print("prueba ok")
 
 

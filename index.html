@@ -101,19 +101,21 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
 .ficha h2{font:800 28px/1 'Inter Tight',sans-serif;letter-spacing:-.02em;margin:6px 0 4px;text-transform:uppercase}
 .ficha .big{font:500 46px/1 var(--mono);color:var(--blue2);margin:16px 0 4px}
 .ficha .vacio{border:1px dashed var(--line);border-radius:8px;padding:12px;color:var(--muted)}
-.ofertas{list-style:none;display:grid;gap:8px}
-.oferta{border:1px solid var(--line);border-radius:8px;padding:10px;background:rgba(255,255,255,.02);animation:sube .4s both}
+.ofertas{list-style:none;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}   /* minmax: una palabra larga no ensancha la columna */
+.oferta{overflow-wrap:anywhere;border:1px solid var(--line);border-radius:8px;padding:10px;background:rgba(255,255,255,.02);animation:sube .4s both}
 .oferta .cargo{font-weight:500;line-height:1.3}
 .oferta .pie{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap}
 .chip{font:10px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 5px}
 .postular{margin-left:auto;font:500 12px Inter,sans-serif;color:#fff;background:var(--blue);border-radius:5px;padding:5px 9px;text-decoration:none;white-space:nowrap}
 .postular:hover,.postular:focus-visible{background:#4f86ff;outline:none}
 .nota{font-size:11px;color:var(--muted);margin-top:8px}
+.filtro{display:block;width:100%;text-align:left;margin:2px 0 8px;background:rgba(47,107,255,.16);border:1px solid rgba(47,107,255,.5);border-radius:6px;padding:6px 9px;cursor:pointer;font:500 12px Inter,sans-serif;white-space:pre}
+.filtro:hover{border-color:#fff}
 .cerrar{float:right;background:none;border:0;color:var(--muted);cursor:pointer;font-size:18px;line-height:1}
 @media (max-width:1100px){
   #izq,#total{width:270px}
   #der{width:260px}
-  ol li:nth-child(n+6){display:none}
+  #ranking li:nth-child(n+6){display:none}
 }
 @media (max-width:760px){
   #hud-sup .der,#hud-inf .der{display:none}
@@ -162,6 +164,7 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
     <button data-tab="deptos" aria-pressed="false">Departamentos</button>
     <button data-tab="industrias" aria-pressed="false">Industrias</button>
   </div>
+  <div id="filtro-ind"></div>
   <ol id="ranking"></ol>
   <div class="nota" id="nota-ranking" hidden></div>
 </section>
@@ -260,7 +263,7 @@ const [geo, { deptos, municipios }, datos, mascara, puntos] = await Promise.all(
 
 // ---- modelo: cada ciudad tiene su valor objetivo (obj) y el que se dibuja (vis), que lo persigue
 const porCod = Object.fromEntries(municipios.map(m => [m.c, m]));
-const ciudades = Object.entries(datos.ciudades).map(([c, n]) => Object.assign(porCod[c], { obj: n, vis: 0, delta: 0, flash: 0 }));
+const ciudades = Object.entries(datos.ciudades).map(([c, n]) => Object.assign(porCod[c], { obj: n, vis: 0, delta: 0, flash: 0, fv: 1 }));
 let total = 0;
 const puestos = () => {
   ciudades.sort((a, b) => b.obj - a.obj).forEach((c, i) => c.puesto = i + 1);
@@ -323,6 +326,8 @@ function pulsar() {   // arranca después de cargar: si corre antes, el mapa nun
 
 // ---- columnas y cifras (deck.gl encima del mapa; solo en vista plana)
 let crecer = 0, seleccion = null, listo = false, quieto = performance.now();
+// filtro por industria: fv (0–1) encoge la barra de las ciudades sin ofertas de esa industria
+let filtroInd = null, porIndustria = {};
 const aditivo = { blend: true, blendColorOperation: 'add', blendColorSrcFactor: 'src-alpha', blendColorDstFactor: 'one', depthWriteEnabled: false };
 const overlay = new deck.MapboxOverlay({
   interleaved: false, layers: [],
@@ -346,19 +351,19 @@ function capas(ahora) {
   const acerca = Math.min(1, 2 ** (VISTA.zoom - map.getZoom()));      // al acercarse, columnas más delgadas y bajas
   const escala = crecer * Math.min(1.2, 2 ** (VISTA.zoom - map.getZoom()));
   // etiquetas: seleccionada, top 3 y las que acaban de cambiar (top 15), sin dos demasiado cerca
-  const candidatas = ciudades.filter(c => c.c === sel || c.puesto <= (movil ? 1 : 3) || (c.flash > ahora && c.puesto <= 15))
+  const candidatas = ciudades.filter(c => c.fv > .5).filter(c => c.c === sel || c.puesto <= (movil ? 1 : 3) || (c.flash > ahora && c.puesto <= 15))
     .sort((a, b) => (b.c === sel) - (a.c === sel) || a.puesto - b.puesto);
   const { lng, lat } = map.getCenter();
   const vista = new deck.WebMercatorViewport({ width: innerWidth, height: innerHeight, longitude: lng, latitude: lat, zoom: map.getZoom(), pitch: map.getPitch(), bearing: map.getBearing() });
   const visibles = [];
   for (const c of candidatas) {
-    const [x, y] = vista.project([c.lon, c.lat, altura(c.vis) * escala + 14000]);
+    const [x, y] = vista.project([c.lon, c.lat, altura(c.vis) * c.fv * escala + 14000]);
     const ancho = etiqueta(c, ahora).length * 8.5 + 16;
     if (visibles.every(v => Math.abs(v.x - x) > (v.ancho + ancho) / 2 + 4 || Math.abs(v.y - y) > 26)) visibles.push(Object.assign(c, { x, y, ancho }));
   }
   // nombres: todas las ciudades con dato (más la seleccionada), sin encimarse, prioridad por puesto
   const nombres = [];
-  for (const c of [...(seleccion && !seleccion.obj ? [seleccion] : []), ...ciudades]) {
+  for (const c of [...(seleccion && !seleccion.obj ? [seleccion] : []), ...ciudades.filter(c => c.fv > .5)]) {
     const [x, y] = vista.project([c.lon, c.lat, 0]);
     const ancho = c.n.length * 6.6 + 12;
     const libre = (v, alto) => Math.abs(v.x - x) > (v.ancho + ancho) / 2 + 2 || Math.abs(v.y - (y + 13)) > alto;   // el nombre va 13 px abajo
@@ -367,7 +372,7 @@ function capas(ahora) {
   // flujo: puntos de luz que recorren la barra; suben (o bajan, en rojo) más rápido mientras cambia el dato
   const flujo = [];
   for (const c of ciudades) {
-    const h = altura(c.vis) * escala, cambia = c.flash > ahora, baja = cambia && c.delta < 0;
+    const h = altura(c.vis) * c.fv * escala, cambia = c.flash > ahora, baja = cambia && c.delta < 0;
     for (let k = 0; k < 4; k++) {
       let f = ((ahora / 2600) * (cambia ? 2.2 : 1) + k / 4 + (((c.lon * 7.3) % 1) + 1) % 1) % 1;
       if (baja) f = 1 - f;
@@ -377,21 +382,21 @@ function capas(ahora) {
   const fase = c => (ahora / 2400 + (((c.lat * 5.1) % 1) + 1)) % 1;
   return [
     new deck.ScatterplotLayer({
-      id: 'pulso', data: ciudades.filter(c => c.puesto <= 25), stroked: true, filled: false, lineWidthUnits: 'pixels', getLineWidth: 1.4,
+      id: 'pulso', data: ciudades.filter(c => c.puesto <= 25 && c.fv > .5), stroked: true, filled: false, lineWidthUnits: 'pixels', getLineWidth: 1.4,
       getPosition: c => [c.lon, c.lat, 0], getRadius: c => (4000 + fase(c) * 30000) * acerca,
       getLineColor: c => [...tono(c, ahora), 170 * (1 - fase(c))], parameters: aditivo,
       updateTriggers: { getRadius: ahora, getLineColor: ahora },
     }),
     ...[[26000, 14], [12000, 40]].map(([radio, alfa], i) => new deck.ColumnLayer({
       id: 'halo' + i, data: ciudades, diskResolution: 24, radius: radio * acerca, extruded: true,
-      getPosition: c => [c.lon, c.lat], getElevation: c => altura(c.vis), elevationScale: escala,
+      getPosition: c => [c.lon, c.lat], getElevation: c => altura(c.vis) * c.fv, elevationScale: escala,
       getFillColor: c => [...tono(c, ahora), alfa * (.75 + .25 * Math.sin(ahora / 700 + c.lon * 3))],   // pulso de luz
       material: false, parameters: aditivo,
       updateTriggers: { getElevation: ahora, getFillColor: ahora },
     })),
     new deck.ColumnLayer({
       id: 'columnas', data: ciudades, pickable: true, diskResolution: 16, radius: 4200 * acerca, extruded: true,
-      getPosition: c => [c.lon, c.lat], getElevation: c => altura(c.vis), elevationScale: escala,
+      getPosition: c => [c.lon, c.lat], getElevation: c => altura(c.vis) * c.fv, elevationScale: escala,
       getFillColor: c => c.c === sel ? [255, 255, 255] : mezcla(tono(c, ahora), [255, 255, 255], .35),
       material: { ambient: .9, diffuse: .4, shininess: 24 },
       updateTriggers: { getElevation: ahora, getFillColor: ahora },
@@ -413,7 +418,7 @@ function capas(ahora) {
     }),
     new deck.TextLayer({
       id: 'cifras', data: visibles,
-      getPosition: c => [c.lon, c.lat, altura(c.vis) * escala + 14000],
+      getPosition: c => [c.lon, c.lat, altura(c.vis) * c.fv * escala + 14000],
       getText: c => etiqueta(c, ahora), getSize: c => c.c === sel ? 15 : 13,
       getColor: c => c.flash > ahora ? (c.delta > 0 ? SUBE : BAJA) : [238, 242, 255],
       fontFamily: 'JetBrains Mono', fontWeight: 500, characterSet: '0123456789.▲▼ ',
@@ -427,7 +432,10 @@ function capas(ahora) {
 // bucle: las barras persiguen su valor objetivo (suben o bajan en vivo) y la cámara orbita si nadie toca el mapa
 (function cuadro() {
   const ahora = performance.now();
-  for (const c of ciudades) c.vis += Math.abs(c.obj - c.vis) < .5 ? c.obj - c.vis : (c.obj - c.vis) * .06;
+  for (const c of ciudades) {
+    c.vis += Math.abs(c.obj - c.vis) < .5 ? c.obj - c.vis : (c.obj - c.vis) * .06;
+    c.fv += ((!filtroInd || porIndustria[filtroInd]?.[c.c] ? 1 : 0) - c.fv) * .08;
+  }
   if (listo) {
     $('#total-num').textContent = fmt.format(Math.round(ciudades.reduce((s, c) => s + c.vis, 0)));
     if (!sinMovimiento && !seleccion && !map.isMoving() && ahora - quieto > 5000) map.setBearing(map.getBearing() + .03);
@@ -490,26 +498,39 @@ else {
 // ---- ranking
 let tab = 'municipios';
 const industrias = await fetch('data/industrias.json', { cache: 'no-cache' }).then(r => r.json()).catch(() => null);
+porIndustria = industrias?.por_ciudad || {};
 function pintarRanking(entra = false) {
   const ahora = performance.now();
   $('#ranking').classList.toggle('entra', entra);
   const nota = $('#nota-ranking');
   nota.hidden = tab !== 'industrias';
-  if (tab === 'industrias') nota.textContent = industrias ? `Muestra de ${fmt.format(industrias.muestra)} ofertas recientes en ${industrias.ciudades} ciudades, clasificadas por el cargo.` : 'Todavía no hay ofertas recolectadas.';
-  const items = (tab === 'municipios' ? ciudades : tab === 'deptos' ? rankDeptos() : Object.entries(industrias?.industrias || {}).map(([n, obj]) => ({ n, obj }))).slice(0, 10);
+  if (tab === 'industrias') nota.textContent = !industrias ? 'Todavía no hay ofertas recolectadas.' : filtroInd
+    ? `Ofertas de ${filtroInd} en la muestra de ${industrias.ciudades} ciudades. Toca una ciudad para verlas.`
+    : `Muestra de ${fmt.format(industrias.muestra)} ofertas recientes en ${industrias.ciudades} ciudades, clasificadas por el cargo. Toca una industria para filtrar el mapa.`;
+  const deIndustria = () => Object.entries(porIndustria[filtroInd] || {}).map(([c, obj]) => ({ ...porCod[c], obj, ciudad: porCod[c] })).sort((a, b) => b.obj - a.obj);
+  const items = (tab === 'municipios' ? ciudades : tab === 'deptos' ? rankDeptos()
+    : filtroInd ? deIndustria() : Object.entries(industrias?.industrias || {}).map(([n, obj]) => ({ n, obj, ind: n }))).slice(0, 10);
+  $('#filtro-ind').replaceChildren();
+  if (tab === 'industrias' && filtroInd) {
+    const quitar = Object.assign(document.createElement('button'), { className: 'filtro', textContent: `${filtroInd}  ✕`, title: 'Quitar filtro' });
+    quitar.onclick = () => { filtroInd = null; pintarRanking(true); if (seleccion) seleccionar(seleccion, false); };
+    $('#filtro-ind').append(quitar);
+  }
   $('#ranking').replaceChildren(...items.map((x, i) => {
     const b = document.createElement('button');
     const nom = document.createElement('span');
-    nom.append(x.n, ' ', Object.assign(document.createElement('span'), { className: 'sub', textContent: tab === 'municipios' ? deptos[x.d] : '' }));
+    nom.append(x.n, ' ', Object.assign(document.createElement('span'), { className: 'sub', textContent: tab === 'municipios' || x.ciudad ? deptos[x.d] : '' }));
     const num = Object.assign(document.createElement('span'), { className: 'num', textContent: fmt.format(x.obj) });
     if (x.flash > ahora) { num.className += x.delta > 0 ? ' sube' : ' baja'; num.textContent += x.delta > 0 ? ' ▲' : ' ▼'; }
     b.append(Object.assign(document.createElement('span'), { className: 'pos', textContent: String(i + 1).padStart(2, '0') }), nom, num);
-    b.onclick = () => tab === 'municipios' ? seleccionar(x) : tab === 'deptos' ? seleccionarDepto(x.c) : null;
+    b.onclick = () => tab === 'municipios' ? seleccionar(x) : tab === 'deptos' ? seleccionarDepto(x.c)
+      : x.ciudad ? seleccionar(x.ciudad) : (filtroInd = x.ind, pintarRanking(true), map.flyTo({ ...VISTA, duration: 1600 }));
     const li = document.createElement('li'); li.style.animationDelay = i * 40 + 'ms'; li.append(b); return li;
   }));
 }
 document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
   tab = b.dataset.tab;
+  if (tab !== 'industrias') filtroInd = null;   // el filtro vive solo en la pestaña de industrias
   document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
   pintarRanking(true);
 });
@@ -569,14 +590,15 @@ async function pintarOfertas(m, caja) {
   if (!cacheOfertas.has(m.c)) cacheOfertas.set(m.c, fetch(`data/ofertas/${m.c}.json`, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null));
   const d = await cacheOfertas.get(m.c);
   if (seleccion !== m) return;   // el usuario ya abrió otra ciudad
-  if (!d?.ofertas?.length) {
+  const lista = (d?.ofertas || []).filter(o => !filtroInd || o.i === filtroInd);
+  if (!lista.length) {
     caja.replaceChildren(el('div', { className: 'vacio', textContent: m.obj
-      ? `Las ofertas de ${m.n} llegan en su turno: cada día se actualizan 6 ciudades.`
+      ? (d?.ofertas?.length ? `No hay ofertas de ${filtroInd} en ${m.n} en la muestra.` : `Las ofertas de ${m.n} llegan en su turno: cada día se actualizan 6 ciudades.`)
       : `No hay ofertas de ${m.n} en este corte.` }));
     return;
   }
   const ol = el('ol', { className: 'ofertas' });
-  d.ofertas.forEach((o, k) => {
+  lista.forEach((o, k) => {
     const li = el('li', { className: 'oferta' });
     li.style.animationDelay = k * 40 + 'ms';
     const pie = el('div', { className: 'pie' });
@@ -587,7 +609,7 @@ async function pintarOfertas(m, caja) {
     ol.append(li);
   });
   const horas = Math.round((Date.now() - Date.parse(d.actualizado)) / 36e5);
-  caja.replaceChildren(ol, el('div', { className: 'nota', textContent: `Fuente: ${d.fuente} · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}` }));
+  caja.replaceChildren(ol, el('div', { className: 'nota', textContent: `${filtroInd ? `Filtro: ${filtroInd} · ` : ''}Fuente: ${d.fuente} · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}` }));
 }
 
 function seleccionarDepto(cod) {
