@@ -30,7 +30,7 @@ Config `mapa-empleo` en `.claude/launch.json` del vault: `python3 -m http.server
 - Fuera de Colombia (atenuado al 68 %, no oculto; vecinos visibles sin relieve): capa `fuera` (`data/mascara.geo.json`, mundo con Colombia recortada, la genera el script) que se oscurece desde que arranca el vuelo. La sombra del relieve tiene `bounds` de Colombia; el terreno 3D se activa al aterrizar (con `bounds` en el terreno quedan huecos negros en el globo).
 - Después de aterrizar: zoom mínimo = ver Colombia completa y `maxBounds` sobre Colombia.
 - Barras: halo que pulsa, puntos de luz que suben por la barra (bajan en rojo y más rápido cuando el dato cae), anillo tipo radar en la base, nombre de cada ciudad en mono. Etiquetas y nombres se descartan si chocan en pantalla (proyección con `WebMercatorViewport`).
-- Barras "en vivo": cada ciudad tiene `obj` (dato) y `vis` (dibujado) que lo persigue; un cambio destella verde ▲ o rojo ▼ 5 s. La página relee `data/ofertas.json` cada minuto. `?demo` simula cambios y lo marca "Simulación" en el HUD.
+- Barras "en vivo": cada ciudad tiene `obj` (dato) y `vis` (dibujado) que lo persigue; un cambio destella verde ▲ o rojo ▼ 5 s. La página relee `data/ofertas.json` cada minuto. `?demo` simula cambios y lo marca "Simulación" en el HUD. La leyenda de alza/baja solo aparece en `?demo` hasta que haya una fuente de totales que cambie (Jooble Colombia): ahí se muestra siempre.
 - Créditos de mapa obligatorios en el pie del HUD (OSM, OpenFreeMap, AWS Terrain Tiles).
 
 ## Ciclos

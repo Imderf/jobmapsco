@@ -578,8 +578,8 @@ function leyenda() {
   $('#der').innerHTML = `<details ${innerWidth > 1100 ? 'open' : ''}><summary class="mono"><span class="punto"></span>03 / Cómo leer el mapa</summary>
     <h3>Columna</h3>
     <div class="fila"><span class="pilar"></span>Altura = ofertas publicadas (escala raíz)</div>
-    <div class="fila"><span class="sube">▲</span> Verde: subió en la última actualización</div>
-    <div class="fila"><span class="baja">▼</span> Rojo: bajó en la última actualización</div>
+    ${DEMO ? `<div class="fila"><span class="sube">▲</span> En alza desde la última actualización</div>
+    <div class="fila"><span class="baja">▼</span> En baja desde la última actualización</div>` : ''}
     <h3>Mapa</h3>
     <div class="fila"><span class="linea"></span>Límite de departamento</div>
     <h3>Altura de la columna</h3>
