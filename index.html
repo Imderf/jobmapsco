@@ -254,6 +254,7 @@ $('#lista-municipios').append(...municipios.map(m => Object.assign(document.crea
 await new Promise(r => map.loaded() ? r() : map.once('load', r));
 map.addSource('deptos', { type: 'geojson', data: geo });
 map.addSource('mascara', { type: 'geojson', data: mascara });
+const OPACO = .68;   // vecinos atenuados pero visibles (sin relieve: la sombra solo cubre Colombia)
 // fuera de Colombia: plano y oscuro (tapa relieve, agua, ríos y fronteras); se enciende al aterrizar
 map.addLayer({ id: 'fuera', type: 'fill', source: 'mascara', paint: { 'fill-color': '#070a14', 'fill-opacity': 0, 'fill-opacity-transition': { duration: 2600 } } });
 map.addSource('munis', { type: 'geojson', data: { type: 'FeatureCollection', features: municipios.map(m => ({ type: 'Feature', properties: { c: m.c }, geometry: { type: 'Point', coordinates: [m.lon, m.lat] } })) } });
@@ -400,7 +401,7 @@ function aterrizar() {
   map.setProjection({ type: 'mercator' });
   map.setTerrain({ source: 'dem', exaggeration: 1.6 });   // la vista ya queda fija en Colombia: solo pide relieve de aquí
   map.addControl(overlay);
-  map.setPaintProperty('fuera', 'fill-opacity', 1);   // se apaga todo menos Colombia
+  map.setPaintProperty('fuera', 'fill-opacity', OPACO);   // se apaga todo menos Colombia
   map.setSky({ 'sky-color': '#04060c', 'horizon-color': '#0b1430', 'sky-horizon-blend': .5, 'atmosphere-blend': 0 });
   // desde aquí solo se acerca: el máximo alejamiento es ver Colombia completa, y no se sale de ella
   map.setMinZoom(VISTA.zoom - .25);
@@ -421,7 +422,7 @@ else {
   if (!aterrizado) {
     girando = false;
     document.body.classList.add('volando');
-    map.setPaintProperty('fuera', 'fill-opacity', 1);   // el resto del mundo se apaga mientras se acerca
+    map.setPaintProperty('fuera', 'fill-opacity', OPACO);   // el resto del mundo se apaga mientras se acerca
     map.once('moveend', aterrizar);
     map.flyTo({ ...VISTA, duration: 6500, curve: 1.5, essential: true });
   }
