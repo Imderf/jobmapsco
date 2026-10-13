@@ -12,6 +12,7 @@ function responder($codigo, $cuerpo) {
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') responder(405, ['ok' => false]);
 $config = require __DIR__ . '/config.php';
+require __DIR__ . '/ip.php';
 
 $d = json_decode((string) file_get_contents('php://input', false, null, 0, 4096), true);
 if (!is_array($d)) responder(400, ['ok' => false, 'error' => 'formato']);
@@ -32,7 +33,7 @@ try {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_EMULATE_PREPARES => false,
     ]);
-    $ip = hash('sha256', $config['sal'] . ($_SERVER['REMOTE_ADDR'] ?? ''));
+    $ip = hash('sha256', $config['sal'] . ip_cliente($_SERVER));
     $q = $db->prepare('SELECT COUNT(*) FROM registros WHERE ip_hash = ? AND creado > NOW() - INTERVAL 1 HOUR');
     $q->execute([$ip]);
     if ((int) $q->fetchColumn() >= 10) responder(429, ['ok' => false, 'error' => 'intentos']);

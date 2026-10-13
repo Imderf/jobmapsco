@@ -35,6 +35,7 @@ JSearch (RapidAPI) ──► scripts/recolectar.py ──► data/*.json ──�
 | `index.html` | Toda la web: mapa, rankings, filtros, buscador y registro |
 | `politica-de-datos.html` | Política de tratamiento de datos (Ley 1581 de 2012) |
 | `api/registro.php` | Recibe el registro y lo guarda en MySQL |
+| `api/ip.php` | IP real del visitante detrás de Cloudflare, para el límite de registros |
 | `api/config.example.php` | Plantilla de la conexión a MySQL; se copia como `api/config.php` |
 | `db/registros.mysql.sql` | Crea la tabla `registros` |
 | `scripts/recolectar.py` | Recolector de ofertas (JSearch) y alertas de cupo (Resend) |
@@ -182,7 +183,7 @@ En macOS, si Python falla con `CERTIFICATE_VERIFY_FAILED`, antepón `SSL_CERT_FI
 - **Registro:**
   - consultas preparadas, sin SQL armado con texto;
   - validación de datos;
-  - límite de 10 registros por hora por IP;
+  - límite de 10 registros por hora por IP; detrás de Cloudflare usa la IP real del visitante, y solo le cree a Cloudflare (`api/ip.php`, prueba con `php -d zend.assertions=1 api/ip.php`);
   - campo trampa para bots;
   - la IP se guarda cifrada (SHA-256 con sal).
 - **Datos personales:** nunca van en la URL ni se envían a Google Analytics.
