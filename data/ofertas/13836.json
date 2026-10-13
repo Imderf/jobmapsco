@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -8,10 +8,21 @@
    "p": "Magneto",
    "u": "https://www.magneto365.com/co/empleos/supervisor-junior-de-tienda-turbaco-bolivar-1097491",
    "f": null,
-   "h": "hace 21 horas",
+   "h": "hace 22 horas",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Almacenista sector construccion",
+   "e": "Megaconstrucciones del Caribe S.A.S",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/almacenista-sector-construccion-at-megaconstrucciones-del-caribe-s-a-s-4479049324",
+   "f": null,
+   "h": "hace 6 horas",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar control Calidad - Con experiencia en laboratorio de alimentos",
@@ -21,8 +32,8 @@
    "f": null,
    "h": "hace 2 días",
    "s": "",
-   "i": "Calidad, SST y ambiente",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Tienda - Turbaco",
@@ -32,8 +43,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Bodega",
@@ -43,8 +54,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Conductor C3",
@@ -54,30 +65,8 @@
    "f": null,
    "h": "hace 4 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Asesor Comercial TAT Ruta Fija",
-   "e": "SERDAN - MISION TEMPORAL",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/7511580536118895334",
-   "f": null,
-   "h": "hace 4 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Soldador",
-   "e": "Gramar",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-soldador-en-turbaco-398869BE1F3A0C4061373E686DCF3405",
-   "f": null,
-   "h": "hace 8 días",
-   "s": "",
-   "i": "Construcción y mantenimiento",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Ejecutivo Comercial Turbaco - Bolivar",
@@ -87,8 +76,30 @@
    "f": null,
    "h": "hace 26 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Asesor Comercial TAT Ruta Fija",
+   "e": "SERDAN - MISION TEMPORAL",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/7511580536118895334",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Soldador",
+   "e": "Gramar",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-soldador-en-turbaco-398869BE1F3A0C4061373E686DCF3405",
+   "f": null,
+   "h": "hace 8 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Operador de montacarga",
@@ -98,8 +109,8 @@
    "f": null,
    "h": "hace 29 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "auxiliar administrativo/a - Certificación en SST",
@@ -109,7 +120,7 @@
    "f": null,
    "h": "hace 15 días",
    "s": "",
-   "i": "Calidad, SST y ambiente",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:13:05+00:00"
   }
  ]

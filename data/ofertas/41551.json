@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -8,21 +8,10 @@
    "p": "Computrabajo",
    "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-cocina-pitalito-pitalito-en-pitalito-F026182B23DDCDAD61373E686DCF3405",
    "f": null,
-   "h": "hace 21 horas",
+   "h": "hace 22 horas",
    "s": "",
    "i": "Hotelería y alimentos",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Auxiliar Logístico Pitalito",
-   "e": "Coordinadora Mercantil S.A.",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-logistico-pitalito-en-pitalito-486E5ACB6F1DC01761373E686DCF3405",
-   "f": null,
-   "h": "hace 8 días",
-   "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Gran Convocatoria Laboral / Ejecutivo Comercial Libranza - Pitalito / Altas Comisiones",
@@ -32,8 +21,19 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Auxiliar Logístico Pitalito",
+   "e": "Coordinadora Mercantil S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-logistico-pitalito-en-pitalito-486E5ACB6F1DC01761373E686DCF3405",
+   "f": null,
+   "h": "hace 8 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Mercaderista $2.164.000",
@@ -43,8 +43,8 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Pitalito / Mercaderista /Mercaimpulsador /Supermercados /Canal Moderno con Experiencia - Pitalito consumo masivo",
@@ -54,8 +54,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Líder de Enfermería: Gestión, Calidad y Cuidado Integral",
@@ -66,7 +66,7 @@
    "h": "hace 6 días",
    "s": "",
    "i": "Salud",
-   "r": "2026-10-13T21:13:05+00:00"
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Vendedor/a tienda de calzado, CC San Antonio",
@@ -76,8 +76,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "auxiliar operativo",
@@ -87,8 +87,8 @@
    "f": null,
    "h": "hace 23 días",
    "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Asistente Administrativo y Contable",
@@ -98,8 +98,8 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "auxiliar de bodega",
@@ -109,8 +109,8 @@
    "f": null,
    "h": "hace 9 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar Ruta/ Urgente - Pitalito",
@@ -120,7 +120,7 @@
    "f": null,
    "h": "hace 26 días",
    "s": "",
-   "i": "Logística y transporte",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -131,7 +131,7 @@
    "f": null,
    "h": "hace 20 días",
    "s": "",
-   "i": "Ventas y comercial",
+   "i": "Ventas",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -142,7 +142,7 @@
    "f": null,
    "h": "hace 20 días",
    "s": "",
-   "i": "Logística y transporte",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -153,7 +153,7 @@
    "f": null,
    "h": "hace 21 días",
    "s": "",
-   "i": "Logística y transporte",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:01:53+00:00"
   }
  ]

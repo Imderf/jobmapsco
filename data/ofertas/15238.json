@@ -1,51 +1,7 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
-  {
-   "t": "Operador logístico 3 - Duitama",
-   "e": "Almacenes Paraiso S.A.",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operador-logistico-3-duitama-en-duitama-2056696E69B97B4A61373E686DCF3405",
-   "f": null,
-   "h": "hace 21 horas",
-   "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Almacenista Almacenamiento PT - Duitama",
-   "e": "POSTOBON S.A",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-almacenista-almacenamiento-pt-duitama-en-duitama-F3CED0831799D76961373E686DCF3405",
-   "f": null,
-   "h": "hace 21 horas",
-   "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Profesor(a) de Administración y Gerencia - Boyacá",
-   "e": "CONFIDENTIAL",
-   "p": "El Empleo",
-   "u": "https://www.elempleo.com/co/ofertas-trabajo/profesora-de-administracion-y-gerencia-boyaca-1886779491",
-   "f": null,
-   "h": "hace 21 horas",
-   "s": "",
-   "i": "Educación",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Asesor comercial de telecomunicaciones (claro tigo wom etc) en Duitama - experiencia en telecomunicaciones",
-   "e": "PUNTO EMPLEO S.A.S",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-comercial-de-telecomunicaciones-claro-tigo-wom-etc-en-duitama-experiencia-en-telecomunicaciones-en-duitama-08FAC9D299BA2F8961373E686DCF3405",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Marketing y comunicación",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
   {
    "t": "Auxiliar Tienda Duitama, Boyacá - Duitama",
    "e": "Cadena Comercial OXXO Colombia",
@@ -54,30 +10,19 @@
    "f": null,
    "h": "hace 9 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
-   "t": "Operarios de aseo hombres y mujeres Duitama Boyaca",
-   "e": "Confidencial",
-   "p": "Magneto",
-   "u": "https://www.magneto365.com/co/empleos/operarios-de-aseo-hombres-y-mujeres-duitama-boyaca-1089167",
+   "t": "Profesor(a) de Administración y Gerencia - Boyacá",
+   "e": "CONFIDENTIAL",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/profesora-de-administracion-y-gerencia-boyaca-1886779491",
    "f": null,
-   "h": "hace 9 días",
+   "h": "hace 22 horas",
    "s": "",
-   "i": "Seguridad y aseo",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Mercaderista Duitama",
-   "e": "Importante empresa del sector",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/-7106148351664695649",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Asesores comerciales con o sin experiencia - Duitama, contratación inmediata.",
@@ -87,30 +32,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Supervisor de Montajes",
-   "e": "Elecmer Sociedad Por Acciones Simplificada",
-   "p": "Trabajo.org",
-   "u": "https://co.trabajo.org/oferta-4041-5f49a22359a1c967047c25b1f0269d4f",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Construcción y mantenimiento",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "mercaderista",
-   "e": "Distrialimentos",
-   "p": "Indeed",
-   "u": "https://co.indeed.com/viewjob?jk=04fdd41073821c3c",
-   "f": null,
-   "h": "hace 4 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Asesor comercial financiero externo Duitama Libranza, Microcrédito, Consumo, Medicina Prepagada - Comision sin techo NO domingos NO festivos",
@@ -121,7 +44,62 @@
    "h": "hace 9 días",
    "s": "",
    "i": "Salud",
-   "r": "2026-10-13T21:01:53+00:00"
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Operarios de aseo hombres y mujeres Duitama Boyaca",
+   "e": "Confidencial",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/operarios-de-aseo-hombres-y-mujeres-duitama-boyaca-1089167",
+   "f": null,
+   "h": "hace 9 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Mercaderista Duitama",
+   "e": "Importante empresa del sector",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/-7106148351664695649",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Supervisor de Montajes",
+   "e": "Elecmer Sociedad Por Acciones Simplificada",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-4041-5f49a22359a1c967047c25b1f0269d4f",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Operador logístico 1 Cajera fines de semana - Duitama",
+   "e": "Almacenes Paraiso S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operador-logistico-1-cajera-fines-de-semana-duitama-en-duitama-566478AEAF5DB10D61373E686DCF3405",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "mercaderista",
+   "e": "Distrialimentos",
+   "p": "Indeed",
+   "u": "https://co.indeed.com/viewjob?jk=04fdd41073821c3c",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Presencial Duitama. Profesor de Ingenierías",
@@ -131,8 +109,41 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Construcción y mantenimiento",
-   "r": "2026-10-13T21:01:53+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Operador logístico 3 - Duitama",
+   "e": "Almacenes Paraiso S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operador-logistico-3-duitama-en-duitama-2056696E69B97B4A61373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Almacenista Almacenamiento PT - Duitama",
+   "e": "POSTOBON S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-almacenista-almacenamiento-pt-duitama-en-duitama-F3CED0831799D76961373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:13:05+00:00"
+  },
+  {
+   "t": "Asesor comercial de telecomunicaciones (claro tigo wom etc) en Duitama - experiencia en telecomunicaciones",
+   "e": "PUNTO EMPLEO S.A.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-comercial-de-telecomunicaciones-claro-tigo-wom-etc-en-duitama-experiencia-en-telecomunicaciones-en-duitama-08FAC9D299BA2F8961373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Comunicación",
+   "r": "2026-10-13T21:13:05+00:00"
   }
  ]
 }

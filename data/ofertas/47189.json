@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -10,8 +10,8 @@
    "f": null,
    "h": "hace 2 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "AUXILIAR DE SERVICIO",
@@ -21,8 +21,8 @@
    "f": null,
    "h": "hace 3 días",
    "s": "",
-   "i": "Servicio al cliente",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de enfermería - Ciénaga",
@@ -33,7 +33,7 @@
    "h": "hace 6 días",
    "s": "",
    "i": "Salud",
-   "r": "2026-10-13T21:13:05+00:00"
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Mesero de Servicio Corporativo | Calidad y Crecimiento",
@@ -43,8 +43,8 @@
    "f": null,
    "h": "hace 3 días",
    "s": "",
-   "i": "Calidad, SST y ambiente",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Vendedor externo Cienaga",
@@ -54,8 +54,8 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Gerente de Zona / Venta por Catálogo - Ciénaga, Tucurinca",
@@ -65,30 +65,8 @@
    "f": null,
    "h": "hace 9 días",
    "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Asesor Comercial de Productos Financieros",
-   "e": "Saitemp S.A",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-comercial-de-productos-financieros-en-cienaga-AFCDDD14AF464A9E61373E686DCF3405",
-   "f": null,
-   "h": "hace 9 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Asesor Comercial y Atención al Cliente en Ciénaga, Magdalena",
-   "e": "Luis angel fontalvo hernandez",
-   "p": "CazVid",
-   "u": "https://cazvid.com/es/empleo/asesor-comercial-y-atencion-al-cliente-1486bd",
-   "f": null,
-   "h": "hace 23 días",
-   "s": "",
-   "i": "Servicio al cliente",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Practicante en Mercadéo, Ventas y áreas afines - Ciénaga",
@@ -98,8 +76,30 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Prácticas y aprendices",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Marketing",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Asesor Comercial de Productos Financieros",
+   "e": "Saitemp S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-comercial-de-productos-financieros-en-cienaga-AFCDDD14AF464A9E61373E686DCF3405",
+   "f": null,
+   "h": "hace 9 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Asesor Comercial y Atención al Cliente en Ciénaga, Magdalena",
+   "e": "Luis angel fontalvo hernandez",
+   "p": "CazVid",
+   "u": "https://cazvid.com/es/empleo/asesor-comercial-y-atencion-al-cliente-1486bd",
+   "f": null,
+   "h": "hace 23 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "AUXILIAR DE ENFERMERÍA",
@@ -110,7 +110,7 @@
    "h": "hace 19 días",
    "s": "",
    "i": "Salud",
-   "r": "2026-10-13T21:13:05+00:00"
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Asesor comercial tecnología /Fintech comercial - Solo se laboran dos domingos al mes/no se laboran festivos/ punto de venta fijo",
@@ -120,7 +120,7 @@
    "f": null,
    "h": "hace 21 horas",
    "s": "",
-   "i": "Ventas y comercial",
+   "i": "Ventas",
    "r": "2026-10-13T21:01:53+00:00"
   }
  ]

@@ -1,7 +1,18 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
+  {
+   "t": "Administrador De Tienda",
+   "e": "Bayport",
+   "p": "Indeed",
+   "u": "https://co.indeed.com/viewjob?jk=f2ed399ec1227838",
+   "f": null,
+   "h": "hace 4 horas",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
   {
    "t": "Operario Control procesos",
    "e": "Italcol S.A",
@@ -10,8 +21,8 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "OPERARIO BASICO GIRÓN SANTANDER 635676",
@@ -21,8 +32,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Operador de Medios Tecnológicos",
@@ -32,8 +43,8 @@
    "f": null,
    "h": "hace 4 días",
    "s": "",
-   "i": "Seguridad y aseo",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Analista De Nómina: Gestión De Registros Y Novedades",
@@ -43,8 +54,63 @@
    "f": null,
    "h": "hace 18 días",
    "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "auxiliar de operaciones - residuos solidos y líquidos",
+   "e": "GG INGIENERIA BG S.A.S.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-operaciones-residuos-solidos-y-liquidos-en-giron-651CB18B7304C06A61373E686DCF3405",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Auxiliar Administrativo",
+   "e": "Cacique El Centro Comercial y de Negocios P.H.",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/-3476598522666134632",
+   "f": null,
+   "h": "hace 3 días",
+   "s": "",
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Vendedor  de Mostrador - Experiencia en Rodamientos",
+   "e": "Tiempos SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-vendedor-de-mostrador-experiencia-en-rodamientos-en-giron-2F7225001F3C66EC61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Cuidadores Domiciliarios",
+   "e": "Health & Life IPS",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-3038-00bf6141a8972779ba8532810931c662",
+   "f": null,
+   "h": "hace 3 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Asesores Call Center",
+   "e": "GENTE UTIL S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesores-call-center-en-giron-7A1FCD30C30A863E61373E686DCF3405",
+   "f": null,
+   "h": "hace 15 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Operario de producción - Girón",
@@ -54,7 +120,7 @@
    "f": null,
    "h": "hace 9 días",
    "s": "",
-   "i": "Producción y operarios",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -65,40 +131,7 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Vendedor  de Mostrador - Experiencia en Rodamientos",
-   "e": "Tiempos SAS",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-vendedor-de-mostrador-experiencia-en-rodamientos-en-giron-2F7225001F3C66EC61373E686DCF3405",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Cuidadores Domiciliarios",
-   "e": "Health & Life IPS",
-   "p": "Trabajo.org",
-   "u": "https://co.trabajo.org/oferta-3038-00bf6141a8972779ba8532810931c662",
-   "f": null,
-   "h": "hace 3 días",
-   "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Asesores Call Center",
-   "e": "GENTE UTIL S.A.",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesores-call-center-en-giron-7A1FCD30C30A863E61373E686DCF3405",
-   "f": null,
-   "h": "hace 15 días",
-   "s": "",
-   "i": "Servicio al cliente",
+   "i": "Administración y talento humano",
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -109,7 +142,7 @@
    "f": null,
    "h": "hace 9 días",
    "s": "",
-   "i": "Ventas y comercial",
+   "i": "Ventas",
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -120,7 +153,7 @@
    "f": null,
    "h": "hace 21 horas",
    "s": "",
-   "i": "Prácticas y aprendices",
+   "i": "Ventas",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -131,7 +164,7 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Ventas y comercial",
+   "i": "Ventas",
    "r": "2026-10-13T21:01:53+00:00"
   }
  ]

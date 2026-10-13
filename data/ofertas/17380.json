@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -10,8 +10,8 @@
    "f": null,
    "h": "hace 4 días",
    "s": "",
-   "i": "Servicio al cliente",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Tienda La Dorada",
@@ -21,19 +21,8 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Administrador(a) de Punto de Venta Supernumerario",
-   "e": "GENTE UTIL S.A.",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/6687861800755786375",
-   "f": null,
-   "h": "hace 4 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Conductor",
@@ -43,8 +32,19 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Administrador(a) de Punto de Venta Supernumerario",
+   "e": "Gente Util S.A",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/6687861800755786375",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Cajero(a) con Experiencia en Inventarios y Perecederos",
@@ -54,19 +54,8 @@
    "f": null,
    "h": "hace 2 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Vendedor Punto de Venta - La Dorada",
-   "e": "SUSUERTE S.A.",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-vendedor-punto-de-venta-la-dorada-en-la-dorada-E77C3F82D3FAEAEA61373E686DCF3405",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Taller",
@@ -76,8 +65,19 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Vendedor Punto de Venta - La Dorada",
+   "e": "SUSUERTE S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-vendedor-punto-de-venta-la-dorada-en-la-dorada-E77C3F82D3FAEAEA61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Coordinación Hospitalizacion - Dorada/ Caldas",
@@ -88,7 +88,7 @@
    "h": "hace 8 días",
    "s": "",
    "i": "Salud",
-   "r": "2026-10-13T21:13:05+00:00"
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Gerente De Oficina",
@@ -98,8 +98,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Asesor de Ventas Magdalena Medio",
@@ -109,8 +109,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Mercaimpulsador (a) - Contratación Inmediata ¡Lugar de Trabajo La Dorada!",
@@ -120,7 +120,7 @@
    "f": null,
    "h": "hace 23 días",
    "s": "",
-   "i": "Ventas y comercial",
+   "i": "Ventas",
    "r": "2026-10-13T21:01:53+00:00"
   }
  ]

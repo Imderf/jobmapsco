@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -10,8 +10,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "operario/a - aseo medio tiempo Ocaña",
@@ -21,30 +21,8 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Seguridad y aseo",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Asistente Soporte Técnico",
-   "e": "NETICS DE COLOMBIA SAS",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asistente-soporte-tecnico-en-ocana-A2D406B1D3AE9B4E61373E686DCF3405",
-   "f": null,
-   "h": "hace 2 días",
-   "s": "",
-   "i": "Tecnología",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Líder de Operaciones y Ventas – Sector Financiero",
-   "e": "Crezcamos S.A. Financing Company",
-   "p": "JobLeads",
-   "u": "https://www.jobleads.com/co/job/lider-de-operaciones-y-ventas-sector-financiero--ocana--e2b062a2a7c9f68cd6e61130356b7a24a",
-   "f": null,
-   "h": "hace 6 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Vendedor T.A.T consumo masivo Ocaña y municipios aledaños",
@@ -54,19 +32,19 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
-   "t": "Gerente de oficina Microcrédito en Ocaña",
-   "e": "Importante empresa del sector",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/730784837868787713",
+   "t": "Líder de Operaciones y Ventas – Sector Financiero",
+   "e": "Crezcamos S.A. Financing Company",
+   "p": "JobLeads",
+   "u": "https://www.jobleads.com/co/job/lider-de-operaciones-y-ventas-sector-financiero--ocana--e2b062a2a7c9f68cd6e61130356b7a24a",
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Ayudante de Obra - Ocaña",
@@ -76,8 +54,63 @@
    "f": null,
    "h": "hace 9 días",
    "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Gerente de oficina Microcrédito en Ocaña",
+   "e": "Importante empresa del sector",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/730784837868787713",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Asistente Soporte Técnico",
+   "e": "NETICS DE COLOMBIA SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asistente-soporte-tecnico-en-ocana-A2D406B1D3AE9B4E61373E686DCF3405",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Desarrollo y Tecnología",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Bacteriólogo/a",
+   "e": "CORE O.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-bacteriologoa-en-ocana-CAB1574575216AFF61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Salud",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "AUXILIAR DE CARTERA",
+   "e": "Agroinsumos Alfa SAS",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-4112-d68882b2cfe2926c90a074e801a7e438",
+   "f": null,
+   "h": "hace 13 días",
+   "s": "",
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Vendedor De Drogueria Ocaña",
+   "e": "Unidrogas",
+   "p": "Buscojobs",
+   "u": "https://www.buscojobs.com.co/vendedor-de-drogueria-ocana-en-ocana-ID-22955102",
+   "f": null,
+   "h": "hace 18 días",
+   "s": "",
+   "i": "Salud",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de enfermería medio tiempo - Ocaña Norte de Santander contratación inmediata",
@@ -89,39 +122,6 @@
    "s": "",
    "i": "Salud",
    "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Bacteriólogo/a",
-   "e": "CORE O.S",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-bacteriologoa-en-ocana-CAB1574575216AFF61373E686DCF3405",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Salud",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "AUXILIAR DE CARTERA",
-   "e": "Agroinsumos Alfa SAS",
-   "p": "Trabajo.org",
-   "u": "https://co.trabajo.org/oferta-4112-d68882b2cfe2926c90a074e801a7e438",
-   "f": null,
-   "h": "hace 13 días",
-   "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Vendedor De Drogueria Ocaña",
-   "e": "Unidrogas",
-   "p": "Buscojobs",
-   "u": "https://www.buscojobs.com.co/vendedor-de-drogueria-ocana-en-ocana-ID-22955102",
-   "f": null,
-   "h": "hace 18 días",
-   "s": "",
-   "i": "Salud",
-   "r": "2026-10-13T21:01:53+00:00"
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -10,8 +10,8 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Operador De Tiendas Ara Medio Tiempo Lunes A Viernes - Melgar -Tolima",
@@ -21,8 +21,8 @@
    "f": null,
    "h": "hace 4 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Cajero / taquillero / Operador de parqueadero - Eventual Melgar",
@@ -32,8 +32,8 @@
    "f": null,
    "h": "hace 9 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Cajero - Melgar Tolima",
@@ -43,8 +43,8 @@
    "f": null,
    "h": "hace 29 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Servicios Generales –Melgar, Tolima",
@@ -54,19 +54,8 @@
    "f": null,
    "h": "hace 11 días",
    "s": "",
-   "i": "Servicio al cliente",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Supernumerario Cajero Recepcionista - Melgar",
-   "e": "Inter Rapidisimo S.A",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-supernumerario-cajero-recepcionista-melgar-en-melgar-7F35A6B9701A161D61373E686DCF3405",
-   "f": null,
-   "h": "hace 18 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Asesor sin experiencia Melgar - mercaderista, impulsador, promotor",
@@ -76,8 +65,19 @@
    "f": null,
    "h": "hace 12 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Supernumerario Cajero Recepcionista - Melgar",
+   "e": "Inter Rapidisimo S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-supernumerario-cajero-recepcionista-melgar-en-melgar-7F35A6B9701A161D61373E686DCF3405",
+   "f": null,
+   "h": "hace 18 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Guarda de seguridad urgente  Melgar",
@@ -87,19 +87,8 @@
    "f": null,
    "h": "hace 29 días",
    "s": "",
-   "i": "Seguridad y aseo",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "OPERADOR POLIFUNCIONAL MELGAR",
-   "e": "ALGRANO COLOMBIA S.A.S",
-   "p": "Indeed",
-   "u": "https://co.indeed.com/viewjob?jk=fe6faa08e499a33a",
-   "f": null,
-   "h": "hace 13 días",
-   "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Empleado Doméstico - Centro Vacacional. | Manejo De Piscinas",
@@ -109,8 +98,19 @@
    "f": null,
    "h": "hace 16 días",
    "s": "",
-   "i": "Seguridad y aseo",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "OPERADOR POLIFUNCIONAL MELGAR",
+   "e": "ALGRANO COLOMBIA S.A.S",
+   "p": "Indeed",
+   "u": "https://co.indeed.com/viewjob?jk=fe6faa08e499a33a",
+   "f": null,
+   "h": "hace 13 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   }
  ]
 }

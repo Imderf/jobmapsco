@@ -1,7 +1,18 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
+  {
+   "t": "Vendedor carnes - Carnicero",
+   "e": "Dar Ayuda Temporal",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-vendedor-carnes-carnicero-en-cerete-D63A9A2A95DA0F8C61373E686DCF3405",
+   "f": null,
+   "h": "hace 22 horas",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
   {
    "t": "Vendedor cortador de carnes - Conocimiento en cortes de carnes",
    "e": "Empleamos Temporales SAS",
@@ -10,8 +21,19 @@
    "f": null,
    "h": "hace 2 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Vendedor cortador de carnes",
+   "e": "Empleamos Temporales SAS",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/-5708706220523911161",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar De Servicios Generales / Vacaciones / Cereté",
@@ -21,41 +43,8 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Servicio al cliente",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Aprendiz técnico en apoyo administrativo - Cerete",
-   "e": "DISFARMA",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendiz-tecnico-en-apoyo-administrativo-cerete-en-cerete-7D13DEBBAF9CF57961373E686DCF3405",
-   "f": null,
-   "h": "hace 9 días",
-   "s": "",
-   "i": "Prácticas y aprendices",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Estudiante de Técnico Contable para Practicas Profesionales",
-   "e": "DISTRACOM",
-   "p": "Magneto",
-   "u": "https://www.magneto365.com/co/empleos/estudiante-de-tecnico-contable-para-practicas-profesionales-1079211",
-   "f": null,
-   "h": "hace 20 días",
-   "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Líder comercial",
-   "e": "Dar Ayuda Temporal S.A.",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/-3677157556564883381",
-   "f": null,
-   "h": "hace 16 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Contador Público, Tecnólogo en Contabilidad y Finanzas - Contratacion Estatal",
@@ -65,8 +54,19 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Recursos humanos",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Estudiante de Técnico Contable para Practicas Profesionales",
+   "e": "DISTRACOM",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/estudiante-de-tecnico-contable-para-practicas-profesionales-1079211",
+   "f": null,
+   "h": "hace 20 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Trafico Cerete",
@@ -76,8 +76,19 @@
    "f": null,
    "h": "hace 26 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Líder comercial",
+   "e": "Dar Ayuda Temporal S.A.",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/-3677157556564883381",
+   "f": null,
+   "h": "hace 16 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Merca impulsador - mercaderista",
@@ -87,8 +98,8 @@
    "f": null,
    "h": "hace 23 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de mantenimiento industrial - Turno diurno",
@@ -98,7 +109,18 @@
    "f": null,
    "h": "hace 30 días",
    "s": "",
-   "i": "Construcción y mantenimiento",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Aprendiz técnico en apoyo administrativo - Cerete",
+   "e": "DISFARMA",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendiz-tecnico-en-apoyo-administrativo-cerete-en-cerete-7D13DEBBAF9CF57961373E686DCF3405",
+   "f": null,
+   "h": "hace 9 días",
+   "s": "",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -109,19 +131,8 @@
    "f": null,
    "h": "hace 28 días",
    "s": "",
-   "i": "Tecnología",
+   "i": "Desarrollo y Tecnología",
    "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Vendedor cortador de carnes",
-   "e": "Empleamos Temporales SAS",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/-5708706220523911161",
-   "f": null,
-   "h": "hace 2 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
   },
   {
    "t": "Responsable de Gestión Ambiental",
@@ -131,7 +142,7 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Calidad, SST y ambiente",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:01:53+00:00"
   }
  ]

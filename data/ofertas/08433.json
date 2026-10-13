@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -10,8 +10,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Customer Service Representative",
@@ -21,8 +21,8 @@
    "f": null,
    "h": "hace 1 día",
    "s": "",
-   "i": "Servicio al cliente",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Servicios Generales para Auxiliar Lavado de Canastillas Limpieza y desinfección Malambo - Experiencia en trabajo pesado mínima de 6 meses",
@@ -32,8 +32,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Seguridad y aseo",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Operador Técnico con experiencia en máquinas sopladoras o inyectoras - Disponibilidad para turnos rotativos Malambo",
@@ -41,10 +41,21 @@
    "p": "Computrabajo",
    "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operador-tecnico-con-experiencia-en-maquinas-sopladoras-o-inyectoras-disponibilidad-para-turnos-rotativos-malambo-en-barranquilla-E7BA404E92A9CB5C61373E686DCF3405",
    "f": null,
-   "h": "hace 21 horas",
+   "h": "hace 22 horas",
    "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Bilingual Customer Service Representative",
+   "e": "Resolv.Global",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-4111-ce2c12c5c1dd154dff7916f93b164b8f",
+   "f": null,
+   "h": "hace 1 día",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Supervisor Químico (Malambo)",
@@ -54,19 +65,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Técnico Mecánico Industrial – Mantenimiento",
-   "e": "Su Servicio",
-   "p": "Trabajo.org",
-   "u": "https://co.trabajo.org/oferta-2255-74d4660f1fc9ba06d2db702c806d7387",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Construcción y mantenimiento",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Especialista de Calidad y Análisis — Asegura Inspecciones",
@@ -76,8 +76,8 @@
    "f": null,
    "h": "hace 4 días",
    "s": "",
-   "i": "Calidad, SST y ambiente",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Almacen de Materia Prima con exp Monta Carga",
@@ -87,7 +87,40 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Ventas y comercial",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Mercaderista",
+   "e": "Industrias Puropollo S.A.S",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/mercaderista-at-industrias-puropollo-s-a-s-4478001019",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Especialista De Entrenamiento Y Desarrollo (Malambo, Atlántico)",
+   "e": "Su Servicio",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/especialista-de-entrenamiento-y-desarrollo-malambo-atlantico-1092814",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Técnico Mecánico Industrial – Mantenimiento",
+   "e": "Su Servicio",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-2255-74d4660f1fc9ba06d2db702c806d7387",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -98,41 +131,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Administración y finanzas",
+   "i": "Administración y talento humano",
    "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Especialista De Entrenamiento Y Desarrollo (Malambo, Atlántico)",
-   "e": "Su Servicio",
-   "p": "Magneto",
-   "u": "https://www.magneto365.com/co/empleos/especialista-de-entrenamiento-y-desarrollo-malambo-atlantico-1092814",
-   "f": null,
-   "h": "hace 7 días",
-   "s": "",
-   "i": "Recursos humanos",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Bilingual Customer Service Representative",
-   "e": "Resolv.Global",
-   "p": "Trabajo.org",
-   "u": "https://co.trabajo.org/oferta-4111-ce2c12c5c1dd154dff7916f93b164b8f",
-   "f": null,
-   "h": "hace 1 día",
-   "s": "",
-   "i": "Servicio al cliente",
-   "r": "2026-10-13T21:01:53+00:00"
-  },
-  {
-   "t": "Mercaderista",
-   "e": "Industrias Puropollo S.A.S",
-   "p": "LinkedIn",
-   "u": "https://co.linkedin.com/jobs/view/mercaderista-at-industrias-puropollo-s-a-s-4478001019",
-   "f": null,
-   "h": "hace 4 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:01:53+00:00"
   }
  ]
 }

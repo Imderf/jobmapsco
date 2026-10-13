@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
@@ -10,8 +10,8 @@
    "f": null,
    "h": "hace 4 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Gerente de Programa",
@@ -19,10 +19,10 @@
    "p": "Jooble",
    "u": "https://co.jooble.org/jdp/-890510765339505586",
    "f": null,
-   "h": "hace 20 horas",
+   "h": "hace 21 horas",
    "s": "",
-   "i": "Administración y finanzas",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Convocatoria Profesionales de la salud / Riohacha",
@@ -33,7 +33,7 @@
    "h": "hace 5 días",
    "s": "",
    "i": "Salud",
-   "r": "2026-10-13T21:13:05+00:00"
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Asistencia en Tierra",
@@ -43,19 +43,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Ejecutivo de Cuenta Distribuidores y Mayoristas (consumo masivo alimentos) Guajira",
-   "e": "Adecco Colombia S.A.",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/-886076170988896279",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Bodega en Riohacha - Contrato con todas las prestaciones de ley",
@@ -65,8 +54,19 @@
    "f": null,
    "h": "hace 14 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Ejecutivo de Cuenta Distribuidores y Mayoristas (consumo masivo alimentos) Guajira",
+   "e": "Adecco Colombia S.A.",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/-886076170988896279",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Vendedor TAT con moto/ Riohacha",
@@ -76,8 +76,8 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Mercaderista Nutrium",
@@ -87,8 +87,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Inspector/a SST - La Guajira Rioacha",
@@ -98,8 +98,8 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Calidad, SST y ambiente",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Líder de Programas Humanitarios Multisectoriales",
@@ -107,10 +107,22 @@
    "p": "Jooble",
    "u": "https://co.jooble.org/jdp/7713680142585663411",
    "f": null,
-   "h": "hace 20 horas",
+   "h": "hace 21 horas",
    "s": "",
    "i": "Otros",
-   "r": "2026-10-13T21:13:05+00:00"
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Contador con  experiencia en nomina",
+   "e": "LOGISTICA LABORAL S.A.S.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-contador-con-experiencia-en-nomina-en-riohacha-DF5E59D0E564426161373E686DCF3405",
+   "f": null,
+   "h": "hace 9 días",
+   "s": "",
+   "i": "Administración y talento humano",
+   "q": "Administración y talento humano",
+   "r": "2026-10-13T21:39:00+00:00"
   }
  ]
 }

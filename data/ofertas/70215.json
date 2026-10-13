@@ -1,18 +1,7 @@
 {
- "actualizado": "2026-10-13T21:13:05+00:00",
+ "actualizado": "2026-10-13T21:39:00+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
-  {
-   "t": "Técnico de Producción",
-   "e": "AGROBIENES SAS",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-tecnico-de-produccion-en-corozal-F9C6D247A11A65E361373E686DCF3405",
-   "f": null,
-   "h": "hace 23 días",
-   "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
   {
    "t": "Conductor C2 - Experiencia en Ventas TAT Corozal Sucre",
    "e": "AGROBIENES SAS",
@@ -21,19 +10,8 @@
    "f": null,
    "h": "hace 23 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "Profesor\nespañol para extranjeros - Corozal",
-   "e": "SuperProf",
-   "p": "Jooble",
-   "u": "https://co.jooble.org/jdp/8521570641351304728",
-   "f": null,
-   "h": "hace 3 días",
-   "s": "",
-   "i": "Educación",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Técnico electrico - Enfoque en electronica",
@@ -43,8 +21,19 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Construcción y mantenimiento",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Profesor\nespañol para extranjeros - Corozal",
+   "e": "SuperProf",
+   "p": "Jooble",
+   "u": "https://co.jooble.org/jdp/8521570641351304728",
+   "f": null,
+   "h": "hace 3 días",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Auxiliar de Rocería (Guadañador) - Corozal",
@@ -54,8 +43,19 @@
    "f": null,
    "h": "hace 26 días",
    "s": "",
-   "i": "Seguridad y aseo",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Asesor Junior de Inclusión Financiera / Microfinanzas - Sincelejo / Corozal",
+   "e": "FINTRA S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesor-junior-de-inclusion-financiera-microfinanzas-sincelejo-corozal-en-corozal-8CC7BE7FE62AB34B61373E686DCF3405",
+   "f": null,
+   "h": "hace 29 días",
+   "s": "",
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Profesor\nayuda con los deberes - Corozal",
@@ -65,8 +65,8 @@
    "f": null,
    "h": "hace 3 días",
    "s": "",
-   "i": "Educación",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Otros",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Asesor Comercial Microcredito Corozal - Pitalito",
@@ -76,8 +76,8 @@
    "f": null,
    "h": "hace 19 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
+   "i": "Ventas",
+   "r": "2026-10-13T21:39:00+00:00"
   },
   {
    "t": "Profesor\npiano - Corozal",
@@ -87,7 +87,40 @@
    "f": null,
    "h": "hace 11 días",
    "s": "",
-   "i": "Educación",
+   "i": "Otros",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "auxiliar crédito y cobranza externo - Sincelejo",
+   "e": "INTERFINANCE S.A.S.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-credito-y-cobranza-externo-sincelejo-en-sincelejo-AC63CBF94DADC45061373E686DCF3405",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Conductor para Repartir Mercancia - licencia c2",
+   "e": "Gi Group Colombia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-conductor-para-repartir-mercancia-licencia-c2-en-sincelejo-999C0016D504150D61373E686DCF3405",
+   "f": null,
+   "h": "hace 13 días",
+   "s": "",
+   "i": "Operaciones y logística",
+   "r": "2026-10-13T21:39:00+00:00"
+  },
+  {
+   "t": "Técnico de Producción",
+   "e": "AGROBIENES SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-tecnico-de-produccion-en-corozal-F9C6D247A11A65E361373E686DCF3405",
+   "f": null,
+   "h": "hace 23 días",
+   "s": "",
+   "i": "Operaciones y logística",
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -98,18 +131,7 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "r": "2026-10-13T21:13:05+00:00"
-  },
-  {
-   "t": "auxiliar crédito y cobranza externo - Sincelejo",
-   "e": "INTERFINANCE S.A.S.",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-credito-y-cobranza-externo-sincelejo-en-sincelejo-AC63CBF94DADC45061373E686DCF3405",
-   "f": null,
-   "h": "hace 7 días",
-   "s": "",
-   "i": "Administración y finanzas",
+   "i": "Ventas",
    "r": "2026-10-13T21:13:05+00:00"
   }
  ]

@@ -10,8 +10,8 @@
    "f": null,
    "h": "hace 8 días",
    "s": "",
-   "i": "Ventas y comercial",
-   "q": "Logística y transporte",
+   "i": "Ventas",
+   "q": "Operaciones y logística",
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -22,8 +22,8 @@
    "f": null,
    "h": "hace 2 días",
    "s": "",
-   "i": "Educación",
-   "q": "Educación",
+   "i": "Otros",
+   "q": null,
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -34,8 +34,8 @@
    "f": null,
    "h": "hace 21 días",
    "s": "",
-   "i": "Educación",
-   "q": "Educación",
+   "i": "Otros",
+   "q": null,
    "r": "2026-10-13T21:13:05+00:00"
   },
   {
@@ -46,8 +46,8 @@
    "f": null,
    "h": "hace 12 días",
    "s": "",
-   "i": "Administración y finanzas",
-   "q": "Administración y finanzas",
+   "i": "Administración y talento humano",
+   "q": "Administración y talento humano",
    "r": "2026-10-13T21:13:05+00:00"
   }
  ]
