@@ -159,7 +159,7 @@ En macOS, si Python falla con `CERTIFICATE_VERIFY_FAILED`, antepón `SSL_CERT_FI
    - **Servidor en UTC:** cambia `0 6,18` por `0 11,23`.
 6. **Ajustar lo propio:**
    - **Google Analytics:** el ID `G-WH9WV4JYZB` está en `index.html` y `politica-de-datos.html`. Cámbialo por el tuyo o quita ese bloque.
-   - **Política de datos:** `politica-de-datos.html` no trae responsables ni contacto; si la publicas, agrega los tuyos (la Ley 1581 los pide).
+   - **Política de datos:** en `politica-de-datos.html` cambia el responsable y el correo `contacto@jobmapsco.xyz` por los tuyos (la Ley 1581 los pide).
    - **Dominio:** cambia `https://jobmapsco.xyz/` por el tuyo en `index.html`, `politica-de-datos.html`, `robots.txt` y `sitemap.xml`.
 
 ## Fuentes de datos
