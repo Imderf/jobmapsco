@@ -1,0 +1,1122 @@
+[{"iddepto":"11","idmupio":"11001","nommpio":"Bogotá D.C.","mpiolatitud":"4.3146717270400003","mpiolongitud":"-74.180760067999998"}
+,{"iddepto":"13","idmupio":"13001","nommpio":"Cartagena","mpiolatitud":"10.4269427214","mpiolongitud":"-75.4759895798"}
+,{"iddepto":"13","idmupio":"13006","nommpio":"Achí","mpiolatitud":"8.6258468800300001","mpiolongitud":"-74.477599209700003"}
+,{"iddepto":"13","idmupio":"13030","nommpio":"Altos Del Rosario","mpiolatitud":"8.7566466067000004","mpiolongitud":"-74.194145061399993"}
+,{"iddepto":"13","idmupio":"13042","nommpio":"Arenal","mpiolatitud":"8.3417098318100003","mpiolongitud":"-74.105848959100001"}
+,{"iddepto":"13","idmupio":"13052","nommpio":"Arjona","mpiolatitud":"10.163918343700001","mpiolongitud":"-75.371042528900006"}
+,{"iddepto":"13","idmupio":"13062","nommpio":"Arroyohondo","mpiolatitud":"10.235828327","mpiolongitud":"-75.042158313300007"}
+,{"iddepto":"13","idmupio":"13074","nommpio":"Barranco De Loba","mpiolatitud":"8.8388626583200001","mpiolongitud":"-74.164459584300005"}
+,{"iddepto":"13","idmupio":"13140","nommpio":"Calamar","mpiolatitud":"10.222557522100001","mpiolongitud":"-74.996646184300005"}
+,{"iddepto":"13","idmupio":"13160","nommpio":"Cantagallo","mpiolatitud":"7.2402394139300004","mpiolongitud":"-74.1011398367"}
+,{"iddepto":"13","idmupio":"13188","nommpio":"Cicuco","mpiolatitud":"9.2354392204","mpiolongitud":"-74.688173445100006"}
+,{"iddepto":"13","idmupio":"13212","nommpio":"Córdoba","mpiolatitud":"9.5422658086900007","mpiolongitud":"-74.891798554199994"}
+,{"iddepto":"13","idmupio":"13222","nommpio":"Clemencia","mpiolatitud":"10.5559451826","mpiolongitud":"-75.314479414600001"}
+,{"iddepto":"13","idmupio":"13244","nommpio":"El Carmen De Bolívar","mpiolatitud":"9.6995804492200008","mpiolongitud":"-75.154997105500001"}
+,{"iddepto":"13","idmupio":"13248","nommpio":"El Guamo","mpiolatitud":"10.035037232100001","mpiolongitud":"-74.927775826499996"}
+,{"iddepto":"13","idmupio":"13268","nommpio":"El Peñón","mpiolatitud":"8.8654494332699993","mpiolongitud":"-73.911489306600004"}
+,{"iddepto":"13","idmupio":"13300","nommpio":"Hatillo De Loba","mpiolatitud":"8.9837521905499997","mpiolongitud":"-74.146774563199997"}
+,{"iddepto":"13","idmupio":"13430","nommpio":"Magangué","mpiolatitud":"9.1673761153900006","mpiolongitud":"-74.747887343299993"}
+,{"iddepto":"13","idmupio":"13433","nommpio":"Mahates","mpiolatitud":"10.1763880531","mpiolongitud":"-75.181761783499994"}
+,{"iddepto":"13","idmupio":"13440","nommpio":"Margarita","mpiolatitud":"9.0551954932399994","mpiolongitud":"-74.225192149700007"}
+,{"iddepto":"13","idmupio":"13442","nommpio":"María La Baja","mpiolatitud":"9.9799344450300005","mpiolongitud":"-75.3437097698"}
+,{"iddepto":"13","idmupio":"13458","nommpio":"Montecristo","mpiolatitud":"8.0192008510899999","mpiolongitud":"-74.462600783100001"}
+,{"iddepto":"13","idmupio":"13468","nommpio":"Mompós","mpiolatitud":"9.1399429548200004","mpiolongitud":"-74.545156489099995"}
+,{"iddepto":"13","idmupio":"13473","nommpio":"Morales","mpiolatitud":"8.2522598651500001","mpiolongitud":"-73.973126648499999"}
+,{"iddepto":"13","idmupio":"13490","nommpio":"Norosí","mpiolatitud":"8.5063576992299996","mpiolongitud":"-74.115633821100005"}
+,{"iddepto":"13","idmupio":"13549","nommpio":"Pinillos","mpiolatitud":"8.8739553114599996","mpiolongitud":"-74.385524654199997"}
+,{"iddepto":"13","idmupio":"13580","nommpio":"Regidor","mpiolatitud":"8.7223034348200006","mpiolongitud":"-73.848944305000003"}
+,{"iddepto":"13","idmupio":"13600","nommpio":"Río Viejo","mpiolatitud":"8.4915967406899995","mpiolongitud":"-73.995459027799996"}
+,{"iddepto":"13","idmupio":"13620","nommpio":"San Cristóbal","mpiolatitud":"10.3695839361","mpiolongitud":"-75.073393597899994"}
+,{"iddepto":"13","idmupio":"13647","nommpio":"San Estanislao","mpiolatitud":"10.3656241264","mpiolongitud":"-75.205162989900003"}
+,{"iddepto":"13","idmupio":"13650","nommpio":"San Fernando","mpiolatitud":"9.0918591451200008","mpiolongitud":"-74.359767459699995"}
+,{"iddepto":"13","idmupio":"13654","nommpio":"San Jacinto","mpiolatitud":"9.8349107420300008","mpiolongitud":"-75.105435122499998"}
+,{"iddepto":"13","idmupio":"13655","nommpio":"San Jacinto Del Cauca","mpiolatitud":"8.2372488022199999","mpiolongitud":"-74.667805073699995"}
+,{"iddepto":"13","idmupio":"13657","nommpio":"San Juan Nepomuceno","mpiolatitud":"9.9672683985500008","mpiolongitud":"-75.064704168899993"}
+,{"iddepto":"13","idmupio":"13667","nommpio":"San Martín De Loba","mpiolatitud":"8.7862541852899998","mpiolongitud":"-74.009868860899999"}
+,{"iddepto":"13","idmupio":"13670","nommpio":"San Pablo","mpiolatitud":"7.4225100856499999","mpiolongitud":"-74.138312132300001"}
+,{"iddepto":"13","idmupio":"13673","nommpio":"Santa Catalina","mpiolatitud":"10.648190398300001","mpiolongitud":"-75.266451224999997"}
+,{"iddepto":"13","idmupio":"13683","nommpio":"Santa Rosa","mpiolatitud":"10.4688364508","mpiolongitud":"-75.3615637101"}
+,{"iddepto":"13","idmupio":"13688","nommpio":"Santa Rosa Del Sur","mpiolatitud":"7.7724025377999997","mpiolongitud":"-74.262251858900001"}
+,{"iddepto":"13","idmupio":"13744","nommpio":"Simití","mpiolatitud":"7.8500574298599997","mpiolongitud":"-73.984334845899994"}
+,{"iddepto":"13","idmupio":"13760","nommpio":"Soplaviento","mpiolatitud":"10.3322974055","mpiolongitud":"-75.117233550700007"}
+,{"iddepto":"13","idmupio":"13780","nommpio":"Talaigua Nuevo","mpiolatitud":"9.3017776625700002","mpiolongitud":"-74.632467905599995"}
+,{"iddepto":"13","idmupio":"13810","nommpio":"Tiquisio","mpiolatitud":"8.4924538764400008","mpiolongitud":"-74.296625218800003"}
+,{"iddepto":"13","idmupio":"13836","nommpio":"Turbaco","mpiolatitud":"10.3526502254","mpiolongitud":"-75.379459923499994"}
+,{"iddepto":"13","idmupio":"13838","nommpio":"Turbaná","mpiolatitud":"10.233822022","mpiolongitud":"-75.454121790499997"}
+,{"iddepto":"13","idmupio":"13873","nommpio":"Villanueva","mpiolatitud":"10.448245891299999","mpiolongitud":"-75.263298135699998"}
+,{"iddepto":"13","idmupio":"13894","nommpio":"Zambrano","mpiolatitud":"9.7449038915399999","mpiolongitud":"-74.881448071099996"}
+,{"iddepto":"15","idmupio":"15001","nommpio":"Tunja","mpiolatitud":"5.5179845216599999","mpiolongitud":"-73.378452761700004"}
+,{"iddepto":"15","idmupio":"15022","nommpio":"Almeida","mpiolatitud":"4.9564997769400003","mpiolongitud":"-73.386486418000004"}
+,{"iddepto":"15","idmupio":"15047","nommpio":"Aquitania","mpiolatitud":"5.4344065592100002","mpiolongitud":"-72.882263972199993"}
+,{"iddepto":"15","idmupio":"15051","nommpio":"Arcabuco","mpiolatitud":"5.7492615052199998","mpiolongitud":"-73.439444790699994"}
+,{"iddepto":"15","idmupio":"15087","nommpio":"Belén","mpiolatitud":"6.0050364031500001","mpiolongitud":"-72.894843782400002"}
+,{"iddepto":"15","idmupio":"15090","nommpio":"Berbeo","mpiolatitud":"5.2306254856800001","mpiolongitud":"-73.100092566499995"}
+,{"iddepto":"15","idmupio":"15092","nommpio":"Betéitiva","mpiolatitud":"5.9209046461100003","mpiolongitud":"-72.848665653899999"}
+,{"iddepto":"15","idmupio":"15097","nommpio":"Boavita","mpiolatitud":"6.33615907099","mpiolongitud":"-72.620254166300001"}
+,{"iddepto":"15","idmupio":"15104","nommpio":"Boyacá","mpiolatitud":"5.4400114024599997","mpiolongitud":"-73.380760261299997"}
+,{"iddepto":"15","idmupio":"15106","nommpio":"Briceño","mpiolatitud":"5.67906761314","mpiolongitud":"-73.906663625700006"}
+,{"iddepto":"15","idmupio":"15109","nommpio":"Buenavista","mpiolatitud":"5.4899790257600003","mpiolongitud":"-73.951787877000001"}
+,{"iddepto":"15","idmupio":"15114","nommpio":"Busbanzá","mpiolatitud":"5.8439708607199998","mpiolongitud":"-72.876053372200005"}
+,{"iddepto":"15","idmupio":"15131","nommpio":"Caldas","mpiolatitud":"5.5753426996200002","mpiolongitud":"-73.880086755600004"}
+,{"iddepto":"15","idmupio":"15135","nommpio":"Campohermoso","mpiolatitud":"5.0077405571","mpiolongitud":"-73.144889124299993"}
+,{"iddepto":"15","idmupio":"15162","nommpio":"Cerinza","mpiolatitud":"5.9612506237999998","mpiolongitud":"-72.964197914400003"}
+,{"iddepto":"15","idmupio":"15172","nommpio":"Chinavita","mpiolatitud":"5.20042145676","mpiolongitud":"-73.335222204600001"}
+,{"iddepto":"15","idmupio":"15176","nommpio":"Chiquinquirá","mpiolatitud":"5.6228641927099998","mpiolongitud":"-73.804137117099998"}
+,{"iddepto":"15","idmupio":"15180","nommpio":"Chiscas","mpiolatitud":"6.6889101077299999","mpiolongitud":"-72.417440669499996"}
+,{"iddepto":"15","idmupio":"15183","nommpio":"Chita","mpiolatitud":"6.0731260583199997","mpiolongitud":"-72.436048196300007"}
+,{"iddepto":"15","idmupio":"15185","nommpio":"Chitaraque","mpiolatitud":"5.98277461141","mpiolongitud":"-73.425491807300006"}
+,{"iddepto":"15","idmupio":"15187","nommpio":"Chivatá","mpiolatitud":"5.5640877811599996","mpiolongitud":"-73.263201370999994"}
+,{"iddepto":"15","idmupio":"15189","nommpio":"Ciénega","mpiolatitud":"5.3928500113600002","mpiolongitud":"-73.2822549057"}
+,{"iddepto":"15","idmupio":"15204","nommpio":"Cómbita","mpiolatitud":"5.6877702970100001","mpiolongitud":"-73.329514833199994"}
+,{"iddepto":"15","idmupio":"15212","nommpio":"Coper","mpiolatitud":"5.4373385870600002","mpiolongitud":"-74.030219083700004"}
+,{"iddepto":"15","idmupio":"15215","nommpio":"Corrales","mpiolatitud":"5.8249360937999999","mpiolongitud":"-72.845436779799996"}
+,{"iddepto":"15","idmupio":"15218","nommpio":"Covarachía","mpiolatitud":"6.5192778816599999","mpiolongitud":"-72.739961484299997"}
+,{"iddepto":"15","idmupio":"15223","nommpio":"Cubará","mpiolatitud":"6.8849016109400001","mpiolongitud":"-72.183728809599998"}
+,{"iddepto":"15","idmupio":"15224","nommpio":"Cucaita","mpiolatitud":"5.5273947887499997","mpiolongitud":"-73.446347797900003"}
+,{"iddepto":"15","idmupio":"15226","nommpio":"Cuítiva","mpiolatitud":"5.5875112680400001","mpiolongitud":"-72.940812215500003"}
+,{"iddepto":"15","idmupio":"15232","nommpio":"Chíquiza","mpiolatitud":"5.6427205526100002","mpiolongitud":"-73.445669048100001"}
+,{"iddepto":"15","idmupio":"15236","nommpio":"Chivor","mpiolatitud":"4.8712106413200003","mpiolongitud":"-73.361058548299994"}
+,{"iddepto":"15","idmupio":"15238","nommpio":"Duitama","mpiolatitud":"5.89046684863","mpiolongitud":"-73.066956409200003"}
+,{"iddepto":"15","idmupio":"15244","nommpio":"El Cocuy","mpiolatitud":"6.3520642272399996","mpiolongitud":"-72.414986388299994"}
+,{"iddepto":"15","idmupio":"15248","nommpio":"El Espino","mpiolatitud":"6.50809603117","mpiolongitud":"-72.480485155599993"}
+,{"iddepto":"15","idmupio":"15272","nommpio":"Firavitoba","mpiolatitud":"5.6733175840600003","mpiolongitud":"-73.019824924600002"}
+,{"iddepto":"15","idmupio":"15276","nommpio":"Floresta","mpiolatitud":"5.8590250942499997","mpiolongitud":"-72.9250501872"}
+,{"iddepto":"15","idmupio":"15293","nommpio":"Gachantivá","mpiolatitud":"5.7441419484200003","mpiolongitud":"-73.542620110300007"}
+,{"iddepto":"15","idmupio":"15296","nommpio":"Gameza","mpiolatitud":"5.8031195203100001","mpiolongitud":"-72.7373682331"}
+,{"iddepto":"15","idmupio":"15299","nommpio":"Garagoa","mpiolatitud":"5.0890107262399997","mpiolongitud":"-73.314196895500004"}
+,{"iddepto":"15","idmupio":"15317","nommpio":"Guacamayas","mpiolatitud":"6.4460041163700001","mpiolongitud":"-72.516867555600001"}
+,{"iddepto":"15","idmupio":"15322","nommpio":"Guateque","mpiolatitud":"5.0147391806100003","mpiolongitud":"-73.488209503999997"}
+,{"iddepto":"15","idmupio":"15325","nommpio":"Guayatá","mpiolatitud":"4.9312779393600001","mpiolongitud":"-73.496059665299995"}
+,{"iddepto":"15","idmupio":"15332","nommpio":"Güicán","mpiolatitud":"6.5634930734300001","mpiolongitud":"-72.260329520900001"}
+,{"iddepto":"15","idmupio":"15362","nommpio":"Iza","mpiolatitud":"5.6173234270899997","mpiolongitud":"-72.969690122100005"}
+,{"iddepto":"15","idmupio":"15367","nommpio":"Jenesano","mpiolatitud":"5.37705128168","mpiolongitud":"-73.377419896299998"}
+,{"iddepto":"15","idmupio":"15368","nommpio":"Jericó","mpiolatitud":"6.1456921842199996","mpiolongitud":"-72.585925189299999"}
+,{"iddepto":"15","idmupio":"15377","nommpio":"Labranzagrande","mpiolatitud":"5.5381500422099998","mpiolongitud":"-72.601054754800003"}
+,{"iddepto":"15","idmupio":"15380","nommpio":"La Capilla","mpiolatitud":"5.1136288749499998","mpiolongitud":"-73.458800090899999"}
+,{"iddepto":"15","idmupio":"15401","nommpio":"La Victoria","mpiolatitud":"5.5170376244000003","mpiolongitud":"-74.228791696000002"}
+,{"iddepto":"15","idmupio":"15403","nommpio":"La Uvita","mpiolatitud":"6.2667559520299996","mpiolongitud":"-72.554793388999997"}
+,{"iddepto":"15","idmupio":"15407","nommpio":"Villa De Leyva","mpiolatitud":"5.66662348933","mpiolongitud":"-73.511889112000006"}
+,{"iddepto":"15","idmupio":"15425","nommpio":"Macanal","mpiolatitud":"4.9796854802399997","mpiolongitud":"-73.294324491500007"}
+,{"iddepto":"15","idmupio":"15442","nommpio":"Maripí","mpiolatitud":"5.5692264309699997","mpiolongitud":"-74.021279263699995"}
+,{"iddepto":"15","idmupio":"15455","nommpio":"Miraflores","mpiolatitud":"5.1484775604099999","mpiolongitud":"-73.1711944284"}
+,{"iddepto":"15","idmupio":"15464","nommpio":"Mongua","mpiolatitud":"5.7091692119199999","mpiolongitud":"-72.687487033400004"}
+,{"iddepto":"15","idmupio":"15466","nommpio":"Monguí","mpiolatitud":"5.6973149453799996","mpiolongitud":"-72.833509376600006"}
+,{"iddepto":"15","idmupio":"15469","nommpio":"Moniquirá","mpiolatitud":"5.8635000139300004","mpiolongitud":"-73.559598722499999"}
+,{"iddepto":"15","idmupio":"15476","nommpio":"Motavita","mpiolatitud":"5.6050521164099996","mpiolongitud":"-73.377139996599993"}
+,{"iddepto":"15","idmupio":"15480","nommpio":"Muzo","mpiolatitud":"5.52572944968","mpiolongitud":"-74.116728281999997"}
+,{"iddepto":"15","idmupio":"15491","nommpio":"Nobsa","mpiolatitud":"5.77843485022","mpiolongitud":"-72.931664984099996"}
+,{"iddepto":"15","idmupio":"15494","nommpio":"Nuevo Colón","mpiolatitud":"5.3538225277800002","mpiolongitud":"-73.449740024500002"}
+,{"iddepto":"15","idmupio":"15500","nommpio":"Oicatá","mpiolatitud":"5.6106949320400004","mpiolongitud":"-73.279947273100007"}
+,{"iddepto":"15","idmupio":"15507","nommpio":"Otanche","mpiolatitud":"5.7516452105200004","mpiolongitud":"-74.197933685300001"}
+,{"iddepto":"15","idmupio":"15511","nommpio":"Pachavita","mpiolatitud":"5.1484184545299998","mpiolongitud":"-73.399436085900007"}
+,{"iddepto":"15","idmupio":"15514","nommpio":"Páez","mpiolatitud":"5.0952145978400001","mpiolongitud":"-73.004254309299995"}
+,{"iddepto":"15","idmupio":"15516","nommpio":"Paipa","mpiolatitud":"5.8355554271900001","mpiolongitud":"-73.157609857300002"}
+,{"iddepto":"15","idmupio":"15518","nommpio":"Pajarito","mpiolatitud":"5.3841873576700001","mpiolongitud":"-72.697005185600005"}
+,{"iddepto":"15","idmupio":"15522","nommpio":"Panqueba","mpiolatitud":"6.4433830408099997","mpiolongitud":"-72.461566618099994"}
+,{"iddepto":"15","idmupio":"15531","nommpio":"Pauna","mpiolatitud":"5.6862314834900003","mpiolongitud":"-74.003370309499999"}
+,{"iddepto":"15","idmupio":"15533","nommpio":"Paya","mpiolatitud":"5.6572198191699998","mpiolongitud":"-72.373694423800004"}
+,{"iddepto":"15","idmupio":"15537","nommpio":"Paz De Río","mpiolatitud":"6.0288772056099997","mpiolongitud":"-72.7676100881"}
+,{"iddepto":"15","idmupio":"15542","nommpio":"Pesca","mpiolatitud":"5.4938945796900001","mpiolongitud":"-73.0760844972"}
+,{"iddepto":"15","idmupio":"15550","nommpio":"Pisba","mpiolatitud":"5.7401508221100004","mpiolongitud":"-72.485293561299997"}
+,{"iddepto":"15","idmupio":"15572","nommpio":"Puerto Boyacá","mpiolatitud":"5.9533094648100002","mpiolongitud":"-74.452617669399999"}
+,{"iddepto":"15","idmupio":"15580","nommpio":"Quípama","mpiolatitud":"5.5589633202900002","mpiolongitud":"-74.216757688900003"}
+,{"iddepto":"15","idmupio":"15599","nommpio":"Ramiriquí","mpiolatitud":"5.3196739541299998","mpiolongitud":"-73.311379653800003"}
+,{"iddepto":"15","idmupio":"15600","nommpio":"Ráquira","mpiolatitud":"5.4962740010399997","mpiolongitud":"-73.629402339099997"}
+,{"iddepto":"15","idmupio":"15621","nommpio":"Rondón","mpiolatitud":"5.3820395733900002","mpiolongitud":"-73.197326553099998"}
+,{"iddepto":"15","idmupio":"15632","nommpio":"Saboyá","mpiolatitud":"5.70003189066","mpiolongitud":"-73.748750357899993"}
+,{"iddepto":"15","idmupio":"15638","nommpio":"Sáchica","mpiolatitud":"5.5743027714400002","mpiolongitud":"-73.543458117699998"}
+,{"iddepto":"15","idmupio":"15646","nommpio":"Samacá","mpiolatitud":"5.4700003321399997","mpiolongitud":"-73.523194341799993"}
+,{"iddepto":"15","idmupio":"15660","nommpio":"San Eduardo","mpiolatitud":"5.23541116064","mpiolongitud":"-73.0491422857"}
+,{"iddepto":"15","idmupio":"15664","nommpio":"San José De Pare","mpiolatitud":"5.9940577149300003","mpiolongitud":"-73.543842784999995"}
+,{"iddepto":"15","idmupio":"15667","nommpio":"San Luis De Gaceno","mpiolatitud":"4.8153652727700003","mpiolongitud":"-73.123687719100005"}
+,{"iddepto":"15","idmupio":"15673","nommpio":"San Mateo","mpiolatitud":"6.4071830745399998","mpiolongitud":"-72.560657002300005"}
+,{"iddepto":"15","idmupio":"15676","nommpio":"San Miguel De Sema","mpiolatitud":"5.5313146358300003","mpiolongitud":"-73.7470898981"}
+,{"iddepto":"15","idmupio":"15681","nommpio":"San Pablo De Borbur","mpiolatitud":"5.6773489322000001","mpiolongitud":"-74.114003073700005"}
+,{"iddepto":"15","idmupio":"15686","nommpio":"Santana","mpiolatitud":"6.0578961911600002","mpiolongitud":"-73.486152533199999"}
+,{"iddepto":"15","idmupio":"15690","nommpio":"Santa María","mpiolatitud":"4.8228172524400001","mpiolongitud":"-73.2537287209"}
+,{"iddepto":"15","idmupio":"15693","nommpio":"Santa Rosa De Viterbo","mpiolatitud":"5.8925462502099997","mpiolongitud":"-72.991515634400002"}
+,{"iddepto":"15","idmupio":"15696","nommpio":"Santa Sofía","mpiolatitud":"5.7318943069000001","mpiolongitud":"-73.603238990600005"}
+,{"iddepto":"15","idmupio":"15720","nommpio":"Sativanorte","mpiolatitud":"6.1322425442000004","mpiolongitud":"-72.730340933299999"}
+,{"iddepto":"15","idmupio":"15723","nommpio":"Sativasur","mpiolatitud":"6.0710023871500001","mpiolongitud":"-72.715114879699996"}
+,{"iddepto":"15","idmupio":"15740","nommpio":"Siachoque","mpiolatitud":"5.4980534813900004","mpiolongitud":"-73.214098822599993"}
+,{"iddepto":"15","idmupio":"15753","nommpio":"Soatá","mpiolatitud":"6.3251712210299997","mpiolongitud":"-72.690889626900002"}
+,{"iddepto":"15","idmupio":"15755","nommpio":"Socotá","mpiolatitud":"5.9282171980999996","mpiolongitud":"-72.5551101999"}
+,{"iddepto":"15","idmupio":"15757","nommpio":"Socha","mpiolatitud":"5.9596483709300001","mpiolongitud":"-72.680991961800004"}
+,{"iddepto":"15","idmupio":"15759","nommpio":"Sogamoso","mpiolatitud":"5.6676940551000001","mpiolongitud":"-72.885881667700005"}
+,{"iddepto":"15","idmupio":"15761","nommpio":"Somondoco","mpiolatitud":"4.9694945403000004","mpiolongitud":"-73.42867115"}
+,{"iddepto":"15","idmupio":"15762","nommpio":"Sora","mpiolatitud":"5.5807691552699996","mpiolongitud":"-73.443372001"}
+,{"iddepto":"15","idmupio":"15763","nommpio":"Sotaquirá","mpiolatitud":"5.7833362449500001","mpiolongitud":"-73.250926159900004"}
+,{"iddepto":"15","idmupio":"15764","nommpio":"Soracá","mpiolatitud":"5.4959218950100004","mpiolongitud":"-73.319026524500003"}
+,{"iddepto":"15","idmupio":"15774","nommpio":"Susacón","mpiolatitud":"6.2151826436800004","mpiolongitud":"-72.716388310300005"}
+,{"iddepto":"15","idmupio":"15776","nommpio":"Sutamarchán","mpiolatitud":"5.6410133489599996","mpiolongitud":"-73.624464283500004"}
+,{"iddepto":"15","idmupio":"15778","nommpio":"Sutatenza","mpiolatitud":"5.0263688062299998","mpiolongitud":"-73.433750225099999"}
+,{"iddepto":"15","idmupio":"15790","nommpio":"Tasco","mpiolatitud":"5.8826914586300001","mpiolongitud":"-72.726047283499994"}
+,{"iddepto":"15","idmupio":"15798","nommpio":"Tenza","mpiolatitud":"5.07065701319","mpiolongitud":"-73.424756994600003"}
+,{"iddepto":"15","idmupio":"15804","nommpio":"Tibaná","mpiolatitud":"5.3002317844300002","mpiolongitud":"-73.391563453299995"}
+,{"iddepto":"15","idmupio":"15806","nommpio":"Tibasosa","mpiolatitud":"5.7472484530500001","mpiolongitud":"-73.010844125000006"}
+,{"iddepto":"15","idmupio":"15808","nommpio":"Tinjacá","mpiolatitud":"5.5774613396200001","mpiolongitud":"-73.6760426389"}
+,{"iddepto":"15","idmupio":"15810","nommpio":"Tipacoque","mpiolatitud":"6.4205413759200001","mpiolongitud":"-72.694589337699995"}
+,{"iddepto":"15","idmupio":"15814","nommpio":"Toca","mpiolatitud":"5.5800037262200002","mpiolongitud":"-73.160674714999999"}
+,{"iddepto":"15","idmupio":"15816","nommpio":"Togüí","mpiolatitud":"5.9204036644700002","mpiolongitud":"-73.488484541199995"}
+,{"iddepto":"15","idmupio":"15820","nommpio":"Tópaga","mpiolatitud":"5.76521659383","mpiolongitud":"-72.8365216248"}
+,{"iddepto":"15","idmupio":"15822","nommpio":"Tota","mpiolatitud":"5.4936392562099998","mpiolongitud":"-73.003376092500005"}
+,{"iddepto":"15","idmupio":"15832","nommpio":"Tununguá","mpiolatitud":"5.7197958354400003","mpiolongitud":"-73.943418312000006"}
+,{"iddepto":"15","idmupio":"15835","nommpio":"Turmequé","mpiolatitud":"5.30632432113","mpiolongitud":"-73.508871740100005"}
+,{"iddepto":"15","idmupio":"15837","nommpio":"Tuta","mpiolatitud":"5.6724124839999996","mpiolongitud":"-73.183375375300002"}
+,{"iddepto":"15","idmupio":"15839","nommpio":"Tutazá","mpiolatitud":"6.0772860300099998","mpiolongitud":"-72.856956544400006"}
+,{"iddepto":"15","idmupio":"15842","nommpio":"Umbita","mpiolatitud":"5.2180908644199997","mpiolongitud":"-73.462769579400003"}
+,{"iddepto":"15","idmupio":"15861","nommpio":"Ventaquemada","mpiolatitud":"5.3830696486000003","mpiolongitud":"-73.520502896699995"}
+,{"iddepto":"15","idmupio":"15879","nommpio":"Viracachá","mpiolatitud":"5.4409648849799996","mpiolongitud":"-73.266688554400005"}
+,{"iddepto":"15","idmupio":"15897","nommpio":"Zetaquira","mpiolatitud":"5.27879949064","mpiolongitud":"-73.169183251299998"}
+,{"iddepto":"17","idmupio":"17001","nommpio":"Manizales","mpiolatitud":"5.0833994976500003","mpiolongitud":"-75.506740482400005"}
+,{"iddepto":"17","idmupio":"17013","nommpio":"Aguadas","mpiolatitud":"5.5970776846900003","mpiolongitud":"-75.450678802400006"}
+,{"iddepto":"17","idmupio":"17042","nommpio":"Anserma","mpiolatitud":"5.2004271176000003","mpiolongitud":"-75.7530823365"}
+,{"iddepto":"17","idmupio":"17050","nommpio":"Aranzazu","mpiolatitud":"5.2677843253600001","mpiolongitud":"-75.474324535500003"}
+,{"iddepto":"17","idmupio":"17088","nommpio":"Belalcázar","mpiolatitud":"4.9957739075300003","mpiolongitud":"-75.812179109799999"}
+,{"iddepto":"17","idmupio":"17174","nommpio":"Chinchiná","mpiolatitud":"4.9874749527000004","mpiolongitud":"-75.6680353446"}
+,{"iddepto":"17","idmupio":"17272","nommpio":"Filadelfia","mpiolatitud":"5.2856980133100002","mpiolongitud":"-75.589419941900005"}
+,{"iddepto":"17","idmupio":"17380","nommpio":"La Dorada","mpiolatitud":"5.5470385572199996","mpiolongitud":"-74.708990388299995"}
+,{"iddepto":"17","idmupio":"17388","nommpio":"La Merced","mpiolatitud":"5.3933383148100003","mpiolongitud":"-75.558096371700003"}
+,{"iddepto":"17","idmupio":"17433","nommpio":"Manzanares","mpiolatitud":"5.23268958294","mpiolongitud":"-75.150388600100001"}
+,{"iddepto":"17","idmupio":"17442","nommpio":"Marmato","mpiolatitud":"5.4913716771300001","mpiolongitud":"-75.600139695300001"}
+,{"iddepto":"17","idmupio":"17444","nommpio":"Marquetalia","mpiolatitud":"5.3096225013699998","mpiolongitud":"-75.036260029600001"}
+,{"iddepto":"17","idmupio":"17446","nommpio":"Marulanda","mpiolatitud":"5.2251527858499998","mpiolongitud":"-75.287586792699997"}
+,{"iddepto":"17","idmupio":"17486","nommpio":"Neira","mpiolatitud":"5.1838832154099999","mpiolongitud":"-75.506258339499993"}
+,{"iddepto":"17","idmupio":"17495","nommpio":"Norcasia","mpiolatitud":"5.63726890476","mpiolongitud":"-74.855109558300001"}
+,{"iddepto":"17","idmupio":"17513","nommpio":"Pácora","mpiolatitud":"5.5004204616000001","mpiolongitud":"-75.483077817600005"}
+,{"iddepto":"17","idmupio":"17524","nommpio":"Palestina","mpiolatitud":"5.0502614962700001","mpiolongitud":"-75.661842421100005"}
+,{"iddepto":"17","idmupio":"17541","nommpio":"Pensilvania","mpiolatitud":"5.4018553895099997","mpiolongitud":"-75.1725399977"}
+,{"iddepto":"17","idmupio":"17614","nommpio":"Riosucio","mpiolatitud":"5.4458695318899997","mpiolongitud":"-75.754387535600003"}
+,{"iddepto":"17","idmupio":"17616","nommpio":"Risaralda","mpiolatitud":"5.1122638517099999","mpiolongitud":"-75.758502407500004"}
+,{"iddepto":"17","idmupio":"17653","nommpio":"Salamina","mpiolatitud":"5.3708252789399999","mpiolongitud":"-75.409175943199998"}
+,{"iddepto":"17","idmupio":"17662","nommpio":"Samaná","mpiolatitud":"5.5405531314900003","mpiolongitud":"-74.993435649999995"}
+,{"iddepto":"17","idmupio":"17665","nommpio":"San José","mpiolatitud":"5.07082951777","mpiolongitud":"-75.812923994299993"}
+,{"iddepto":"17","idmupio":"17777","nommpio":"Supía","mpiolatitud":"5.45137014141","mpiolongitud":"-75.641212091200003"}
+,{"iddepto":"17","idmupio":"17867","nommpio":"Victoria","mpiolatitud":"5.4465985593599999","mpiolongitud":"-74.832545848199999"}
+,{"iddepto":"17","idmupio":"17873","nommpio":"Villamaría","mpiolatitud":"4.9402336686600004","mpiolongitud":"-75.435099774899996"}
+,{"iddepto":"17","idmupio":"17877","nommpio":"Viterbo","mpiolatitud":"5.0482391955299999","mpiolongitud":"-75.879216469300005"}
+,{"iddepto":"18","idmupio":"18001","nommpio":"Florencia","mpiolatitud":"1.72818703234","mpiolongitud":"-75.5777599299"}
+,{"iddepto":"18","idmupio":"18029","nommpio":"Albania","mpiolatitud":"1.2311003611","mpiolongitud":"-75.8827270386"}
+,{"iddepto":"18","idmupio":"18094","nommpio":"Belén De Los Andaquies","mpiolatitud":"1.48799315439","mpiolongitud":"-75.8787274881"}
+,{"iddepto":"18","idmupio":"18150","nommpio":"Cartagena Del Chairá","mpiolatitud":"0.642038668597","mpiolongitud":"-74.2718737421"}
+,{"iddepto":"18","idmupio":"18205","nommpio":"Curillo","mpiolatitud":"1.08296871981","mpiolongitud":"-75.9612906845"}
+,{"iddepto":"18","idmupio":"18247","nommpio":"El Doncello","mpiolatitud":"1.7741549925","mpiolongitud":"-75.1715369479"}
+,{"iddepto":"18","idmupio":"18256","nommpio":"El Paujil","mpiolatitud":"1.74051838441","mpiolongitud":"-75.2743035597"}
+,{"iddepto":"18","idmupio":"18410","nommpio":"La Montañita","mpiolatitud":"1.45503689087","mpiolongitud":"-75.3015934586"}
+,{"iddepto":"18","idmupio":"18460","nommpio":"Milán","mpiolatitud":"1.13846530349","mpiolongitud":"-75.3832292845"}
+,{"iddepto":"18","idmupio":"18479","nommpio":"Morelia","mpiolatitud":"1.37352236988","mpiolongitud":"-75.6698507171"}
+,{"iddepto":"18","idmupio":"18592","nommpio":"Puerto Rico","mpiolatitud":"1.93841788184","mpiolongitud":"-75.0690716718"}
+,{"iddepto":"18","idmupio":"18610","nommpio":"San José Del Fragua","mpiolatitud":"1.30056579202","mpiolongitud":"-76.1199551853"}
+,{"iddepto":"18","idmupio":"18753","nommpio":"San Vicente Del Caguán","mpiolatitud":"1.60916476142","mpiolongitud":"-74.3060937257"}
+,{"iddepto":"18","idmupio":"18756","nommpio":"Solano","mpiolatitud":"0.219399172455","mpiolongitud":"-73.1469291853"}
+,{"iddepto":"18","idmupio":"18785","nommpio":"Solita","mpiolatitud":"0.923410360725","mpiolongitud":"-75.6715533015"}
+,{"iddepto":"18","idmupio":"18860","nommpio":"Valparaíso","mpiolatitud":"1.05544334127","mpiolongitud":"-75.6049941892"}
+,{"iddepto":"19","idmupio":"19001","nommpio":"Popayán","mpiolatitud":"2.47086112554","mpiolongitud":"-76.5920131064"}
+,{"iddepto":"19","idmupio":"19022","nommpio":"Almaguer","mpiolatitud":"1.91492509299","mpiolongitud":"-76.835386546"}
+,{"iddepto":"19","idmupio":"19050","nommpio":"Argelia","mpiolatitud":"2.32509757965","mpiolongitud":"-77.255011691"}
+,{"iddepto":"19","idmupio":"19075","nommpio":"Balboa","mpiolatitud":"2.08496375145","mpiolongitud":"-77.2087644166"}
+,{"iddepto":"19","idmupio":"19100","nommpio":"Bolívar","mpiolatitud":"1.85382539506","mpiolongitud":"-76.9636493227"}
+,{"iddepto":"19","idmupio":"19110","nommpio":"Buenos Aires","mpiolatitud":"3.02803310682","mpiolongitud":"-76.6644778794"}
+,{"iddepto":"19","idmupio":"19130","nommpio":"Cajibío","mpiolatitud":"2.64282055802","mpiolongitud":"-76.6995785707"}
+,{"iddepto":"19","idmupio":"19137","nommpio":"Caldono","mpiolatitud":"2.81361976078","mpiolongitud":"-76.4654953058"}
+,{"iddepto":"19","idmupio":"19142","nommpio":"Caloto","mpiolatitud":"3.04345926766","mpiolongitud":"-76.3676693188"}
+,{"iddepto":"19","idmupio":"19212","nommpio":"Corinto","mpiolatitud":"3.13533485763","mpiolongitud":"-76.2216028454"}
+,{"iddepto":"19","idmupio":"19256","nommpio":"El Tambo","mpiolatitud":"2.53049714714","mpiolongitud":"-77.0029118918"}
+,{"iddepto":"19","idmupio":"19290","nommpio":"Florencia","mpiolatitud":"1.69725035542","mpiolongitud":"-77.0818262178"}
+,{"iddepto":"19","idmupio":"19300","nommpio":"Guachené","mpiolatitud":"3.14472684277","mpiolongitud":"-76.3925565044"}
+,{"iddepto":"19","idmupio":"19318","nommpio":"Guapi","mpiolatitud":"2.40277220755","mpiolongitud":"-77.6748969539"}
+,{"iddepto":"19","idmupio":"19355","nommpio":"Inzá","mpiolatitud":"2.50917341257","mpiolongitud":"-76.1294045549"}
+,{"iddepto":"19","idmupio":"19364","nommpio":"Jambaló","mpiolatitud":"2.84945323139","mpiolongitud":"-76.3113047922"}
+,{"iddepto":"19","idmupio":"19392","nommpio":"La Sierra","mpiolatitud":"2.18798637669","mpiolongitud":"-76.783697131"}
+,{"iddepto":"19","idmupio":"19397","nommpio":"La Vega","mpiolatitud":"2.0539026173","mpiolongitud":"-76.7594458018"}
+,{"iddepto":"19","idmupio":"19418","nommpio":"López","mpiolatitud":"2.996036171","mpiolongitud":"-77.241152831"}
+,{"iddepto":"19","idmupio":"19450","nommpio":"Mercaderes","mpiolatitud":"1.79232554062","mpiolongitud":"-77.1793463376"}
+,{"iddepto":"19","idmupio":"19455","nommpio":"Miranda","mpiolatitud":"3.21570677225","mpiolongitud":"-76.2006724415"}
+,{"iddepto":"19","idmupio":"19473","nommpio":"Morales","mpiolatitud":"2.81358152496","mpiolongitud":"-76.7560382013"}
+,{"iddepto":"19","idmupio":"19513","nommpio":"Padilla","mpiolatitud":"3.19547131123","mpiolongitud":"-76.337402731"}
+,{"iddepto":"19","idmupio":"19517","nommpio":"Paez","mpiolatitud":"2.72780985656","mpiolongitud":"-75.9994116194"}
+,{"iddepto":"19","idmupio":"19532","nommpio":"Patía","mpiolatitud":"2.14827059686","mpiolongitud":"-77.0580236543"}
+,{"iddepto":"19","idmupio":"19533","nommpio":"Piamonte","mpiolatitud":"1.19273482347","mpiolongitud":"-76.3344788357"}
+,{"iddepto":"19","idmupio":"19548","nommpio":"Piendamó","mpiolatitud":"2.71564402749","mpiolongitud":"-76.5665820167"}
+,{"iddepto":"19","idmupio":"19573","nommpio":"Puerto Tejada","mpiolatitud":"3.26542773165","mpiolongitud":"-76.4201560053"}
+,{"iddepto":"19","idmupio":"19585","nommpio":"Puracé","mpiolatitud":"2.28936735811","mpiolongitud":"-76.3629128302"}
+,{"iddepto":"19","idmupio":"19622","nommpio":"Rosas","mpiolatitud":"2.24597661671","mpiolongitud":"-76.742305779"}
+,{"iddepto":"19","idmupio":"19693","nommpio":"San Sebastián","mpiolatitud":"1.85526011767","mpiolongitud":"-76.7162435481"}
+,{"iddepto":"19","idmupio":"19698","nommpio":"Santander De Quilichao","mpiolatitud":"2.98547630909","mpiolongitud":"-76.5015864011"}
+,{"iddepto":"19","idmupio":"19701","nommpio":"Santa Rosa","mpiolatitud":"1.57053154666","mpiolongitud":"-76.5697014078"}
+,{"iddepto":"19","idmupio":"19743","nommpio":"Silvia","mpiolatitud":"2.65196272101","mpiolongitud":"-76.3519963279"}
+,{"iddepto":"19","idmupio":"19760","nommpio":"Sotara","mpiolatitud":"2.22981578835","mpiolongitud":"-76.612191015"}
+,{"iddepto":"19","idmupio":"19780","nommpio":"Suárez","mpiolatitud":"2.93446319178","mpiolongitud":"-76.7447281429"}
+,{"iddepto":"19","idmupio":"19785","nommpio":"Sucre","mpiolatitud":"2.0617701053","mpiolongitud":"-76.9143077637"}
+,{"iddepto":"19","idmupio":"19807","nommpio":"Timbío","mpiolatitud":"2.36960755665","mpiolongitud":"-76.7104890477"}
+,{"iddepto":"19","idmupio":"19809","nommpio":"Timbiquí","mpiolatitud":"2.69736132221","mpiolongitud":"-77.4891919343"}
+,{"iddepto":"19","idmupio":"19821","nommpio":"Toribio","mpiolatitud":"2.97594234819","mpiolongitud":"-76.20338412"}
+,{"iddepto":"19","idmupio":"19824","nommpio":"Totoró","mpiolatitud":"2.50510353335","mpiolongitud":"-76.3923952338"}
+,{"iddepto":"19","idmupio":"19845","nommpio":"Villa Rica","mpiolatitud":"3.17810237695","mpiolongitud":"-76.4665606502"}
+,{"iddepto":"20","idmupio":"20001","nommpio":"Valledupar","mpiolatitud":"10.3819136737","mpiolongitud":"-73.463840135300003"}
+,{"iddepto":"20","idmupio":"20011","nommpio":"Aguachica","mpiolatitud":"8.2480373060400005","mpiolongitud":"-73.623055248599997"}
+,{"iddepto":"20","idmupio":"20013","nommpio":"Agustín Codazzi","mpiolatitud":"9.9490535621199996","mpiolongitud":"-73.223324478699993"}
+,{"iddepto":"20","idmupio":"20032","nommpio":"Astrea","mpiolatitud":"9.4994772825399991","mpiolongitud":"-73.951410450799997"}
+,{"iddepto":"20","idmupio":"20045","nommpio":"Becerril","mpiolatitud":"9.7272225542400008","mpiolongitud":"-73.252679330600003"}
+,{"iddepto":"20","idmupio":"20060","nommpio":"Bosconia","mpiolatitud":"9.9463383563800001","mpiolongitud":"-73.866353913599994"}
+,{"iddepto":"20","idmupio":"20175","nommpio":"Chimichagua","mpiolatitud":"9.2186622657499999","mpiolongitud":"-73.753985261899999"}
+,{"iddepto":"20","idmupio":"20178","nommpio":"Chiriguaná","mpiolatitud":"9.4259096809899994","mpiolongitud":"-73.548109015799994"}
+,{"iddepto":"20","idmupio":"20228","nommpio":"Curumaní","mpiolatitud":"9.2392029142999998","mpiolongitud":"-73.489042444600003"}
+,{"iddepto":"20","idmupio":"20238","nommpio":"El Copey","mpiolatitud":"10.200074946000001","mpiolongitud":"-73.912626620400005"}
+,{"iddepto":"20","idmupio":"20250","nommpio":"El Paso","mpiolatitud":"9.6808665342799998","mpiolongitud":"-73.693036896400002"}
+,{"iddepto":"20","idmupio":"20295","nommpio":"Gamarra","mpiolatitud":"8.3373899889899992","mpiolongitud":"-73.707625461000006"}
+,{"iddepto":"20","idmupio":"20310","nommpio":"González","mpiolatitud":"8.4056870369599999","mpiolongitud":"-73.375438293900004"}
+,{"iddepto":"20","idmupio":"20383","nommpio":"La Gloria","mpiolatitud":"8.6218888954700006","mpiolongitud":"-73.633150429400004"}
+,{"iddepto":"20","idmupio":"20400","nommpio":"La Jagua De Ibirico","mpiolatitud":"9.5511095132400001","mpiolongitud":"-73.323514118899993"}
+,{"iddepto":"20","idmupio":"20443","nommpio":"Manaure","mpiolatitud":"10.390903555","mpiolongitud":"-72.991790960100005"}
+,{"iddepto":"20","idmupio":"20517","nommpio":"Pailitas","mpiolatitud":"8.9388925718099994","mpiolongitud":"-73.572179020700005"}
+,{"iddepto":"20","idmupio":"20550","nommpio":"Pelaya","mpiolatitud":"8.7640044694500006","mpiolongitud":"-73.633162372000001"}
+,{"iddepto":"20","idmupio":"20570","nommpio":"Pueblo Bello","mpiolatitud":"10.470226502399999","mpiolongitud":"-73.595100617200004"}
+,{"iddepto":"20","idmupio":"20614","nommpio":"Río De Oro","mpiolatitud":"8.2020404524099995","mpiolongitud":"-73.497863175600003"}
+,{"iddepto":"20","idmupio":"20621","nommpio":"La Paz","mpiolatitud":"10.164825451700001","mpiolongitud":"-73.190087660499998"}
+,{"iddepto":"20","idmupio":"20710","nommpio":"San Alberto","mpiolatitud":"7.81441245247","mpiolongitud":"-73.458190558300004"}
+,{"iddepto":"20","idmupio":"20750","nommpio":"San Diego","mpiolatitud":"10.1684632413","mpiolongitud":"-73.289970571799998"}
+,{"iddepto":"20","idmupio":"20770","nommpio":"San Martín","mpiolatitud":"7.9578119329600003","mpiolongitud":"-73.524831635400005"}
+,{"iddepto":"20","idmupio":"20787","nommpio":"Tamalameque","mpiolatitud":"8.9019691443099997","mpiolongitud":"-73.762550852299995"}
+,{"iddepto":"23","idmupio":"23001","nommpio":"Montería","mpiolatitud":"8.5864040326400008","mpiolongitud":"-75.9580589065"}
+,{"iddepto":"23","idmupio":"23068","nommpio":"Ayapel","mpiolatitud":"8.2564641554599998","mpiolongitud":"-75.050052407400003"}
+,{"iddepto":"23","idmupio":"23079","nommpio":"Buenavista","mpiolatitud":"8.1912918457400004","mpiolongitud":"-75.433787799599997"}
+,{"iddepto":"23","idmupio":"23090","nommpio":"Canalete","mpiolatitud":"8.7166156019900001","mpiolongitud":"-76.237564457600001"}
+,{"iddepto":"23","idmupio":"23162","nommpio":"Cereté","mpiolatitud":"8.8903083162000005","mpiolongitud":"-75.836007404399993"}
+,{"iddepto":"23","idmupio":"23168","nommpio":"Chimá","mpiolatitud":"9.1114584343900002","mpiolongitud":"-75.650600035500005"}
+,{"iddepto":"23","idmupio":"23182","nommpio":"Chinú","mpiolatitud":"9.0272416123799992","mpiolongitud":"-75.3605212099"}
+,{"iddepto":"23","idmupio":"23189","nommpio":"Ciénaga De Oro","mpiolatitud":"8.8432205616099999","mpiolongitud":"-75.608920529700001"}
+,{"iddepto":"23","idmupio":"23300","nommpio":"Cotorra","mpiolatitud":"9.0571240034899994","mpiolongitud":"-75.779175281899995"}
+,{"iddepto":"23","idmupio":"23350","nommpio":"La Apartada","mpiolatitud":"8.0478134596400004","mpiolongitud":"-75.300954600400004"}
+,{"iddepto":"23","idmupio":"23417","nommpio":"Lorica","mpiolatitud":"9.1637136103899994","mpiolongitud":"-75.917785945999995"}
+,{"iddepto":"23","idmupio":"23419","nommpio":"Los Córdobas","mpiolatitud":"8.8381111785000002","mpiolongitud":"-76.294632022299993"}
+,{"iddepto":"23","idmupio":"23464","nommpio":"Momil","mpiolatitud":"9.2647184149699999","mpiolongitud":"-75.645746452500006"}
+,{"iddepto":"23","idmupio":"23466","nommpio":"Montelíbano","mpiolatitud":"7.8875086886399997","mpiolongitud":"-75.766241633899995"}
+,{"iddepto":"23","idmupio":"23500","nommpio":"Moñitos","mpiolatitud":"9.2002657889100004","mpiolongitud":"-76.123157792300006"}
+,{"iddepto":"23","idmupio":"23555","nommpio":"Planeta Rica","mpiolatitud":"8.29638760936","mpiolongitud":"-75.615794814099999"}
+,{"iddepto":"23","idmupio":"23570","nommpio":"Pueblo Nuevo","mpiolatitud":"8.4821775955399996","mpiolongitud":"-75.406483756200004"}
+,{"iddepto":"23","idmupio":"23574","nommpio":"Puerto Escondido","mpiolatitud":"8.9874525356999992","mpiolongitud":"-76.193997326800002"}
+,{"iddepto":"23","idmupio":"23580","nommpio":"Puerto Libertador","mpiolatitud":"7.7097429795999997","mpiolongitud":"-75.7687342065"}
+,{"iddepto":"23","idmupio":"23586","nommpio":"Purísima","mpiolatitud":"9.2723842727899992","mpiolongitud":"-75.728487016499997"}
+,{"iddepto":"23","idmupio":"23660","nommpio":"Sahagún","mpiolatitud":"8.7978224595600008","mpiolongitud":"-75.429121880099999"}
+,{"iddepto":"23","idmupio":"23670","nommpio":"San Andrés Sotavento","mpiolatitud":"9.1217982462399991","mpiolongitud":"-75.516343216199999"}
+,{"iddepto":"23","idmupio":"23672","nommpio":"San Antero","mpiolatitud":"9.3599275494800001","mpiolongitud":"-75.782902883399998"}
+,{"iddepto":"23","idmupio":"23675","nommpio":"San Bernardo Del Viento","mpiolatitud":"9.3260348306599994","mpiolongitud":"-75.978195435700002"}
+,{"iddepto":"23","idmupio":"23678","nommpio":"San Carlos","mpiolatitud":"8.7071420719100008","mpiolongitud":"-75.6943461332"}
+,{"iddepto":"23","idmupio":"23682","nommpio":"San José De Uré","mpiolatitud":"7.7532344606599999","mpiolongitud":"-75.565905679799997"}
+,{"iddepto":"23","idmupio":"23686","nommpio":"San Pelayo","mpiolatitud":"8.9879287045900007","mpiolongitud":"-75.908040027799998"}
+,{"iddepto":"23","idmupio":"23807","nommpio":"Tierralta","mpiolatitud":"7.8101751578399998","mpiolongitud":"-76.173083263699993"}
+,{"iddepto":"23","idmupio":"23815","nommpio":"Tuchín","mpiolatitud":"9.2233511927199991","mpiolongitud":"-75.545185629100004"}
+,{"iddepto":"23","idmupio":"23855","nommpio":"Valencia","mpiolatitud":"8.2181144651900002","mpiolongitud":"-76.222540750199997"}
+,{"iddepto":"25","idmupio":"25001","nommpio":"Agua De Dios","mpiolatitud":"4.3727829851899997","mpiolongitud":"-74.670949037400007"}
+,{"iddepto":"25","idmupio":"25019","nommpio":"Albán","mpiolatitud":"4.8943043706399996","mpiolongitud":"-74.443785296800002"}
+,{"iddepto":"25","idmupio":"25035","nommpio":"Anapoima","mpiolatitud":"4.5598778540399998","mpiolongitud":"-74.525389786600002"}
+,{"iddepto":"25","idmupio":"25040","nommpio":"Anolaima","mpiolatitud":"4.7897091768099997","mpiolongitud":"-74.461804711200003"}
+,{"iddepto":"25","idmupio":"25053","nommpio":"Arbeláez","mpiolatitud":"4.2327595335800003","mpiolongitud":"-74.396234422500001"}
+,{"iddepto":"25","idmupio":"25086","nommpio":"Beltrán","mpiolatitud":"4.71953393117","mpiolongitud":"-74.756536842700001"}
+,{"iddepto":"25","idmupio":"25095","nommpio":"Bituima","mpiolatitud":"4.84771964855","mpiolongitud":"-74.528373623899995"}
+,{"iddepto":"25","idmupio":"25099","nommpio":"Bojacá","mpiolatitud":"4.6924720308100003","mpiolongitud":"-74.328829366899996"}
+,{"iddepto":"25","idmupio":"25120","nommpio":"Cabrera","mpiolatitud":"3.91314112378","mpiolongitud":"-74.4479038727"}
+,{"iddepto":"25","idmupio":"25123","nommpio":"Cachipay","mpiolatitud":"4.7230674209899997","mpiolongitud":"-74.459235372999999"}
+,{"iddepto":"25","idmupio":"25126","nommpio":"Cajicá","mpiolatitud":"4.9307336375700004","mpiolongitud":"-74.029794972100007"}
+,{"iddepto":"25","idmupio":"25148","nommpio":"Caparrapí","mpiolatitud":"5.3811439320499996","mpiolongitud":"-74.521277862299996"}
+,{"iddepto":"25","idmupio":"25151","nommpio":"Caqueza","mpiolatitud":"4.4020365893499998","mpiolongitud":"-73.944933614299998"}
+,{"iddepto":"25","idmupio":"25154","nommpio":"Carmen De Carupa","mpiolatitud":"5.3396807825600003","mpiolongitud":"-73.926335479700001"}
+,{"iddepto":"25","idmupio":"25168","nommpio":"Chaguaní","mpiolatitud":"4.9557113181799997","mpiolongitud":"-74.635353904400006"}
+,{"iddepto":"25","idmupio":"25175","nommpio":"Chía","mpiolatitud":"4.8656344878800004","mpiolongitud":"-74.036700619499996"}
+,{"iddepto":"25","idmupio":"25178","nommpio":"Chipaque","mpiolatitud":"4.4260794437099999","mpiolongitud":"-74.059032443099994"}
+,{"iddepto":"25","idmupio":"25181","nommpio":"Choachí","mpiolatitud":"4.5824878468000003","mpiolongitud":"-73.912697646799998"}
+,{"iddepto":"25","idmupio":"25183","nommpio":"Chocontá","mpiolatitud":"5.1174545294799998","mpiolongitud":"-73.680708994100002"}
+,{"iddepto":"25","idmupio":"25200","nommpio":"Cogua","mpiolatitud":"5.1034865654799999","mpiolongitud":"-73.975809141599996"}
+,{"iddepto":"25","idmupio":"25214","nommpio":"Cota","mpiolatitud":"4.78761629192","mpiolongitud":"-74.124982158199998"}
+,{"iddepto":"25","idmupio":"25224","nommpio":"Cucunubá","mpiolatitud":"5.2304466419700004","mpiolongitud":"-73.779988163100001"}
+,{"iddepto":"25","idmupio":"25245","nommpio":"El Colegio","mpiolatitud":"4.5569365979200001","mpiolongitud":"-74.426395779499998"}
+,{"iddepto":"25","idmupio":"25258","nommpio":"El Peñón","mpiolatitud":"5.2623683346899996","mpiolongitud":"-74.308861029100001"}
+,{"iddepto":"25","idmupio":"25260","nommpio":"El Rosal","mpiolatitud":"4.8789925178600004","mpiolongitud":"-74.236923017899997"}
+,{"iddepto":"25","idmupio":"25269","nommpio":"Facatativá","mpiolatitud":"4.8331996262699999","mpiolongitud":"-74.336981396100001"}
+,{"iddepto":"25","idmupio":"25279","nommpio":"Fomeque","mpiolatitud":"4.5280683285399999","mpiolongitud":"-73.7887772367"}
+,{"iddepto":"25","idmupio":"25281","nommpio":"Fosca","mpiolatitud":"4.3169238390200002","mpiolongitud":"-73.953335034099993"}
+,{"iddepto":"25","idmupio":"25286","nommpio":"Funza","mpiolatitud":"4.7434724622499997","mpiolongitud":"-74.197635717599994"}
+,{"iddepto":"25","idmupio":"25288","nommpio":"Fúquene","mpiolatitud":"5.4197976533199999","mpiolongitud":"-73.769935048899995"}
+,{"iddepto":"25","idmupio":"25290","nommpio":"Fusagasugá","mpiolatitud":"4.32333350645","mpiolongitud":"-74.388350193099996"}
+,{"iddepto":"25","idmupio":"25293","nommpio":"Gachala","mpiolatitud":"4.6550120330500002","mpiolongitud":"-73.510526830200007"}
+,{"iddepto":"25","idmupio":"25295","nommpio":"Gachancipá","mpiolatitud":"5.0102181210500003","mpiolongitud":"-73.878005930399993"}
+,{"iddepto":"25","idmupio":"25297","nommpio":"Gachetá","mpiolatitud":"4.8651747857099998","mpiolongitud":"-73.619027414800001"}
+,{"iddepto":"25","idmupio":"25299","nommpio":"Gama","mpiolatitud":"4.72363471199","mpiolongitud":"-73.600488073099996"}
+,{"iddepto":"25","idmupio":"25307","nommpio":"Girardot","mpiolatitud":"4.3381653617299998","mpiolongitud":"-74.811430068000007"}
+,{"iddepto":"25","idmupio":"25312","nommpio":"Granada","mpiolatitud":"4.5246545456599998","mpiolongitud":"-74.333455400000005"}
+,{"iddepto":"25","idmupio":"25317","nommpio":"Guachetá","mpiolatitud":"5.3870700396200002","mpiolongitud":"-73.693267101499998"}
+,{"iddepto":"25","idmupio":"25320","nommpio":"Guaduas","mpiolatitud":"5.1738532434","mpiolongitud":"-74.6390185411"}
+,{"iddepto":"25","idmupio":"25322","nommpio":"Guasca","mpiolatitud":"4.8018759564","mpiolongitud":"-73.8461936522"}
+,{"iddepto":"25","idmupio":"25324","nommpio":"Guataquí","mpiolatitud":"4.5129878543700004","mpiolongitud":"-74.781862650400001"}
+,{"iddepto":"25","idmupio":"25326","nommpio":"Guatavita","mpiolatitud":"4.9142483200999996","mpiolongitud":"-73.7861438523"}
+,{"iddepto":"25","idmupio":"25328","nommpio":"Guayabal De Siquima","mpiolatitud":"4.8787692158600002","mpiolongitud":"-74.483119118600001"}
+,{"iddepto":"25","idmupio":"25335","nommpio":"Guayabetal","mpiolatitud":"4.2302681953599999","mpiolongitud":"-73.836964117299999"}
+,{"iddepto":"25","idmupio":"25339","nommpio":"Gutiérrez","mpiolatitud":"4.1672189027500002","mpiolongitud":"-74.022363634300007"}
+,{"iddepto":"25","idmupio":"25368","nommpio":"Jerusalén","mpiolatitud":"4.5712298598399999","mpiolongitud":"-74.6895224931"}
+,{"iddepto":"25","idmupio":"25372","nommpio":"Junín","mpiolatitud":"4.7068872086400004","mpiolongitud":"-73.693022386699994"}
+,{"iddepto":"25","idmupio":"25377","nommpio":"La Calera","mpiolatitud":"4.7000461536799998","mpiolongitud":"-73.930079461800005"}
+,{"iddepto":"25","idmupio":"25386","nommpio":"La Mesa","mpiolatitud":"4.6516233264500002","mpiolongitud":"-74.472396195800002"}
+,{"iddepto":"25","idmupio":"25394","nommpio":"La Palma","mpiolatitud":"5.3320959214699997","mpiolongitud":"-74.408272149699997"}
+,{"iddepto":"25","idmupio":"25398","nommpio":"La Peña","mpiolatitud":"5.2029616887900003","mpiolongitud":"-74.408669900099994"}
+,{"iddepto":"25","idmupio":"25402","nommpio":"La Vega","mpiolatitud":"4.9780631369500004","mpiolongitud":"-74.339788123800005"}
+,{"iddepto":"25","idmupio":"25407","nommpio":"Lenguazaque","mpiolatitud":"5.3031364292500003","mpiolongitud":"-73.681610310699995"}
+,{"iddepto":"25","idmupio":"25426","nommpio":"Macheta","mpiolatitud":"5.0392386719999998","mpiolongitud":"-73.617658816900004"}
+,{"iddepto":"25","idmupio":"25430","nommpio":"Madrid","mpiolatitud":"4.7718873036999998","mpiolongitud":"-74.260456263999998"}
+,{"iddepto":"25","idmupio":"25436","nommpio":"Manta","mpiolatitud":"4.97818326222","mpiolongitud":"-73.563115582199998"}
+,{"iddepto":"25","idmupio":"25438","nommpio":"Medina","mpiolatitud":"4.4840395449999999","mpiolongitud":"-73.405934710099999"}
+,{"iddepto":"25","idmupio":"25473","nommpio":"Mosquera","mpiolatitud":"4.6732307526600003","mpiolongitud":"-74.236053389000006"}
+,{"iddepto":"25","idmupio":"25483","nommpio":"Nariño","mpiolatitud":"4.4075000823200003","mpiolongitud":"-74.806398641100003"}
+,{"iddepto":"25","idmupio":"25486","nommpio":"Nemocón","mpiolatitud":"5.0937831603200001","mpiolongitud":"-73.883773735999995"}
+,{"iddepto":"25","idmupio":"25488","nommpio":"Nilo","mpiolatitud":"4.2953125348799999","mpiolongitud":"-74.614480463800007"}
+,{"iddepto":"25","idmupio":"25489","nommpio":"Nimaima","mpiolatitud":"5.1338618514499998","mpiolongitud":"-74.396472465299993"}
+,{"iddepto":"25","idmupio":"25491","nommpio":"Nocaima","mpiolatitud":"5.0671998778000003","mpiolongitud":"-74.390992024799999"}
+,{"iddepto":"25","idmupio":"25506","nommpio":"Venecia","mpiolatitud":"4.06329762526","mpiolongitud":"-74.4521415242"}
+,{"iddepto":"25","idmupio":"25513","nommpio":"Pacho","mpiolatitud":"5.1685476635800001","mpiolongitud":"-74.164216981400003"}
+,{"iddepto":"25","idmupio":"25518","nommpio":"Paime","mpiolatitud":"5.3875178367899998","mpiolongitud":"-74.1641489175"}
+,{"iddepto":"25","idmupio":"25524","nommpio":"Pandi","mpiolatitud":"4.1804559886800003","mpiolongitud":"-74.471061226399996"}
+,{"iddepto":"25","idmupio":"25530","nommpio":"Paratebueno","mpiolatitud":"4.45264469491","mpiolongitud":"-73.187300596100002"}
+,{"iddepto":"25","idmupio":"25535","nommpio":"Pasca","mpiolatitud":"4.2930529556100003","mpiolongitud":"-74.274135731599998"}
+,{"iddepto":"25","idmupio":"25572","nommpio":"Puerto Salgar","mpiolatitud":"5.6206848664700004","mpiolongitud":"-74.579276726900005"}
+,{"iddepto":"25","idmupio":"25580","nommpio":"Pulí","mpiolatitud":"4.6918060586600001","mpiolongitud":"-74.680518648499998"}
+,{"iddepto":"25","idmupio":"25592","nommpio":"Quebradanegra","mpiolatitud":"5.0995610973799996","mpiolongitud":"-74.494686915499997"}
+,{"iddepto":"25","idmupio":"25594","nommpio":"Quetame","mpiolatitud":"4.3347584818199998","mpiolongitud":"-73.852680725900001"}
+,{"iddepto":"25","idmupio":"25596","nommpio":"Quipile","mpiolatitud":"4.7150701806799997","mpiolongitud":"-74.554176317699998"}
+,{"iddepto":"25","idmupio":"25599","nommpio":"Apulo","mpiolatitud":"4.5220822045200002","mpiolongitud":"-74.578151280300006"}
+,{"iddepto":"25","idmupio":"25612","nommpio":"Ricaurte","mpiolatitud":"4.3077013628999996","mpiolongitud":"-74.729434978599997"}
+,{"iddepto":"25","idmupio":"25645","nommpio":"San Antonio Del Tequendama","mpiolatitud":"4.6001152342699996","mpiolongitud":"-74.344561802499996"}
+,{"iddepto":"25","idmupio":"25649","nommpio":"San Bernardo","mpiolatitud":"4.1414788297","mpiolongitud":"-74.3551003827"}
+,{"iddepto":"25","idmupio":"25653","nommpio":"San Cayetano","mpiolatitud":"5.3083290700000001","mpiolongitud":"-74.073674444399998"}
+,{"iddepto":"25","idmupio":"25658","nommpio":"San Francisco","mpiolatitud":"4.9630960294699999","mpiolongitud":"-74.272432202199994"}
+,{"iddepto":"25","idmupio":"25662","nommpio":"San Juan De Río Seco","mpiolatitud":"4.8403781412200004","mpiolongitud":"-74.659141158500006"}
+,{"iddepto":"25","idmupio":"25718","nommpio":"Sasaima","mpiolatitud":"4.9472031614400001","mpiolongitud":"-74.410646287600002"}
+,{"iddepto":"25","idmupio":"25736","nommpio":"Sesquilé","mpiolatitud":"5.00887600157","mpiolongitud":"-73.783048692799994"}
+,{"iddepto":"25","idmupio":"25740","nommpio":"Sibaté","mpiolatitud":"4.46594313638","mpiolongitud":"-74.263465839299997"}
+,{"iddepto":"25","idmupio":"25743","nommpio":"Silvania","mpiolatitud":"4.43670557","mpiolongitud":"-74.370645299700001"}
+,{"iddepto":"25","idmupio":"25745","nommpio":"Simijaca","mpiolatitud":"5.5089542307999997","mpiolongitud":"-73.845378795900004"}
+,{"iddepto":"25","idmupio":"25754","nommpio":"Soacha","mpiolatitud":"4.5369927006599999","mpiolongitud":"-74.227666055499995"}
+,{"iddepto":"25","idmupio":"25758","nommpio":"Sopó","mpiolatitud":"4.8886139572199996","mpiolongitud":"-73.966097516100007"}
+,{"iddepto":"25","idmupio":"25769","nommpio":"Subachoque","mpiolatitud":"4.9707886436099997","mpiolongitud":"-74.157279537899996"}
+,{"iddepto":"25","idmupio":"25772","nommpio":"Suesca","mpiolatitud":"5.1358269951100004","mpiolongitud":"-73.782349988600004"}
+,{"iddepto":"25","idmupio":"25777","nommpio":"Supatá","mpiolatitud":"5.0616611600399999","mpiolongitud":"-74.231919647200002"}
+,{"iddepto":"25","idmupio":"25779","nommpio":"Susa","mpiolatitud":"5.4377716083700003","mpiolongitud":"-73.826658624700002"}
+,{"iddepto":"25","idmupio":"25781","nommpio":"Sutatausa","mpiolatitud":"5.2428738455300001","mpiolongitud":"-73.855369523299998"}
+,{"iddepto":"25","idmupio":"25785","nommpio":"Tabio","mpiolatitud":"4.9514126857300003","mpiolongitud":"-74.085102414999994"}
+,{"iddepto":"25","idmupio":"25793","nommpio":"Tausa","mpiolatitud":"5.1919580275300001","mpiolongitud":"-73.950691812700001"}
+,{"iddepto":"25","idmupio":"25797","nommpio":"Tena","mpiolatitud":"4.6516460712600001","mpiolongitud":"-74.390988934500001"}
+,{"iddepto":"25","idmupio":"25799","nommpio":"Tenjo","mpiolatitud":"4.8397934932700002","mpiolongitud":"-74.1465976872"}
+,{"iddepto":"25","idmupio":"25805","nommpio":"Tibacuy","mpiolatitud":"4.3205806523100003","mpiolongitud":"-74.487197101299998"}
+,{"iddepto":"25","idmupio":"25807","nommpio":"Tibirita","mpiolatitud":"5.0851768644200002","mpiolongitud":"-73.513852741600004"}
+,{"iddepto":"25","idmupio":"25815","nommpio":"Tocaima","mpiolatitud":"4.4522854970700001","mpiolongitud":"-74.648203125500004"}
+,{"iddepto":"25","idmupio":"25817","nommpio":"Tocancipá","mpiolatitud":"4.9686426771600001","mpiolongitud":"-73.928439705700001"}
+,{"iddepto":"25","idmupio":"25823","nommpio":"Topaipí","mpiolatitud":"5.3553435164099996","mpiolongitud":"-74.289494622199996"}
+,{"iddepto":"25","idmupio":"25839","nommpio":"Ubalá","mpiolatitud":"4.7592009071300003","mpiolongitud":"-73.408312992500001"}
+,{"iddepto":"25","idmupio":"25841","nommpio":"Ubaque","mpiolatitud":"4.4999642509399997","mpiolongitud":"-73.975296055000001"}
+,{"iddepto":"25","idmupio":"25843","nommpio":"Villa De San Diego De Ubate","mpiolatitud":"5.3154170712599997","mpiolongitud":"-73.820487846800006"}
+,{"iddepto":"25","idmupio":"25845","nommpio":"Une","mpiolatitud":"4.3033915413699999","mpiolongitud":"-74.069513080500002"}
+,{"iddepto":"25","idmupio":"25851","nommpio":"Útica","mpiolatitud":"5.1928345656600001","mpiolongitud":"-74.475702338299996"}
+,{"iddepto":"25","idmupio":"25862","nommpio":"Vergara","mpiolatitud":"5.1304321426200001","mpiolongitud":"-74.3104522191"}
+,{"iddepto":"25","idmupio":"25867","nommpio":"Vianí","mpiolatitud":"4.8946093804700004","mpiolongitud":"-74.556440667999993"}
+,{"iddepto":"25","idmupio":"25871","nommpio":"Villagómez","mpiolatitud":"5.2708675494200001","mpiolongitud":"-74.191120196300005"}
+,{"iddepto":"25","idmupio":"25873","nommpio":"Villapinzón","mpiolatitud":"5.2270241139199998","mpiolongitud":"-73.576844737299993"}
+,{"iddepto":"25","idmupio":"25875","nommpio":"Villeta","mpiolatitud":"5.0118869941500002","mpiolongitud":"-74.487810542999995"}
+,{"iddepto":"25","idmupio":"25878","nommpio":"Viotá","mpiolatitud":"4.4359843356799997","mpiolongitud":"-74.486119115099996"}
+,{"iddepto":"25","idmupio":"25885","nommpio":"Yacopí","mpiolatitud":"5.5912832413800002","mpiolongitud":"-74.364824546299999"}
+,{"iddepto":"25","idmupio":"25898","nommpio":"Zipacón","mpiolatitud":"4.7545275757900001","mpiolongitud":"-74.387645505799995"}
+,{"iddepto":"25","idmupio":"25899","nommpio":"Zipaquirá","mpiolatitud":"5.0455722488800001","mpiolongitud":"-74.023032181999994"}
+,{"iddepto":"27","idmupio":"27001","nommpio":"Quibdó","mpiolatitud":"5.9454429092899996","mpiolongitud":"-76.654688940499994"}
+,{"iddepto":"27","idmupio":"27006","nommpio":"Acandí","mpiolatitud":"8.43328206254","mpiolongitud":"-77.2828387096"}
+,{"iddepto":"27","idmupio":"27025","nommpio":"Alto Baudó","mpiolatitud":"5.69221423701","mpiolongitud":"-77.087275479400006"}
+,{"iddepto":"27","idmupio":"27050","nommpio":"Atrato","mpiolatitud":"5.55345372812","mpiolongitud":"-76.611184005699997"}
+,{"iddepto":"27","idmupio":"27073","nommpio":"Bagadó","mpiolatitud":"5.4931835507300004","mpiolongitud":"-76.228015406899999"}
+,{"iddepto":"27","idmupio":"27075","nommpio":"Bahía Solano","mpiolatitud":"6.2941861352300004","mpiolongitud":"-77.353433669300003"}
+,{"iddepto":"27","idmupio":"27077","nommpio":"Bajo Baudó","mpiolatitud":"5.0493884122599999","mpiolongitud":"-77.207637070100006"}
+,{"iddepto":"27","idmupio":"27086","nommpio":"Belén De Bajirá","mpiolatitud":"7.3725","mpiolongitud":"-76.714722"}
+,{"iddepto":"27","idmupio":"27099","nommpio":"Bojaya","mpiolatitud":"6.4804954744699996","mpiolongitud":"-77.096484759700004"}
+,{"iddepto":"27","idmupio":"27135","nommpio":"El Cantón Del San Pablo","mpiolatitud":"5.35982781495","mpiolongitud":"-76.7728021673"}
+,{"iddepto":"27","idmupio":"27150","nommpio":"Carmen Del Darien","mpiolatitud":"7.01891038662","mpiolongitud":"-76.990235914899998"}
+,{"iddepto":"27","idmupio":"27160","nommpio":"Cértegui","mpiolatitud":"5.37202816926","mpiolongitud":"-76.552287940100001"}
+,{"iddepto":"27","idmupio":"27205","nommpio":"Condoto","mpiolatitud":"5.1059771714400002","mpiolongitud":"-76.451541288499996"}
+,{"iddepto":"27","idmupio":"27245","nommpio":"El Carmen De Atrato","mpiolatitud":"5.81078829484","mpiolongitud":"-76.192011636700002"}
+,{"iddepto":"27","idmupio":"27250","nommpio":"El Litoral Del San Juan","mpiolatitud":"4.2505979464300001","mpiolongitud":"-76.969220493400002"}
+,{"iddepto":"27","idmupio":"27361","nommpio":"Istmina","mpiolatitud":"4.7382134821099999","mpiolongitud":"-76.8737217125"}
+,{"iddepto":"27","idmupio":"27372","nommpio":"Juradó","mpiolatitud":"7.1098490522900004","mpiolongitud":"-77.682278401000005"}
+,{"iddepto":"27","idmupio":"27413","nommpio":"Lloró","mpiolatitud":"5.5809872552700002","mpiolongitud":"-76.394576799299998"}
+,{"iddepto":"27","idmupio":"27425","nommpio":"Medio Atrato","mpiolatitud":"6.0263844319500004","mpiolongitud":"-76.694521082400001"}
+,{"iddepto":"27","idmupio":"27430","nommpio":"Medio Baudó","mpiolatitud":"5.1106324345800003","mpiolongitud":"-76.996186509799998"}
+,{"iddepto":"27","idmupio":"27450","nommpio":"Medio San Juan","mpiolatitud":"4.8111902322500004","mpiolongitud":"-76.804398859499997"}
+,{"iddepto":"27","idmupio":"27491","nommpio":"Nóvita","mpiolatitud":"4.9204575051499999","mpiolongitud":"-76.487045991200006"}
+,{"iddepto":"27","idmupio":"27495","nommpio":"Nuquí","mpiolatitud":"5.6739788306300003","mpiolongitud":"-77.290805521300001"}
+,{"iddepto":"27","idmupio":"27580","nommpio":"Río Iro","mpiolatitud":"5.1766159549199999","mpiolongitud":"-76.480189585299996"}
+,{"iddepto":"27","idmupio":"27600","nommpio":"Río Quito","mpiolatitud":"5.5678925120700002","mpiolongitud":"-76.8125403632"}
+,{"iddepto":"27","idmupio":"27615","nommpio":"Riosucio","mpiolatitud":"7.3751052558700003","mpiolongitud":"-77.230378045699993"}
+,{"iddepto":"27","idmupio":"27660","nommpio":"San José Del Palmar","mpiolatitud":"4.8884949538900004","mpiolongitud":"-76.296414569899994"}
+,{"iddepto":"27","idmupio":"27745","nommpio":"Sipí","mpiolatitud":"4.6036639158700003","mpiolongitud":"-76.526158030000005"}
+,{"iddepto":"27","idmupio":"27787","nommpio":"Tadó","mpiolatitud":"5.2927401011399997","mpiolongitud":"-76.434737063"}
+,{"iddepto":"27","idmupio":"27800","nommpio":"Unguía","mpiolatitud":"8.1237402094100002","mpiolongitud":"-77.105585555199994"}
+,{"iddepto":"27","idmupio":"27810","nommpio":"Unión Panamericana","mpiolatitud":"5.2853931232200004","mpiolongitud":"-76.644927382199995"}
+,{"iddepto":"41","idmupio":"41001","nommpio":"Neiva","mpiolatitud":"3.01447899568","mpiolongitud":"-75.309428012"}
+,{"iddepto":"41","idmupio":"41006","nommpio":"Acevedo","mpiolatitud":"1.68667897204","mpiolongitud":"-76.0206365932"}
+,{"iddepto":"41","idmupio":"41013","nommpio":"Agrado","mpiolatitud":"2.27189044063","mpiolongitud":"-75.7151920856"}
+,{"iddepto":"41","idmupio":"41016","nommpio":"Aipe","mpiolatitud":"3.26241672732","mpiolongitud":"-75.3529973247"}
+,{"iddepto":"41","idmupio":"41020","nommpio":"Algeciras","mpiolatitud":"2.52040178363","mpiolongitud":"-75.2646338612"}
+,{"iddepto":"41","idmupio":"41026","nommpio":"Altamira","mpiolatitud":"2.07977839098","mpiolongitud":"-75.7680833259"}
+,{"iddepto":"41","idmupio":"41078","nommpio":"Baraya","mpiolatitud":"3.14694191613","mpiolongitud":"-74.9802649593"}
+,{"iddepto":"41","idmupio":"41132","nommpio":"Campoalegre","mpiolatitud":"2.6588042432","mpiolongitud":"-75.3297772678"}
+,{"iddepto":"41","idmupio":"41206","nommpio":"Colombia","mpiolatitud":"3.42059040164","mpiolongitud":"-74.6906650976"}
+,{"iddepto":"41","idmupio":"41244","nommpio":"Elías","mpiolatitud":"2.0062430524","mpiolongitud":"-75.9510218862"}
+,{"iddepto":"41","idmupio":"41298","nommpio":"Garzón","mpiolatitud":"2.17321410282","mpiolongitud":"-75.5640483946"}
+,{"iddepto":"41","idmupio":"41306","nommpio":"Gigante","mpiolatitud":"2.3740219921","mpiolongitud":"-75.5160370159"}
+,{"iddepto":"41","idmupio":"41319","nommpio":"Guadalupe","mpiolatitud":"1.98790519525","mpiolongitud":"-75.6900680967"}
+,{"iddepto":"41","idmupio":"41349","nommpio":"Hobo","mpiolatitud":"2.54108548428","mpiolongitud":"-75.4477130448"}
+,{"iddepto":"41","idmupio":"41357","nommpio":"Iquira","mpiolatitud":"2.78135210013","mpiolongitud":"-75.7582239075"}
+,{"iddepto":"41","idmupio":"41359","nommpio":"Isnos","mpiolatitud":"2.01518777503","mpiolongitud":"-76.2708184989"}
+,{"iddepto":"41","idmupio":"41378","nommpio":"La Argentina","mpiolatitud":"2.17793664243","mpiolongitud":"-76.1126107155"}
+,{"iddepto":"41","idmupio":"41396","nommpio":"La Plata","mpiolatitud":"2.32723717611","mpiolongitud":"-76.0012182228"}
+,{"iddepto":"41","idmupio":"41483","nommpio":"Nátaga","mpiolatitud":"2.57841898869","mpiolongitud":"-75.786745031"}
+,{"iddepto":"41","idmupio":"41503","nommpio":"Oporapa","mpiolatitud":"2.06039439445","mpiolongitud":"-76.0399419527"}
+,{"iddepto":"41","idmupio":"41518","nommpio":"Paicol","mpiolatitud":"2.40719885192","mpiolongitud":"-75.7278615932"}
+,{"iddepto":"41","idmupio":"41524","nommpio":"Palermo","mpiolatitud":"2.90385298409","mpiolongitud":"-75.4305330487"}
+,{"iddepto":"41","idmupio":"41530","nommpio":"Palestina","mpiolatitud":"1.68583858268","mpiolongitud":"-76.1691819396"}
+,{"iddepto":"41","idmupio":"41548","nommpio":"Pital","mpiolatitud":"2.2581763983","mpiolongitud":"-75.8294385291"}
+,{"iddepto":"41","idmupio":"41551","nommpio":"Pitalito","mpiolatitud":"1.82098283855","mpiolongitud":"-76.1226556271"}
+,{"iddepto":"41","idmupio":"41615","nommpio":"Rivera","mpiolatitud":"2.77347255869","mpiolongitud":"-75.2017476895"}
+,{"iddepto":"41","idmupio":"41660","nommpio":"Saladoblanco","mpiolatitud":"2.10071359407","mpiolongitud":"-76.2217547911"}
+,{"iddepto":"41","idmupio":"41668","nommpio":"San Agustín","mpiolatitud":"1.88752755126","mpiolongitud":"-76.4070910667"}
+,{"iddepto":"41","idmupio":"41676","nommpio":"Santa María","mpiolatitud":"2.94902364178","mpiolongitud":"-75.65219531"}
+,{"iddepto":"41","idmupio":"41770","nommpio":"Suaza","mpiolatitud":"1.87337595545","mpiolongitud":"-75.8106027482"}
+,{"iddepto":"41","idmupio":"41791","nommpio":"Tarqui","mpiolatitud":"2.13062943502","mpiolongitud":"-75.8750949518"}
+,{"iddepto":"41","idmupio":"41797","nommpio":"Tesalia","mpiolatitud":"2.52683085396","mpiolongitud":"-75.6800021848"}
+,{"iddepto":"41","idmupio":"41799","nommpio":"Tello","mpiolatitud":"3.03815007676","mpiolongitud":"-75.0962780987"}
+,{"iddepto":"41","idmupio":"41801","nommpio":"Teruel","mpiolatitud":"2.7730565355","mpiolongitud":"-75.5797426704"}
+,{"iddepto":"41","idmupio":"41807","nommpio":"Timaná","mpiolatitud":"1.95070172509","mpiolongitud":"-75.9177631388"}
+,{"iddepto":"41","idmupio":"41872","nommpio":"Villavieja","mpiolatitud":"3.28758164019","mpiolongitud":"-75.1386849033"}
+,{"iddepto":"41","idmupio":"41885","nommpio":"Yaguará","mpiolatitud":"2.6510421267","mpiolongitud":"-75.5141513032"}
+,{"iddepto":"44","idmupio":"44001","nommpio":"Riohacha","mpiolatitud":"11.243324256599999","mpiolongitud":"-72.9594736592"}
+,{"iddepto":"44","idmupio":"44035","nommpio":"Albania","mpiolatitud":"11.2290616462","mpiolongitud":"-72.532660672099993"}
+,{"iddepto":"44","idmupio":"44078","nommpio":"Barrancas","mpiolatitud":"10.9876916915","mpiolongitud":"-72.690494932799993"}
+,{"iddepto":"44","idmupio":"44090","nommpio":"Dibulla","mpiolatitud":"11.090704796300001","mpiolongitud":"-73.435451195599995"}
+,{"iddepto":"44","idmupio":"44098","nommpio":"Distracción","mpiolatitud":"10.9244715545","mpiolongitud":"-72.944415812200006"}
+,{"iddepto":"44","idmupio":"44110","nommpio":"El Molino","mpiolatitud":"10.6333515461","mpiolongitud":"-72.905636218300003"}
+,{"iddepto":"44","idmupio":"44279","nommpio":"Fonseca","mpiolatitud":"10.828074320500001","mpiolongitud":"-72.801885690600002"}
+,{"iddepto":"44","idmupio":"44378","nommpio":"Hatonuevo","mpiolatitud":"11.0985976206","mpiolongitud":"-72.718358501200001"}
+,{"iddepto":"44","idmupio":"44420","nommpio":"La Jagua Del Pilar","mpiolatitud":"10.4580421041","mpiolongitud":"-73.072222124299998"}
+,{"iddepto":"44","idmupio":"44430","nommpio":"Maicao","mpiolatitud":"11.3811547919","mpiolongitud":"-72.295243887699996"}
+,{"iddepto":"44","idmupio":"44560","nommpio":"Manaure","mpiolatitud":"11.605636592","mpiolongitud":"-72.5704781715"}
+,{"iddepto":"44","idmupio":"44650","nommpio":"San Juan Del Cesar","mpiolatitud":"10.804075556300001","mpiolongitud":"-73.073909664599995"}
+,{"iddepto":"44","idmupio":"44847","nommpio":"Uribia","mpiolatitud":"12.000909518","mpiolongitud":"-71.748824838999994"}
+,{"iddepto":"44","idmupio":"44855","nommpio":"Urumita","mpiolatitud":"10.4981203792","mpiolongitud":"-72.975825912999994"}
+,{"iddepto":"44","idmupio":"44874","nommpio":"Villanueva","mpiolatitud":"10.592091916499999","mpiolongitud":"-72.986367174899996"}
+,{"iddepto":"47","idmupio":"47001","nommpio":"Santa Marta","mpiolatitud":"11.121404334299999","mpiolongitud":"-73.885119407199994"}
+,{"iddepto":"47","idmupio":"47030","nommpio":"Algarrobo","mpiolatitud":"10.253584714700001","mpiolongitud":"-74.103057341799996"}
+,{"iddepto":"47","idmupio":"47053","nommpio":"Aracataca","mpiolatitud":"10.6453496082","mpiolongitud":"-73.879346004200002"}
+,{"iddepto":"47","idmupio":"47058","nommpio":"Ariguaní","mpiolatitud":"9.8340900722200004","mpiolongitud":"-74.084793863900003"}
+,{"iddepto":"47","idmupio":"47161","nommpio":"Cerro San Antonio","mpiolatitud":"10.2906065549","mpiolongitud":"-74.821548124200007"}
+,{"iddepto":"47","idmupio":"47170","nommpio":"Chibolo","mpiolatitud":"10.099268325700001","mpiolongitud":"-74.526418054000004"}
+,{"iddepto":"47","idmupio":"47189","nommpio":"Ciénaga","mpiolatitud":"10.8895001685","mpiolongitud":"-74.0433532606"}
+,{"iddepto":"47","idmupio":"47205","nommpio":"Concordia","mpiolatitud":"10.2327518707","mpiolongitud":"-74.778529503399994"}
+,{"iddepto":"47","idmupio":"47245","nommpio":"El Banco","mpiolatitud":"9.1161489836499996","mpiolongitud":"-73.9808521052"}
+,{"iddepto":"47","idmupio":"47258","nommpio":"El Piñon","mpiolatitud":"10.347103111199999","mpiolongitud":"-74.675936879899993"}
+,{"iddepto":"47","idmupio":"47268","nommpio":"El Retén","mpiolatitud":"10.661127106","mpiolongitud":"-74.325447594400003"}
+,{"iddepto":"47","idmupio":"47288","nommpio":"Fundación","mpiolatitud":"10.458583280499999","mpiolongitud":"-73.880101898999996"}
+,{"iddepto":"47","idmupio":"47318","nommpio":"Guamal","mpiolatitud":"9.2467478259899991","mpiolongitud":"-74.142284283999999"}
+,{"iddepto":"47","idmupio":"47460","nommpio":"Nueva Granada","mpiolatitud":"9.7358477617299997","mpiolongitud":"-74.328900610900007"}
+,{"iddepto":"47","idmupio":"47541","nommpio":"Pedraza","mpiolatitud":"10.151340490300001","mpiolongitud":"-74.829822044400004"}
+,{"iddepto":"47","idmupio":"47545","nommpio":"Pijiño Del Carmen","mpiolatitud":"9.5352276121700008","mpiolongitud":"-74.119982997299999"}
+,{"iddepto":"47","idmupio":"47551","nommpio":"Pivijay","mpiolatitud":"10.433325350300001","mpiolongitud":"-74.408665349499998"}
+,{"iddepto":"47","idmupio":"47555","nommpio":"Plato","mpiolatitud":"9.7744330592100006","mpiolongitud":"-74.595465107699994"}
+,{"iddepto":"47","idmupio":"47570","nommpio":"Puebloviejo","mpiolatitud":"10.848259626300001","mpiolongitud":"-74.361429081799997"}
+,{"iddepto":"47","idmupio":"47605","nommpio":"Remolino","mpiolatitud":"10.649201850100001","mpiolongitud":"-74.581179635500007"}
+,{"iddepto":"47","idmupio":"47660","nommpio":"Sabanas De San Angel","mpiolatitud":"10.1106980897","mpiolongitud":"-74.260042215599995"}
+,{"iddepto":"47","idmupio":"47675","nommpio":"Salamina","mpiolatitud":"10.5130444399","mpiolongitud":"-74.724639655700003"}
+,{"iddepto":"47","idmupio":"47692","nommpio":"San Sebastián De Buenavista","mpiolatitud":"9.3528424518000008","mpiolongitud":"-74.201606886500002"}
+,{"iddepto":"47","idmupio":"47703","nommpio":"San Zenón","mpiolatitud":"9.3315674365400003","mpiolongitud":"-74.346889635799997"}
+,{"iddepto":"47","idmupio":"47707","nommpio":"Santa Ana","mpiolatitud":"9.5147426047699994","mpiolongitud":"-74.343337517699993"}
+,{"iddepto":"47","idmupio":"47720","nommpio":"Santa Bárbara De Pinto","mpiolatitud":"9.5210447314500009","mpiolongitud":"-74.649113137699999"}
+,{"iddepto":"47","idmupio":"47745","nommpio":"Sitionuevo","mpiolatitud":"10.891545215900001","mpiolongitud":"-74.6295984753"}
+,{"iddepto":"47","idmupio":"47798","nommpio":"Tenerife","mpiolatitud":"9.9241402692800005","mpiolongitud":"-74.733159647400001"}
+,{"iddepto":"47","idmupio":"47960","nommpio":"Zapayán","mpiolatitud":"10.1184519884","mpiolongitud":"-74.691404670099999"}
+,{"iddepto":"47","idmupio":"47980","nommpio":"Zona Bananera","mpiolatitud":"10.7964106857","mpiolongitud":"-74.177962621700004"}
+,{"iddepto":"50","idmupio":"50001","nommpio":"Villavicencio","mpiolatitud":"4.09186120085","mpiolongitud":"-73.4881098308"}
+,{"iddepto":"50","idmupio":"50006","nommpio":"Acacías","mpiolatitud":"4.00968396777","mpiolongitud":"-73.722941719"}
+,{"iddepto":"50","idmupio":"50110","nommpio":"Barranca De Upía","mpiolatitud":"4.5229581040399998","mpiolongitud":"-72.994356062600005"}
+,{"iddepto":"50","idmupio":"50124","nommpio":"Cabuyaro","mpiolatitud":"4.3154834511300004","mpiolongitud":"-72.955157873399997"}
+,{"iddepto":"50","idmupio":"50150","nommpio":"Castilla La Nueva","mpiolatitud":"3.80548169394","mpiolongitud":"-73.5403701086"}
+,{"iddepto":"50","idmupio":"50223","nommpio":"Cubarral","mpiolatitud":"3.82674623658","mpiolongitud":"-74.076705009"}
+,{"iddepto":"50","idmupio":"50226","nommpio":"Cumaral","mpiolatitud":"4.2322495780800002","mpiolongitud":"-73.314995418400002"}
+,{"iddepto":"50","idmupio":"50245","nommpio":"El Calvario","mpiolatitud":"4.3524363251200002","mpiolongitud":"-73.715068572199996"}
+,{"iddepto":"50","idmupio":"50251","nommpio":"El Castillo","mpiolatitud":"3.61565372207","mpiolongitud":"-73.8886593834"}
+,{"iddepto":"50","idmupio":"50270","nommpio":"El Dorado","mpiolatitud":"3.70771754713","mpiolongitud":"-73.8324519524"}
+,{"iddepto":"50","idmupio":"50287","nommpio":"Fuente De Oro","mpiolatitud":"3.38853109695","mpiolongitud":"-73.5964150328"}
+,{"iddepto":"50","idmupio":"50313","nommpio":"Granada","mpiolatitud":"3.50031837151","mpiolongitud":"-73.7466804774"}
+,{"iddepto":"50","idmupio":"50318","nommpio":"Guamal","mpiolatitud":"3.94650155958","mpiolongitud":"-73.9602976728"}
+,{"iddepto":"50","idmupio":"50325","nommpio":"Mapiripán","mpiolatitud":"3.11778628235","mpiolongitud":"-71.9378666003"}
+,{"iddepto":"50","idmupio":"50330","nommpio":"Mesetas","mpiolatitud":"3.16576058131","mpiolongitud":"-74.1318742937"}
+,{"iddepto":"50","idmupio":"50350","nommpio":"La Macarena","mpiolatitud":"2.14328935853","mpiolongitud":"-74.0745325722"}
+,{"iddepto":"50","idmupio":"50370","nommpio":"Uribe","mpiolatitud":"3.02641072974","mpiolongitud":"-74.4360971523"}
+,{"iddepto":"50","idmupio":"50400","nommpio":"Lejanías","mpiolatitud":"3.614217565","mpiolongitud":"-74.0972618479"}
+,{"iddepto":"50","idmupio":"50450","nommpio":"Puerto Concordia","mpiolatitud":"2.75172892172","mpiolongitud":"-72.7191462278"}
+,{"iddepto":"50","idmupio":"50568","nommpio":"Puerto Gaitán","mpiolatitud":"4.00564652197","mpiolongitud":"-71.6309721531"}
+,{"iddepto":"50","idmupio":"50573","nommpio":"Puerto López","mpiolatitud":"4.0409556595","mpiolongitud":"-72.6388192195"}
+,{"iddepto":"50","idmupio":"50577","nommpio":"Puerto Lleras","mpiolatitud":"3.19289213888","mpiolongitud":"-73.2365352757"}
+,{"iddepto":"50","idmupio":"50590","nommpio":"Puerto Rico","mpiolatitud":"2.75562002211","mpiolongitud":"-73.1385215266"}
+,{"iddepto":"50","idmupio":"50606","nommpio":"Restrepo","mpiolatitud":"4.2375310969499997","mpiolongitud":"-73.474185884199997"}
+,{"iddepto":"50","idmupio":"50680","nommpio":"San Carlos De Guaroa","mpiolatitud":"3.84668997184","mpiolongitud":"-73.2769177372"}
+,{"iddepto":"50","idmupio":"50683","nommpio":"San Juan De Arama","mpiolatitud":"3.28910625091","mpiolongitud":"-73.8206228181"}
+,{"iddepto":"50","idmupio":"50686","nommpio":"San Juanito","mpiolatitud":"4.4665992587199996","mpiolongitud":"-73.659684609600006"}
+,{"iddepto":"50","idmupio":"50689","nommpio":"San Martín","mpiolatitud":"3.55809210515","mpiolongitud":"-72.9555925203"}
+,{"iddepto":"50","idmupio":"50711","nommpio":"Vistahermosa","mpiolatitud":"2.82223351974","mpiolongitud":"-73.6835176802"}
+,{"iddepto":"52","idmupio":"52001","nommpio":"Pasto","mpiolatitud":"1.05575045262","mpiolongitud":"-77.1954588287"}
+,{"iddepto":"52","idmupio":"52019","nommpio":"Albán","mpiolatitud":"1.47037750031","mpiolongitud":"-77.0683475664"}
+,{"iddepto":"52","idmupio":"52022","nommpio":"Aldana","mpiolatitud":"0.913890726573","mpiolongitud":"-77.6956091498"}
+,{"iddepto":"52","idmupio":"52036","nommpio":"Ancuyá","mpiolatitud":"1.24518308804","mpiolongitud":"-77.5311565454"}
+,{"iddepto":"52","idmupio":"52051","nommpio":"Arboleda","mpiolatitud":"1.48007698247","mpiolongitud":"-77.1300124142"}
+,{"iddepto":"52","idmupio":"52079","nommpio":"Barbacoas","mpiolatitud":"1.49192702471","mpiolongitud":"-78.106152845"}
+,{"iddepto":"52","idmupio":"52083","nommpio":"Belén","mpiolatitud":"1.59362253187","mpiolongitud":"-77.037196485"}
+,{"iddepto":"52","idmupio":"52110","nommpio":"Buesaco","mpiolatitud":"1.31711811313","mpiolongitud":"-77.1177369717"}
+,{"iddepto":"52","idmupio":"52203","nommpio":"Colón","mpiolatitud":"1.63647424878","mpiolongitud":"-77.047636967"}
+,{"iddepto":"52","idmupio":"52207","nommpio":"Consaca","mpiolatitud":"1.20855951567","mpiolongitud":"-77.440651839"}
+,{"iddepto":"52","idmupio":"52210","nommpio":"Contadero","mpiolatitud":"0.931897374","mpiolongitud":"-77.5276164297"}
+,{"iddepto":"52","idmupio":"52215","nommpio":"Córdoba","mpiolatitud":"0.788843564307","mpiolongitud":"-77.3763524858"}
+,{"iddepto":"52","idmupio":"52224","nommpio":"Cuaspud","mpiolatitud":"0.875635353435","mpiolongitud":"-77.7364038612"}
+,{"iddepto":"52","idmupio":"52227","nommpio":"Cumbal","mpiolatitud":"0.900175945171","mpiolongitud":"-77.9284256409"}
+,{"iddepto":"52","idmupio":"52233","nommpio":"Cumbitara","mpiolatitud":"1.72757371857","mpiolongitud":"-77.5923108336"}
+,{"iddepto":"52","idmupio":"52240","nommpio":"Chachagüí","mpiolatitud":"1.38730920163","mpiolongitud":"-77.2692078252"}
+,{"iddepto":"52","idmupio":"52250","nommpio":"El Charco","mpiolatitud":"2.17682741022","mpiolongitud":"-77.8064794368"}
+,{"iddepto":"52","idmupio":"52254","nommpio":"El Peñol","mpiolatitud":"1.51281200217","mpiolongitud":"-77.430706884"}
+,{"iddepto":"52","idmupio":"52256","nommpio":"El Rosario","mpiolatitud":"1.84467352496","mpiolongitud":"-77.4481378911"}
+,{"iddepto":"52","idmupio":"52258","nommpio":"El Tablón De Gómez","mpiolatitud":"1.41207110933","mpiolongitud":"-76.9851615432"}
+,{"iddepto":"52","idmupio":"52260","nommpio":"El Tambo","mpiolatitud":"1.43046494263","mpiolongitud":"-77.3832913002"}
+,{"iddepto":"52","idmupio":"52287","nommpio":"Funes","mpiolatitud":"0.931690904615","mpiolongitud":"-77.3520699723"}
+,{"iddepto":"52","idmupio":"52317","nommpio":"Guachucal","mpiolatitud":"0.974930931465","mpiolongitud":"-77.7373647668"}
+,{"iddepto":"52","idmupio":"52320","nommpio":"Guaitarilla","mpiolatitud":"1.15063895767","mpiolongitud":"-77.529538043"}
+,{"iddepto":"52","idmupio":"52323","nommpio":"Gualmatán","mpiolatitud":"0.928659797388","mpiolongitud":"-77.5826752068"}
+,{"iddepto":"52","idmupio":"52352","nommpio":"Iles","mpiolatitud":"0.980011194373","mpiolongitud":"-77.519079928099998"}
+,{"iddepto":"52","idmupio":"52354","nommpio":"Imués","mpiolatitud":"1.07286464234","mpiolongitud":"-77.5015402542"}
+,{"iddepto":"52","idmupio":"52356","nommpio":"Ipiales","mpiolatitud":"0.565189526912","mpiolongitud":"-77.3533685936"}
+,{"iddepto":"52","idmupio":"52378","nommpio":"La Cruz","mpiolatitud":"1.58408491821","mpiolongitud":"-76.9239200567"}
+,{"iddepto":"52","idmupio":"52381","nommpio":"La Florida","mpiolatitud":"1.33400257802","mpiolongitud":"-77.3882211447"}
+,{"iddepto":"52","idmupio":"52385","nommpio":"La Llanada","mpiolatitud":"1.55482189343","mpiolongitud":"-77.7013433305"}
+,{"iddepto":"52","idmupio":"52390","nommpio":"La Tola","mpiolatitud":"2.42654420067","mpiolongitud":"-78.2101248749"}
+,{"iddepto":"52","idmupio":"52399","nommpio":"La Unión","mpiolatitud":"1.61833668218","mpiolongitud":"-77.1384100768"}
+,{"iddepto":"52","idmupio":"52405","nommpio":"Leiva","mpiolatitud":"1.94078740624","mpiolongitud":"-77.3228941666"}
+,{"iddepto":"52","idmupio":"52411","nommpio":"Linares","mpiolatitud":"1.39515780285","mpiolongitud":"-77.521023941"}
+,{"iddepto":"52","idmupio":"52418","nommpio":"Los Andes","mpiolatitud":"1.6011210115","mpiolongitud":"-77.6246050188"}
+,{"iddepto":"52","idmupio":"52427","nommpio":"Magüi","mpiolatitud":"1.90501320703","mpiolongitud":"-78.0491434112"}
+,{"iddepto":"52","idmupio":"52435","nommpio":"Mallama","mpiolatitud":"1.11456861008","mpiolongitud":"-77.8726098953"}
+,{"iddepto":"52","idmupio":"52473","nommpio":"Mosquera","mpiolatitud":"2.44473465542","mpiolongitud":"-78.4388195216"}
+,{"iddepto":"52","idmupio":"52480","nommpio":"Nariño","mpiolatitud":"1.30288336782","mpiolongitud":"-77.3458932553"}
+,{"iddepto":"52","idmupio":"52490","nommpio":"Olaya Herrera","mpiolatitud":"2.28596508907","mpiolongitud":"-78.293203717"}
+,{"iddepto":"52","idmupio":"52506","nommpio":"Ospina","mpiolatitud":"1.02976802614","mpiolongitud":"-77.552393893"}
+,{"iddepto":"52","idmupio":"52520","nommpio":"Francisco Pizarro","mpiolatitud":"2.09646561346","mpiolongitud":"-78.5857107777"}
+,{"iddepto":"52","idmupio":"52540","nommpio":"Policarpa","mpiolatitud":"1.73886303069","mpiolongitud":"-77.4838388053"}
+,{"iddepto":"52","idmupio":"52560","nommpio":"Potosí","mpiolatitud":"0.736497366808","mpiolongitud":"-77.4378319924"}
+,{"iddepto":"52","idmupio":"52565","nommpio":"Providencia","mpiolatitud":"1.23421095876","mpiolongitud":"-77.5985765397"}
+,{"iddepto":"52","idmupio":"52573","nommpio":"Puerres","mpiolatitud":"0.831335522568","mpiolongitud":"-77.3090274874"}
+,{"iddepto":"52","idmupio":"52585","nommpio":"Pupiales","mpiolatitud":"0.916625652182","mpiolongitud":"-77.6334001628"}
+,{"iddepto":"52","idmupio":"52612","nommpio":"Ricaurte","mpiolatitud":"1.18775884659","mpiolongitud":"-78.0554600776"}
+,{"iddepto":"52","idmupio":"52621","nommpio":"Roberto Payán","mpiolatitud":"1.88909530382","mpiolongitud":"-78.3717413101"}
+,{"iddepto":"52","idmupio":"52678","nommpio":"Samaniego","mpiolatitud":"1.42709279087","mpiolongitud":"-77.7192187224"}
+,{"iddepto":"52","idmupio":"52683","nommpio":"Sandoná","mpiolatitud":"1.28835348942","mpiolongitud":"-77.4568703061"}
+,{"iddepto":"52","idmupio":"52685","nommpio":"San Bernardo","mpiolatitud":"1.53046630686","mpiolongitud":"-77.0216105544"}
+,{"iddepto":"52","idmupio":"52687","nommpio":"San Lorenzo","mpiolatitud":"1.54212396524","mpiolongitud":"-77.218770335"}
+,{"iddepto":"52","idmupio":"52693","nommpio":"San Pablo","mpiolatitud":"1.68174896978","mpiolongitud":"-76.9739926318"}
+,{"iddepto":"52","idmupio":"52694","nommpio":"San Pedro De Cartago","mpiolatitud":"1.5367914606","mpiolongitud":"-77.1013297386"}
+,{"iddepto":"52","idmupio":"52696","nommpio":"Santa Bárbara","mpiolatitud":"2.33474217576","mpiolongitud":"-77.8978644677"}
+,{"iddepto":"52","idmupio":"52699","nommpio":"Santacruz","mpiolatitud":"1.26555490362","mpiolongitud":"-77.7354956052"}
+,{"iddepto":"52","idmupio":"52720","nommpio":"Sapuyes","mpiolatitud":"1.03616026004","mpiolongitud":"-77.680377021"}
+,{"iddepto":"52","idmupio":"52786","nommpio":"Taminango","mpiolatitud":"1.59181197764","mpiolongitud":"-77.3250276389"}
+,{"iddepto":"52","idmupio":"52788","nommpio":"Tangua","mpiolatitud":"1.06728838984","mpiolongitud":"-77.3536128586"}
+,{"iddepto":"52","idmupio":"52835","nommpio":"San Andres De Tumaco","mpiolatitud":"1.63764545535","mpiolongitud":"-78.6121021575"}
+,{"iddepto":"52","idmupio":"52838","nommpio":"Túquerres","mpiolatitud":"1.13527929758","mpiolongitud":"-77.6307732952"}
+,{"iddepto":"52","idmupio":"52885","nommpio":"Yacuanquer","mpiolatitud":"1.12501016715","mpiolongitud":"-77.4241432746"}
+,{"iddepto":"54","idmupio":"54001","nommpio":"Cúcuta","mpiolatitud":"8.1119333876400006","mpiolongitud":"-72.488661596499995"}
+,{"iddepto":"54","idmupio":"54003","nommpio":"Abrego","mpiolatitud":"8.0192289311400007","mpiolongitud":"-73.158217912699996"}
+,{"iddepto":"54","idmupio":"54051","nommpio":"Arboledas","mpiolatitud":"7.6138103692300003","mpiolongitud":"-72.861611717599999"}
+,{"iddepto":"54","idmupio":"54099","nommpio":"Bochalema","mpiolatitud":"7.6318752480700001","mpiolongitud":"-72.659249109699999"}
+,{"iddepto":"54","idmupio":"54109","nommpio":"Bucarasica","mpiolatitud":"8.0806035243600007","mpiolongitud":"-72.929177236699999"}
+,{"iddepto":"54","idmupio":"54125","nommpio":"Cácota","mpiolatitud":"7.2705275648600001","mpiolongitud":"-72.652118501100006"}
+,{"iddepto":"54","idmupio":"54128","nommpio":"Cachirá","mpiolatitud":"7.6845920317400003","mpiolongitud":"-73.128648371200001"}
+,{"iddepto":"54","idmupio":"54172","nommpio":"Chinácota","mpiolatitud":"7.5831049954700003","mpiolongitud":"-72.583493105200006"}
+,{"iddepto":"54","idmupio":"54174","nommpio":"Chitagá","mpiolatitud":"7.0516812918499996","mpiolongitud":"-72.525310776200001"}
+,{"iddepto":"54","idmupio":"54206","nommpio":"Convención","mpiolatitud":"8.8663162083600007","mpiolongitud":"-73.205484487199996"}
+,{"iddepto":"54","idmupio":"54223","nommpio":"Cucutilla","mpiolatitud":"7.5018588364800003","mpiolongitud":"-72.798001372399995"}
+,{"iddepto":"54","idmupio":"54239","nommpio":"Durania","mpiolatitud":"7.7460475029099998","mpiolongitud":"-72.672203719899997"}
+,{"iddepto":"54","idmupio":"54245","nommpio":"El Carmen","mpiolatitud":"8.8730588368299994","mpiolongitud":"-73.345551454800002"}
+,{"iddepto":"54","idmupio":"54250","nommpio":"El Tarra","mpiolatitud":"8.6773899415300004","mpiolongitud":"-73.032115456"}
+,{"iddepto":"54","idmupio":"54261","nommpio":"El Zulia","mpiolatitud":"8.0808805993699995","mpiolongitud":"-72.633526161999995"}
+,{"iddepto":"54","idmupio":"54313","nommpio":"Gramalote","mpiolatitud":"7.9066072353400001","mpiolongitud":"-72.806818699999994"}
+,{"iddepto":"54","idmupio":"54344","nommpio":"Hacarí","mpiolatitud":"8.3619479743700005","mpiolongitud":"-73.078365404699994"}
+,{"iddepto":"54","idmupio":"54347","nommpio":"Herrán","mpiolatitud":"7.49404739541","mpiolongitud":"-72.492686071500003"}
+,{"iddepto":"54","idmupio":"54377","nommpio":"Labateca","mpiolatitud":"7.2653017457900004","mpiolongitud":"-72.522422420799998"}
+,{"iddepto":"54","idmupio":"54385","nommpio":"La Esperanza","mpiolatitud":"7.6951122249799999","mpiolongitud":"-73.356346599299997"}
+,{"iddepto":"54","idmupio":"54398","nommpio":"La Playa","mpiolatitud":"8.2557859150299997","mpiolongitud":"-73.187541257299998"}
+,{"iddepto":"54","idmupio":"54405","nommpio":"Los Patios","mpiolatitud":"7.7407556363200003","mpiolongitud":"-72.527560106300001"}
+,{"iddepto":"54","idmupio":"54418","nommpio":"Lourdes","mpiolatitud":"7.9631729593799996","mpiolongitud":"-72.846897019099998"}
+,{"iddepto":"54","idmupio":"54480","nommpio":"Mutiscua","mpiolatitud":"7.3169430016200003","mpiolongitud":"-72.768311407499993"}
+,{"iddepto":"54","idmupio":"54498","nommpio":"Ocaña","mpiolatitud":"8.2237804376299994","mpiolongitud":"-73.363124417500003"}
+,{"iddepto":"54","idmupio":"54518","nommpio":"Pamplona","mpiolatitud":"7.3790950525800003","mpiolongitud":"-72.675930673799996"}
+,{"iddepto":"54","idmupio":"54520","nommpio":"Pamplonita","mpiolatitud":"7.4826518776500004","mpiolongitud":"-72.635158834999999"}
+,{"iddepto":"54","idmupio":"54553","nommpio":"Puerto Santander","mpiolatitud":"8.3287748339699998","mpiolongitud":"-72.411420125899994"}
+,{"iddepto":"54","idmupio":"54599","nommpio":"Ragonvalia","mpiolatitud":"7.5956455887400001","mpiolongitud":"-72.506517872299995"}
+,{"iddepto":"54","idmupio":"54660","nommpio":"Salazar","mpiolatitud":"7.7734947606500002","mpiolongitud":"-72.868022231899999"}
+,{"iddepto":"54","idmupio":"54670","nommpio":"San Cali1to","mpiolatitud":"8.4535158864700009","mpiolongitud":"-73.158715212399997"}
+,{"iddepto":"54","idmupio":"54673","nommpio":"San Cayetano","mpiolatitud":"7.8476324645100002","mpiolongitud":"-72.610184780300003"}
+,{"iddepto":"54","idmupio":"54680","nommpio":"Santiago","mpiolatitud":"7.8896647846899999","mpiolongitud":"-72.718203237300003"}
+,{"iddepto":"54","idmupio":"54720","nommpio":"Sardinata","mpiolatitud":"8.2653461286500001","mpiolongitud":"-72.807735290799997"}
+,{"iddepto":"54","idmupio":"54743","nommpio":"Silos","mpiolatitud":"7.1816171432399996","mpiolongitud":"-72.784734066799999"}
+,{"iddepto":"54","idmupio":"54800","nommpio":"Teorama","mpiolatitud":"8.7638184608900005","mpiolongitud":"-73.156973944800001"}
+,{"iddepto":"54","idmupio":"54810","nommpio":"Tibú","mpiolatitud":"8.7120127072500004","mpiolongitud":"-72.799046130299999"}
+,{"iddepto":"54","idmupio":"54820","nommpio":"Toledo","mpiolatitud":"7.2238950046300001","mpiolongitud":"-72.3025265534"}
+,{"iddepto":"54","idmupio":"54871","nommpio":"Villa Caro","mpiolatitud":"7.9379630953399998","mpiolongitud":"-72.987715220400005"}
+,{"iddepto":"54","idmupio":"54874","nommpio":"Villa Del Rosario","mpiolatitud":"7.7580197904299997","mpiolongitud":"-72.481816555500004"}
+,{"iddepto":"63","idmupio":"63001","nommpio":"Armenia","mpiolatitud":"4.4968406170900002","mpiolongitud":"-75.727606598700007"}
+,{"iddepto":"63","idmupio":"63111","nommpio":"Buenavista","mpiolatitud":"4.36640760431","mpiolongitud":"-75.743723502999998"}
+,{"iddepto":"63","idmupio":"63130","nommpio":"Calarca","mpiolatitud":"4.4677019792900001","mpiolongitud":"-75.657200587999995"}
+,{"iddepto":"63","idmupio":"63190","nommpio":"Circasia","mpiolatitud":"4.6041551500300004","mpiolongitud":"-75.666427814399995"}
+,{"iddepto":"63","idmupio":"63212","nommpio":"Córdoba","mpiolatitud":"4.3957849343099999","mpiolongitud":"-75.650910910799993"}
+,{"iddepto":"63","idmupio":"63272","nommpio":"Filandia","mpiolatitud":"4.6694666517999996","mpiolongitud":"-75.670505423799995"}
+,{"iddepto":"63","idmupio":"63302","nommpio":"Génova","mpiolatitud":"4.17983851367","mpiolongitud":"-75.759971729399993"}
+,{"iddepto":"63","idmupio":"63401","nommpio":"La Tebaida","mpiolatitud":"4.4363666267299999","mpiolongitud":"-75.816862800699994"}
+,{"iddepto":"63","idmupio":"63470","nommpio":"Montenegro","mpiolatitud":"4.5222058183899998","mpiolongitud":"-75.818278046499998"}
+,{"iddepto":"63","idmupio":"63548","nommpio":"Pijao","mpiolatitud":"4.3033356417800004","mpiolongitud":"-75.682809805199994"}
+,{"iddepto":"63","idmupio":"63594","nommpio":"Quimbaya","mpiolatitud":"4.6105495974100004","mpiolongitud":"-75.791942718200005"}
+,{"iddepto":"63","idmupio":"63690","nommpio":"Salento","mpiolatitud":"4.6109862105000001","mpiolongitud":"-75.531819420700003"}
+,{"iddepto":"66","idmupio":"66001","nommpio":"Pereira","mpiolatitud":"4.7815740531599999","mpiolongitud":"-75.712658485399999"}
+,{"iddepto":"66","idmupio":"66045","nommpio":"Apía","mpiolatitud":"5.1395431156700004","mpiolongitud":"-75.957615805800003"}
+,{"iddepto":"66","idmupio":"66075","nommpio":"Balboa","mpiolatitud":"4.9183480281699996","mpiolongitud":"-75.943092657999998"}
+,{"iddepto":"66","idmupio":"66088","nommpio":"Belén De Umbría","mpiolatitud":"5.2009326493000003","mpiolongitud":"-75.868007783300001"}
+,{"iddepto":"66","idmupio":"66170","nommpio":"Dosquebradas","mpiolatitud":"4.8416793166199996","mpiolongitud":"-75.6701439311"}
+,{"iddepto":"66","idmupio":"66318","nommpio":"Guática","mpiolatitud":"5.3214403534199999","mpiolongitud":"-75.806996541800004"}
+,{"iddepto":"66","idmupio":"66383","nommpio":"La Celia","mpiolatitud":"4.9876274398199998","mpiolongitud":"-76.008473660500002"}
+,{"iddepto":"66","idmupio":"66400","nommpio":"La Virginia","mpiolatitud":"4.9057376671400004","mpiolongitud":"-75.851019906100007"}
+,{"iddepto":"66","idmupio":"66440","nommpio":"Marsella","mpiolatitud":"4.9432241617599999","mpiolongitud":"-75.753051108899996"}
+,{"iddepto":"66","idmupio":"66456","nommpio":"Mistrató","mpiolatitud":"5.4202145816899998","mpiolongitud":"-75.973639246900007"}
+,{"iddepto":"66","idmupio":"66572","nommpio":"Pueblo Rico","mpiolatitud":"5.2689138529599999","mpiolongitud":"-76.125604441500002"}
+,{"iddepto":"66","idmupio":"66594","nommpio":"Quinchía","mpiolatitud":"5.3232055486999998","mpiolongitud":"-75.711824990699995"}
+,{"iddepto":"66","idmupio":"66682","nommpio":"Santa Rosa De Cabal","mpiolatitud":"4.8341787282400004","mpiolongitud":"-75.549694092300001"}
+,{"iddepto":"66","idmupio":"66687","nommpio":"Santuario","mpiolatitud":"5.0530969529399998","mpiolongitud":"-75.990513679100005"}
+,{"iddepto":"68","idmupio":"68001","nommpio":"Bucaramanga","mpiolatitud":"7.1560765117900003","mpiolongitud":"-73.111224713200002"}
+,{"iddepto":"68","idmupio":"68013","nommpio":"Aguada","mpiolatitud":"6.1815821855499999","mpiolongitud":"-73.531005158599996"}
+,{"iddepto":"68","idmupio":"68020","nommpio":"Albania","mpiolatitud":"5.7799170389399999","mpiolongitud":"-73.827578361500002"}
+,{"iddepto":"68","idmupio":"68051","nommpio":"Aratoca","mpiolatitud":"6.7151864000600003","mpiolongitud":"-73.010428067399999"}
+,{"iddepto":"68","idmupio":"68077","nommpio":"Barbosa","mpiolatitud":"5.9552960527499996","mpiolongitud":"-73.623715743600002"}
+,{"iddepto":"68","idmupio":"68079","nommpio":"Barichara","mpiolatitud":"6.6440682678199998","mpiolongitud":"-73.216080056899997"}
+,{"iddepto":"68","idmupio":"68081","nommpio":"Barrancabermeja","mpiolatitud":"7.0607666006300001","mpiolongitud":"-73.777388535200004"}
+,{"iddepto":"68","idmupio":"68092","nommpio":"Betulia","mpiolatitud":"7.0125691442300004","mpiolongitud":"-73.387308468200004"}
+,{"iddepto":"68","idmupio":"68101","nommpio":"Bolívar","mpiolatitud":"6.0924138409199999","mpiolongitud":"-74.112399826300006"}
+,{"iddepto":"68","idmupio":"68121","nommpio":"Cabrera","mpiolatitud":"6.5620024030800002","mpiolongitud":"-73.250531530700002"}
+,{"iddepto":"68","idmupio":"68132","nommpio":"California","mpiolatitud":"7.3541403170999997","mpiolongitud":"-72.924836623199994"}
+,{"iddepto":"68","idmupio":"68147","nommpio":"Capitanejo","mpiolatitud":"6.5208138519699999","mpiolongitud":"-72.674347068900005"}
+,{"iddepto":"68","idmupio":"68152","nommpio":"Carcasí","mpiolatitud":"6.6597592500299996","mpiolongitud":"-72.569766940700006"}
+,{"iddepto":"68","idmupio":"68160","nommpio":"Cepitá","mpiolatitud":"6.7527371692099996","mpiolongitud":"-72.929176290200004"}
+,{"iddepto":"68","idmupio":"68162","nommpio":"Cerrito","mpiolatitud":"6.9040940220499998","mpiolongitud":"-72.645698067200001"}
+,{"iddepto":"68","idmupio":"68167","nommpio":"Charalá","mpiolatitud":"6.1957838256000004","mpiolongitud":"-73.154111056700003"}
+,{"iddepto":"68","idmupio":"68169","nommpio":"Charta","mpiolatitud":"7.2593816681499996","mpiolongitud":"-72.987937661700002"}
+,{"iddepto":"68","idmupio":"68176","nommpio":"Chima","mpiolatitud":"6.3712428049299996","mpiolongitud":"-73.415628816099996"}
+,{"iddepto":"68","idmupio":"68179","nommpio":"Chipatá","mpiolatitud":"6.0690842256800002","mpiolongitud":"-73.633318133299994"}
+,{"iddepto":"68","idmupio":"68190","nommpio":"Cimitarra","mpiolatitud":"6.4111225365399998","mpiolongitud":"-74.171331856899997"}
+,{"iddepto":"68","idmupio":"68207","nommpio":"Concepción","mpiolatitud":"6.78426026055","mpiolongitud":"-72.6055652939"}
+,{"iddepto":"68","idmupio":"68209","nommpio":"Confines","mpiolatitud":"6.35497410364","mpiolongitud":"-73.240290310299997"}
+,{"iddepto":"68","idmupio":"68211","nommpio":"Contratación","mpiolatitud":"6.3073386414300003","mpiolongitud":"-73.4928048676"}
+,{"iddepto":"68","idmupio":"68217","nommpio":"Coromoro","mpiolatitud":"6.23479082334","mpiolongitud":"-72.981752621499993"}
+,{"iddepto":"68","idmupio":"68229","nommpio":"Curití","mpiolatitud":"6.6181688809099999","mpiolongitud":"-73.019048938899999"}
+,{"iddepto":"68","idmupio":"68235","nommpio":"El Carmen De Chucurí","mpiolatitud":"6.6636282513699996","mpiolongitud":"-73.562844395699997"}
+,{"iddepto":"68","idmupio":"68245","nommpio":"El Guacamayo","mpiolatitud":"6.2588046091400003","mpiolongitud":"-73.538277525699996"}
+,{"iddepto":"68","idmupio":"68250","nommpio":"El Peñón","mpiolatitud":"6.0989878599100003","mpiolongitud":"-73.928386284300004"}
+,{"iddepto":"68","idmupio":"68255","nommpio":"El Playón","mpiolatitud":"7.5248456781100002","mpiolongitud":"-73.181643318699997"}
+,{"iddepto":"68","idmupio":"68264","nommpio":"Encino","mpiolatitud":"6.0789761678599996","mpiolongitud":"-73.061912814899998"}
+,{"iddepto":"68","idmupio":"68266","nommpio":"Enciso","mpiolatitud":"6.6581516306599999","mpiolongitud":"-72.680080880600002"}
+,{"iddepto":"68","idmupio":"68271","nommpio":"Florián","mpiolatitud":"5.7996331520400002","mpiolongitud":"-73.958015468799999"}
+,{"iddepto":"68","idmupio":"68276","nommpio":"Floridablanca","mpiolatitud":"7.0793449626199996","mpiolongitud":"-73.069213185899997"}
+,{"iddepto":"68","idmupio":"68296","nommpio":"Galán","mpiolatitud":"6.6720983311299999","mpiolongitud":"-73.324954941200005"}
+,{"iddepto":"68","idmupio":"68298","nommpio":"Gambita","mpiolatitud":"5.9312318717099997","mpiolongitud":"-73.332205693800006"}
+,{"iddepto":"68","idmupio":"68307","nommpio":"Girón","mpiolatitud":"7.0374124229900001","mpiolongitud":"-73.248941813399995"}
+,{"iddepto":"68","idmupio":"68318","nommpio":"Guaca","mpiolatitud":"6.94230806806","mpiolongitud":"-72.824583489299997"}
+,{"iddepto":"68","idmupio":"68320","nommpio":"Guadalupe","mpiolatitud":"6.2343116052600003","mpiolongitud":"-73.409040690200001"}
+,{"iddepto":"68","idmupio":"68322","nommpio":"Guapotá","mpiolatitud":"6.3177793591800002","mpiolongitud":"-73.331181028700001"}
+,{"iddepto":"68","idmupio":"68324","nommpio":"Guavatá","mpiolatitud":"5.9436141296500002","mpiolongitud":"-73.722073075200001"}
+,{"iddepto":"68","idmupio":"68327","nommpio":"Güepsa","mpiolatitud":"6.0331207840000003","mpiolongitud":"-73.580111602900004"}
+,{"iddepto":"68","idmupio":"68344","nommpio":"Hato","mpiolatitud":"6.5597165111400004","mpiolongitud":"-73.361630594900006"}
+,{"iddepto":"68","idmupio":"68368","nommpio":"Jesús María","mpiolatitud":"5.8545076613100004","mpiolongitud":"-73.809905884599999"}
+,{"iddepto":"68","idmupio":"68370","nommpio":"Jordán","mpiolatitud":"6.71361456176","mpiolongitud":"-73.099674604800001"}
+,{"iddepto":"68","idmupio":"68377","nommpio":"La Belleza","mpiolatitud":"5.9076658661500003","mpiolongitud":"-74.046815370399997"}
+,{"iddepto":"68","idmupio":"68385","nommpio":"Landázuri","mpiolatitud":"6.3272690958300002","mpiolongitud":"-73.825136761400003"}
+,{"iddepto":"68","idmupio":"68397","nommpio":"La Paz","mpiolatitud":"6.21656210008","mpiolongitud":"-73.630298198399998"}
+,{"iddepto":"68","idmupio":"68406","nommpio":"Lebríja","mpiolatitud":"7.2039981316799997","mpiolongitud":"-73.291348877000004"}
+,{"iddepto":"68","idmupio":"68418","nommpio":"Los Santos","mpiolatitud":"6.8120469378099999","mpiolongitud":"-73.107747238000002"}
+,{"iddepto":"68","idmupio":"68425","nommpio":"Macaravita","mpiolatitud":"6.5139765133000003","mpiolongitud":"-72.585151661599994"}
+,{"iddepto":"68","idmupio":"68432","nommpio":"Málaga","mpiolatitud":"6.72008406453","mpiolongitud":"-72.7383057718"}
+,{"iddepto":"68","idmupio":"68444","nommpio":"Matanza","mpiolatitud":"7.3498324293300001","mpiolongitud":"-73.056238696799994"}
+,{"iddepto":"68","idmupio":"68464","nommpio":"Mogotes","mpiolatitud":"6.4923236086099996","mpiolongitud":"-72.958577754199993"}
+,{"iddepto":"68","idmupio":"68468","nommpio":"Molagavita","mpiolatitud":"6.6431398962500001","mpiolongitud":"-72.819208439500002"}
+,{"iddepto":"68","idmupio":"68498","nommpio":"Ocamonte","mpiolatitud":"6.3554275498999999","mpiolongitud":"-73.122596611399999"}
+,{"iddepto":"68","idmupio":"68500","nommpio":"Oiba","mpiolatitud":"6.2249792897000003","mpiolongitud":"-73.279729228400001"}
+,{"iddepto":"68","idmupio":"68502","nommpio":"Onzaga","mpiolatitud":"6.3346129206599997","mpiolongitud":"-72.8106047295"}
+,{"iddepto":"68","idmupio":"68522","nommpio":"Palmar","mpiolatitud":"6.5245275880699998","mpiolongitud":"-73.288746671499993"}
+,{"iddepto":"68","idmupio":"68524","nommpio":"Palmas Del Socorro","mpiolatitud":"6.3905823293299999","mpiolongitud":"-73.282558554800005"}
+,{"iddepto":"68","idmupio":"68533","nommpio":"Páramo","mpiolatitud":"6.4159388722899999","mpiolongitud":"-73.171902255299997"}
+,{"iddepto":"68","idmupio":"68547","nommpio":"Piedecuesta","mpiolatitud":"6.9624433991399997","mpiolongitud":"-73.005361154499994"}
+,{"iddepto":"68","idmupio":"68549","nommpio":"Pinchote","mpiolatitud":"6.51472451321","mpiolongitud":"-73.175034765800007"}
+,{"iddepto":"68","idmupio":"68572","nommpio":"Puente Nacional","mpiolatitud":"5.8307224571300003","mpiolongitud":"-73.678909518799998"}
+,{"iddepto":"68","idmupio":"68573","nommpio":"Puerto Parra","mpiolatitud":"6.6851315067900003","mpiolongitud":"-73.9576073299"}
+,{"iddepto":"68","idmupio":"68575","nommpio":"Puerto Wilches","mpiolatitud":"7.5813491443099998","mpiolongitud":"-73.787295150399999"}
+,{"iddepto":"68","idmupio":"68615","nommpio":"Rionegro","mpiolatitud":"7.5037545937200001","mpiolongitud":"-73.4018626278"}
+,{"iddepto":"68","idmupio":"68655","nommpio":"Sabana De Torres","mpiolatitud":"7.4055429346199997","mpiolongitud":"-73.572473738400006"}
+,{"iddepto":"68","idmupio":"68669","nommpio":"San Andrés","mpiolatitud":"6.7959653434399998","mpiolongitud":"-72.816136280999999"}
+,{"iddepto":"68","idmupio":"68673","nommpio":"San Benito","mpiolatitud":"6.09912402422","mpiolongitud":"-73.527926838300004"}
+,{"iddepto":"68","idmupio":"68679","nommpio":"San Gil","mpiolatitud":"6.5507632737800003","mpiolongitud":"-73.118421803999993"}
+,{"iddepto":"68","idmupio":"68682","nommpio":"San Joaquín","mpiolatitud":"6.4593518134699996","mpiolongitud":"-72.854742465000001"}
+,{"iddepto":"68","idmupio":"68684","nommpio":"San José De Miranda","mpiolatitud":"6.6296185308200002","mpiolongitud":"-72.739969585599994"}
+,{"iddepto":"68","idmupio":"68686","nommpio":"San Miguel","mpiolatitud":"6.5681448056000002","mpiolongitud":"-72.643210474699998"}
+,{"iddepto":"68","idmupio":"68689","nommpio":"San Vicente De Chucurí","mpiolatitud":"6.8945764737799999","mpiolongitud":"-73.541992161699994"}
+,{"iddepto":"68","idmupio":"68705","nommpio":"Santa Bárbara","mpiolatitud":"6.9891102441199999","mpiolongitud":"-72.896118481900004"}
+,{"iddepto":"68","idmupio":"68720","nommpio":"Santa Helena Del Opón","mpiolatitud":"6.4085318670799998","mpiolongitud":"-73.582564430700003"}
+,{"iddepto":"68","idmupio":"68745","nommpio":"Simacota","mpiolatitud":"6.6633935446099999","mpiolongitud":"-73.700897742500004"}
+,{"iddepto":"68","idmupio":"68755","nommpio":"Socorro","mpiolatitud":"6.4620849625999996","mpiolongitud":"-73.244077246000003"}
+,{"iddepto":"68","idmupio":"68770","nommpio":"Suaita","mpiolatitud":"6.1157647310999996","mpiolongitud":"-73.367277523699997"}
+,{"iddepto":"68","idmupio":"68773","nommpio":"Sucre","mpiolatitud":"5.9805487134500002","mpiolongitud":"-73.956257764300005"}
+,{"iddepto":"68","idmupio":"68780","nommpio":"Suratá","mpiolatitud":"7.47567708476","mpiolongitud":"-72.988313712099995"}
+,{"iddepto":"68","idmupio":"68820","nommpio":"Tona","mpiolatitud":"7.1698794447900003","mpiolongitud":"-72.937816279499998"}
+,{"iddepto":"68","idmupio":"68855","nommpio":"Valle De San José","mpiolatitud":"6.4348303398400004","mpiolongitud":"-73.110417094400006"}
+,{"iddepto":"68","idmupio":"68861","nommpio":"Vélez","mpiolatitud":"6.21928924877","mpiolongitud":"-73.702664111800004"}
+,{"iddepto":"68","idmupio":"68867","nommpio":"Vetas","mpiolatitud":"7.32260729452","mpiolongitud":"-72.881342022599995"}
+,{"iddepto":"68","idmupio":"68872","nommpio":"Villanueva","mpiolatitud":"6.6871210842400002","mpiolongitud":"-73.165561155299997"}
+,{"iddepto":"68","idmupio":"68895","nommpio":"Zapatoca","mpiolatitud":"6.8347420706399999","mpiolongitud":"-73.2799115973"}
+,{"iddepto":"70","idmupio":"70001","nommpio":"Sincelejo","mpiolatitud":"9.3142718243200004","mpiolongitud":"-75.432045989700001"}
+,{"iddepto":"70","idmupio":"70110","nommpio":"Buenavista","mpiolatitud":"9.3324087959300002","mpiolongitud":"-74.948306371100003"}
+,{"iddepto":"70","idmupio":"70124","nommpio":"Caimito","mpiolatitud":"8.7788825676600002","mpiolongitud":"-75.118197526499998"}
+,{"iddepto":"70","idmupio":"70204","nommpio":"Coloso","mpiolatitud":"9.5255955083800004","mpiolongitud":"-75.362089006199994"}
+,{"iddepto":"70","idmupio":"70215","nommpio":"Corozal","mpiolatitud":"9.1976353512400006","mpiolongitud":"-75.249596598500005"}
+,{"iddepto":"70","idmupio":"70221","nommpio":"Coveñas","mpiolatitud":"9.3941380589399994","mpiolongitud":"-75.657212619399999"}
+,{"iddepto":"70","idmupio":"70230","nommpio":"Chalán","mpiolatitud":"9.5682234937500006","mpiolongitud":"-75.319897175400001"}
+,{"iddepto":"70","idmupio":"70233","nommpio":"El Roble","mpiolatitud":"9.0699290183399999","mpiolongitud":"-75.136785404899996"}
+,{"iddepto":"70","idmupio":"70235","nommpio":"Galeras","mpiolatitud":"9.1368624122300002","mpiolongitud":"-74.977739633100001"}
+,{"iddepto":"70","idmupio":"70265","nommpio":"Guaranda","mpiolatitud":"8.3811783096900001","mpiolongitud":"-74.674310347800002"}
+,{"iddepto":"70","idmupio":"70400","nommpio":"La Unión","mpiolatitud":"8.8098809759000005","mpiolongitud":"-75.288357718"}
+,{"iddepto":"70","idmupio":"70418","nommpio":"Los Palmitos","mpiolatitud":"9.4268047797700003","mpiolongitud":"-75.213583591299994"}
+,{"iddepto":"70","idmupio":"70429","nommpio":"Majagual","mpiolatitud":"8.5456731733200009","mpiolongitud":"-74.712660875599994"}
+,{"iddepto":"70","idmupio":"70473","nommpio":"Morroa","mpiolatitud":"9.3917322754600008","mpiolongitud":"-75.3274028469"}
+,{"iddepto":"70","idmupio":"70508","nommpio":"Ovejas","mpiolatitud":"9.5494693844","mpiolongitud":"-75.184547204300003"}
+,{"iddepto":"70","idmupio":"70523","nommpio":"Palmito","mpiolatitud":"9.3378112102199999","mpiolongitud":"-75.565359740999995"}
+,{"iddepto":"70","idmupio":"70670","nommpio":"Sampués","mpiolatitud":"9.1705688414999997","mpiolongitud":"-75.362330082200003"}
+,{"iddepto":"70","idmupio":"70678","nommpio":"San Benito Abad","mpiolatitud":"8.8372006038799995","mpiolongitud":"-74.966946308499999"}
+,{"iddepto":"70","idmupio":"70702","nommpio":"San Juan De Betulia","mpiolatitud":"9.2915705841400005","mpiolongitud":"-75.213684484599995"}
+,{"iddepto":"70","idmupio":"70708","nommpio":"San Marcos","mpiolatitud":"8.5798341148000006","mpiolongitud":"-75.169668802800004"}
+,{"iddepto":"70","idmupio":"70713","nommpio":"San Onofre","mpiolatitud":"9.8142952896600004","mpiolongitud":"-75.497474408100004"}
+,{"iddepto":"70","idmupio":"70717","nommpio":"San Pedro","mpiolatitud":"9.3981833699700008","mpiolongitud":"-75.031498680699997"}
+,{"iddepto":"70","idmupio":"70742","nommpio":"San Luis De Sincé","mpiolatitud":"9.2552063809099998","mpiolongitud":"-75.085352224800005"}
+,{"iddepto":"70","idmupio":"70771","nommpio":"Sucre","mpiolatitud":"8.8237714869400001","mpiolongitud":"-74.7474305235"}
+,{"iddepto":"70","idmupio":"70820","nommpio":"Santiago De Tolú","mpiolatitud":"9.5322169774599992","mpiolongitud":"-75.535843978700001"}
+,{"iddepto":"70","idmupio":"70823","nommpio":"Tolú Viejo","mpiolatitud":"9.4916730623499994","mpiolongitud":"-75.443209044200003"}
+,{"iddepto":"73","idmupio":"73001","nommpio":"Ibagué","mpiolatitud":"4.44975078522","mpiolongitud":"-75.253348447999997"}
+,{"iddepto":"73","idmupio":"73024","nommpio":"Alpujarra","mpiolatitud":"3.39000238484","mpiolongitud":"-74.9408955982"}
+,{"iddepto":"73","idmupio":"73026","nommpio":"Alvarado","mpiolatitud":"4.5824566818400001","mpiolongitud":"-74.986282663300003"}
+,{"iddepto":"73","idmupio":"73030","nommpio":"Ambalema","mpiolatitud":"4.8261741562399996","mpiolongitud":"-74.8039473539"}
+,{"iddepto":"73","idmupio":"73043","nommpio":"Anzoátegui","mpiolatitud":"4.6322529241800003","mpiolongitud":"-75.192442572800005"}
+,{"iddepto":"73","idmupio":"73055","nommpio":"Armero","mpiolatitud":"5.0070280336600002","mpiolongitud":"-74.848324898100003"}
+,{"iddepto":"73","idmupio":"73067","nommpio":"Ataco","mpiolatitud":"3.42207307647","mpiolongitud":"-75.486683293"}
+,{"iddepto":"73","idmupio":"73124","nommpio":"Cajamarca","mpiolatitud":"4.4061902467099996","mpiolongitud":"-75.496165830400003"}
+,{"iddepto":"73","idmupio":"73148","nommpio":"Carmen De Apicalá","mpiolatitud":"4.12320189334","mpiolongitud":"-74.7468955809"}
+,{"iddepto":"73","idmupio":"73152","nommpio":"Casabianca","mpiolatitud":"5.0171266806799997","mpiolongitud":"-75.187129557399999"}
+,{"iddepto":"73","idmupio":"73168","nommpio":"Chaparral","mpiolatitud":"3.74376755328","mpiolongitud":"-75.5894822038"}
+,{"iddepto":"73","idmupio":"73200","nommpio":"Coello","mpiolatitud":"4.3545903894700002","mpiolongitud":"-74.911339255399994"}
+,{"iddepto":"73","idmupio":"73217","nommpio":"Coyaima","mpiolatitud":"3.73476932489","mpiolongitud":"-75.1517833541"}
+,{"iddepto":"73","idmupio":"73226","nommpio":"Cunday","mpiolatitud":"3.98267437139","mpiolongitud":"-74.6892087125"}
+,{"iddepto":"73","idmupio":"73236","nommpio":"Dolores","mpiolatitud":"3.5988328273","mpiolongitud":"-74.8013486853"}
+,{"iddepto":"73","idmupio":"73268","nommpio":"Espinal","mpiolatitud":"4.16656223059","mpiolongitud":"-74.8935018516"}
+,{"iddepto":"73","idmupio":"73270","nommpio":"Falan","mpiolatitud":"5.0794139574099999","mpiolongitud":"-74.957029707000004"}
+,{"iddepto":"73","idmupio":"73275","nommpio":"Flandes","mpiolatitud":"4.2429238794600002","mpiolongitud":"-74.837171278100001"}
+,{"iddepto":"73","idmupio":"73283","nommpio":"Fresno","mpiolatitud":"5.1877661696899997","mpiolongitud":"-75.049945218999994"}
+,{"iddepto":"73","idmupio":"73319","nommpio":"Guamo","mpiolatitud":"4.07656968305","mpiolongitud":"-74.9765750291"}
+,{"iddepto":"73","idmupio":"73347","nommpio":"Herveo","mpiolatitud":"5.0697274180100003","mpiolongitud":"-75.241711304000006"}
+,{"iddepto":"73","idmupio":"73349","nommpio":"Honda","mpiolatitud":"5.1784421378400003","mpiolongitud":"-74.782641450900002"}
+,{"iddepto":"73","idmupio":"73352","nommpio":"Icononzo","mpiolatitud":"4.13297055274","mpiolongitud":"-74.5395978222"}
+,{"iddepto":"73","idmupio":"73408","nommpio":"Lérida","mpiolatitud":"4.8652895268899998","mpiolongitud":"-74.923680821399998"}
+,{"iddepto":"73","idmupio":"73411","nommpio":"Líbano","mpiolatitud":"4.8780528304199997","mpiolongitud":"-75.048108904900005"}
+,{"iddepto":"73","idmupio":"73443","nommpio":"Mariquita","mpiolatitud":"525","mpiolongitud":"-74916667"}
+,{"iddepto":"73","idmupio":"73449","nommpio":"Melgar","mpiolatitud":"4.1862428090700003","mpiolongitud":"-74.638153988100001"}
+,{"iddepto":"73","idmupio":"73461","nommpio":"Murillo","mpiolatitud":"4.8266900537800002","mpiolongitud":"-75.219988290800003"}
+,{"iddepto":"73","idmupio":"73483","nommpio":"Natagaima","mpiolatitud":"3.5402884554","mpiolongitud":"-75.1221027243"}
+,{"iddepto":"73","idmupio":"73504","nommpio":"Ortega","mpiolatitud":"3.93691394372","mpiolongitud":"-75.2758751678"}
+,{"iddepto":"73","idmupio":"73520","nommpio":"Palocabildo","mpiolatitud":"5.0941784784799999","mpiolongitud":"-75.018429603900003"}
+,{"iddepto":"73","idmupio":"73547","nommpio":"Piedras","mpiolatitud":"4.4851809576499999","mpiolongitud":"-74.920905223899993"}
+,{"iddepto":"73","idmupio":"73555","nommpio":"Planadas","mpiolatitud":"3.10852115267","mpiolongitud":"-75.8301694704"}
+,{"iddepto":"73","idmupio":"73563","nommpio":"Prado","mpiolatitud":"3.72904484252","mpiolongitud":"-74.8733915601"}
+,{"iddepto":"73","idmupio":"73585","nommpio":"Purificación","mpiolatitud":"3.85438810474","mpiolongitud":"-74.8739422688"}
+,{"iddepto":"73","idmupio":"73616","nommpio":"Rioblanco","mpiolatitud":"3.46815893059","mpiolongitud":"-75.8549296286"}
+,{"iddepto":"73","idmupio":"73622","nommpio":"Roncesvalles","mpiolatitud":"4.0970901672","mpiolongitud":"-75.5949020145"}
+,{"iddepto":"73","idmupio":"73624","nommpio":"Rovira","mpiolatitud":"4.2157089700499997","mpiolongitud":"-75.345774239299999"}
+,{"iddepto":"73","idmupio":"73671","nommpio":"Saldaña","mpiolatitud":"3.91098497424","mpiolongitud":"-75.0203987975"}
+,{"iddepto":"73","idmupio":"73675","nommpio":"San Antonio","mpiolatitud":"3.95768536486","mpiolongitud":"-75.4961847555"}
+,{"iddepto":"73","idmupio":"73678","nommpio":"San Luis","mpiolatitud":"4.12888530634","mpiolongitud":"-75.1123402548"}
+,{"iddepto":"73","idmupio":"73686","nommpio":"Santa Isabel","mpiolatitud":"4.7290428435900003","mpiolongitud":"-75.207491915399999"}
+,{"iddepto":"73","idmupio":"73770","nommpio":"Suárez","mpiolatitud":"4.04934483306","mpiolongitud":"-74.8181124539"}
+,{"iddepto":"73","idmupio":"73854","nommpio":"Valle De San Juan","mpiolatitud":"4.1817357484300004","mpiolongitud":"-75.171586737499993"}
+,{"iddepto":"73","idmupio":"73861","nommpio":"Venadillo","mpiolatitud":"4.7099898695900002","mpiolongitud":"-74.921094016699996"}
+,{"iddepto":"73","idmupio":"73870","nommpio":"Villahermosa","mpiolatitud":"4.9650260417699998","mpiolongitud":"-75.156472365400006"}
+,{"iddepto":"73","idmupio":"73873","nommpio":"Villarrica","mpiolatitud":"3.8548183991","mpiolongitud":"-74.6191663497"}
+,{"iddepto":"76","idmupio":"76001","nommpio":"Cali","mpiolatitud":"3.39991749377","mpiolongitud":"-76.5743751274"}
+,{"iddepto":"76","idmupio":"76020","nommpio":"Alcalá","mpiolatitud":"4.6787099892499997","mpiolongitud":"-75.782235154899993"}
+,{"iddepto":"76","idmupio":"76036","nommpio":"Andalucía","mpiolatitud":"4.14499548105","mpiolongitud":"-76.1649959252"}
+,{"iddepto":"76","idmupio":"76041","nommpio":"Ansermanuevo","mpiolatitud":"4.7953520041699997","mpiolongitud":"-76.030268886800002"}
+,{"iddepto":"76","idmupio":"76054","nommpio":"Argelia","mpiolatitud":"4.7055804441699998","mpiolongitud":"-76.141907149299996"}
+,{"iddepto":"76","idmupio":"76100","nommpio":"Bolívar","mpiolatitud":"4.3626884663599999","mpiolongitud":"-76.362691419100003"}
+,{"iddepto":"76","idmupio":"76109","nommpio":"Buenaventura","mpiolatitud":"3.59364216647","mpiolongitud":"-77.0733183347"}
+,{"iddepto":"76","idmupio":"76111","nommpio":"Guadalajara De Buga","mpiolatitud":"3.85587069997","mpiolongitud":"-76.1012568018"}
+,{"iddepto":"76","idmupio":"76113","nommpio":"Bugalagrande","mpiolatitud":"4.19679452967","mpiolongitud":"-76.089929539099998"}
+,{"iddepto":"76","idmupio":"76122","nommpio":"Caicedonia","mpiolatitud":"4.3085004200399997","mpiolongitud":"-75.836698024499995"}
+,{"iddepto":"76","idmupio":"76126","nommpio":"Calima","mpiolatitud":"3.95084830891","mpiolongitud":"-76.6286677343"}
+,{"iddepto":"76","idmupio":"76130","nommpio":"Candelaria","mpiolatitud":"3.38316176425","mpiolongitud":"-76.3857559178"}
+,{"iddepto":"76","idmupio":"76147","nommpio":"Cartago","mpiolatitud":"4.7075069262499998","mpiolongitud":"-75.917224403600002"}
+,{"iddepto":"76","idmupio":"76233","nommpio":"Dagua","mpiolatitud":"3.63474917886","mpiolongitud":"-76.7201739759"}
+,{"iddepto":"76","idmupio":"76243","nommpio":"El Águila","mpiolatitud":"4.9116393607799997","mpiolongitud":"-76.062671025699998"}
+,{"iddepto":"76","idmupio":"76246","nommpio":"El Cairo","mpiolatitud":"4.7545398025700001","mpiolongitud":"-76.214136179299999"}
+,{"iddepto":"76","idmupio":"76248","nommpio":"El Cerrito","mpiolatitud":"3.67593273844","mpiolongitud":"-76.2095399363"}
+,{"iddepto":"76","idmupio":"76250","nommpio":"El Dovio","mpiolatitud":"4.5312515763099999","mpiolongitud":"-76.280074416399998"}
+,{"iddepto":"76","idmupio":"76275","nommpio":"Florida","mpiolatitud":"3.30486036634","mpiolongitud":"-76.168443404"}
+,{"iddepto":"76","idmupio":"76306","nommpio":"Ginebra","mpiolatitud":"3.7446127191","mpiolongitud":"-76.1905868984"}
+,{"iddepto":"76","idmupio":"76318","nommpio":"Guacarí","mpiolatitud":"3.78376979929","mpiolongitud":"-76.2944531982"}
+,{"iddepto":"76","idmupio":"76364","nommpio":"Jamundí","mpiolatitud":"3.20128014966","mpiolongitud":"-76.6175498458"}
+,{"iddepto":"76","idmupio":"76377","nommpio":"La Cumbre","mpiolatitud":"3.67701408471","mpiolongitud":"-76.5878248889"}
+,{"iddepto":"76","idmupio":"76400","nommpio":"La Unión","mpiolatitud":"4.5382299103100001","mpiolongitud":"-76.101283498800001"}
+,{"iddepto":"76","idmupio":"76403","nommpio":"La Victoria","mpiolatitud":"4.48088603325","mpiolongitud":"-75.967768042599999"}
+,{"iddepto":"76","idmupio":"76497","nommpio":"Obando","mpiolatitud":"4.59669045363","mpiolongitud":"-75.949308159799997"}
+,{"iddepto":"76","idmupio":"76520","nommpio":"Palmira","mpiolatitud":"3.55803931545","mpiolongitud":"-76.2279741608"}
+,{"iddepto":"76","idmupio":"76563","nommpio":"Pradera","mpiolatitud":"3.42051073903","mpiolongitud":"-76.1792124575"}
+,{"iddepto":"76","idmupio":"76606","nommpio":"Restrepo","mpiolatitud":"3.81181703251","mpiolongitud":"-76.5556732356"}
+,{"iddepto":"76","idmupio":"76616","nommpio":"Riofrío","mpiolatitud":"4.11375106463","mpiolongitud":"-76.3626288053"}
+,{"iddepto":"76","idmupio":"76622","nommpio":"Roldanillo","mpiolatitud":"4.4426025121499997","mpiolongitud":"-76.1648094942"}
+,{"iddepto":"76","idmupio":"76670","nommpio":"San Pedro","mpiolatitud":"3.9808150681","mpiolongitud":"-76.2069010827"}
+,{"iddepto":"76","idmupio":"76736","nommpio":"Sevilla","mpiolatitud":"4.1933665858599998","mpiolongitud":"-75.888201216900001"}
+,{"iddepto":"76","idmupio":"76823","nommpio":"Toro","mpiolatitud":"4.6379945330299996","mpiolongitud":"-76.080414347300007"}
+,{"iddepto":"76","idmupio":"76828","nommpio":"Trujillo","mpiolatitud":"4.23130932721","mpiolongitud":"-76.352290848699994"}
+,{"iddepto":"76","idmupio":"76834","nommpio":"Tuluá","mpiolatitud":"4.02996520226","mpiolongitud":"-76.0352873449"}
+,{"iddepto":"76","idmupio":"76845","nommpio":"Ulloa","mpiolatitud":"4.7074428402099997","mpiolongitud":"-75.777759540399998"}
+,{"iddepto":"76","idmupio":"76863","nommpio":"Versalles","mpiolatitud":"4.6186478473200001","mpiolongitud":"-76.220796537699997"}
+,{"iddepto":"76","idmupio":"76869","nommpio":"Vijes","mpiolatitud":"3.74380997038","mpiolongitud":"-76.4706568673"}
+,{"iddepto":"76","idmupio":"76890","nommpio":"Yotoco","mpiolatitud":"3.90356794986","mpiolongitud":"-76.3911405298"}
+,{"iddepto":"76","idmupio":"76892","nommpio":"Yumbo","mpiolatitud":"3.59587139367","mpiolongitud":"-76.5110958288"}
+,{"iddepto":"76","idmupio":"76895","nommpio":"Zarzal","mpiolatitud":"4.3530233408000001","mpiolongitud":"-76.051263090899994"}
+,{"iddepto":"81","idmupio":"81001","nommpio":"Arauca","mpiolatitud":"6.7958571659400002","mpiolongitud":"-70.510595408100002"}
+,{"iddepto":"81","idmupio":"81065","nommpio":"Arauquita","mpiolatitud":"6.7977744542799998","mpiolongitud":"-71.309011079800001"}
+,{"iddepto":"81","idmupio":"81220","nommpio":"Cravo Norte","mpiolatitud":"6.3467625101999996","mpiolongitud":"-70.070043169399995"}
+,{"iddepto":"81","idmupio":"81300","nommpio":"Fortul","mpiolatitud":"6.6965128818300004","mpiolongitud":"-71.8569381561"}
+,{"iddepto":"81","idmupio":"81591","nommpio":"Puerto Rondón","mpiolatitud":"6.4109175707999997","mpiolongitud":"-70.962889591999996"}
+,{"iddepto":"81","idmupio":"81736","nommpio":"Saravena","mpiolatitud":"6.9055178392199998","mpiolongitud":"-71.855570058500007"}
+,{"iddepto":"81","idmupio":"81794","nommpio":"Tame","mpiolatitud":"6.3908534038499996","mpiolongitud":"-71.790047879300005"}
+,{"iddepto":"85","idmupio":"85001","nommpio":"Yopal","mpiolatitud":"5.2425030997100004","mpiolongitud":"-72.257514079700002"}
+,{"iddepto":"85","idmupio":"85010","nommpio":"Aguazul","mpiolatitud":"5.1262892435499996","mpiolongitud":"-72.548286794800006"}
+,{"iddepto":"85","idmupio":"85015","nommpio":"Chameza","mpiolatitud":"5.22531848648","mpiolongitud":"-72.868499907"}
+,{"iddepto":"85","idmupio":"85125","nommpio":"Hato Corozal","mpiolatitud":"6.1094254432900001","mpiolongitud":"-71.138245625400003"}
+,{"iddepto":"85","idmupio":"85136","nommpio":"La Salina","mpiolatitud":"6.1741601500599996","mpiolongitud":"-72.346462042200002"}
+,{"iddepto":"85","idmupio":"85139","nommpio":"Maní","mpiolatitud":"4.6757371182999998","mpiolongitud":"-72.212717870600002"}
+,{"iddepto":"85","idmupio":"85162","nommpio":"Monterrey","mpiolatitud":"4.8412401120000004","mpiolongitud":"-72.847501178499996"}
+,{"iddepto":"85","idmupio":"85225","nommpio":"Nunchía","mpiolatitud":"5.5319165552299996","mpiolongitud":"-72.098510108200003"}
+,{"iddepto":"85","idmupio":"85230","nommpio":"Orocué","mpiolatitud":"4.9152774284299996","mpiolongitud":"-71.599510617099995"}
+,{"iddepto":"85","idmupio":"85250","nommpio":"Paz De Ariporo","mpiolatitud":"5.7796110182599998","mpiolongitud":"-70.870087886999997"}
+,{"iddepto":"85","idmupio":"85263","nommpio":"Pore","mpiolatitud":"5.6630406344199997","mpiolongitud":"-71.925542149899997"}
+,{"iddepto":"85","idmupio":"85279","nommpio":"Recetor","mpiolatitud":"5.2631623224000004","mpiolongitud":"-72.770915932600005"}
+,{"iddepto":"85","idmupio":"85300","nommpio":"Sabanalarga","mpiolatitud":"4.8108470961999998","mpiolongitud":"-72.996330279000006"}
+,{"iddepto":"85","idmupio":"85315","nommpio":"Sácama","mpiolatitud":"6.0497629252499996","mpiolongitud":"-72.209932367199997"}
+,{"iddepto":"85","idmupio":"85325","nommpio":"San Luis De Palenque","mpiolatitud":"5.2318722471700001","mpiolongitud":"-71.593155410600005"}
+,{"iddepto":"85","idmupio":"85400","nommpio":"Támara","mpiolatitud":"5.8795027487600002","mpiolongitud":"-72.185928622099993"}
+,{"iddepto":"85","idmupio":"85410","nommpio":"Tauramena","mpiolatitud":"4.6969566488099996","mpiolongitud":"-72.628690177600006"}
+,{"iddepto":"85","idmupio":"85430","nommpio":"Trinidad","mpiolatitud":"5.3674902853199997","mpiolongitud":"-71.195137271899995"}
+,{"iddepto":"85","idmupio":"85440","nommpio":"Villanueva","mpiolatitud":"4.5230152751799997","mpiolongitud":"-72.817048359699996"}
+,{"iddepto":"86","idmupio":"86001","nommpio":"Mocoa","mpiolatitud":"1.22014939117","mpiolongitud":"-76.6653645016"}
+,{"iddepto":"86","idmupio":"86219","nommpio":"Colón","mpiolatitud":"1.23133308438","mpiolongitud":"-76.9652812577"}
+,{"iddepto":"86","idmupio":"86320","nommpio":"Orito","mpiolatitud":"0.672327887462","mpiolongitud":"-76.9345932679"}
+,{"iddepto":"86","idmupio":"86568","nommpio":"Puerto Asís","mpiolatitud":"0.488220095748","mpiolongitud":"-76.3068190073"}
+,{"iddepto":"86","idmupio":"86569","nommpio":"Puerto Caicedo","mpiolatitud":"0.718277618688","mpiolongitud":"-76.4948215341"}
+,{"iddepto":"86","idmupio":"86571","nommpio":"Puerto Guzmán","mpiolatitud":"0.744647530658","mpiolongitud":"-75.878452242"}
+,{"iddepto":"86","idmupio":"86573","nommpio":"Leguízamo","mpiolatitud":"0.0567660240405","mpiolongitud":"-75.0582889533"}
+,{"iddepto":"86","idmupio":"86749","nommpio":"Sibundoy","mpiolatitud":"1.22952234091","mpiolongitud":"-76.9023084116"}
+,{"iddepto":"86","idmupio":"86755","nommpio":"San Francisco","mpiolatitud":"1.18767783963","mpiolongitud":"-76.8423590991"}
+,{"iddepto":"86","idmupio":"86757","nommpio":"San Miguel","mpiolatitud":"0.305538866125","mpiolongitud":"-76.8605194311"}
+,{"iddepto":"86","idmupio":"86760","nommpio":"Santiago","mpiolatitud":"1.06936593951","mpiolongitud":"-76.9561661683"}
+,{"iddepto":"86","idmupio":"86865","nommpio":"Valle Del Guamuez","mpiolatitud":"0.41305090656","mpiolongitud":"-76.848045817"}
+,{"iddepto":"86","idmupio":"86885","nommpio":"Villagarzón","mpiolatitud":"0.897125071988","mpiolongitud":"-76.7276920371"}
+,{"iddepto":"88","idmupio":"88001","nommpio":"San Andrés","mpiolatitud":"12.542872613","mpiolongitud":"-81.7177342186"}
+,{"iddepto":"88","idmupio":"88564","nommpio":"Providencia","mpiolatitud":"13.3533153016","mpiolongitud":"-81.373955721599998"}
+,{"iddepto":"91","idmupio":"91263","nommpio":"El Encanto","mpiolatitud":"-2.00861139735","mpiolongitud":"-72.7239048614"}
+,{"iddepto":"91","idmupio":"91405","nommpio":"La Chorrera","mpiolatitud":"-1.24238325182","mpiolongitud":"-72.7586367155"}
+,{"iddepto":"91","idmupio":"91407","nommpio":"La Pedrera","mpiolatitud":"-1.43237934273","mpiolongitud":"-70.035340789"}
+,{"iddepto":"91","idmupio":"91430","nommpio":"La Victoria","mpiolatitud":"-0.112099474161","mpiolongitud":"-71.1305009565"}
+,{"iddepto":"91","idmupio":"91001","nommpio":"Leticia","mpiolatitud":"-3.53378451561","mpiolongitud":"-70.0412992033"}
+,{"iddepto":"91","idmupio":"91460","nommpio":"Miriti Paraná","mpiolatitud":"-0.685350008685","mpiolongitud":"-71.1858462265"}
+,{"iddepto":"91","idmupio":"91530","nommpio":"Puerto Alegría","mpiolatitud":"-0.968868384231","mpiolongitud":"-73.7496001721"}
+,{"iddepto":"91","idmupio":"91536","nommpio":"Puerto Arica","mpiolatitud":"-1.90675235354","mpiolongitud":"-71.146489427"}
+,{"iddepto":"91","idmupio":"91540","nommpio":"Puerto Nariño","mpiolatitud":"-3.64149415296","mpiolongitud":"-70.4686019544"}
+,{"iddepto":"91","idmupio":"91669","nommpio":"Puerto Santander","mpiolatitud":"-1.09865635749","mpiolongitud":"-71.939194767"}
+,{"iddepto":"91","idmupio":"91798","nommpio":"Tarapacá","mpiolatitud":"-2.45939491231","mpiolongitud":"-70.0015732866"}
+,{"iddepto":"94","idmupio":"94001","nommpio":"Inírida","mpiolatitud":"3.31713893288","mpiolongitud":"-68.4575719102"}
+,{"iddepto":"94","idmupio":"94343","nommpio":"Barranco Minas","mpiolatitud":"3.31126062148","mpiolongitud":"-69.3969129283"}
+,{"iddepto":"94","idmupio":"94663","nommpio":"Mapiripana","mpiolatitud":"2.81004970603","mpiolongitud":"-70.2856670588"}
+,{"iddepto":"94","idmupio":"94883","nommpio":"San Felipe","mpiolatitud":"2.12200139286","mpiolongitud":"-67.3449250934"}
+,{"iddepto":"94","idmupio":"94884","nommpio":"Puerto Colombia","mpiolatitud":"2.50514933841","mpiolongitud":"-68.2120426028"}
+,{"iddepto":"94","idmupio":"94886","nommpio":"Cacahual","mpiolatitud":"3.38390027306","mpiolongitud":"-67.5828393822"}
+,{"iddepto":"94","idmupio":"94887","nommpio":"Pana Pana","mpiolatitud":"1.9753216054","mpiolongitud":"-69.1199235546"}
+,{"iddepto":"94","idmupio":"94888","nommpio":"Morichal","mpiolatitud":"2.4298263993","mpiolongitud":"-69.8328295013"}
+,{"iddepto":"95","idmupio":"95001","nommpio":"San José Del Guaviare","mpiolatitud":"2.49499658975","mpiolongitud":"-71.8772753695"}
+,{"iddepto":"95","idmupio":"95015","nommpio":"Calamar","mpiolatitud":"1.64129138821","mpiolongitud":"-73.0341471129"}
+,{"iddepto":"95","idmupio":"95025","nommpio":"El Retorno","mpiolatitud":"2.08525164184","mpiolongitud":"-71.5163513084"}
+,{"iddepto":"95","idmupio":"95200","nommpio":"Miraflores","mpiolatitud":"1.36327715467","mpiolongitud":"-72.0218446728"}
+,{"iddepto":"97","idmupio":"97001","nommpio":"Mitú","mpiolatitud":"1.02997049198","mpiolongitud":"-70.4108915408"}
+,{"iddepto":"97","idmupio":"97161","nommpio":"Caruru","mpiolatitud":"1.0242661963","mpiolongitud":"-71.3423771899"}
+,{"iddepto":"97","idmupio":"97511","nommpio":"Pacoa","mpiolatitud":"0.181512058764","mpiolongitud":"-70.9101112487"}
+,{"iddepto":"97","idmupio":"97666","nommpio":"Taraira","mpiolatitud":"-0.719706200726","mpiolongitud":"-69.9020014208"}
+,{"iddepto":"97","idmupio":"97777","nommpio":"Papunaua","mpiolatitud":"1.68343130299","mpiolongitud":"-70.7096513425"}
+,{"iddepto":"97","idmupio":"97889","nommpio":"Yavaraté","mpiolatitud":"0.828043906652","mpiolongitud":"-69.6159066899"}
+,{"iddepto":"99","idmupio":"99001","nommpio":"Puerto Carreño","mpiolatitud":"5.8350212398299997","mpiolongitud":"-68.145473946799996"}
+,{"iddepto":"99","idmupio":"99524","nommpio":"La Primavera","mpiolatitud":"5.4672621440600002","mpiolongitud":"-69.6968817801"}
+,{"iddepto":"99","idmupio":"99624","nommpio":"Santa Rosalía","mpiolatitud":"4.9878153978000004","mpiolongitud":"-70.821646596999997"}
+,{"iddepto":"99","idmupio":"99773","nommpio":"Cumaribo","mpiolatitud":"4.2623593377600004","mpiolongitud":"-69.521154252100004"}
+,{"iddepto":"08","idmupio":"8675","nommpio":"Santa Lucía","mpiolatitud":"10.352385033699999","mpiolongitud":"-74.965378858400001"}
+,{"iddepto":"05","idmupio":"5501","nommpio":"Olaya","mpiolatitud":"6.61090691567","mpiolongitud":"-75.775718680699995"}
+,{"iddepto":"08","idmupio":"8001","nommpio":"Barranquilla","mpiolatitud":"10.985382120500001","mpiolongitud":"-74.8290068795"}
+,{"iddepto":"08","idmupio":"8421","nommpio":"Luruaco","mpiolatitud":"10.633850647199999","mpiolongitud":"-75.159982383400006"}
+,{"iddepto":"05","idmupio":"5483","nommpio":"Nariño","mpiolatitud":"5.58129072709","mpiolongitud":"-75.194749311300001"}
+,{"iddepto":"05","idmupio":"5591","nommpio":"Puerto Triunfo","mpiolatitud":"5.95369513672","mpiolongitud":"-74.686330100000006"}
+,{"iddepto":"05","idmupio":"5134","nommpio":"Campamento","mpiolatitud":"7.03893442513","mpiolongitud":"-75.2893795099"}
+,{"iddepto":"05","idmupio":"5093","nommpio":"Betulia","mpiolatitud":"6.18401230588","mpiolongitud":"-75.9560762911"}
+,{"iddepto":"05","idmupio":"5856","nommpio":"Valparaíso","mpiolatitud":"5.6491249915499999","mpiolongitud":"-75.632092136099999"}
+,{"iddepto":"05","idmupio":"5360","nommpio":"Itagui","mpiolatitud":"6.17988245302","mpiolongitud":"-75.615351829"}
+,{"iddepto":"05","idmupio":"5001","nommpio":"Medellín","mpiolatitud":"6.25767344163","mpiolongitud":"-75.6114820856"}
+,{"iddepto":"05","idmupio":"5697","nommpio":"El Santuario","mpiolatitud":"6.1279706130799996","mpiolongitud":"-75.252122550199999"}
+,{"iddepto":"05","idmupio":"5002","nommpio":"Abejorral","mpiolatitud":"5.80384504461","mpiolongitud":"-75.4384949553"}
+,{"iddepto":"05","idmupio":"5079","nommpio":"Barbosa","mpiolatitud":"6.44292382036","mpiolongitud":"-75.3298569695"}
+,{"iddepto":"05","idmupio":"5604","nommpio":"Remedios","mpiolatitud":"6.99740980665","mpiolongitud":"-74.558478619100001"}
+,{"iddepto":"05","idmupio":"5585","nommpio":"Puerto Nare","mpiolatitud":"6.13979698621","mpiolongitud":"-74.683383804399995"}
+,{"iddepto":"05","idmupio":"5858","nommpio":"Vegachí","mpiolatitud":"6.8360039237999999","mpiolongitud":"-74.753241958700002"}
+,{"iddepto":"08","idmupio":"8770","nommpio":"Suan","mpiolatitud":"10.3125541702","mpiolongitud":"-74.906414565099993"}
+,{"iddepto":"05","idmupio":"5148","nommpio":"El Carmen De Viboral","mpiolatitud":"5.97804855978","mpiolongitud":"-75.2632300644"}
+,{"iddepto":"05","idmupio":"5154","nommpio":"Caucasia","mpiolatitud":"7.86501269771","mpiolongitud":"-75.0330131172"}
+,{"iddepto":"05","idmupio":"5129","nommpio":"Caldas","mpiolatitud":"6.05395584028","mpiolongitud":"-75.6266473494"}
+,{"iddepto":"05","idmupio":"5321","nommpio":"Guatape","mpiolatitud":"6.25217232229","mpiolongitud":"-75.1580845371"}
+,{"iddepto":"05","idmupio":"5212","nommpio":"Copacabana","mpiolatitud":"6.35420802925","mpiolongitud":"-75.501150244"}
+,{"iddepto":"08","idmupio":"8436","nommpio":"Manatí","mpiolatitud":"10.451088182499999","mpiolongitud":"-74.985816737500002"}
+,{"iddepto":"08","idmupio":"8372","nommpio":"Juan De Acosta","mpiolatitud":"10.822863545600001","mpiolongitud":"-75.077782818399996"}
+,{"iddepto":"05","idmupio":"5284","nommpio":"Frontino","mpiolatitud":"6.6922719675","mpiolongitud":"-76.3305075889"}
+,{"iddepto":"05","idmupio":"5044","nommpio":"Anza","mpiolatitud":"6.30803292192","mpiolongitud":"-75.9126695318"}
+,{"iddepto":"08","idmupio":"8832","nommpio":"Tubará","mpiolatitud":"10.9060795144","mpiolongitud":"-74.982771034400002"}
+,{"iddepto":"05","idmupio":"5756","nommpio":"Sonson","mpiolatitud":"5.7620676242800002","mpiolongitud":"-75.061159721400003"}
+,{"iddepto":"05","idmupio":"5042","nommpio":"Santafé De Antioquia","mpiolatitud":"6.53307666516","mpiolongitud":"-75.9028529831"}
+,{"iddepto":"05","idmupio":"5347","nommpio":"Heliconia","mpiolatitud":"6.21447557579","mpiolongitud":"-75.7496060629"}
+,{"iddepto":"05","idmupio":"5113","nommpio":"Buriticá","mpiolatitud":"6.80992435266","mpiolongitud":"-75.9125376062"}
+,{"iddepto":"05","idmupio":"5086","nommpio":"Belmira","mpiolatitud":"6.65436339165","mpiolongitud":"-75.6536993193"}
+,{"iddepto":"05","idmupio":"5240","nommpio":"Ebéjico","mpiolatitud":"6.32600242166","mpiolongitud":"-75.7831767384"}
+,{"iddepto":"08","idmupio":"8558","nommpio":"Polonuevo","mpiolatitud":"10.767758607799999","mpiolongitud":"-74.854452359299998"}
+,{"iddepto":"05","idmupio":"5652","nommpio":"San Francisco","mpiolatitud":"5.8781304219","mpiolongitud":"-74.976913852600006"}
+,{"iddepto":"05","idmupio":"5045","nommpio":"Apartadó","mpiolatitud":"7.89591996485","mpiolongitud":"-76.5658159309"}
+,{"iddepto":"08","idmupio":"8433","nommpio":"Malambo","mpiolatitud":"10.848167007200001","mpiolongitud":"-74.805224082999999"}
+,{"iddepto":"05","idmupio":"5854","nommpio":"Valdivia","mpiolatitud":"7.2669572120400003","mpiolongitud":"-75.399535116999999"}
+,{"iddepto":"05","idmupio":"5237","nommpio":"Don Matías","mpiolatitud":"6.50549674104","mpiolongitud":"-75.3665182818"}
+,{"iddepto":"05","idmupio":"5847","nommpio":"Urrao","mpiolatitud":"6.3362833157500003","mpiolongitud":"-76.275090724899997"}
+,{"iddepto":"05","idmupio":"5615","nommpio":"Rionegro","mpiolatitud":"6.15108803327","mpiolongitud":"-75.410190436099995"}
+,{"iddepto":"05","idmupio":"5380","nommpio":"La Estrella","mpiolatitud":"6.138581167","mpiolongitud":"-75.6487390466"}
+,{"iddepto":"05","idmupio":"5467","nommpio":"Montebello","mpiolatitud":"5.93045242326","mpiolongitud":"-75.531685996"}
+,{"iddepto":"05","idmupio":"5250","nommpio":"El Bagre","mpiolatitud":"7.70224988277","mpiolongitud":"-74.6638368643"}
+,{"iddepto":"05","idmupio":"5789","nommpio":"Támesis","mpiolatitud":"5.6737071837900004","mpiolongitud":"-75.710154953"}
+,{"iddepto":"05","idmupio":"5190","nommpio":"Cisneros","mpiolatitud":"6.55024229441","mpiolongitud":"-75.08206877"}
+,{"iddepto":"05","idmupio":"5031","nommpio":"Amalfi","mpiolatitud":"6.97828762398","mpiolongitud":"-74.9806578035"}
+,{"iddepto":"05","idmupio":"5670","nommpio":"San Roque","mpiolatitud":"6.4485431983100003","mpiolongitud":"-74.931819908700007"}
+,{"iddepto":"05","idmupio":"5628","nommpio":"Sabanalarga","mpiolatitud":"6.90103420231","mpiolongitud":"-75.792264607700005"}
+,{"iddepto":"05","idmupio":"5021","nommpio":"Alejandría","mpiolatitud":"6.3664054906","mpiolongitud":"-75.0901755782"}
+,{"iddepto":"05","idmupio":"5147","nommpio":"Carepa","mpiolatitud":"7.78816642896","mpiolongitud":"-76.6596065197"}
+,{"iddepto":"05","idmupio":"5150","nommpio":"Carolina","mpiolatitud":"6.75838180081","mpiolongitud":"-75.3166110296"}
+,{"iddepto":"05","idmupio":"5885","nommpio":"Yalí","mpiolatitud":"6.7168595506699997","mpiolongitud":"-74.7560321948"}
+,{"iddepto":"05","idmupio":"5541","nommpio":"Peñol","mpiolatitud":"6.24641555522","mpiolongitud":"-75.2210904035"}
+,{"iddepto":"05","idmupio":"5736","nommpio":"Segovia","mpiolatitud":"7.2691444865400001","mpiolongitud":"-74.639799501300004"}
+,{"iddepto":"05","idmupio":"5674","nommpio":"San Vicente","mpiolatitud":"6.3102121532000002","mpiolongitud":"-75.325290326100003"}
+,{"iddepto":"05","idmupio":"5607","nommpio":"Retiro","mpiolatitud":"6.05468610642","mpiolongitud":"-75.513723867500005"}
+,{"iddepto":"08","idmupio":"8849","nommpio":"Usiacurí","mpiolatitud":"10.7404924924","mpiolongitud":"-74.982481141500003"}
+,{"iddepto":"05","idmupio":"5091","nommpio":"Betania","mpiolatitud":"5.72782280599","mpiolongitud":"-75.9859731103"}
+,{"iddepto":"05","idmupio":"5873","nommpio":"Vigía Del Fuerte","mpiolatitud":"6.4633815120599998","mpiolongitud":"-76.707828594000006"}
+,{"iddepto":"05","idmupio":"5234","nommpio":"Dabeiba","mpiolatitud":"6.99814703001","mpiolongitud":"-76.3112708673"}
+,{"iddepto":"05","idmupio":"5893","nommpio":"Yondó","mpiolatitud":"6.9278948649999998","mpiolongitud":"-74.155744212599998"}
+,{"iddepto":"08","idmupio":"8606","nommpio":"Repelón","mpiolatitud":"10.507659781999999","mpiolongitud":"-75.116146849800003"}
+,{"iddepto":"05","idmupio":"5390","nommpio":"La Pintada","mpiolatitud":"5.75802619808","mpiolongitud":"-75.6022968114"}
+,{"iddepto":"05","idmupio":"5887","nommpio":"Yarumal","mpiolatitud":"6.9912416101400003","mpiolongitud":"-75.451779305499997"}
+,{"iddepto":"05","idmupio":"5837","nommpio":"Turbo","mpiolatitud":"7.9901647195000001","mpiolongitud":"-76.728181249800002"}
+,{"iddepto":"08","idmupio":"8685","nommpio":"Santo Tomás","mpiolatitud":"10.7443671246","mpiolongitud":"-74.794016399599997"}
+,{"iddepto":"05","idmupio":"5125","nommpio":"Caicedo","mpiolatitud":"6.42382860126","mpiolongitud":"-75.9952904918"}
+,{"iddepto":"05","idmupio":"5425","nommpio":"Maceo","mpiolatitud":"6.53817872438","mpiolongitud":"-74.7237771289"}
+,{"iddepto":"05","idmupio":"5679","nommpio":"Santa Bárbara","mpiolatitud":"5.8768701057000001","mpiolongitud":"-75.585316414600001"}
+,{"iddepto":"05","idmupio":"5264","nommpio":"Entrerrios","mpiolatitud":"6.59457761143","mpiolongitud":"-75.5592648299"}
+,{"iddepto":"08","idmupio":"8549","nommpio":"Piojó","mpiolatitud":"10.740309802600001","mpiolongitud":"-75.143955003200006"}
+,{"iddepto":"05","idmupio":"5197","nommpio":"Cocorná","mpiolatitud":"6.00753694012","mpiolongitud":"-75.1624383328"}
+,{"iddepto":"05","idmupio":"5660","nommpio":"San Luis","mpiolatitud":"6.01900018498","mpiolongitud":"-74.938091950499995"}
+,{"iddepto":"05","idmupio":"5659","nommpio":"San Juan De Urabá","mpiolatitud":"8.70976176026","mpiolongitud":"-76.529857549100001"}
+,{"iddepto":"05","idmupio":"5313","nommpio":"Granada","mpiolatitud":"6.12523306822","mpiolongitud":"-75.1286603874"}
+,{"iddepto":"05","idmupio":"5647","nommpio":"San Andrés De Cuerquía","mpiolatitud":"6.91885012339","mpiolongitud":"-75.664162977100005"}
+,{"iddepto":"05","idmupio":"5145","nommpio":"Caramanta","mpiolatitud":"5.55376502714","mpiolongitud":"-75.6297701046"}
+,{"iddepto":"05","idmupio":"5809","nommpio":"Titiribí","mpiolatitud":"6.0581980477600004","mpiolongitud":"-75.799383858499993"}
+,{"iddepto":"08","idmupio":"8078","nommpio":"Baranoa","mpiolatitud":"10.793229457900001","mpiolongitud":"-74.922104196500001"}
+,{"iddepto":"05","idmupio":"5051","nommpio":"Arboletes","mpiolatitud":"8.60714710912","mpiolongitud":"-76.4114530029"}
+,{"iddepto":"05","idmupio":"5038","nommpio":"Angostura","mpiolatitud":"6.86512048609","mpiolongitud":"-75.3552835159"}
+,{"iddepto":"05","idmupio":"5138","nommpio":"Cañasgordas","mpiolatitud":"6.81476543242","mpiolongitud":"-76.0270244723"}
+,{"iddepto":"05","idmupio":"5040","nommpio":"Anorí","mpiolatitud":"7.19315324253","mpiolongitud":"-75.1085028001"}
+,{"iddepto":"08","idmupio":"8634","nommpio":"Sabanagrande","mpiolatitud":"10.7987688687","mpiolongitud":"-74.769423231700003"}
+,{"iddepto":"08","idmupio":"8296","nommpio":"Galapa","mpiolatitud":"10.8979045697","mpiolongitud":"-74.886957541399994"}
+,{"iddepto":"05","idmupio":"5310","nommpio":"Gómez Plata","mpiolatitud":"6.70959601604","mpiolongitud":"-75.1928709706"}
+,{"iddepto":"05","idmupio":"5376","nommpio":"La Ceja","mpiolatitud":"5.99314185758","mpiolongitud":"-75.4309205814"}
+,{"iddepto":"05","idmupio":"5543","nommpio":"Peque","mpiolatitud":"7.04366253242","mpiolongitud":"-75.889416580700001"}
+,{"iddepto":"08","idmupio":"8560","nommpio":"Ponedera","mpiolatitud":"10.5953101739","mpiolongitud":"-74.797525630600006"}
+,{"iddepto":"05","idmupio":"5842","nommpio":"Uramita","mpiolatitud":"6.9165560340200001","mpiolongitud":"-76.1307857754"}
+,{"iddepto":"05","idmupio":"5101","nommpio":"Ciudad Bolívar","mpiolatitud":"5.83939239081","mpiolongitud":"-76.010892179"}
+,{"iddepto":"05","idmupio":"5088","nommpio":"Bello","mpiolatitud":"6.35692166963","mpiolongitud":"-75.5879221374"}
+,{"iddepto":"05","idmupio":"5686","nommpio":"Santa Rosa De Osos","mpiolatitud":"6.6762653823000004","mpiolongitud":"-75.439786471399998"}
+,{"iddepto":"05","idmupio":"5475","nommpio":"Murindó","mpiolatitud":"6.82799640326","mpiolongitud":"-76.708180962499995"}
+,{"iddepto":"05","idmupio":"5656","nommpio":"San Jerónimo","mpiolatitud":"6.438444205","mpiolongitud":"-75.703653406900003"}
+,{"iddepto":"05","idmupio":"5490","nommpio":"Necoclí","mpiolatitud":"8.49324556288","mpiolongitud":"-76.673568188199994"}
+,{"iddepto":"05","idmupio":"5495","nommpio":"Nechí","mpiolatitud":"7.99166185326","mpiolongitud":"-74.7937854563"}
+,{"iddepto":"05","idmupio":"5642","nommpio":"Salgar","mpiolatitud":"5.97202849941","mpiolongitud":"-75.983730494100001"}
+,{"iddepto":"05","idmupio":"5036","nommpio":"Angelópolis","mpiolatitud":"6.12065209781","mpiolongitud":"-75.7162374369"}
+,{"iddepto":"05","idmupio":"5890","nommpio":"Yolombó","mpiolatitud":"6.64883545005","mpiolongitud":"-74.927068012199996"}
+,{"iddepto":"08","idmupio":"8758","nommpio":"Soledad","mpiolatitud":"10.9055687186","mpiolongitud":"-74.776855311999995"}
+,{"iddepto":"08","idmupio":"8638","nommpio":"Sabanalarga","mpiolatitud":"10.622392384099999","mpiolongitud":"-74.955289044400004"}
+,{"iddepto":"05","idmupio":"5206","nommpio":"Concepción","mpiolatitud":"6.38401153058","mpiolongitud":"-75.2195818236"}
+,{"iddepto":"05","idmupio":"5142","nommpio":"Caracolí","mpiolatitud":"6.33765975211","mpiolongitud":"-74.7331093596"}
+,{"iddepto":"05","idmupio":"5055","nommpio":"Argelia","mpiolatitud":"5.70799828064","mpiolongitud":"-75.0950436812"}
+,{"iddepto":"05","idmupio":"5315","nommpio":"Guadalupe","mpiolatitud":"6.86562096846","mpiolongitud":"-75.2248888287"}
+,{"iddepto":"05","idmupio":"5030","nommpio":"Amagá","mpiolatitud":"6.03264538239","mpiolongitud":"-75.7076655543"}
+,{"iddepto":"05","idmupio":"5790","nommpio":"Tarazá","mpiolatitud":"7.4858077605000002","mpiolongitud":"-75.480515433400001"}
+,{"iddepto":"05","idmupio":"5059","nommpio":"Armenia","mpiolatitud":"6.16364557307","mpiolongitud":"-75.8099675139"}
+,{"iddepto":"05","idmupio":"5411","nommpio":"Liborina","mpiolatitud":"6.72427807239","mpiolongitud":"-75.7825715302"}
+,{"iddepto":"08","idmupio":"8137","nommpio":"Campo De La Cruz","mpiolatitud":"10.4014056821","mpiolongitud":"-74.879447456099996"}
+,{"iddepto":"05","idmupio":"5361","nommpio":"Ituango","mpiolatitud":"7.26242809479","mpiolongitud":"-75.892751502"}
+,{"iddepto":"08","idmupio":"8520","nommpio":"Palmar De Varela","mpiolatitud":"10.694344900000001","mpiolongitud":"-74.769619974999998"}
+,{"iddepto":"05","idmupio":"5631","nommpio":"Sabaneta","mpiolatitud":"6.13818035715","mpiolongitud":"-75.608561757499999"}
+,{"iddepto":"05","idmupio":"5665","nommpio":"San Pedro De Uraba","mpiolatitud":"8.37183398359","mpiolongitud":"-76.318364486799993"}
+,{"iddepto":"05","idmupio":"5034","nommpio":"Andes","mpiolatitud":"5.62524405505","mpiolongitud":"-75.9370469964"}
+,{"iddepto":"05","idmupio":"5480","nommpio":"Mutatá","mpiolatitud":"7.3403561134","mpiolongitud":"-76.489952259600003"}
+,{"iddepto":"05","idmupio":"5308","nommpio":"Girardota","mpiolatitud":"6.38131282918","mpiolongitud":"-75.4481198122"}
+,{"iddepto":"05","idmupio":"5895","nommpio":"Zaragoza","mpiolatitud":"7.4894422475100004","mpiolongitud":"-74.866650655100003"}
+,{"iddepto":"05","idmupio":"5649","nommpio":"San Carlos","mpiolatitud":"6.1978635162","mpiolongitud":"-74.908455869799994"}
+,{"iddepto":"05","idmupio":"5172","nommpio":"Chigorodó","mpiolatitud":"7.63007406228","mpiolongitud":"-76.642992585"}
+,{"iddepto":"05","idmupio":"5400","nommpio":"La Unión","mpiolatitud":"5.94014347157","mpiolongitud":"-75.3537695884"}
+,{"iddepto":"05","idmupio":"5282","nommpio":"Fredonia","mpiolatitud":"5.88728230815","mpiolongitud":"-75.6816149772"}
+,{"iddepto":"05","idmupio":"5306","nommpio":"Giraldo","mpiolatitud":"6.65800159182","mpiolongitud":"-75.9517313648"}
+,{"iddepto":"05","idmupio":"5667","nommpio":"San Rafael","mpiolatitud":"6.31188692498","mpiolongitud":"-75.004108630700003"}
+,{"iddepto":"08","idmupio":"8573","nommpio":"Puerto Colombia","mpiolatitud":"11.0046495247","mpiolongitud":"-74.909291136600004"}
+,{"iddepto":"05","idmupio":"5364","nommpio":"Jardín","mpiolatitud":"5.57496086855","mpiolongitud":"-75.8187543904"}
+,{"iddepto":"05","idmupio":"5266","nommpio":"Envigado","mpiolatitud":"6.15332441372","mpiolongitud":"-75.5462068963"}
+,{"iddepto":"05","idmupio":"5440","nommpio":"Marinilla","mpiolatitud":"6.1870507276","mpiolongitud":"-75.3047491758"}
+,{"iddepto":"05","idmupio":"5004","nommpio":"Abriaquí","mpiolatitud":"6.62523011981","mpiolongitud":"-76.0852137872"}
+,{"iddepto":"05","idmupio":"5368","nommpio":"Jericó","mpiolatitud":"5.76975317622","mpiolongitud":"-75.7647979402"}
+,{"iddepto":"05","idmupio":"5576","nommpio":"Pueblorrico","mpiolatitud":"5.81256608829","mpiolongitud":"-75.861093367400002"}
+,{"iddepto":"05","idmupio":"5861","nommpio":"Venecia","mpiolatitud":"5.9560080451099999","mpiolongitud":"-75.780602982999994"}
+,{"iddepto":"08","idmupio":"8141","nommpio":"Candelaria","mpiolatitud":"10.490469021599999","mpiolongitud":"-74.879469391200004"}
+,{"iddepto":"05","idmupio":"5107","nommpio":"Briceño","mpiolatitud":"7.11081507756","mpiolongitud":"-75.5635497458"}
+,{"iddepto":"05","idmupio":"5690","nommpio":"Santo Domingo","mpiolatitud":"6.4813914637299996","mpiolongitud":"-75.142771068900004"}
+,{"iddepto":"05","idmupio":"5579","nommpio":"Puerto Berrío","mpiolatitud":"6.48230786382","mpiolongitud":"-74.5292953533"}
+,{"iddepto":"05","idmupio":"5761","nommpio":"Sopetrán","mpiolatitud":"6.5213131083300002","mpiolongitud":"-75.745391719799997"}
+,{"iddepto":"05","idmupio":"5792","nommpio":"Tarso","mpiolatitud":"5.8708758013900004","mpiolongitud":"-75.828913891499994"}
+,{"iddepto":"05","idmupio":"5658","nommpio":"San José De La Montaña","mpiolatitud":"6.82422445302","mpiolongitud":"-75.677747547899997"}
+,{"iddepto":"05","idmupio":"5819","nommpio":"Toledo","mpiolatitud":"7.0162289313499997","mpiolongitud":"-75.713597315100003"}
+,{"iddepto":"05","idmupio":"5120","nommpio":"Cáceres","mpiolatitud":"7.66948878704","mpiolongitud":"-75.2263046056"}
+,{"iddepto":"05","idmupio":"5353","nommpio":"Hispania","mpiolatitud":"5.79549129146","mpiolongitud":"-75.904110829"}
+,{"iddepto":"05","idmupio":"5664","nommpio":"San Pedro","mpiolatitud":"6.45811296002","mpiolongitud":"-75.563887879899994"}
+,{"iddepto":"05","idmupio":"5209","nommpio":"Concordia","mpiolatitud":"6.05401458141","mpiolongitud":"-75.9009443454"}
+,{"iddepto":"05","idmupio":"5318","nommpio":"Guarne","mpiolatitud":"6.26927970133","mpiolongitud":"-75.4353051138"}]
