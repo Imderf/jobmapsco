@@ -578,9 +578,21 @@ function seleccionar(m, volar = true) {
     el('div', { className: 'mono', innerHTML: '<span class="punto"></span>Municipio' }),
     el('h2', { textContent: m.n }),
     el('div', { className: 'sub', textContent: `${deptos[m.d]}, Colombia · DIVIPOLA ${m.c}` }),
+  );
+  if (filtroInd) {   // con filtro, la cifra grande es la de esa industria (como en el mapa y el ranking)
+    const deInd = Object.entries(porIndustria[filtroInd] || {}).sort((a, b) => b[1] - a[1]);
+    const n = porIndustria[filtroInd]?.[m.c] || 0, puesto = deInd.findIndex(([c]) => c === m.c) + 1;
+    f.append(
+      el('div', { className: 'big', textContent: fmt.format(n) }),
+      el('div', { textContent: n ? `ofertas de ${filtroInd} en la muestra · puesto ${puesto} de ${deInd.length} ciudades` : `Sin ofertas de ${filtroInd} en la muestra` }),
+      el('div', { className: 'nota', textContent: m.obj ? `${fmt.format(m.obj)} ofertas en total en la ciudad` : '' }),
+    );
+  } else f.append(
     el('div', { className: 'big', textContent: m.obj ? fmt.format(m.obj) : '—' }),
     el('div', { textContent: m.obj ? `ofertas · puesto ${m.puesto} de ${ciudades.length} · ${(m.obj / total * 100).toFixed(1).replace('.', ',')} % del total` : 'Sin dato en este corte' }),
-    el('h3', { textContent: filtroInd ? `Ofertas de ${filtroInd} · ${porIndustria[filtroInd]?.[m.c] || 0} en la muestra` : 'Ofertas' }),
+  );
+  f.append(
+    el('h3', { textContent: filtroInd ? `Ofertas de ${filtroInd}` : 'Ofertas' }),
     el('div', { className: 'lista-ofertas' }),
   );
   pintarOfertas(m, f.querySelector('.lista-ofertas'));
