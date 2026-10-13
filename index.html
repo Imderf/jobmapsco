@@ -83,7 +83,6 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
 .fila{display:flex;align-items:center;gap:10px;margin:5px 0}
 .pilar{width:5px;height:22px;background:var(--blue);box-shadow:0 0 10px var(--blue);border-radius:2px;margin:0 4px}
 .linea{width:14px;height:2px;background:var(--blue);box-shadow:0 0 6px var(--blue)}
-.dot{width:5px;height:5px;border-radius:50%;background:var(--blue2);margin:0 4px}
 .ficha>*{animation:sube .5s both}
 .ficha>*:nth-child(n+4){animation-delay:.08s}
 .ficha>*:nth-child(n+6){animation-delay:.16s}
@@ -250,20 +249,15 @@ $('#total-txt').textContent = `en ${ciudades.length} ciudades de los ${fmt.forma
 $('#corte').textContent = `Fuente: ${datos.fuente} · corte ${datos.actualizado}`;
 $('#lista-municipios').append(...municipios.map(m => Object.assign(document.createElement('option'), { value: `${m.n}, ${deptos[m.d]}` })));
 
-// ---- capas propias en MapLibre: departamentos con brillo azul y municipios como puntos
+// ---- capas propias en MapLibre: departamentos con brillo azul
 await new Promise(r => map.loaded() ? r() : map.once('load', r));
 map.addSource('deptos', { type: 'geojson', data: geo });
 map.addSource('mascara', { type: 'geojson', data: mascara });
 const OPACO = .68;   // vecinos atenuados pero visibles (sin relieve: la sombra solo cubre Colombia)
 // fuera de Colombia: plano y oscuro (tapa relieve, agua, ríos y fronteras); se enciende al aterrizar
 map.addLayer({ id: 'fuera', type: 'fill', source: 'mascara', paint: { 'fill-color': '#070a14', 'fill-opacity': 0, 'fill-opacity-transition': { duration: 2600 } } });
-map.addSource('munis', { type: 'geojson', data: { type: 'FeatureCollection', features: municipios.map(m => ({ type: 'Feature', properties: { c: m.c }, geometry: { type: 'Point', coordinates: [m.lon, m.lat] } })) } });
 map.addLayer({ id: 'deptos-brillo', type: 'line', source: 'deptos', paint: { 'line-color': '#2f6bff', 'line-width': 6, 'line-blur': 5, 'line-opacity': .4 } });
 map.addLayer({ id: 'deptos-linea', type: 'line', source: 'deptos', paint: { 'line-color': '#4f86ff', 'line-width': 1.3 } });
-map.addLayer({ id: 'munis', type: 'circle', source: 'munis', minzoom: 4.5, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 5, 1.4, 9, 3.5], 'circle-color': '#1f3f99', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': .6 } });
-map.on('click', 'munis', e => seleccionar(porCod[e.features[0].properties.c]));
-map.on('mouseenter', 'munis', () => map.getCanvas().style.cursor = 'pointer');
-map.on('mouseleave', 'munis', () => map.getCanvas().style.cursor = '');
 
 // ---- columnas y cifras (deck.gl encima del mapa; solo en vista plana)
 let crecer = 0, seleccion = null, listo = false, quieto = performance.now();
@@ -463,7 +457,6 @@ function leyenda() {
     <div class="fila"><span class="baja">▼</span> Rojo: bajó en la última actualización</div>
     <h3>Mapa</h3>
     <div class="fila"><span class="linea"></span>Límite de departamento</div>
-    <div class="fila"><span class="dot"></span>Municipio</div>
     <h3>Altura de la columna</h3>
     ${[30000, 10000, 1000].map(n => `<div class="fila"><span class="num" style="width:56px">${fmt.format(n)}</span><span class="sub">${Math.round(altura(n) / 1000)} km de alto</span></div>`).join('')}</details>`;
 }
