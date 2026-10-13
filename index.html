@@ -318,6 +318,10 @@ const map = new maplibregl.Map({
   },
 });
 map.setPadding({ top: innerHeight * .26, left: 0, right: 0, bottom: 0 });   // baja el globo y deja el título arriba
+// 'load' pasa una sola vez: se escucha desde ya, porque en producción los datos pueden llegar después y la entrada se quedaba en 83 %
+const mapaCargado = new Promise(r => map.once('load', r));
+// espera a que esas fuentes tengan sus datos, o ms como máximo
+const fuentesListas = (ids, ms) => Promise.race([espera(ms), new Promise(r => { const ok = () => ids.every(id => map.getSource(id) && map.isSourceLoaded(id)); if (ok()) return r(); const f = () => { if (ok()) { map.off('sourcedata', f); r(); } }; map.on('sourcedata', f); })]);
 
 let girando = true;
 function girar() { if (!girando) return; const c = map.getCenter(); map.setCenter([c.lng + .035, c.lat]); requestAnimationFrame(girar); }
@@ -379,10 +383,11 @@ const VISTA = {
 $('#total-txt').textContent = `en ${ciudades.length} ciudades de los ${fmt.format(municipios.length)} municipios`;
 
 // ---- capas propias en MapLibre: departamentos con brillo azul
-await new Promise(r => map.loaded() ? r() : map.once('load', r));
+await mapaCargado;
 // agua, ríos y fronteras (OpenFreeMap) entran después de 'load': su TileJSON a veces tarda segundos y no debe frenar el globo, donde no se ven
 map.addSource('osm', { type: 'vector', url: 'https://tiles.openfreemap.org/planet' });
-map.addLayer({ id: 'agua', type: 'fill', source: 'osm', 'source-layer': 'water', minzoom: ZA, paint: { 'fill-color': ['interpolate', ['linear'], ['zoom'], ZA, '#0a1122', ZB, '#1b48ad'] } });
+// el agua sí carga desde el globo (ahí es del color del fondo): sus teselas cubren el vuelo y no aparecen bloques claros
+map.addLayer({ id: 'agua', type: 'fill', source: 'osm', 'source-layer': 'water', paint: { 'fill-color': ['interpolate', ['linear'], ['zoom'], ZA, '#0a1122', ZB, '#1b48ad'] } });
 map.addLayer({ id: 'rios', type: 'line', source: 'osm', 'source-layer': 'waterway', minzoom: ZA, paint: { 'line-color': '#3d7bff', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, .3, 9, 1.6], 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZB, 0, ZB + 1, 1] } });
 map.addLayer({ id: 'fronteras', type: 'line', source: 'osm', 'source-layer': 'boundary', minzoom: ZA, filter: ['all', ['==', ['get', 'admin_level'], 2], ['!=', ['get', 'maritime'], 1]], paint: { 'line-color': '#262b3b', 'line-width': 1.2, 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZA, 0, ZB, 1] } });
 map.addSource('deptos', { type: 'geojson', data: geo });
@@ -555,7 +560,7 @@ function fijar(c, n) {
 // ---- intro
 await document.fonts.load('500 13px "JetBrains Mono"');
 // el globo solo dibuja capas propias (puntos GeoJSON): aparece cuando están listas (máx. 1 s), sin esperar teselas ni 'idle'
-await Promise.race([new Promise(r => { const ok = () => map.isSourceLoaded('puntos-mundo') && map.isSourceLoaded('puntos-co'); if (ok()) return r(); const f = () => { if (ok()) { map.off('sourcedata', f); r(); } }; map.on('sourcedata', f); }), espera(1000)]);
+await fuentesListas(['puntos-mundo', 'puntos-co'], 1000);
 avance();
 document.body.classList.add('cargado');
 girar(); pulsar();
@@ -586,6 +591,7 @@ $('#saltar').onclick = () => { map.stop(); map.jumpTo(VISTA); aterrizar(); };
 if (sinMovimiento) { map.jumpTo(VISTA); aterrizar(); }
 else {
   await espera(2000);
+  await fuentesListas(['osm'], 3000);   // el agua ya cargada antes de acercarse
   if (!aterrizado) {
     girando = false;
     document.body.classList.add('volando');
