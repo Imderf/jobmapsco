@@ -279,7 +279,9 @@ const extras = [...new Set(Object.values(porIndustria).flatMap(Object.keys))].fi
 const barras = [...ciudades, ...extras];   // lo que se dibuja (el ranking usa ciudades)
 // con filtro, cada barra muestra las ofertas de esa industria; kv reescala la altura para que la mayor se vea como Bogotá
 let filtroInd = null, filtroDepto = null, kv = 1;   // filtroDepto: con un departamento elegido solo se ven sus ciudades
-const valor = c => filtroDepto && c.d !== filtroDepto ? 0 : filtroInd ? (porIndustria[filtroInd]?.[c.c] || 0) : c.obj;
+// foco: ciudad elegida > departamento > todo. Lo que queda fuera del foco baja a 0 y se oculta
+const visible = c => seleccion ? c === seleccion : !filtroDepto || c.d === filtroDepto;
+const valor = c => !visible(c) ? 0 : filtroInd ? (porIndustria[filtroInd]?.[c.c] || 0) : c.obj;
 const rankDeptos = () => Object.entries(datos.deptos).map(([c, n]) => ({ c, n: deptos[c], obj: n })).sort((a, b) => b.obj - a.obj);
 
 const ALTURA = 2200;                                   // metros por raíz de oferta: Bogotá ≈ 380 km a zoom país
@@ -355,7 +357,7 @@ function tono(c, ahora) {
   return t ? mezcla(AZUL, c.delta > 0 ? SUBE : BAJA, t) : AZUL;
 }
 // con filtro, la etiqueta lleva el nombre: las cifras chicas solas no dicen de qué ciudad son
-const etiqueta = (c, ahora) => (filtroInd || filtroDepto ? `${c.n.toUpperCase()} · ` : '') + fmt.format(Math.round(c.vis)) + (c.flash > ahora ? ` ${c.delta > 0 ? '▲' : '▼'}${fmt.format(Math.abs(c.delta))}` : '');
+const etiqueta = (c, ahora) => (filtroInd || filtroDepto || seleccion ? `${c.n.toUpperCase()} · ` : '') + fmt.format(Math.round(c.vis)) + (c.flash > ahora ? ` ${c.delta > 0 ? '▲' : '▼'}${fmt.format(Math.abs(c.delta))}` : '');
 
 const alto = c => altura(c.vis) * kv;
 function capas(ahora) {
@@ -451,10 +453,10 @@ function capas(ahora) {
     c.vis += Math.abs(v - c.vis) < .5 ? v - c.vis : (v - c.vis) * .06;
     c.fv += ((v > 0 ? 1 : 0) - c.fv) * .08;
   }
-  const kMeta = filtroInd || filtroDepto ? Math.sqrt(ciudades[0].obj / Math.max(1, ...barras.map(valor))) : 1;
+  const kMeta = filtroInd || filtroDepto || seleccion ? Math.sqrt(ciudades[0].obj / Math.max(1, ...barras.map(valor))) : 1;
   kv += (kMeta - kv) * .06;
   if (listo) {
-    $('#total-num').textContent = fmt.format(filtroDepto && !filtroInd ? datos.deptos[filtroDepto] || 0 : Math.round(barras.reduce((s, c) => s + c.vis, 0)));
+    $('#total-num').textContent = fmt.format(filtroDepto && !filtroInd && !seleccion ? datos.deptos[filtroDepto] || 0 : Math.round(barras.reduce((s, c) => s + c.vis, 0)));
     if (!sinMovimiento && !seleccion && !map.isMoving() && ahora - quieto > 5000) map.setBearing(map.getBearing() + .03);
   }
   overlay.setProps({ layers: capas(ahora) });
@@ -526,7 +528,7 @@ function pintarRanking(entra = false) {
   const items = (tab === 'municipios' ? ciudades : tab === 'deptos' ? rankDeptos()
     : filtroInd ? deIndustria() : Object.entries(industrias?.industrias || {}).map(([n, obj]) => ({ n, obj, ind: n })));
   $('#filtro-ind').replaceChildren();
-  textosTotal();
+  aplicarFoco();
   if (tab === 'industrias' && filtroInd) {
     const quitar = Object.assign(document.createElement('button'), { className: 'filtro', textContent: `${filtroInd}  ✕`, ariaLabel: 'Quitar filtro' });
     quitar.onclick = () => { filtroInd = null; pintarRanking(true); if (seleccion) seleccionar(seleccion, false); };
@@ -553,22 +555,25 @@ document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
 pintarRanking(true);
 
 function textosTotal() {
-  const conDato = barras.filter(c => valor(c) > 0).length;
-  $('#total .mono').textContent = [filtroInd ? `Ofertas de ${filtroInd}` : 'Ofertas publicadas', filtroDepto && `en ${deptos[filtroDepto]}`].filter(Boolean).join(' ');
-  $('#total-txt').textContent = filtroInd ? `en ${conDato} ciudades · muestra de ofertas recolectadas`
+  const conDato = barras.filter(c => valor(c) > 0).length, donde = seleccion ? seleccion.n : filtroDepto && deptos[filtroDepto];
+  $('#total .mono').textContent = [filtroInd ? `Ofertas de ${filtroInd}` : 'Ofertas publicadas', donde && `en ${donde}`].filter(Boolean).join(' ');
+  $('#total-txt').textContent = seleccion ? `${deptos[seleccion.d]}, Colombia${filtroInd ? ' · muestra recolectada' : ''}`
+    : filtroInd ? `en ${conDato} ciudades · muestra de ofertas recolectadas`
     : filtroDepto ? `${conDato} ciudades con dato`
     : `en ${ciudades.length} ciudades de los ${fmt.format(municipios.length)} municipios`;
 }
-function fijarDepto(cod) {
-  filtroDepto = cod;
-  map.setPaintProperty('deptos-zona', 'fill-opacity', cod ? ['case', ['==', ['get', 'c'], cod], 0, .55] : 0);
+// oscurece los departamentos fuera del foco (ciudad elegida, departamento o industria) y ajusta el total
+function aplicarFoco() {
+  const luz = seleccion ? [seleccion.d] : filtroDepto ? [filtroDepto] : filtroInd ? [...new Set(barras.filter(c => valor(c) > 0).map(c => c.d))] : null;
+  map.setPaintProperty('deptos-zona', 'fill-opacity', luz ? ['case', ['in', ['get', 'c'], ['literal', luz]], 0, .55] : 0);
   textosTotal();
 }
+function fijarDepto(cod) { filtroDepto = cod; aplicarFoco(); }
 
 // ---- panel derecho: leyenda o ficha
 function leyenda() {
   seleccion = null; quieto = performance.now();
-  if (filtroDepto) fijarDepto(null);
+  fijarDepto(null);
   $('#der').classList.remove('abierta');
   $('#der').innerHTML = `<details ${innerWidth > 1100 ? 'open' : ''}><summary class="mono"><span class="punto"></span>03 / Cómo leer el mapa</summary>
     <h3>Columna</h3>
@@ -583,7 +588,8 @@ function leyenda() {
 
 function seleccionar(m, volar = true) {
   seleccion = m;
-  if (filtroDepto && m.d !== filtroDepto) fijarDepto(null);   // otra ciudad fuera del departamento: se quita el filtro
+  if (filtroDepto && m.d !== filtroDepto) filtroDepto = null;   // otra ciudad fuera del departamento: se quita el filtro
+  aplicarFoco();
   if (volar) map.flyTo({ ...VISTA, center: [m.lon, m.lat - .25], zoom: VISTA.zoom + 1.6, pitch: 62, bearing: -20, duration: 1800 });
   const der = $('#der');
   der.classList.add('abierta');
