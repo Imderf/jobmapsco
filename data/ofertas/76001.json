@@ -1,7 +1,117 @@
 {
- "actualizado": "2026-10-13T18:08:55+00:00",
+ "actualizado": "2026-10-13T21:01:53+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
+  {
+   "t": "operario de producción - con experiencia en soplado Pet",
+   "e": "PET Y MECANIZADOS DEL VALLE",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operario-de-produccion-con-experiencia-en-soplado-pet-en-cali-68E3B91B0FA5B49C61373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Auxiliar de Bodega / Cali - Contrato con todas las prestaciones de ley!",
+   "e": "Mision Empresarial S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-bodega-cali-contrato-con-todas-las-prestaciones-de-ley-en-cali-A6B00DCE5EEAD18561373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Aprendiz de Atencion al Cliente",
+   "e": "Siesa - Sistemas de Información Empresarial",
+   "p": "Indeed",
+   "u": "https://co.indeed.com/viewjob?jk=8026f19bea89cfae",
+   "f": null,
+   "h": "hace 6 horas",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Cali! Vendedora de Ropa Interior para Dama",
+   "e": "Comfenalco Valle Delagente",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-cali-vendedora-de-ropa-interior-para-dama-en-cali-54AAADC0297296A661373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Asistente de Diseño Grafico /Sector Moda - Cali/ Norte",
+   "e": "Eficacia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asistente-de-diseno-grafico-sector-moda-cali-norte-en-cali-29BF05DC110747B561373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Ingeniero elecrico",
+   "e": "Eofbp",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/ingeniero-elecrico-at-eofbp-4437495166",
+   "f": null,
+   "h": "hace 7 horas",
+   "s": "",
+   "i": "Construcción y mantenimiento",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Auxiliar de Activos Fijos e Inventarios - Grupo Coomeva",
+   "e": "Grupo Coomeva",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-activos-fijos-e-inventarios-grupo-coomeva-en-cali-004CD93D17A7CBBD61373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Asesor comercial Jr - Agente de carga",
+   "e": "Deployment Logistics",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/asesor-comercial-jr-agente-de-carga-at-deployment-logistics-4478370172",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Vendedor con experiencia en sector textil",
+   "e": "Manpower Group Colombia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-vendedor-con-experiencia-en-sector-textil-en-cali-52B1E735BA049B7F61373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Auxiliar de Tienda – Cali",
+   "e": "Marroquinería Mario Hernández",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/auxiliar-de-tienda-cali-1096016",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
   {
    "t": "Desarrollador de Software - Cali",
    "e": "Clínica Nuestra Señora de los Remedios",
@@ -12,40 +122,79 @@
    "s": "",
    "i": "Tecnología",
    "q": "Tecnología",
-   "r": "2026-10-13T18:08:55+00:00"
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
-   "t": "Auxiliar de Bodega / Cali - Contrato con todas las prestaciones de ley!",
-   "e": "Mision Empresarial S.A",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-bodega-cali-contrato-con-todas-las-prestaciones-de-ley-en-cali-A6B00DCE5EEAD18561373E686DCF3405",
+   "t": "Contrato Aprendizaje Práctica- Estudiantes de Administración, Mercadeo, Ventas",
+   "e": "Fundación Academia de Dibujo Profesional",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/contrato-aprendizaje-pr%C3%A1ctica-estudiantes-de-administraci%C3%B3n-mercadeo-ventas-at-fundaci%C3%B3n-academia-de-dibujo-profesional-4478732747",
    "f": null,
-   "h": "hace 18 horas",
-   "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T18:08:55+00:00"
-  },
-  {
-   "t": "Aprendiz de Atencion al Cliente",
-   "e": "Siesa - Sistemas de Información Empresarial",
-   "p": "Indeed",
-   "u": "https://co.indeed.com/viewjob?jk=8026f19bea89cfae",
-   "f": null,
-   "h": "hace 3 horas",
+   "h": "hace 19 horas",
    "s": "",
    "i": "Prácticas y aprendices",
-   "r": "2026-10-13T18:08:55+00:00"
+   "q": "Prácticas y aprendices",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
-   "t": "Auxiliar de Activos Fijos e Inventarios - Grupo Coomeva",
-   "e": "Grupo Coomeva",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-activos-fijos-e-inventarios-grupo-coomeva-en-cali-004CD93D17A7CBBD61373E686DCF3405",
+   "t": "Asesor especializado call center 633182",
+   "e": "Job&Talent Colombia",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/asesor-especializado-call-center-633182-1094467",
    "f": null,
-   "h": "hace 18 horas",
+   "h": "hace 6 días",
    "s": "",
-   "i": "Logística y transporte",
-   "r": "2026-10-13T18:08:55+00:00"
+   "i": "Servicio al cliente",
+   "q": "Servicio al cliente",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Empleo Mesera - Mesera (s). AYUDANTES COCINA | Clasificados El País Cali",
+   "e": "Inversiones Aussies",
+   "p": "Empleos - El País",
+   "u": "https://empleos.elpais.com.co/aviso/otras-areas-mesera-ag2094931",
+   "f": null,
+   "h": "hace 9 días",
+   "s": "",
+   "i": "Hotelería y alimentos",
+   "q": "Hotelería y alimentos",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Empleo Cocinera - Se Necesita Cocinera con | Clasificados El País Cali",
+   "e": "Celeneida",
+   "p": "Empleos - El País",
+   "u": "https://empleos.elpais.com.co/aviso/culinaria-cocinera-ag2094954",
+   "f": null,
+   "h": "hace 9 días",
+   "s": "",
+   "i": "Hotelería y alimentos",
+   "q": "Hotelería y alimentos",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Docente de Transición Bilingüe | Licenciada en Educación Preescolar | Inglés C1 | Planeación Pedagógica | Innovación Educativa | Coordinación de Grupo",
+   "e": "Liceo Benalcázar",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/docente-de-transici%C3%B3n-biling%C3%BCe-licenciada-en-educaci%C3%B3n-preescolar-ingl%C3%A9s-c1-planeaci%C3%B3n-pedag%C3%B3gica-innovaci%C3%B3n-educativa-coordinaci%C3%B3n-de-grupo-at-liceo-benalc%C3%A1zar-4479056226",
+   "f": null,
+   "h": "hace 5 horas",
+   "s": "",
+   "i": "Servicio al cliente",
+   "q": "Educación",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Docentes Hora Cátedra",
+   "e": "Unidad Central del Valle del Cauca (UCEVA)",
+   "p": "BeBee",
+   "u": "https://bebee.com/co/jobs/docentes-hora-catedra-unidad-central-del-valle-del-cauca-uceva-cali--techmap_co_4477497681",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Educación",
+   "q": "Educación",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
    "t": "Customer Support Representative",
@@ -89,28 +238,6 @@
    "h": "hace 19 horas",
    "s": "",
    "i": "Otros",
-   "r": "2026-10-13T18:08:55+00:00"
-  },
-  {
-   "t": "Asesor comercial Jr - Agente de carga",
-   "e": "Deployment Logistics",
-   "p": "LinkedIn",
-   "u": "https://co.linkedin.com/jobs/view/asesor-comercial-jr-agente-de-carga-at-deployment-logistics-4478370172",
-   "f": null,
-   "h": "hace 2 días",
-   "s": "",
-   "i": "Servicio al cliente",
-   "r": "2026-10-13T18:08:55+00:00"
-  },
-  {
-   "t": "Auxiliar de Tienda – Cali",
-   "e": "Marroquinería Mario Hernández",
-   "p": "Magneto",
-   "u": "https://www.magneto365.com/co/empleos/auxiliar-de-tienda-cali-1096016",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Ventas y comercial",
    "r": "2026-10-13T18:08:55+00:00"
   },
   {

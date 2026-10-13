@@ -1,46 +1,39 @@
 {
- "actualizado": "2026-10-13T18:01:35+00:00",
+ "actualizado": "2026-10-13T21:01:53+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
-   "t": "Domiciliario para Medellín Centro oriental / Pagos por entregas efectivas",
-   "e": "Hilarte Organic S.A.S",
+   "t": "Parrillero con experiencia para Colanta Medellín",
+   "e": "Empleamos Temporales SAS",
    "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-domiciliario-para-medellin-centro-oriental-pagos-por-entregas-efectivas-en-medellin-CDAE035B97F5109D61373E686DCF3405",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-parrillero-con-experiencia-para-colanta-medellin-en-medellin-54D7FC5B6B126BA361373E686DCF3405",
    "f": null,
-   "h": "hace 18 horas",
+   "h": "hace 21 horas",
    "s": "",
-   "i": "Logística y transporte"
+   "i": "Otros",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
-   "t": "Aprendiz Logistico en Etapa Lectiva",
-   "e": "envía",
+   "t": "Aprendiz Talento Humano  Medellin",
+   "e": "Saitemp S.A",
    "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendiz-logistico-en-etapa-lectiva-en-medellin-A4A757783E3DB45061373E686DCF3405",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendiz-talento-humano-medellin-en-medellin-1782A0C8CD437F9D61373E686DCF3405",
    "f": null,
-   "h": "hace 18 horas",
+   "h": "hace 21 horas",
    "s": "",
-   "i": "Prácticas y aprendices"
+   "i": "Prácticas y aprendices",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
-   "t": "Bilingual Agent - Weekends OFF!!",
-   "e": "Profesor X",
-   "p": "Indeed",
-   "u": "https://co.indeed.com/viewjob?jk=4a518a118267d726",
+   "t": "Gestor de proyectos de TI",
+   "e": "Comfama Empleo",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/gestor-de-proyectos-de-ti-at-comfama-empleo-4479045680",
    "f": null,
-   "h": "hace 1 día",
+   "h": "hace 5 horas",
    "s": "",
-   "i": "Servicio al cliente"
-  },
-  {
-   "t": "Auxiliar Operativo (Turno Noche) - Medellín",
-   "e": "DOMINA ENTREGA TOTAL S.A.S",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-operativo-turno-noche-medellin-en-medellin-8167BD39396533E861373E686DCF3405",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Producción y operarios"
+   "i": "Otros",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
    "t": "Asesora Comercial Medio Tiempo – Sector Inmobiliario",
@@ -48,19 +41,10 @@
    "p": "Indeed",
    "u": "https://co.indeed.com/viewjob?jk=4a2fbc6ee0fe6c3f",
    "f": null,
-   "h": "hace 12 horas",
+   "h": "hace 15 horas",
    "s": "",
-   "i": "Ventas y comercial"
-  },
-  {
-   "t": "Office Coordinator",
-   "e": "Provana",
-   "p": "LinkedIn",
-   "u": "https://co.linkedin.com/jobs/view/office-coordinator-at-provana-4477867192",
-   "f": null,
-   "h": "hace 4 días",
-   "s": "",
-   "i": "Administración y finanzas"
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
    "t": "Asesora Comercial Punto de Venta con o sin experiencia Temporada Diciembre –  Medellin",
@@ -70,7 +54,19 @@
    "f": null,
    "h": "hace 5 días",
    "s": "",
-   "i": "Ventas y comercial"
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Asesor B2B (Medellín)",
+   "e": "Dismerca",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/asesor-b2b-medell%C3%ADn-at-dismerca-4476467082",
+   "f": null,
+   "h": "hace 6 horas",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
    "t": "Analista De Producto (prendas De Vestir)",
@@ -78,19 +74,10 @@
    "p": "Indeed",
    "u": "https://co.indeed.com/viewjob?jk=ad5ed54ca1f6c78a",
    "f": null,
-   "h": "hace 12 horas",
+   "h": "hace 15 horas",
    "s": "",
-   "i": "Otros"
-  },
-  {
-   "t": "Auxiliar de archivo y gestión documental / Medellín",
-   "e": "Gi Group SpA",
-   "p": "Gi Group",
-   "u": "https://co.gigroup.com/ofertas-de-trabajo-detalle/medellin-antioquia-auxiliar-de-archivo-y-gestion-documental-medellin/9435/",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Administración y finanzas"
+   "i": "Otros",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
    "t": "Mesero/a - Importante restaurante",
@@ -100,7 +87,265 @@
    "f": null,
    "h": "hace 4 días",
    "s": "",
-   "i": "Hotelería y alimentos"
+   "i": "Hotelería y alimentos",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Senior/Lead DevOps / Observability Engineer",
+   "e": "N-iX",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/senior-lead-devops-observability-engineer-at-n-ix-4478111443",
+   "f": null,
+   "h": "hace 7 horas",
+   "s": "",
+   "i": "Tecnología",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Auxiliar de archivo y gestión documental / Medellín",
+   "e": "Gi Group SpA",
+   "p": "Gi Group",
+   "u": "https://co.gigroup.com/ofertas-de-trabajo-detalle/medellin-antioquia-auxiliar-de-archivo-y-gestion-documental-medellin/9435/",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Técnico Auxiliar de Enfermería – Experiencia en Líneas de Salud",
+   "e": "Concentrix",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-tecnico-auxiliar-de%C2%A0enfermeria%C2%A0%C2%A0experiencia%C2%A0en%C2%A0lineas%C2%A0de-salud-en-medellin-3EE24ABA69461B4A61373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Salud",
+   "q": "Salud",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Analista de Marketing y Contenidos - Medellín",
+   "e": "Tiempos SAS",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-analista-de-marketing-y-contenidos-medellin-en-medellin-8826C2B30FCDB83861373E686DCF3405",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Marketing y comunicación",
+   "q": "Marketing y comunicación",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Desarrollador Full Stack .NET 8 + Angular 18 | Medellín (Híbrido)",
+   "e": "Delikos",
+   "p": "BeBee",
+   "u": "https://bebee.com/co/jobs/desarrollador-full-stack-net-8-angular-18-medellin-hibrido-delikos-medellin-antioquia--t7xk-874717550",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Tecnología",
+   "q": "Tecnología",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Aprendiz o Practicante de Sistemas",
+   "e": "Supermercados Euro S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendiz-o-practicante-de-sistemas-en-medellin-461D1DDEF0D410C261373E686DCF3405",
+   "f": null,
+   "h": "hace 9 días",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "q": "Prácticas y aprendices",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Supervisor/a De Aseo",
+   "e": "Cosmos Seguridad",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-supervisora-de-aseo-en-medellin-EB5B8BC08288DFED61373E686DCF3405",
+   "f": null,
+   "h": "hace 7 días",
+   "s": "",
+   "i": "Seguridad y aseo",
+   "q": "Seguridad y aseo",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Operario de Aseo industrial/ servicios generales/ Aseo",
+   "e": "Manpower Group Colombia",
+   "p": "Trabajo.org",
+   "u": "https://co.trabajo.org/oferta-4041-fcdb6d6956a39e48e9aaf779fee9e7ef",
+   "f": null,
+   "h": "hace 8 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "q": "Seguridad y aseo",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Operario de Producción - Planta de Producción de Alimentos",
+   "e": "Contrate S.A.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operario-de-produccion-planta-de-produccion-de-alimentos-en-medellin-CA293FDB96E118A161373E686DCF3405",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "q": "Producción y operarios",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Asesor Comercial de Punto de Venta / Sector gastronómico",
+   "e": "ManpowerGroup Colombia",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/gestor-comercia-sector-gastronomico-1096929",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Ventas y comercial",
+   "q": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Asesor Comercial Venta consultiva Salud",
+   "e": "CONFIDENTIAL",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/asesor-comercial-venta-consultiva-salud-1886779270",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Salud",
+   "q": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Asesores Call Center Solo Servicio Al Cliente  / 2 días libres / Ingresa contratado - ¡Únete a nuestro equipo!",
+   "e": "Concentrix",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesores-call-center-solo-servicio-al-cliente--2-dias-libres-ingresa-contratado-unete-a-nuestro-equipo-en-medellin-070B055EE2D5E4D161373E686DCF3405",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "q": "Servicio al cliente",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Servicio al Cliente  Call Center /  Gran bonificación mensual / Contrato indefinido / 2 días libres - Proceso de selección virtual, aplica ahora!",
+   "e": "Concentrix",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-servicio-al-cliente-call-center--gran-bonificacion-mensual-contrato-indefinido-2-dias-libres-proceso-de-seleccion-virtual-aplica-ahora-en-medellin-606D5A8A2A8295A361373E686DCF3405",
+   "f": null,
+   "h": "hace 3 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "q": "Servicio al cliente",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Asesor(a) de Servicio al Cliente Call Center / Medellín (Teletrabajo) - Descansa Domingos y Festivos",
+   "e": "emtelco",
+   "p": "BeBee",
+   "u": "https://bebee.com/co/jobs/asesora-de-servicio-al-cliente-call-center-medellin-teletrabajo-descansa-domingos-y-festivos-emtelco--ss-co-1ftniji",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Servicio al cliente",
+   "q": "Servicio al cliente",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Mesero/a   / Auxiliar de dieta / Medellin - Experiencia en restaurante/cafeterías/panaderías",
+   "e": "Jiro S.A.",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-meseroa--auxiliar-de-dieta-medellin-experiencia-en-restaurantecafeteriaspanaderias-en-medellin-FBB9AB326DFDCCDD61373E686DCF3405",
+   "f": null,
+   "h": "hace 23 días",
+   "s": "",
+   "i": "Hotelería y alimentos",
+   "q": "Hotelería y alimentos",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "ANALISTA DE RECURSOS HUMANOS  636233",
+   "e": "JOBANDTALENT CO SAS",
+   "p": "El Empleo",
+   "u": "https://www.elempleo.com/co/ofertas-trabajo/analista-de-recursos-humanos-636233-1886778887",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "q": "Recursos humanos",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Analista de recursos humanos",
+   "e": "Atcg de Colombia",
+   "p": "BeBee",
+   "u": "https://bebee.com/co/jobs/analista-de-recursos-humanos-atcg-de-colombia-el-poblado--trabajos-3097998",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Recursos humanos",
+   "q": "Recursos humanos",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Domiciliario para Medellín Centro oriental / Pagos por entregas efectivas",
+   "e": "Hilarte Organic S.A.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-domiciliario-para-medellin-centro-oriental-pagos-por-entregas-efectivas-en-medellin-CDAE035B97F5109D61373E686DCF3405",
+   "f": null,
+   "h": "hace 18 horas",
+   "s": "",
+   "i": "Logística y transporte",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Aprendiz Logistico en Etapa Lectiva",
+   "e": "envía",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-aprendiz-logistico-en-etapa-lectiva-en-medellin-A4A757783E3DB45061373E686DCF3405",
+   "f": null,
+   "h": "hace 18 horas",
+   "s": "",
+   "i": "Prácticas y aprendices",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Bilingual Agent - Weekends OFF!!",
+   "e": "Profesor X",
+   "p": "Indeed",
+   "u": "https://co.indeed.com/viewjob?jk=4a518a118267d726",
+   "f": null,
+   "h": "hace 1 día",
+   "s": "",
+   "i": "Servicio al cliente",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Auxiliar Operativo (Turno Noche) - Medellín",
+   "e": "DOMINA ENTREGA TOTAL S.A.S",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-operativo-turno-noche-medellin-en-medellin-8167BD39396533E861373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Office Coordinator",
+   "e": "Provana",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/office-coordinator-at-provana-4477867192",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Administración y finanzas",
+   "r": "2026-10-13T21:01:53+00:00"
   }
  ]
 }

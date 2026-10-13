@@ -1,9 +1,10 @@
 """Recolector: trae ofertas recientes por ciudad desde JSearch (RapidAPI, agrega Google for Jobs) y las guarda en data/.
 
-Plan gratis de JSearch: 200 consultas al mes → 3 corridas al día de 2 consultas (≈186 al mes):
-- 1 búsqueda por industria en todo el país (por turnos: cada industria cada ~5 días); cada oferta se asigna a su
-  ciudad por el lugar que trae ("Bogotá • a través de Computrabajo").
-- 1 búsqueda general por ciudad (por turnos, las de más ofertas primero: cada ciudad cada ~15 días).
+Plan Pro de JSearch (10.000 consultas al mes; cada consulta extra se cobra): 3 corridas al día, y en cada una
+- 1 búsqueda por cada industria en todo el país (14); cada oferta se asigna a su ciudad por el lugar que trae
+  ("Bogotá • a través de Computrabajo").
+- 1 búsqueda general por cada ciudad de la línea base (45).
+59 consultas por corrida ≈ 5.500 al mes. Si en el mes quedan menos de RESERVA consultas, se detiene (sin cobros extra).
 Cada consulta trae hasta 10 ofertas con enlace directo al portal. Cada ciudad guarda sus 30 más recientes (máx. 30 días).
 
 Escribe:
@@ -18,6 +19,7 @@ Uso: python3 -I scripts/recolectar.py          (llave en RAPIDAPI_KEY o en .env)
 import json
 import os
 import sys
+import time
 import unicodedata
 import urllib.error
 import urllib.parse
@@ -27,8 +29,11 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 DATA = RAIZ / "data"
-POR_CORRIDA = 2        # plan gratis: 200 consultas/mes → 3 corridas al día de 2
-POR_INDUSTRIA = 1      # de esas, búsquedas por industria en todo el país; el resto, por ciudad
+CIUDADES_POR_CORRIDA = 45     # todas (con el plan gratis eran 1 o 2 por turnos)
+INDUSTRIAS_POR_CORRIDA = 14   # todas
+RESERVA = 300                 # consultas del mes que nunca se gastan: protege de cobros por exceso
+PAUSA = 0.3                   # segundos entre consultas (límite del plan: 5 por segundo)
+AVISOS = (2000, 1000, 500, RESERVA)   # consultas restantes del mes que disparan un correo (una vez cada una por mes)
 MAX_POR_CIUDAD = 30
 VIGENCIA_DIAS = 30
 API = "https://jsearch.p.rapidapi.com/search-v2"
@@ -73,7 +78,7 @@ def industria(cargo):
     return next((nombre for nombre, claves in INDUSTRIAS if any(k in t for k in claves)), "Otros")
 
 
-def turno(codigos, siguiente, n=POR_CORRIDA):
+def turno(codigos, siguiente, n):
     """Las n ciudades que tocan hoy y el índice de la próxima corrida (da la vuelta al final)."""
     if not codigos:
         return [], 0
@@ -131,22 +136,54 @@ def guardar(cod, nuevas, ahora):
     return len(nuevas)
 
 
-def llave():
-    if os.environ.get("RAPIDAPI_KEY"):
-        return os.environ["RAPIDAPI_KEY"].strip()
+def config(nombre):
+    """Variable de entorno (GitHub Actions) o línea del .env local."""
+    if os.environ.get(nombre):
+        return os.environ[nombre].strip()
     env = RAIZ / ".env"
     for linea in env.read_text().splitlines() if env.exists() else []:
         k, _, v = linea.partition("=")
-        if k.strip() == "RAPIDAPI_KEY":
+        if k.strip() == nombre:
             return v.strip()
-    sys.exit("Falta RAPIDAPI_KEY (variable de entorno o .env)")
+    return None
+
+
+def llave():
+    return config("RAPIDAPI_KEY") or sys.exit("Falta RAPIDAPI_KEY (variable de entorno o .env)")
+
+
+def avisar(asunto, texto):
+    """Correo por Resend a AVISO_CORREO. Sin RESEND_API_KEY o sin destino, solo queda en el registro de la corrida."""
+    print(f"AVISO: {asunto}")
+    clave, para = config("RESEND_API_KEY"), config("AVISO_CORREO")
+    if not (clave and para):
+        return False
+    cuerpo = json.dumps({"from": config("AVISO_REMITENTE") or "Mapa del Empleo <onboarding@resend.dev>",
+                         "to": [para], "subject": asunto, "text": texto}).encode()
+    req = urllib.request.Request("https://api.resend.com/emails", data=cuerpo,
+                                 headers={"Authorization": f"Bearer {clave}", "Content-Type": "application/json", "User-Agent": "mapa-empleo"})
+    try:
+        with urllib.request.urlopen(req, timeout=20):
+            return True
+    except (urllib.error.URLError, TimeoutError) as e:
+        print(f"  no se pudo enviar el correo: {e}")
+        return False
+
+
+def avisos_pendientes(restantes, previo):
+    """Umbrales de AVISOS cruzados que no se han avisado este mes. Si el cupo subió, empezó un mes nuevo."""
+    if restantes is None:
+        return [], previo
+    enviados = [] if restantes > previo.get("restantes", 10 ** 9) else previo.get("enviados", [])
+    nuevos = [u for u in AVISOS if restantes < u and u not in enviados]
+    return nuevos, {"restantes": restantes, "enviados": enviados + nuevos}
 
 
 def consultar(clave, texto):
     q = urllib.parse.urlencode({"query": texto, "country": "co", "num_pages": 1, "date_posted": "month"})
     req = urllib.request.Request(f"{API}?{q}", headers={"x-rapidapi-key": clave, "x-rapidapi-host": "jsearch.p.rapidapi.com"})
     with urllib.request.urlopen(req, timeout=40) as r:
-        return json.load(r), r.headers.get("x-ratelimit-requests-remaining")
+        return json.load(r), r.headers.get("x-ratelimit-requests-remaining"), r.headers.get("x-ratelimit-requests-reset")
 
 
 def resumir_industrias():
@@ -179,18 +216,22 @@ def main():
     codigos = sorted(base["ciudades"], key=lambda c: -base["ciudades"][c])
     estado_f = DATA / "recoleccion.json"
     estado = json.loads(estado_f.read_text()) if estado_f.exists() else {"siguiente": 0, "registro": []}
-    ciudades_hoy, sig_c = turno(codigos, estado.get("siguiente", 0), POR_CORRIDA - POR_INDUSTRIA)
-    industrias_hoy, sig_i = turno(list(BUSQUEDAS), estado.get("siguiente_industria", 0), POR_INDUSTRIA)
+    ciudades_hoy, sig_c = turno(codigos, estado.get("siguiente", 0), CIUDADES_POR_CORRIDA)
+    industrias_hoy, sig_i = turno(list(BUSQUEDAS), estado.get("siguiente_industria", 0), INDUSTRIAS_POR_CORRIDA)
     idx = indice_ciudades(muni["municipios"], base["ciudades"])
 
     (DATA / "ofertas").mkdir(exist_ok=True)
     ahora = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    hechas, errores, restantes, total = [], [], None, 0
+    hechas, errores, restantes, renueva, total = [], [], None, None, 0
     for tipo, x in [("industria", i) for i in industrias_hoy] + [("ciudad", c) for c in ciudades_hoy]:
         nombre = x if tipo == "industria" else por_cod[x]["n"]
         texto = f"{BUSQUEDAS[x]} en Colombia" if tipo == "industria" else f"empleos en {nombre}, {muni['deptos'][por_cod[x]['d']]}"
+        if restantes is not None and int(restantes) < RESERVA:
+            errores.append(f"se detuvo: quedan {restantes} consultas del mes (reserva {RESERVA})")
+            break
+        time.sleep(PAUSA)
         try:
-            cuerpo, restantes = consultar(clave, texto)
+            cuerpo, restantes, renueva = consultar(clave, texto)
         except urllib.error.HTTPError as e:
             errores.append(f"{nombre}: HTTP {e.code}")
             if e.code in (401, 403, 429):   # llave inválida o cupo agotado: no seguir gastando
@@ -215,6 +256,20 @@ def main():
     (DATA / "industrias.json").write_text(json.dumps(resumir_industrias(), ensure_ascii=False, indent=1))
     if not errores:   # con errores se repite el mismo turno mañana
         estado["siguiente"], estado["siguiente_industria"] = sig_c, sig_i
+    # correo si el cupo del mes baja de un umbral (una vez por umbral) o si la llave falla
+    n = int(restantes) if restantes is not None else None
+    nuevos, estado["avisos"] = avisos_pendientes(n, estado.get("avisos", {}))
+    if nuevos:
+        dias = n // (CIUDADES_POR_CORRIDA + INDUSTRIAS_POR_CORRIDA) // 3
+        cuando = datetime.fromtimestamp(datetime.now(timezone.utc).timestamp() + int(renueva or 0), timezone.utc).strftime("%Y-%m-%d") if renueva else "sin dato"
+        avisar(f"Mapa del Empleo: quedan {n} consultas de JSearch este mes",
+               f"Al ritmo actual (3 corridas al día) alcanzan para unos {dias} días. El cupo se renueva el {cuando}.\n"
+               + (f"Con menos de {RESERVA} el recolector se detiene solo hasta que se renueve, para no generar cobros extra.\n" if n < RESERVA else "")
+               + "Plan actual: Pro, 10.000 consultas al mes.")
+    llave_mala = [e for e in errores if "HTTP 401" in e or "HTTP 403" in e]
+    if llave_mala and not estado["avisos"].get("llave_mala"):
+        avisar("Mapa del Empleo: JSearch rechazó la llave", "La corrida se detuvo:\n" + "\n".join(llave_mala))
+    estado["avisos"]["llave_mala"] = bool(llave_mala)
     estado["registro"] = ([{"fecha": ahora, "busquedas": hechas, "ofertas": total, "errores": errores, "consultas_restantes": restantes}]
                           + estado["registro"])[:60]
     estado_f.write_text(json.dumps(estado, ensure_ascii=False, indent=1))
@@ -243,6 +298,11 @@ def prueba():
     assert ciudad_de({"job_location": "Cartagena de Indias, Bolívar"}, idx) == "13001"
     assert ciudad_de({"job_location": "Rionegro, Antioquia"}, idx) == "05615"
     assert ciudad_de({"job_location": "Colombia"}, idx) is None
+    assert avisos_pendientes(2500, {}) == ([], {"restantes": 2500, "enviados": []})
+    assert avisos_pendientes(1800, {"restantes": 2500, "enviados": []})[0] == [2000]
+    assert avisos_pendientes(1700, {"restantes": 1800, "enviados": [2000]})[0] == []
+    assert avisos_pendientes(400, {"restantes": 1700, "enviados": [2000]})[0] == [1000, 500]
+    assert avisos_pendientes(9900, {"restantes": 250, "enviados": [2000, 1000, 500, RESERVA]}) == ([], {"restantes": 9900, "enviados": []})
     print("prueba ok")
 
 

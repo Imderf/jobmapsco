@@ -1,29 +1,28 @@
 {
- "actualizado": "2026-10-13T18:08:55+00:00",
+ "actualizado": "2026-10-13T21:01:53+00:00",
  "fuente": "JSearch (Google for Jobs)",
  "ofertas": [
   {
-   "t": "Aux de enfermería",
-   "e": "Importante empresa del sector salud",
-   "p": "DameTrabajo",
-   "u": "https://dametrabajo.com/aviso/aux-de-enfermeria-importante-empresa-del-sector-salud-adbe11cae1677743",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Salud",
-   "q": "Salud",
-   "r": "2026-10-13T18:08:55+00:00"
-  },
-  {
-   "t": "Asesora comercial temporada / Barranquilla - con o sin experiencia",
-   "e": "Diane & Geordi",
+   "t": "Operador de tienda Programa de Inclusión - Barranquilla",
+   "e": "Jerónimo Martins Colombia SAS",
    "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesora-comercial-temporada-barranquilla-con-o-sin-experiencia-en-barranquilla-8DA32CD172A4142761373E686DCF3405",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-operador-de-tienda-programa-de-inclusion-barranquilla-en-barranquilla-9EC26F03683E026261373E686DCF3405",
    "f": null,
-   "h": "hace 18 horas",
+   "h": "hace 21 horas",
    "s": "",
    "i": "Ventas y comercial",
-   "r": "2026-10-13T18:08:55+00:00"
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "AUXILIAR DE FACTURACION",
+   "e": "Keralty",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/auxiliar-de-facturacion-at-keralty-4479067048",
+   "f": null,
+   "h": "hace 4 horas",
+   "s": "",
+   "i": "Administración y finanzas",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
    "t": "Agente Servicio al Cliente Semibilingue - Nivel requerido B1+",
@@ -31,10 +30,32 @@
    "p": "Computrabajo",
    "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-agente-servicio-al-cliente-semibilingue-nivel-requerido-b1-en-barranquilla-E1CA8D6F52B10AA261373E686DCF3405",
    "f": null,
-   "h": "hace 18 horas",
+   "h": "hace 21 horas",
    "s": "",
    "i": "Servicio al cliente",
-   "r": "2026-10-13T18:08:55+00:00"
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Auxiliar de Maquina industrial - Exp mínima de 6 meses en empresas industriales",
+   "e": "SU SERVICIO TEMPORAL S.A",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-maquina-industrial-exp-minima-de-6-meses-en-empresas-industriales-en-barranquilla-2AB9C07F2F5DAEE061373E686DCF3405",
+   "f": null,
+   "h": "hace 2 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Representante de Ventas Externas",
+   "e": "Brenntag",
+   "p": "LinkedIn",
+   "u": "https://co.linkedin.com/jobs/view/representante-de-ventas-externas-at-brenntag-4479034483",
+   "f": null,
+   "h": "hace 7 horas",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
   },
   {
    "t": "Senior Payroll Analyst",
@@ -45,6 +66,85 @@
    "h": "hace 1 día",
    "s": "",
    "i": "Administración y finanzas",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Operario de Máquina Rotativa Industria Gráfica",
+   "e": "Bayport",
+   "p": "Indeed",
+   "u": "https://co.indeed.com/viewjob?jk=22005cc9d1c44d80",
+   "f": null,
+   "h": "hace 4 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Operario Básico Barranquilla",
+   "e": "Job&Talent Colombia",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/operario-basico-barranquilla-1094166",
+   "f": null,
+   "h": "hace 6 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Ejecutivo de Cuenta Senior en Seguros Barranquilla - Barranquilla",
+   "e": "Manpower Group Colombia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ejecutivo-de-cuenta-senior-en-seguros-barranquilla-barranquilla-en-barranquilla-B87C1BC76B7FC37C61373E686DCF3405",
+   "f": null,
+   "h": "hace 21 horas",
+   "s": "",
+   "i": "Otros",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Ayudante de Almacén",
+   "e": "Gi Group Colombia",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ayudante-de-almacen-en-barranquilla-74FB322C194A9DB461373E686DCF3405",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Ventas y comercial",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Aux de enfermería",
+   "e": "Importante empresa del sector salud",
+   "p": "DameTrabajo",
+   "u": "https://dametrabajo.com/aviso/aux-de-enfermeria-importante-empresa-del-sector-salud-adbe11cae1677743",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Salud",
+   "q": "Salud",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "OPERARIO EMPRESA DE PRODUCCION 632886",
+   "e": "Job&Talent Colombia",
+   "p": "Magneto",
+   "u": "https://www.magneto365.com/co/empleos/operario-empresa-de-produccion-632886-1096285",
+   "f": null,
+   "h": "hace 5 días",
+   "s": "",
+   "i": "Producción y operarios",
+   "q": "Producción y operarios",
+   "r": "2026-10-13T21:01:53+00:00"
+  },
+  {
+   "t": "Asesora comercial temporada / Barranquilla - con o sin experiencia",
+   "e": "Diane & Geordi",
+   "p": "Computrabajo",
+   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-asesora-comercial-temporada-barranquilla-con-o-sin-experiencia-en-barranquilla-8DA32CD172A4142761373E686DCF3405",
+   "f": null,
+   "h": "hace 18 horas",
+   "s": "",
+   "i": "Ventas y comercial",
    "r": "2026-10-13T18:08:55+00:00"
   },
   {
@@ -59,17 +159,6 @@
    "r": "2026-10-13T18:08:55+00:00"
   },
   {
-   "t": "Auxiliar de Maquina industrial - Exp mínima de 6 meses en empresas industriales",
-   "e": "SU SERVICIO TEMPORAL S.A",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-auxiliar-de-maquina-industrial-exp-minima-de-6-meses-en-empresas-industriales-en-barranquilla-2AB9C07F2F5DAEE061373E686DCF3405",
-   "f": null,
-   "h": "hace 2 días",
-   "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T18:08:55+00:00"
-  },
-  {
    "t": "Invoicing Specialist",
    "e": "Pharmbills",
    "p": "LinkedIn",
@@ -78,28 +167,6 @@
    "h": "hace 1 día",
    "s": "",
    "i": "Administración y finanzas",
-   "r": "2026-10-13T18:08:55+00:00"
-  },
-  {
-   "t": "Operario de Máquina Rotativa Industria Gráfica",
-   "e": "Bayport",
-   "p": "Indeed",
-   "u": "https://co.indeed.com/viewjob?jk=22005cc9d1c44d80",
-   "f": null,
-   "h": "hace 4 días",
-   "s": "",
-   "i": "Producción y operarios",
-   "r": "2026-10-13T18:08:55+00:00"
-  },
-  {
-   "t": "Ayudante de Almacén",
-   "e": "Gi Group Colombia",
-   "p": "Computrabajo",
-   "u": "https://co.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ayudante-de-almacen-en-barranquilla-74FB322C194A9DB461373E686DCF3405",
-   "f": null,
-   "h": "hace 5 días",
-   "s": "",
-   "i": "Ventas y comercial",
    "r": "2026-10-13T18:08:55+00:00"
   },
   {

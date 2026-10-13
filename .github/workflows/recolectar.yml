@@ -1,4 +1,4 @@
-# Tres corridas al día de 2 consultas (plan gratis de JSearch: 200 consultas/mes ≈ 186 usadas) y sube las ofertas al repo.
+# Tres corridas al día con todas las ciudades e industrias (plan Pro de JSearch: 59 consultas por corrida ≈ 5.500/mes) y sube las ofertas al repo.
 # La llave va como secreto del repo: Settings → Secrets and variables → Actions → RAPIDAPI_KEY.
 name: Recolectar ofertas
 on:
@@ -17,6 +17,8 @@ jobs:
       - run: python3 -I scripts/recolectar.py
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}   # aviso por correo si se acaba el cupo
+          AVISO_CORREO: ${{ secrets.AVISO_CORREO }}
       - name: Guardar ofertas
         if: always()
         run: |
