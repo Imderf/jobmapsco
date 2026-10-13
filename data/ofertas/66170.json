@@ -54,7 +54,7 @@
    "f": null,
    "h": "hace 6 días",
    "s": "",
-   "i": "Producción y operarios",
+   "i": "Seguridad y aseo",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -87,7 +87,7 @@
    "f": null,
    "h": "hace 7 días",
    "s": "",
-   "i": "Otros",
+   "i": "Logística y transporte",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -98,7 +98,7 @@
    "f": null,
    "h": "hace 25 días",
    "s": "",
-   "i": "Producción y operarios",
+   "i": "Seguridad y aseo",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -109,7 +109,7 @@
    "f": null,
    "h": "hace 3 días",
    "s": "",
-   "i": "Otros",
+   "i": "Construcción y mantenimiento",
    "r": "2026-10-13T21:01:53+00:00"
   },
   {
@@ -120,7 +120,7 @@
    "f": null,
    "h": "hace 21 horas",
    "s": "",
-   "i": "Construcción y mantenimiento",
+   "i": "Administración y finanzas",
    "q": "Construcción y mantenimiento",
    "r": "2026-10-13T21:01:53+00:00"
   }
