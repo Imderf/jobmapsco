@@ -1,11 +1,11 @@
 """Recolector: trae ofertas recientes por ciudad desde JSearch (RapidAPI, agrega Google for Jobs) y las guarda en data/.
 
-Plan Pro de JSearch (10.000 consultas al mes; cada consulta extra se cobra): 3 corridas al día, y en cada una
-- 1 búsqueda por cada industria en todo el país (15); cada oferta se asigna a su ciudad por el lugar que trae
+Plan Pro de JSearch (10.000 consultas al mes; cada consulta extra se cobra): 2 corridas al día, y en cada una
+- 1 búsqueda por cada sector en todo el país (18, incluidos los de agencia); cada oferta va a su ciudad por el lugar que trae
   ("Bogotá • a través de Computrabajo").
 - 1 búsqueda general por cada ciudad de la línea base (45); las grandes piden más páginas (cada página = 1 consulta,
   10 ofertas): Bogotá 5, Medellín y Cali 3, Barranquilla y Bucaramanga 2.
-70 consultas por corrida ≈ 6.500 al mes. Cada ciudad guarda hasta 200 ofertas de los últimos 30 días. Si en el mes quedan menos de RESERVA consultas, se detiene (sin cobros extra).
+73 consultas por corrida ≈ 4.500 al mes. Cada ciudad guarda hasta 200 ofertas de los últimos 30 días. Si en el mes quedan menos de RESERVA consultas, se detiene (sin cobros extra).
 Cada consulta trae hasta 10 ofertas con enlace directo al portal. Cada ciudad guarda sus 30 más recientes (máx. 30 días).
 
 Escribe:
@@ -32,7 +32,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 DATA = RAIZ / "data"
 CIUDADES_POR_CORRIDA = 45     # todas (con el plan gratis eran 1 o 2 por turnos)
 PAGINAS = ((20000, 5), (5000, 3), (1500, 2))   # (ofertas en la línea base desde, páginas): más ofertas para las ciudades grandes
-INDUSTRIAS_POR_CORRIDA = 15   # todas (las de BUSQUEDAS)
+CORRIDAS_AL_DIA = 2           # 6 a. m. y 6 p. m. (el horario está en .github/workflows/recolectar.yml)
 RESERVA = 300                 # consultas del mes que nunca se gastan: protege de cobros por exceso
 PAUSA = 0.3                   # segundos entre consultas (límite del plan: 5 por segundo)
 AVISOS = (2000, 1000, 500, RESERVA)   # consultas restantes del mes que disparan un correo (una vez cada una por mes)
@@ -41,35 +41,56 @@ VIGENCIA_DIAS = 30
 API = "https://jsearch.p.rapidapi.com/search-v2"
 
 # Primera regla que coincide con el cargo gana; el orden importa ("auxiliar de enfermería" antes que "auxiliar").
+# Primera regla que coincide con el cargo gana; el orden importa. Un sector puede tener varias reglas en distinto
+# orden (talento humano va antes que operaciones por " sst"; el resto de administración, después).
 INDUSTRIAS = [
-    ("Prácticas y aprendices", ["practicante", "aprendiz", "pasante", "etapa productiva", "primer empleo", "bachilleres"]),
-    ("Salud", ["enfermer", "medic", "odontolog", "farmac", "droguer", "regente", "fisioterap", "bacteriolog", "salud", "clinic", "terapeuta", "psicolog", "hospitaliz"]),
-    ("Tecnología", ["desarrollador", "developer", "software", "devops", "programador", "sistemas", "datos", "data ", "qa ", "tester", "frontend", "backend", "full stack", "soporte tecnico", "cloud", "ciberseguridad", " it ", " ti "]),
-    ("Servicio al cliente", ["call center", "contact center", "servicio al cliente", "atencion al cliente", "atencion a clientes", "experiencia al cliente", "auxiliar de servicio", "agente", "agent ", "teleoperador", "bilingue", "bilingual", "customer"]),
-    ("Marketing y comunicación", ["marketing", "mercadeo", "contenido", "comunicacion", "publicidad", "disenador", "diseno grafico", "community", "brand", "encuest", "investigacion de mercado"]),
-    ("Ventas y comercial", ["ventas", "vendedor", "comercial", "asesor", "telemercad", "mercaderista", "impulsador", "promotor", "autoventa", "preventa", "cajer", "sales", "tienda", "almacen ", "punto de venta", "market", "categorias", "jefe de zona", "ejecutivo de cuenta", "seguros", "surtido", "volantea", "consultor de servicios"]),
-    ("Logística y transporte", ["conductor", "bodeg", "logistic", "almacenista", "almacenamiento", "despachador", "montacarg", "motacarg", "mensajer", "domiciliari", "inventario", "transport", "distribucion", "reparto", "picking", "entrega", "recoleccion", " ruta", "trafico", "proveeduria", " carga", "asistencia en tierra"]),
-    ("Seguridad y aseo", ["guarda", "vigilante", "seguridad", "aseo", "servicios generales", "limpieza", "escolta", "cctv", "monitoreo", "medios tecnologicos", "control perdidas", "lavanderia", "domestic", "roceria", "guadan"]),
-    ("Producción y operarios", ["operari", "operador", "operativo", "oficios varios", "obrero", "ayudante", "produccion", "planta", "ensambl", "manufactura", "empacador", "maquina", "tornero", "polifuncional", "taller", "quimico"]),
-    ("Recursos humanos", ["talento humano", "recursos humanos", "gestion humana", "seleccion", "reclutador", "contratacion", "entrenamiento", "trainer", "human resources", "hr "]),
-    ("Calidad, SST y ambiente", [" sst", "hseq", "ambiental", "calidad", "inspector", "cumplimiento"]),
-    ("Administración y finanzas", ["contador", "contable", "contabilidad", "administrativ", "administrador", "financier", "cartera", "cobranza", "cobro", "tesorer", "facturacion", "credito", "nomina", "auditor", "riesgo", "informes", "analista juridico", "abogad", "recepcionista", "secretari", "archivo", "documental", "office", "payroll", "invoic", "gerente", "coordinador", "gestor"]),
-    ("Construcción y mantenimiento", ["obra", "construccion", "civil", "electricista", "mantenimiento", "tecnico", "soldador", "mecanic", "ingenier", "residente", "montajes", "automation"]),
+    ("Salud", ["enfermer", "medic", "odontolog", "farmac", "droguer", "regente", "fisioterap", "bacteriolog", "salud", "clinic", "terapeuta", "psicolog", "hospitaliz", "microbiolog"]),
+    ("Desarrollo y Tecnología", ["desarrollador", "developer", "software", "devops", "programador", "sistemas", "datos", "data ", "qa ", "tester", "frontend", "backend", "full stack", "soporte tecnico", "cloud", "ciberseguridad", " it ", " ti ", "product owner", "scrum"]),
+    ("Trade Marketing", ["trade marketing", "trade mkt", "shopper"]),
+    ("Medios", ["planeador de medios", "compra de medios", "central de medios", "agencia de medios", "media planner", "media buyer", "medios de comunicacion"]),
+    ("Planeación", ["planner", "planeacion estrategica", "planeador estrategico", "estratega", "strategist"]),
+    ("Cuentas", ["account", "director de cuentas", "directora de cuentas", "cuentas publicitarias"]),
+    ("Audiovisual", ["audiovisual", "editor de video", "video", "camarograf", "fotograf", "postproduc", "animador", "motion"]),
+    ("Diseño y Arte", ["disenador", "diseno grafico", "director de arte", "directora de arte", " arte", "ilustrador", " ux", " ui "]),
+    ("Creatividad", ["creativ", "copywriter", "redactor", " copy "]),
+    ("Publicidad", ["publicidad", "publicitari", "agencia de publicidad", "agencia creativa"]),
+    ("Eventos", ["evento", " btl", "activacion"]),
+    ("Digital", ["digital", "social media", "community", "redes sociales", " seo", " sem ", "pauta", "e-commerce", "ecommerce", "growth", "contenido", "website", " web "]),
+    ("Comunicación", ["comunicacion", "comunicador", "periodist", "relaciones publicas"]),
+    ("Marketing", ["marketing", "mercadeo", "brand", "encuest", "investigacion de mercado"]),
+    ("Ventas", ["ventas", "vendedor", "comercial", "asesor", "telemercad", "mercaderista", "impulsador", "promotor", "autoventa", "preventa", "cajer", "sales", "tienda", "almacen ", "punto de venta", "market", "categorias", "jefe de zona", "ejecutivo de cuenta", "seguros", "surtido", "volantea", "consultor de servicios",
+                "call center", "contact center", "servicio al cliente", "atencion al cliente", "atencion a clientes", "experiencia al cliente", "auxiliar de servicio", "agente", "agent ", "teleoperador", "bilingue", "bilingual", "customer", "vinculacion"]),
+    ("Administración y talento humano", ["talento humano", "recursos humanos", "gestion humana", "seleccion", "reclutador", "contratacion", "entrenamiento", "trainer", "human resources", "hr "]),
+    ("Operaciones y logística", ["conductor", "bodeg", "logistic", "almacenista", "almacenamiento", "despachador", "montacarg", "motacarg", "mensajer", "domiciliari", "inventario", "transport", "distribucion", "reparto", "picking", "entrega", "recoleccion", " ruta", "trafico", "proveeduria", " carga", "asistencia en tierra",
+                                 "guarda", "vigilante", "seguridad", "aseo", "servicios generales", "limpieza", "escolta", "cctv", "monitoreo", "medios tecnologicos", "control perdidas", "lavanderia", "domestic", "roceria", "guadan",
+                                 "operari", "operador", "operativo", "oficios varios", "obrero", "ayudante", "produccion", "planta", "ensambl", "manufactura", "empacador", "maquina", "tornero", "polifuncional", "taller", "quimico",
+                                 " sst", "hseq", "ambiental", "calidad", "inspector", "cumplimiento",
+                                 "obra", "construccion", "civil", "electricista", "mantenimiento", "tecnico", "soldador", "mecanic", "ingenier", "residente", "montajes", "automation", "cargue", "motorizado", "valet", "impresion", "automotriz", "operaciones", "aeroportuario", "arquitect", "tapicer"]),
+    ("Administración y talento humano", ["contador", "contable", "contabilidad", "administrativ", "administrador", "financier", "cartera", "cobranza", "cobro", "tesorer", "facturacion", "credito", "nomina", "auditor", "riesgo", "informes", "analista juridico", "abogad", "recepcionista", "secretari", "archivo", "documental", "office", "payroll", "invoic", "gerente", "coordinador", "gestor", "administracion"]),
     ("Hotelería y alimentos", ["cocin", "mesero", "chef", "panader", "barista", "hotel", "restaurante", "alimentos", "alimentacion", "steward", "cafeteria", "carnicer", "parrillero", "casino"]),
-    ("Educación", ["docente", "profesor", "maestr", "tutor", "instructor", "educacion", "primera infancia"]),
 ]
 
 
 # Búsqueda por industria (todo Colombia), en orden de turno
 BUSQUEDAS = {
-    "Tecnología": "desarrollador software", "Marketing y comunicación": "marketing publicidad", "Salud": "enfermería salud",
-    "Administración y finanzas": "contador administrativo", "Recursos humanos": "recursos humanos",
-    "Construcción y mantenimiento": "ingeniero construcción mantenimiento", "Educación": "docente", "Hotelería y alimentos": "cocinero mesero",
-    "Logística y transporte": "logística bodega conductor", "Servicio al cliente": "servicio al cliente call center",
-    "Ventas y comercial": "asesor comercial ventas", "Producción y operarios": "operario producción",
-    "Seguridad y aseo": "guarda de seguridad aseo", "Prácticas y aprendices": "practicante aprendiz",
-    "Calidad, SST y ambiente": "inspector calidad SST ambiental",
+    "Desarrollo y Tecnología": "desarrollador software", "Salud": "enfermería salud", "Ventas": "asesor comercial ventas servicio al cliente",
+    "Operaciones y logística": "operario logística bodega producción", "Administración y talento humano": "contador administrativo recursos humanos",
+    "Hotelería y alimentos": "cocinero mesero",
+    # sectores de agencia
+    "Audiovisual": "productor audiovisual editor de video", "Comunicación": "comunicador social comunicaciones",
+    "Creatividad": "creativo publicitario copywriter", "Cuentas": "ejecutivo de cuentas agencia de publicidad",
+    "Digital": "social media pauta digital", "Diseño y Arte": "diseñador gráfico director de arte",
+    "Eventos": "productor de eventos BTL", "Marketing": "marketing mercadeo", "Medios": "planeador de medios",
+    "Planeación": "planner estratégico", "Publicidad": "agencia de publicidad", "Trade Marketing": "trade marketing",
 }
+
+
+# sectores que se unificaron: las ofertas guardadas con la búsqueda vieja ("q") pasan al sector nuevo
+RENOMBRADAS = {"Marketing y comunicación": "Marketing", "Tecnología": "Desarrollo y Tecnología", "Ventas y comercial": "Ventas", "Servicio al cliente": "Ventas",
+               "Producción y operarios": "Operaciones y logística", "Logística y transporte": "Operaciones y logística", "Seguridad y aseo": "Operaciones y logística",
+               "Construcción y mantenimiento": "Operaciones y logística", "Calidad, SST y ambiente": "Operaciones y logística",
+               "Administración y finanzas": "Administración y talento humano", "Recursos humanos": "Administración y talento humano",
+               "Prácticas y aprendices": None, "Educación": None}
 
 
 def simple(s):
@@ -207,6 +228,8 @@ def resumir_industrias():
         ofertas = d["ofertas"]
         for o in ofertas:
             o["i"] = industria(o["t"])
+            if o.get("q") in RENOMBRADAS:
+                o["q"] = RENOMBRADAS[o["q"]]
             if o["i"] == "Otros" and o.get("q"):
                 o["i"] = o["q"]
             cod = por_ciudad.setdefault(o["i"], {})
@@ -216,7 +239,7 @@ def resumir_industrias():
         for o in ofertas:
             conteo[o["i"]] = conteo.get(o["i"], 0) + 1
             muestra += 1
-    todas = [n for n, _ in INDUSTRIAS] + ["Otros"]
+    todas = list(dict.fromkeys(n for n, _ in INDUSTRIAS)) + ["Otros"]
     orden = {n: conteo.get(n, 0) for n in sorted(todas, key=lambda n: (-conteo.get(n, 0), n == "Otros"))}
     return {"muestra": muestra, "ciudades": ciudades, "industrias": orden, "por_ciudad": por_ciudad}
 
@@ -230,7 +253,7 @@ def main():
     estado_f = DATA / "recoleccion.json"
     estado = json.loads(estado_f.read_text()) if estado_f.exists() else {"siguiente": 0, "registro": []}
     ciudades_hoy, sig_c = turno(codigos, estado.get("siguiente", 0), CIUDADES_POR_CORRIDA)
-    industrias_hoy, sig_i = turno(list(BUSQUEDAS), estado.get("siguiente_industria", 0), INDUSTRIAS_POR_CORRIDA)
+    industrias_hoy, sig_i = turno(list(BUSQUEDAS), estado.get("siguiente_industria", 0), len(BUSQUEDAS))
     idx = indice_ciudades(muni["municipios"], base["ciudades"])
 
     (DATA / "ofertas").mkdir(exist_ok=True)
@@ -273,10 +296,10 @@ def main():
     n = int(restantes) if restantes is not None else None
     nuevos, estado["avisos"] = avisos_pendientes(n, estado.get("avisos", {}))
     if nuevos:
-        dias = n // (sum(paginas(v) for v in base["ciudades"].values()) + INDUSTRIAS_POR_CORRIDA) // 3
+        dias = n // (sum(paginas(v) for v in base["ciudades"].values()) + len(BUSQUEDAS)) // CORRIDAS_AL_DIA
         cuando = datetime.fromtimestamp(datetime.now(timezone.utc).timestamp() + int(renueva or 0), timezone.utc).strftime("%Y-%m-%d") if renueva else "sin dato"
         avisar(f"Mapa del Empleo: quedan {n} consultas de JSearch este mes",
-               f"Al ritmo actual (3 corridas al día) alcanzan para unos {dias} días. El cupo se renueva el {cuando}.\n"
+               f"Al ritmo actual ({CORRIDAS_AL_DIA} corridas al día) alcanzan para unos {dias} días. El cupo se renueva el {cuando}.\n"
                + (f"Con menos de {RESERVA} el recolector se detiene solo hasta que se renueve, para no generar cobros extra.\n" if n < RESERVA else "")
                + "Plan actual: Pro, 10.000 consultas al mes.")
     llave_mala = [e for e in errores if "HTTP 401" in e or "HTTP 403" in e]
@@ -293,24 +316,21 @@ def main():
 
 
 def prueba():
-    assert industria("Auxiliar de enfermería") == "Salud"
-    assert industria("Conductor/a de Distribución y Reparto - Licencia C2") == "Logística y transporte"
-    assert industria("Asesor comercial de libranza") == "Ventas y comercial"
-    assert industria("Agente de servicio al cliente en español") == "Servicio al cliente"
-    assert industria("Practicante de ingeniería industrial") == "Prácticas y aprendices"
-    assert industria("Ingeniero DevOps Junior Azure DevOps") == "Tecnología"
-    assert industria("Guarda de Seguridad") == "Seguridad y aseo"
-    assert industria("Bilingual Agent - Weekends OFF!!") == "Servicio al cliente"
-    assert industria("Ayudante de Almacén") == "Ventas y comercial"
-    assert industria("Cali Sur") == "Otros"
-    assert industria("Bodeguero-307903") == "Logística y transporte"
-    assert industria("Inspector/a SST - La Guajira Rioacha") == "Calidad, SST y ambiente"
-    assert industria("Operador de Medios Tecnológicos") == "Seguridad y aseo"
-    assert industria("Analista de Contabilidad") == "Administración y finanzas"
-    assert industria("Analista de gestión humana y sst") == "Recursos humanos"
-    assert industria("Carniceros (as) con experiencia Acacias Meta") == "Hotelería y alimentos"
-    assert industria("Gestor de proyectos de TI") == "Tecnología"
-    assert industria("Encargado de tienda") == "Ventas y comercial"
+    for cargo, sector in [
+        ("Auxiliar de enfermería", "Salud"), ("Conductor/a de Distribución y Reparto - Licencia C2", "Operaciones y logística"),
+        ("Asesor comercial de libranza", "Ventas"), ("Agente de servicio al cliente en español", "Ventas"), ("Bilingual Agent - Weekends OFF!!", "Ventas"),
+        ("Practicante de diseño gráfico", "Diseño y Arte"), ("Ingeniero DevOps Junior Azure DevOps", "Desarrollo y Tecnología"),
+        ("Guarda de Seguridad", "Operaciones y logística"), ("Gerente general", "Administración y talento humano"), ("Cali Sur", "Otros"),
+        ("Ayudante de Almacén", "Ventas"), ("Bodeguero-307903", "Operaciones y logística"), ("Inspector/a SST - La Guajira Rioacha", "Operaciones y logística"),
+        ("Operador de Medios Tecnológicos", "Operaciones y logística"), ("Analista de Contabilidad", "Administración y talento humano"),
+        ("Analista de gestión humana y sst", "Administración y talento humano"), ("Carniceros (as) con experiencia Acacias Meta", "Hotelería y alimentos"),
+        ("Gestor de proyectos de TI", "Desarrollo y Tecnología"), ("Director de Arte", "Diseño y Arte"), ("Copywriter Senior", "Creatividad"),
+        ("Planner estratégico", "Planeación"), ("Analista de Trade Marketing", "Trade Marketing"), ("Community Manager", "Digital"),
+        ("Productor de eventos BTL", "Eventos"), ("Planeador de medios", "Medios"), ("Account Manager agencia", "Cuentas"),
+        ("Editor de video", "Audiovisual"), ("Comunicador social", "Comunicación"), ("Coordinador de mercadeo", "Marketing"),
+        ("Ejecutivo de Cuenta Pyme", "Ventas"), ("Docente de matemáticas", "Otros"), ("Supervisor de Operaciones - Prestación de servicios", "Operaciones y logística"),
+        ("PRODUCT OWNER - PRODUCTOS Y REQUERIMIENTOS", "Desarrollo y Tecnología"), ("Website Specialist", "Digital")]:
+        assert industria(cargo) == sector, (cargo, industria(cargo))
     assert turno(list("abcdefgh"), 5, 6) == (list("fghabc"), 3)
     assert [paginas(n) for n in (29530, 10643, 2390, 1049)] == [5, 3, 2, 1]
     assert turno(list("ab"), 1, 6) == (["b", "a"], 1)

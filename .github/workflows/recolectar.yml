@@ -1,9 +1,9 @@
-# Tres corridas al día con todas las ciudades e industrias (plan Pro de JSearch: 70 consultas por corrida ≈ 6.500/mes) y sube las ofertas al repo.
+# Dos corridas al día con todas las ciudades y sectores (plan Pro de JSearch: 73 consultas por corrida ≈ 4.500/mes) y sube las ofertas al repo.
 # La llave va como secreto del repo: Settings → Secrets and variables → Actions → RAPIDAPI_KEY.
 name: Recolectar ofertas
 on:
   schedule:
-    - cron: "0 11,17,23 * * *"   # 6:00 a. m., 12:00 m. y 6:00 p. m. hora Colombia
+    - cron: "0 11,23 * * *"   # 6:00 a. m. y 6:00 p. m. hora Colombia
   workflow_dispatch:
 permissions:
   contents: write

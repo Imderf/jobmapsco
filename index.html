@@ -144,7 +144,7 @@ ol button:hover,ol button:focus-visible{background:rgba(47,107,255,.1);outline:n
 </div>
 <div id="hud-inf" class="mono">
   <span>Relieve SRTM · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a> · <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener noreferrer">AWS Terrain Tiles</a></span>
-  <span class="der" id="corte"></span>
+  <span class="der">Autores <a href="https://imderf.com/" target="_blank" rel="noopener noreferrer">Imderf R.</a> / <a href="https://jaimeai.co/" target="_blank" rel="noopener noreferrer">Jaime O.</a></span>
 </div>
 
 <section id="intro">
@@ -284,6 +284,7 @@ const extras = [...new Set(Object.values(porIndustria).flatMap(Object.keys))].fi
   .map(c => Object.assign(porCod[c], { obj: 0, vis: 0, delta: 0, flash: 0, fv: 0, puesto: Infinity }));
 const barras = [...ciudades, ...extras];   // lo que se dibuja (el ranking usa ciudades)
 // con filtro, cada barra muestra las ofertas de esa industria; kv reescala la altura para que la mayor se vea como Bogotá
+let tab = 'municipios';   // pestaña del ranking (la usa también el total de abajo)
 let filtroInd = null, filtroDepto = null, kv = 1;   // filtroDepto: con un departamento elegido solo se ven sus ciudades
 // foco: ciudad elegida > departamento > todo. Lo que queda fuera del foco baja a 0 y se oculta
 const visible = c => seleccion ? c === seleccion : !filtroDepto || c.d === filtroDepto;
@@ -309,7 +310,6 @@ const VISTA = {
   })(t0);
 }
 $('#total-txt').textContent = `en ${ciudades.length} ciudades de los ${fmt.format(municipios.length)} municipios`;
-$('#corte').textContent = `Fuente: ${datos.fuente} · corte ${datos.actualizado}`;
 $('#lista-municipios').append(...municipios.map(m => Object.assign(document.createElement('option'), { value: `${m.n}, ${deptos[m.d]}` })));
 
 // ---- capas propias en MapLibre: departamentos con brillo azul
@@ -462,7 +462,7 @@ function capas(ahora) {
   const kMeta = filtroInd || filtroDepto || seleccion ? Math.sqrt(ciudades[0].obj / Math.max(1, ...barras.map(valor))) : 1;
   kv += (kMeta - kv) * .06;
   if (listo) {
-    $('#total-num').textContent = fmt.format(filtroDepto && !filtroInd && !seleccion ? datos.deptos[filtroDepto] || 0 : Math.round(barras.reduce((s, c) => s + c.vis, 0)));
+    $('#total-num').textContent = fmt.format(tab === 'industrias' && !filtroInd && !seleccion && !filtroDepto && industrias ? industrias.muestra : filtroDepto && !filtroInd && !seleccion ? datos.deptos[filtroDepto] || 0 : Math.round(barras.reduce((s, c) => s + c.vis, 0)));
     if (!sinMovimiento && !seleccion && !map.isMoving() && ahora - quieto > 5000) map.setBearing(map.getBearing() + .03);
   }
   overlay.setProps({ layers: capas(ahora) });
@@ -521,7 +521,6 @@ else {
 }
 
 // ---- ranking
-let tab = 'municipios';
 function pintarRanking(entra = false) {
   const ahora = performance.now();
   $('#ranking').classList.toggle('entra', entra);
@@ -569,6 +568,11 @@ function elegirIndustria(ind) {
 }
 function textosTotal() {
   const conDato = barras.filter(c => valor(c) > 0).length, donde = seleccion ? seleccion.n : filtroDepto && deptos[filtroDepto];
+  if (tab === 'industrias' && !filtroInd && !donde && industrias) {   // el ranking por sector suma la muestra, no el total publicado
+    $('#total .mono').textContent = 'Ofertas recolectadas por sector';
+    $('#total-txt').textContent = `de ${fmt.format(ciudades.reduce((s, c) => s + c.obj, 0))} publicadas · en ${industrias.ciudades} ciudades`;
+    return;
+  }
   $('#total .mono').textContent = [filtroInd ? `Ofertas de ${filtroInd}` : 'Ofertas publicadas', donde && `en ${donde}`].filter(Boolean).join(' ');
   $('#total-txt').textContent = seleccion ? `${deptos[seleccion.d]}, Colombia${filtroInd ? ' · muestra recolectada' : ''}`
     : filtroInd ? `en ${conDato} ciudades · muestra de ofertas recolectadas`
@@ -733,7 +737,6 @@ setInterval(async () => {
   if (!nuevo) return;
   Object.assign(datos.deptos, nuevo.deptos);
   for (const [c, n] of Object.entries(nuevo.ciudades)) if (porCod[c]?.obj !== undefined) fijar(porCod[c], n);
-  $('#corte').textContent = `Fuente: ${nuevo.fuente} · corte ${nuevo.actualizado}`;
 }, 60000);
 
 // ?demo: mueve cifras al azar para ver la animación (marcado como "Simulación" en el HUD)
