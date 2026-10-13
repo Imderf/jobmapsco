@@ -1,0 +1,4 @@
+# Apache / LiteSpeed: la web no sirve archivos ocultos (.env, .git), scripts, SQL ni notas internas
+RedirectMatch 404 /\.(?!well-known/)
+RedirectMatch 404 /(scripts|db)/
+RedirectMatch 404 /(CLAUDE\.md|\.env\.example)$

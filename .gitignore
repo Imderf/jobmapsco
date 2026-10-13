@@ -2,3 +2,4 @@
 .env
 api/config.php
 .my.sock*
+__pycache__/

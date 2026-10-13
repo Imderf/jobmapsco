@@ -164,7 +164,7 @@ def guardar(cod, nuevas, ahora):
 
 
 def config(nombre):
-    """Variable de entorno (GitHub Actions) o línea del .env local."""
+    """Variable de entorno o línea del .env de la raíz del proyecto."""
     if os.environ.get(nombre):
         return os.environ[nombre].strip()
     env = RAIZ / ".env"
@@ -185,7 +185,7 @@ def avisar(asunto, texto):
     clave, para = config("RESEND_API_KEY"), config("AVISO_CORREO")
     if not (clave and para):
         return False
-    cuerpo = json.dumps({"from": config("AVISO_REMITENTE") or "Mapa del Empleo <onboarding@resend.dev>",
+    cuerpo = json.dumps({"from": config("AVISO_REMITENTE") or "Job Maps CO <onboarding@resend.dev>",
                          "to": [para], "subject": asunto, "text": texto}).encode()
     req = urllib.request.Request("https://api.resend.com/emails", data=cuerpo,
                                  headers={"Authorization": f"Bearer {clave}", "Content-Type": "application/json", "User-Agent": "mapa-empleo"})
@@ -303,13 +303,13 @@ def main():
     if nuevos:
         dias = n // (sum(paginas(v) for v in base["ciudades"].values()) + len(BUSQUEDAS) * PAGINAS_SECTOR) // CORRIDAS_AL_DIA
         cuando = datetime.fromtimestamp(datetime.now(timezone.utc).timestamp() + int(renueva or 0), timezone.utc).strftime("%Y-%m-%d") if renueva else "sin dato"
-        avisar(f"Mapa del Empleo: quedan {n} consultas de JSearch este mes",
+        avisar(f"Job Maps CO: quedan {n} consultas de JSearch este mes",
                f"Al ritmo actual ({CORRIDAS_AL_DIA} corridas al día) alcanzan para unos {dias} días. El cupo se renueva el {cuando}.\n"
                + (f"Con menos de {RESERVA} el recolector se detiene solo hasta que se renueve, para no generar cobros extra.\n" if n < RESERVA else "")
                + "Plan actual: Pro, 10.000 consultas al mes.")
     llave_mala = [e for e in errores if "HTTP 401" in e or "HTTP 403" in e]
     if llave_mala and not estado["avisos"].get("llave_mala"):
-        avisar("Mapa del Empleo: JSearch rechazó la llave", "La corrida se detuvo:\n" + "\n".join(llave_mala))
+        avisar("Job Maps CO: JSearch rechazó la llave", "La corrida se detuvo:\n" + "\n".join(llave_mala))
     estado["avisos"]["llave_mala"] = bool(llave_mala)
     estado["registro"] = ([{"fecha": ahora, "busquedas": hechas, "ofertas": total, "errores": errores, "consultas_restantes": restantes}]
                           + estado["registro"])[:60]
