@@ -542,7 +542,7 @@ function pintarRanking(entra = false) {
     if (x.flash > ahora) { num.className += x.delta > 0 ? ' sube' : ' baja'; num.textContent += x.delta > 0 ? ' ▲' : ' ▼'; }
     b.append(Object.assign(document.createElement('span'), { className: 'pos', textContent: String(i + 1).padStart(2, '0') }), nom, num);
     b.onclick = () => tab === 'municipios' ? seleccionar(x) : tab === 'deptos' ? seleccionarDepto(x.c)
-      : x.ciudad ? seleccionar(x.ciudad) : (filtroInd = x.ind, pintarRanking(true), seleccion && seleccionar(seleccion, false));
+      : x.ciudad ? seleccionar(x.ciudad) : elegirIndustria(x.ind);
     const li = document.createElement('li'); li.style.animationDelay = Math.min(i, 12) * 40 + 'ms'; li.append(b); return li;
   }));
 }
@@ -554,6 +554,13 @@ document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
 });
 pintarRanking(true);
 
+// una industria nueva reemplaza la ciudad o el departamento elegidos (cierra la ficha y vuelve a la vista país)
+function elegirIndustria(ind) {
+  filtroInd = ind;
+  leyenda();
+  pintarRanking(true);
+  if (map.getZoom() > VISTA.zoom + .3) map.flyTo({ ...VISTA, duration: 1600 });
+}
 function textosTotal() {
   const conDato = barras.filter(c => valor(c) > 0).length, donde = seleccion ? seleccion.n : filtroDepto && deptos[filtroDepto];
   $('#total .mono').textContent = [filtroInd ? `Ofertas de ${filtroInd}` : 'Ofertas publicadas', donde && `en ${donde}`].filter(Boolean).join(' ');

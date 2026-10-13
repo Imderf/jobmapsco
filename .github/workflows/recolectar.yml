@@ -1,9 +1,9 @@
-# Trae las ofertas de 6 ciudades cada día (plan gratis de JSearch: 200 consultas/mes) y las sube al repo.
+# Dos corridas al día de 3 consultas (plan gratis de JSearch: 200 consultas/mes ≈ 186 usadas) y sube las ofertas al repo.
 # La llave va como secreto del repo: Settings → Secrets and variables → Actions → RAPIDAPI_KEY.
 name: Recolectar ofertas
 on:
   schedule:
-    - cron: "0 11 * * *"   # 6:00 a. m. hora Colombia
+    - cron: "0 11,23 * * *"   # 6:00 a. m. y 6:00 p. m. hora Colombia
   workflow_dispatch:
 permissions:
   contents: write
