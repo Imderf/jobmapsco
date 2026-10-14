@@ -1,7 +1,8 @@
 # Apache / LiteSpeed: la web no sirve archivos ocultos (.env, .git), scripts, SQL ni notas internas
 RedirectMatch 404 /\.(?!well-known/)
 RedirectMatch 404 /(scripts|db)/
-RedirectMatch 404 /(CLAUDE\.md|\.env\.example)$
+RedirectMatch 404 \.md$
+RedirectMatch 404 /\.env\.example$
 
 # El HTML siempre se revalida: sin esto el navegador puede mostrar una versión vieja después de publicar
 <IfModule mod_headers.c>
