@@ -2,3 +2,10 @@
 RedirectMatch 404 /\.(?!well-known/)
 RedirectMatch 404 /(scripts|db)/
 RedirectMatch 404 /(CLAUDE\.md|\.env\.example)$
+
+# El HTML siempre se revalida: sin esto el navegador puede mostrar una versión vieja después de publicar
+<IfModule mod_headers.c>
+  <FilesMatch "\.html?$|^$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
