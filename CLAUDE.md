@@ -15,7 +15,7 @@ Mapa 3D animado de Colombia: una columna de luz por ciudad (altura = ofertas de 
 ## SEO y analítica
 - Marca: **Job Maps CO** (2026-10-13). Google Analytics 4 `G-WH9WV4JYZB` en `index.html` y `politica-de-datos.html`; la política lo declara (sección "Analítica y cookies"). Nunca mandar nombre ni correo a Analytics.
 - Head de `index.html`: título, descripción, Open Graph, JSON-LD `WebApplication`, `favicon.svg`. `robots.txt` bloquea `/api/`. MapLibre y deck.gl van con `defer` (el script principal es `type="module"` y corre después, en orden).
-- Dominio: `https://jobmapsco.xyz/` (Cloudflare → RunCloud, servidor 45.79.8.219, `ssh jobmapsco`, carpeta `~/webapps/Jobmapsco`). Ya tiene `canonical`, `og:url`, `sitemap.xml` y la línea en `robots.txt`. Falta `og:image` 1200×630 y `twitter:card`.
+- Dominio: `https://jobmapsco.xyz/` (Cloudflare → RunCloud; acceso con `ssh jobmapsco`, carpeta `~/webapps/Jobmapsco`). Ya tiene `canonical`, `og:url`, `sitemap.xml` y la línea en `robots.txt`. Falta `og:image` 1200×630 y `twitter:card`.
 
 ## Local
 Config `mapa-empleo` en `.claude/launch.json` del vault: `php -S localhost:4330` (PHP de MAMP) en esta carpeta.
