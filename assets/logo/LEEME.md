@@ -12,5 +12,6 @@ Mapa plegado de Colombia hecho con curvas de nivel reales (relieve SRTM, el mism
 
 - Colores: líneas blancas, "CO." en azul `#2f6bff`, lema en gris. Fondo siempre oscuro.
 - Tipografía del nombre: Inter 500 con tracking amplio; el lema en JetBrains Mono.
-- Los archivos son estáticos: no se cargan desde `index.html` todavía (el favicon sigue siendo `favicon.svg`).
+- Los archivos de esta carpeta son estáticos y no se cargan desde `index.html`.
+- Salen del mismo logo, en la raíz del sitio: `favicon.svg` y `favicon-32.png` (versión simplificada del mapa plegado, legible a 16 a 32 px), `apple-touch-icon.png` (180x180) y `og.png` (1200x630, imagen al compartir el enlace).
 - Autor del logo: Jaime Orozco, 2026-10-13.
