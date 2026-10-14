@@ -135,7 +135,7 @@ En macOS, si Python falla con `CERTIFICATE_VERIFY_FAILED`, antepón `SSL_CERT_FI
 
 ## Publicar en un servidor
 
-1. **Subir los archivos:** copia el repo a la carpeta web del servidor, con `git clone` o `rsync`.
+1. **Subir los archivos:** copia el repo a la carpeta web del servidor. Para actualizar después, usa `sh scripts/desplegar.sh` (muestra qué cambiaría) y `sh scripts/desplegar.sh --ya` (sube). El script nunca toca `.env`, `api/config.php` ni las ofertas que el recolector escribe en el servidor. Ajusta el destino con `DESTINO=usuario@servidor:ruta/`.
 2. **Crear los archivos privados:** crea `.env` y `api/config.php` directamente en el servidor, nunca desde git. Haz los pasos 2 a 4 de la sección anterior.
 3. **Proteger los archivos privados:**
    - **Apache o LiteSpeed:** ya lo hace el `.htaccess` incluido.

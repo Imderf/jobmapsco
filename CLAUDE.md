@@ -17,6 +17,9 @@ Mapa 3D animado de Colombia: una columna de luz por ciudad (altura = ofertas de 
 - Head de `index.html`: título, descripción, Open Graph, JSON-LD `WebApplication`, `favicon.svg`. `robots.txt` bloquea `/api/`. MapLibre y deck.gl van con `defer` (el script principal es `type="module"` y corre después, en orden).
 - Dominio: `https://jobmapsco.xyz/` (Cloudflare → RunCloud; acceso con `ssh jobmapsco`, carpeta `~/webapps/Jobmapsco`). Ya tiene `canonical`, `og:url`, `sitemap.xml` y la línea en `robots.txt`. Falta `og:image` 1200×630 y `twitter:card`.
 
+## Despliegue
+`sh scripts/desplegar.sh` (simula) y `--ya` (sube). Desde el 2026-10-14 los datos de ofertas viven en el servidor (los escribe el cron): el script excluye `data/ofertas/`, `data/todas.json`, `data/industrias.json` y `data/recoleccion.json`, además de `.env` y `api/config.php`. Nunca subir con rsync a mano sin esas exclusiones.
+
 ## Local
 Config `mapa-empleo` en `.claude/launch.json` del vault: `php -S localhost:4330` (PHP de MAMP) en esta carpeta.
 
