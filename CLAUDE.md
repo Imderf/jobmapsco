@@ -15,7 +15,7 @@ Mapa 3D animado de Colombia: una columna de luz por ciudad (altura = ofertas de 
 ## SEO y analítica
 - Logo: mapa plegado con curvas de nivel reales; archivos en `assets/logo/` (ver su LEEME). Favicon e `og.png` salen del mismo logo.
 - Marca: **Job Maps CO** (2026-10-13). Google Analytics 4 `G-WH9WV4JYZB` en `index.html` y `politica-de-datos.html`; la política lo declara (sección "Analítica y cookies"). Nunca mandar nombre ni correo a Analytics.
-- Head de `index.html`: título, descripción, Open Graph con `og.png` (1200×630) y `twitter:card`, JSON-LD `WebApplication`, `favicon.svg` (mapa plegado simplificado) con `favicon-32.png` y `apple-touch-icon.png`. `robots.txt` bloquea `/api/`. MapLibre y deck.gl van con `defer` (el script principal es `type="module"` y corre después, en orden).
+- Head de `index.html`: título, descripción, Open Graph con `og.png` (1200×630) y `twitter:card`, JSON-LD `WebApplication`, `favicon.svg` (mapa plegado simplificado) con `favicon-32.png` y `apple-touch-icon.png`. `robots.txt` bloquea `/api/`. MapLibre y deck.gl van en `vendor/` (copias fijas de unpkg: unpkg tardaba hasta 3,4 s y la página se quedaba en 0 %; si no cargan, la entrada lo dice) y con `defer` (el script principal es `type="module"` y corre después, en orden).
 - Dominio: `https://jobmapsco.xyz/` (Cloudflare → RunCloud; acceso con `ssh jobmapsco`, carpeta `~/webapps/Jobmapsco`). Ya tiene `canonical`, `og:url`, `sitemap.xml` y la línea en `robots.txt`.
 
 ## Despliegue

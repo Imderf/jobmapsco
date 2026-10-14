@@ -23,7 +23,7 @@ JSearch (RapidAPI) ──► scripts/recolectar.py ──► data/*.json ──�
                                                 api/registro.php ──► MySQL (tabla registros)
 ```
 
-- **El sitio es estático.** `index.html` contiene todo, sin compilación. Usa MapLibre GL y deck.gl desde unpkg, y solo lee los archivos de `data/`.
+- **El sitio es estático.** `index.html` contiene todo, sin compilación. MapLibre GL 5.24.0 y deck.gl 9.4.0 van copiadas en `vendor/` (servidas desde el mismo sitio, sin depender de unpkg), y solo lee los archivos de `data/`.
 - **El navegador nunca llama a las APIs de empleo.** Las llaves solo las usa el recolector, en el servidor.
 - **`scripts/recolectar.py`** usa solo Python estándar (sin `pip install`). Consulta JSearch, clasifica cada oferta por industria según el cargo y escribe `data/`.
 - **`api/registro.php`** es lo único que necesita PHP y MySQL.

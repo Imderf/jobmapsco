@@ -9,3 +9,10 @@ RedirectMatch 404 /(CLAUDE\.md|\.env\.example)$
     Header set Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>
+
+# Librerías con la versión en la ruta: no cambian nunca, el navegador las guarda un año
+<IfModule mod_headers.c>
+  <If "%{REQUEST_URI} =~ m#/vendor/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>

@@ -39,11 +39,10 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://unpkg.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet">
-<script defer src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script defer src="https://unpkg.com/deck.gl@9.4.0/dist.min.js"></script>
+<link href="vendor/maplibre-gl@5.24.0/maplibre-gl.css" rel="stylesheet">
+<script defer src="vendor/maplibre-gl@5.24.0/maplibre-gl.js"></script>
+<script defer src="vendor/deck.gl@9.4.0/dist.min.js"></script>
 <style>
 :root{--bg:#04060c;--panel:rgba(9,13,26,.8);--line:rgba(110,140,255,.17);--blue:#2f6bff;--blue2:#6b95ff;--text:#eef2ff;--muted:#7a85a6;--up:#38e0a0;--down:#ff5c6c;--mono:'JetBrains Mono',ui-monospace,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -280,6 +279,8 @@ const fmt = new Intl.NumberFormat('es-CO');
 const $ = s => document.querySelector(s);
 const espera = ms => new Promise(r => setTimeout(r, ms));
 const DEMO = new URLSearchParams(location.search).has('demo');
+// si las librerías del mapa no cargaron, avisar en vez de quedarse en 0 %
+if (!window.maplibregl || !window.deck) { $('#carga span').textContent = 'No se pudo cargar el mapa · recarga la página'; throw new Error('Faltan MapLibre o deck.gl'); }
 // título letra por letra
 document.querySelectorAll('#intro h1 span').forEach((sp, k, todos) => {
   const previas = [...todos].slice(0, k).reduce((n, x) => n + x.textContent.length, 0);
