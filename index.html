@@ -209,7 +209,7 @@ button.chip{background:none;cursor:pointer}
   <span class="der vivo"><span class="punto"></span><span id="demo" hidden>Simulación · </span><span id="reloj"></span></span>
 </div>
 <div id="hud-inf" class="mono">
-  <span><a href="acerca.html">Datos y preguntas</a> · Relieve SRTM · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a> · <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener noreferrer">AWS Terrain Tiles</a></span>
+  <span><a href="acerca.html">Datos y preguntas</a> · Totales: <a href="https://co.jooble.org" target="_blank" rel="noopener noreferrer">Jooble</a> · Relieve SRTM · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a> · <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener noreferrer">AWS Terrain Tiles</a></span>
   <span class="der">Autores <a href="https://imderf.com/" target="_blank" rel="noopener noreferrer">Imderf R.</a> / <a href="https://jaimeai.co/" target="_blank" rel="noopener noreferrer">Jaime O.</a></span>
 </div>
 
@@ -362,7 +362,8 @@ urlsDem.forEach(u => fetch(u).catch(() => {}));   // precarga del relieve de Col
 
 // ---- modelo: cada ciudad tiene su valor objetivo (obj) y el que se dibuja (vis), que lo persigue
 const porCod = Object.fromEntries(municipios.map(m => [m.c, m]));
-const ciudades = Object.entries(datos.ciudades).map(([c, n]) => Object.assign(porCod[c], { obj: n, vis: 0, delta: 0, flash: 0, fv: 1 }));
+// arranca en la cifra de la corrida anterior (si la hay) y al aterrizar se mueve a la actual con su flecha
+const ciudades = Object.entries(datos.ciudades).map(([c, n]) => Object.assign(porCod[c], { obj: datos.anterior?.[c] ?? n, vis: 0, delta: 0, flash: 0, fv: 1 }));
 let total = 0;
 const puestos = () => {
   ciudades.sort((a, b) => b.obj - a.obj).forEach((c, i) => c.puesto = i + 1);
@@ -402,9 +403,13 @@ const VISTA = {
 
 // contador de la entrada: sube hasta el total del corte
 {
-  const t0 = performance.now(), meta = ciudades.reduce((s, c) => s + c.obj, 0);
+  const t0 = performance.now(), meta = Object.values(datos.ciudades).reduce((s, n) => s + n, 0);
   $('#contador-ciudades').textContent = ciudades.length;
-  $('#contador-corte').textContent = ` · corte al ${new Date(datos.actualizado + 'T12:00').toLocaleDateString('es-CO', { day: 'numeric', month: 'short' }).replace('.', '')}`;   // la cifra es un corte, no en vivo
+  // con Jooble la cifra se actualiza dos veces al día; la línea base de Computrabajo es un corte fijo
+  const fecha = new Date(datos.actualizado.length > 10 ? datos.actualizado : datos.actualizado + 'T12:00');
+  $('#contador-corte').textContent = datos.fuente?.startsWith('Jooble')
+    ? ` · actualizado ${fecha.toLocaleString('es-CO', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', timeZone: 'America/Bogota' }).replace('.', '')}`
+    : ` · corte al ${fecha.toLocaleDateString('es-CO', { day: 'numeric', month: 'short' }).replace('.', '')}`;
   (function contar(t) {
     const p = Math.min(1, (t - t0) / 2200);
     $('#contador-num').textContent = fmt.format(Math.round(meta * (1 - Math.pow(1 - p, 4))));
@@ -653,6 +658,8 @@ function aterrizar() {
     crecer = 1 - Math.pow(1 - p, 3);
     if (p < 1) requestAnimationFrame(animar);
   })(performance.now());
+  // de la corrida anterior a la actual: cada barra sube o baja con ▲ verde o ▼ rojo
+  if (datos.anterior) setTimeout(() => { for (const c of ciudades) fijar(c, datos.ciudades[c.c]); }, 2600);
 }
 $('#saltar').onclick = () => { map.stop(); map.jumpTo(VISTA); aterrizar(); };
 
@@ -839,7 +846,7 @@ function pintarLista(caja, lista, m, pagina = 0) {
     el('span', { className: 'mono', textContent: `${pagina + 1} / ${total}` }),
     el('button', { textContent: 'Siguiente ›', disabled: pagina === total - 1, onclick: ir(pagina + 1) }));
   const resumen = el('div', { className: 'nota', textContent: `Mostrando ${fmt.format(lista.length)} ${ofertasDe(lista.length)} ${lista.length === 1 ? 'reciente' : 'recientes'}${filtrando() ? ` de ${nombreFiltro()}` : m?.obj ? ` de ${fmt.format(m.obj)} publicadas` : ''}` });
-  const enlace = m && !filtrando() && datos.enlaces?.[m.c] && el('a', { className: 'ver-todas', href: datos.enlaces[m.c], target: '_blank', rel: 'noopener noreferrer', textContent: `Ver las ${fmt.format(m.obj)} en Computrabajo ↗` });
+  const enlace = m && !filtrando() && datos.enlaces?.[m.c] && el('a', { className: 'ver-todas', href: datos.enlaces[m.c], target: '_blank', rel: 'noopener noreferrer', textContent: `Ver las ${fmt.format(m.obj)} en ${datos.fuente?.startsWith('Jooble') ? 'Jooble' : 'Computrabajo'} ↗` });
   const horas = Math.round((Date.now() - Date.parse(todasD?.actualizado)) / 36e5);
   const cuando = isNaN(horas) ? '' : ` · actualizado ${horas < 1 ? 'hace menos de 1 h' : horas < 48 ? `hace ${horas} h` : `hace ${Math.round(horas / 24)} días`}`;
   caja.replaceChildren(...[resumen, ol, paginador, enlace].filter(Boolean), el('div', { className: 'nota', textContent: `Fuente: ${todasD?.fuente || 'JSearch'}${cuando}` }));
@@ -954,6 +961,7 @@ setInterval(async () => {
   const nuevo = await fetch('data/ofertas.json', { cache: 'no-store' }).then(r => r.json()).catch(() => null);
   if (!nuevo) return;
   Object.assign(datos.deptos, nuevo.deptos);
+  if (nuevo.enlaces) datos.enlaces = nuevo.enlaces;
   for (const [c, n] of Object.entries(nuevo.ciudades)) if (porCod[c]?.obj !== undefined) fijar(porCod[c], n);
 }, 60000);
 

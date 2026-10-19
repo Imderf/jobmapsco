@@ -38,6 +38,7 @@ CORRIDAS_AL_DIA = 2           # 6 a. m. y 6 p. m. (el horario está en .github/w
 RESERVA = 300                 # consultas del mes que nunca se gastan: protege de cobros por exceso
 PAUSA = 0.3                   # segundos entre consultas (límite del plan: 5 por segundo)
 AVISOS = (2000, 1000, 500, RESERVA)   # consultas restantes del mes que disparan un correo (una vez cada una por mes)
+JOOBLE_CUPO = 480             # Jooble Colombia da 500 consultas por llave (sin renovación conocida); se deja margen
 MAX_POR_CIUDAD = 200
 VIGENCIA_DIAS = 30
 API = "https://jsearch.p.rapidapi.com/search-v2"
@@ -249,6 +250,65 @@ def resumir_industrias():
     return {"muestra": muestra, "ciudades": ciudades, "industrias": orden, "por_ciudad": por_ciudad}
 
 
+def lugar_jooble(m, deptos):
+    """Texto de ubicación para Jooble: "Ciudad, Departamento" separa homónimos (Rionegro de Antioquia o de Santander)."""
+    return "Bogotá" if m["c"] == "11001" else f"{m['n']}, {deptos[m['d']]}"
+
+
+def actualizar_totales():
+    """Total de ofertas por ciudad en Jooble Colombia (radio 0: solo la ciudad, sin su área) → data/ofertas.json.
+    Guarda la cifra anterior para que el mapa anime la subida o bajada. Si algo falla, deja los totales de antes."""
+    clave = config("JOOBLE_KEY")
+    if not clave:
+        return print("totales: sin JOOBLE_KEY, se dejan los de antes")
+    base_f, estado_f = DATA / "ofertas.json", DATA / "recoleccion.json"
+    base = json.loads(base_f.read_text())
+    muni = json.loads((DATA / "municipios.json").read_text())
+    estado = json.loads(estado_f.read_text()) if estado_f.exists() else {"siguiente": 0, "registro": []}
+    por_cod = {m["c"]: m for m in muni["municipios"]}
+    usadas = estado.get("jooble_usadas", 0)
+    if usadas + len(base["ciudades"]) > JOOBLE_CUPO:
+        if not estado.setdefault("avisos", {}).get("jooble_agotado"):
+            avisar("Job Maps CO: se acabó el cupo de Jooble",
+                   f"Se usaron {usadas} de las 500 consultas de la llave. El mapa se queda con los totales del {base.get('actualizado')}.\n"
+                   "Para seguir, Jooble tiene que ampliar el cupo (se pidió respondiendo el correo de la llave).")
+            estado["avisos"]["jooble_agotado"] = True
+            estado_f.write_text(json.dumps(estado, ensure_ascii=False, indent=1))
+        return print(f"totales: cupo de Jooble agotado ({usadas} usadas), se dejan los de antes")
+    nuevos, enlaces = {}, {}
+    for cod in base["ciudades"]:
+        lugar = lugar_jooble(por_cod[cod], muni["deptos"])
+        req = urllib.request.Request(f"https://co.jooble.org/api/{clave}", headers={"Content-Type": "application/json", "User-Agent": "jobmapsco"},
+                                     data=json.dumps({"keywords": "", "location": lugar, "radius": "0"}).encode())
+        time.sleep(PAUSA)
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                n = json.load(r).get("totalCount")
+        except (urllib.error.URLError, TimeoutError, ValueError) as e:
+            print(f"  totales: {lugar}: {e}")
+            if getattr(e, "code", None) in (401, 403, 429):   # llave rechazada o cupo agotado: no seguir
+                break
+            continue
+        finally:
+            usadas += 1
+        if isinstance(n, int) and n > 0:
+            nuevos[cod] = n
+            enlaces[cod] = "https://co.jooble.org/SearchResult?" + urllib.parse.urlencode({"rgns": lugar})
+    estado["jooble_usadas"] = usadas
+    estado_f.write_text(json.dumps(estado, ensure_ascii=False, indent=1))
+    if len(nuevos) < len(base["ciudades"]) * .8:   # media corrida no reemplaza un total completo
+        return print(f"totales: solo {len(nuevos)} ciudades respondieron, se dejan los de antes ({usadas} consultas de Jooble usadas)")
+    deptos = {}
+    for cod, n in nuevos.items():
+        deptos[por_cod[cod]["d"]] = deptos.get(por_cod[cod]["d"], 0) + n
+    # la primera vez lo anterior es el corte de Computrabajo: comparar fuentes distintas daría flechas falsas
+    anterior = base["ciudades"] if base.get("fuente", "").startswith("Jooble") else None
+    base.update(actualizado=datetime.now(timezone.utc).isoformat(timespec="seconds"), fuente="Jooble Colombia (API, total por ciudad)",
+                ciudades=nuevos, deptos=deptos, enlaces=enlaces, anterior=anterior)
+    base_f.write_text(json.dumps(base, ensure_ascii=False, indent=1))
+    print(f"totales: {len(nuevos)} ciudades, {sum(nuevos.values()):,} ofertas; {usadas} de 500 consultas de Jooble usadas")
+
+
 def main():
     clave = llave()
     base = json.loads((DATA / "ofertas.json").read_text())
@@ -315,6 +375,7 @@ def main():
                           + estado["registro"])[:60]
     estado_f.write_text(json.dumps(estado, ensure_ascii=False, indent=1))
     print(f"{len(hechas)} búsquedas, {total} ofertas, {len(errores)} errores, consultas restantes del mes: {restantes}")
+    actualizar_totales()
     if errores:
         print("errores:", *errores, sep="\n  ")
         sys.exit(1 if not hechas else 0)
@@ -350,12 +411,17 @@ def prueba():
     assert avisos_pendientes(1700, {"restantes": 1800, "enviados": [2000]})[0] == []
     assert avisos_pendientes(400, {"restantes": 1700, "enviados": [2000]})[0] == [1000, 500]
     assert avisos_pendientes(9900, {"restantes": 250, "enviados": [2000, 1000, 500, RESERVA]}) == ([], {"restantes": 9900, "enviados": []})
+    deptos = {"05": "Antioquia", "11": "Bogotá D.C."}
+    assert lugar_jooble({"c": "05615", "n": "Rionegro", "d": "05"}, deptos) == "Rionegro, Antioquia"
+    assert lugar_jooble({"c": "11001", "n": "Bogotá D.C.", "d": "11"}, deptos) == "Bogotá"
     print("prueba ok")
 
 
 if __name__ == "__main__":
     if "--prueba" in sys.argv:
         prueba()
+    elif "--totales" in sys.argv:   # solo los totales por ciudad de Jooble (no gasta JSearch)
+        actualizar_totales()
     elif "--industrias" in sys.argv:   # solo reclasifica lo guardado
         (DATA / "industrias.json").write_text(json.dumps(resumir_industrias(), ensure_ascii=False, indent=1))
     else:
