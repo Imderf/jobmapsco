@@ -1,21 +1,20 @@
 # Job Maps CO
 
-> Mapa 3D gratuito de las ofertas de trabajo publicadas en Colombia, ciudad por ciudad, con enlace a la fuente original de cada oferta para postularse. Sitio en español (Colombia): https://jobmapsco.xyz
+> Mapa 3D gratuito de las ofertas de trabajo publicadas en Colombia, ciudad por ciudad, con enlace a la fuente de cada oferta para postularse. Sitio en español (Colombia): https://jobmapsco.xyz/
 
 ## Páginas
 - [Mapa 3D](https://jobmapsco.xyz/): ranking por municipio, departamento y sector; buscador por palabra clave; ofertas por ciudad con botón para postularse.
-- [Datos y preguntas frecuentes](https://jobmapsco.xyz/acerca.html): ofertas por ciudad, departamento y sector en tablas, fuentes y método.
+- [Datos y preguntas frecuentes](https://jobmapsco.xyz/acerca.html): ofertas por ciudad, departamento y sector en tablas, fuentes y método. Se actualiza dos veces al día.
 - [Política de datos](https://jobmapsco.xyz/politica-de-datos.html): tratamiento de datos personales (Ley 1581 de 2012).
 
 ## Datos
-- [Ofertas por ciudad y departamento (JSON)](https://jobmapsco.xyz/data/ofertas.json): corte de Computrabajo del 13 de octubre de 2026; ciudades con código DIVIPOLA del DANE.
-- [Ofertas por sector (JSON)](https://jobmapsco.xyz/data/industrias.json): muestra de ofertas recientes clasificadas por cargo en 18 sectores, actualizada dos veces al día.
+- [Ofertas por ciudad y departamento (JSON)](https://jobmapsco.xyz/data/ofertas.json): totales de Jooble Colombia; ciudades con código DIVIPOLA del DANE.
+- [Ofertas por sector (JSON)](https://jobmapsco.xyz/data/industrias.json): muestra de ofertas recientes clasificadas por cargo en 18 sectores.
 
-## Datos clave (corte del 13 de octubre de 2026)
-- 63.051 ofertas publicadas en Computrabajo en 45 ciudades de Colombia.
-- Bogotá: 29.530 (46,8 %). Medellín: 10.643. Cali: 5.363. Barranquilla: 2.390. Bucaramanga: 1.888.
-- Funza, Rionegro, Mosquera y Yumbo, polos logísticos e industriales, superan a capitales como Ibagué, Cúcuta y Neiva.
-- Las ofertas con enlace se recogen a las 6 a. m. y 6 p. m. (hora de Colombia) desde Google for Jobs vía la API JSearch (Computrabajo, LinkedIn, elempleo, Magneto, Indeed y otros).
+## Datos clave (18 de octubre de 2026)
+- 73.587 ofertas publicadas en Jooble Colombia en 45 ciudades de Colombia.
+- Bogotá: 36.615; Medellín: 11.285; Cali: 5.535; Barranquilla: 3.011; Bucaramanga: 1.829.
+- Bogotá concentra el 49,8 % de las ofertas de las ciudades medidas.
 
 ## Autores
 Imderf R. (https://imderf.com/) y Jaime O. (https://jaimeai.co/). Contacto: contacto@jobmapsco.xyz
