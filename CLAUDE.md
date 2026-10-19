@@ -18,6 +18,12 @@ Mapa 3D animado de Colombia: una columna de luz por ciudad (altura = ofertas de 
 - Head de `index.html`: título, descripción, Open Graph con `og.png` (1200×630) y `twitter:card`, JSON-LD `WebApplication`, `favicon.svg` (mapa plegado simplificado) con `favicon-32.png` y `apple-touch-icon.png`. `robots.txt` bloquea `/api/`. MapLibre y deck.gl van en `vendor/` (copias fijas de unpkg: unpkg tardaba hasta 3,4 s y la página se quedaba en 0 %; si no cargan, la entrada lo dice) y con `defer` (el script principal es `type="module"` y corre después, en orden).
 - Dominio: `https://jobmapsco.xyz/` (Cloudflare → RunCloud; acceso con `ssh jobmapsco`, carpeta `~/webapps/Jobmapsco`). Ya tiene `canonical`, `og:url`, `sitemap.xml` y la línea en `robots.txt`.
 
+## Totales en vivo (Jooble, desde 2026-10-18)
+- `actualizar_totales()` en `scripts/recolectar.py` (corre al final de cada corrida y con `--totales`): una consulta por ciudad a `https://co.jooble.org/api/<JOOBLE_KEY>` con `location` "Ciudad, Departamento" (Bogotá sola) y `radius: "0"`. Sin radio, Jooble suma el área (Funza y Mosquera daban lo mismo que Bogotá). Escribe en `data/ofertas.json`: `ciudades`, `deptos` (suma de las ciudades medidas), `enlaces` (búsqueda de Jooble por ciudad), `actualizado`, `fuente` y `anterior` (corrida previa, para que el mapa anime ▲▼; la primera vez es `null` porque compararía con Computrabajo).
+- Cupo: la llave de Jooble Colombia trae 500 consultas; `JOOBLE_CUPO = 480` y `jooble_usadas` en `data/recoleccion.json`. Al agotarse avisa por correo y el mapa se queda con los últimos totales. Se pidió ampliar a 3.000 al mes respondiendo el correo de la llave (2026-10-18).
+- Prometido a Jooble: las cifras son informativas y cada ciudad enlaza a Jooble ("Ver las N en Jooble ↗"); pie con "Totales: Jooble".
+- `data/ofertas.json` ya no se sube al desplegar (lo escribe el servidor). La línea base de Computrabajo del 2026-10-13 queda en git y en `acerca.html`.
+
 ## Despliegue
 `sh scripts/desplegar.sh` (simula) y `--ya` (sube). Desde el 2026-10-14 los datos de ofertas viven en el servidor (los escribe el cron): el script excluye `data/ofertas/`, `data/todas.json`, `data/industrias.json` y `data/recoleccion.json`, además de `.env` y `api/config.php`. Nunca subir con rsync a mano sin esas exclusiones.
 
