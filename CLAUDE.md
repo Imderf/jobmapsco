@@ -20,9 +20,9 @@ Mapa 3D animado de Colombia: una columna de luz por ciudad (altura = ofertas de 
 
 ## Totales en vivo (Jooble, desde 2026-10-18)
 - `actualizar_totales()` en `scripts/recolectar.py` (corre al final de cada corrida y con `--totales`): una consulta por ciudad a `https://co.jooble.org/api/<JOOBLE_KEY>` con `location` "Ciudad, Departamento" (Bogotá sola) y `radius: "0"`. Sin radio, Jooble suma el área (Funza y Mosquera daban lo mismo que Bogotá). Escribe en `data/ofertas.json`: `ciudades`, `deptos` (suma de las ciudades medidas), `enlaces` (búsqueda de Jooble por ciudad), `actualizado`, `fuente` y `anterior` (corrida previa, para que el mapa anime ▲▼; la primera vez es `null` porque compararía con Computrabajo).
-- Cupo: la llave de Jooble Colombia trae 500 consultas; `JOOBLE_CUPO = 480` y `jooble_usadas` en `data/recoleccion.json`. Al agotarse avisa por correo y el mapa se queda con los últimos totales. Se pidió ampliar a 3.000 al mes respondiendo el correo de la llave (2026-10-18).
+- Cupo: Jooble amplió la llave colombiana el 2026-10-27 (se pidieron 3.000 al mes en el ticket 1978252; no confirmaron la cifra). `JOOBLE_CUPO = 2900` por mes, con `jooble_usadas` y `jooble_mes` en `data/recoleccion.json` (el contador vuelve a cero cada mes). Ciudades en cada corrida (unas 2.700 al mes) y departamentos una vez por semana (`JOOBLE_DEPTOS_DIAS`). Si Jooble responde 401/403/429, avisa por correo una vez y el mapa conserva los últimos totales.
 - Prometido a Jooble: las cifras son informativas y cada ciudad enlaza a Jooble ("Ver las N en Jooble ↗"); pie con "Totales: Jooble".
-- Departamentos: un total de Jooble por departamento una vez al día (`jooble_deptos_fecha`), para cuidar el cupo; Bogotá D.C. usa el total de la ciudad.
+- Departamentos: un total de Jooble por departamento una vez por semana (`jooble_deptos_fecha`); Bogotá D.C. usa el total de la ciudad.
 - `escribir_resumen()` regenera `acerca.html` y `llms.txt` al final de cada corrida (y con `--resumen`, sin gastar consultas). Todas las comparaciones del texto se calculan de los datos.
 - `data/ofertas.json`, `acerca.html` y `llms.txt` ya no se suben al desplegar: los escribe el servidor. La línea base de Computrabajo del 2026-10-13 queda en el historial de git.
 

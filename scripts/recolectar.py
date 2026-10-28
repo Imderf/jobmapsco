@@ -26,7 +26,7 @@ import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -38,7 +38,8 @@ CORRIDAS_AL_DIA = 2           # 6 a. m. y 6 p. m. (el horario está en .github/w
 RESERVA = 300                 # consultas del mes que nunca se gastan: protege de cobros por exceso
 PAUSA = 0.3                   # segundos entre consultas (límite del plan: 5 por segundo)
 AVISOS = (2000, 1000, 500, RESERVA)   # consultas restantes del mes que disparan un correo (una vez cada una por mes)
-JOOBLE_CUPO = 480             # Jooble Colombia da 500 consultas por llave (sin renovación conocida); se deja margen
+JOOBLE_CUPO = 2900            # consultas de Jooble por mes: ampliado el 2026-10-27 a pedido de 3.000/mes (no confirmaron la cifra exacta)
+JOOBLE_DEPTOS_DIAS = 7        # los departamentos cambian despacio: se piden una vez por semana
 MAX_POR_CIUDAD = 200
 VIGENCIA_DIAS = 30
 API = "https://jsearch.p.rapidapi.com/search-v2"
@@ -264,9 +265,14 @@ def total_jooble(clave, lugar):
         return json.load(r).get("totalCount")
 
 
+def toca_deptos(ultima, hoy):
+    """¿Ya pasó una semana desde los últimos totales por departamento?"""
+    return not ultima or (date.fromisoformat(hoy) - date.fromisoformat(ultima)).days >= JOOBLE_DEPTOS_DIAS
+
+
 def actualizar_totales():
-    """Totales de Jooble Colombia → data/ofertas.json: cada ciudad en cada corrida y cada departamento una vez al día
-    (cuida el cupo). Guarda la cifra anterior para que el mapa anime ▲▼. Si algo falla, deja los totales de antes."""
+    """Totales de Jooble Colombia → data/ofertas.json: cada ciudad en cada corrida y cada departamento una vez por semana
+    (cuida el cupo mensual). Guarda la cifra anterior para que el mapa anime ▲▼. Si algo falla, deja los totales de antes."""
     clave = config("JOOBLE_KEY")
     if not clave:
         return print("totales: sin JOOBLE_KEY, se dejan los de antes")
@@ -275,18 +281,20 @@ def actualizar_totales():
     muni = json.loads((DATA / "municipios.json").read_text())
     estado = json.loads(estado_f.read_text()) if estado_f.exists() else {"siguiente": 0, "registro": []}
     por_cod = {m["c"]: m for m in muni["municipios"]}
-    usadas = estado.get("jooble_usadas", 0)
     hoy = datetime.now(timezone.utc).date().isoformat()
-    pedir_deptos = estado.get("jooble_deptos_fecha") != hoy
+    if estado.get("jooble_mes") != hoy[:7]:   # cupo mensual: el contador vuelve a cero cada mes
+        estado.update(jooble_mes=hoy[:7], jooble_usadas=0)
+        estado.setdefault("avisos", {}).update(jooble_agotado=False, jooble_rechazo=False)
+    usadas = estado.get("jooble_usadas", 0)
+    pedir_deptos = toca_deptos(estado.get("jooble_deptos_fecha"), hoy)
     necesarias = len(base["ciudades"]) + (len(muni["deptos"]) - 1 if pedir_deptos else 0)
     if usadas + necesarias > JOOBLE_CUPO:
         if not estado.setdefault("avisos", {}).get("jooble_agotado"):
             avisar("Job Maps CO: se acabó el cupo de Jooble",
-                   f"Se usaron {usadas} de las 500 consultas de la llave. El mapa se queda con los totales del {base.get('actualizado')}.\n"
-                   "Para seguir, Jooble tiene que ampliar el cupo (se pidió respondiendo el correo de la llave).")
+                   f"Se usaron {usadas} de las {JOOBLE_CUPO} consultas del mes. El mapa se queda con los totales del {base.get('actualizado')} y vuelve a actualizarse el mes entrante.")
             estado["avisos"]["jooble_agotado"] = True
             estado_f.write_text(json.dumps(estado, ensure_ascii=False, indent=1))
-        return print(f"totales: cupo de Jooble agotado ({usadas} usadas), se dejan los de antes")
+        return print(f"totales: cupo de Jooble del mes agotado ({usadas} de {JOOBLE_CUPO}), se dejan los de antes")
 
     def pedir(lugares):   # {código: texto de ubicación} → {código: total}; para ante llave rechazada o cupo agotado
         nonlocal usadas
@@ -297,7 +305,11 @@ def actualizar_totales():
             except (urllib.error.URLError, TimeoutError, ValueError) as e:
                 print(f"  totales: {lugar}: {e}")
                 usadas += 1
-                if getattr(e, "code", None) in (401, 403, 429):
+                if getattr(e, "code", None) in (401, 403, 429):   # llave rechazada o cupo real menor al esperado
+                    if not estado.setdefault("avisos", {}).get("jooble_rechazo"):
+                        avisar("Job Maps CO: Jooble rechazó las consultas", f"Respuesta HTTP {e.code} con {usadas} consultas usadas este mes. "
+                               "Puede que el cupo ampliado sea menor de lo pedido; el mapa conserva los últimos totales.")
+                        estado["avisos"]["jooble_rechazo"] = True
                     break
                 continue
             usadas += 1
@@ -333,7 +345,7 @@ def actualizar_totales():
                 ciudades=nuevos, deptos=deptos, deptos_fuente=fuente_deptos, anterior=anterior,
                 enlaces={cod: "https://co.jooble.org/SearchResult?" + urllib.parse.urlencode({"rgns": lugares[cod]}) for cod in nuevos})
     base_f.write_text(json.dumps(base, ensure_ascii=False, indent=1))
-    print(f"totales: {len(nuevos)} ciudades, {sum(nuevos.values()):,} ofertas; departamentos: {fuente_deptos}; {usadas} de 500 consultas de Jooble usadas")
+    print(f"totales: {len(nuevos)} ciudades, {sum(nuevos.values()):,} ofertas; departamentos: {fuente_deptos}; {usadas} de {JOOBLE_CUPO} consultas de Jooble este mes")
     escribir_resumen()
 
 
@@ -629,6 +641,7 @@ def prueba():
     deptos = {"05": "Antioquia", "11": "Bogotá D.C."}
     assert lugar_jooble({"c": "05615", "n": "Rionegro", "d": "05"}, deptos) == "Rionegro, Antioquia"
     assert lugar_jooble({"c": "11001", "n": "Bogotá D.C.", "d": "11"}, deptos) == "Bogotá"
+    assert toca_deptos(None, "2026-10-28") and toca_deptos("2026-10-21", "2026-10-28") and not toca_deptos("2026-10-22", "2026-10-28")
     print("prueba ok")
 
 
